@@ -9,22 +9,23 @@
 import UIKit
 
 class EditDataViewController: ViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    
+    //    MARK: - IBOutlets
+    
+    @IBOutlet weak var weightTextField: UITextField!
+    @IBOutlet weak var PlainingTextView: UITextView!
+    
+    //    MARK: - IBAction
+    
+    @IBAction func closeViewController(_ sender: Any) {
+        
+        self.dismiss(animated: true, completion: nil)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        //    MARK: - Life Cicle
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
     }
-    */
-
 }

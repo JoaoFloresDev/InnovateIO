@@ -21,7 +21,6 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var goalsLabel: UILabel!
     
-    @IBOutlet weak var profileBackgroundImg: UIImageView!
     @IBOutlet weak var profileImg: UIImageView!
     
     @IBOutlet weak var currentWeightLabel: UILabel!
@@ -29,13 +28,14 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
     @IBOutlet weak var fruitsPercentLabel: UILabel!
     @IBOutlet weak var waterPercentLabel: UILabel!
     
+    //  graphics
     @IBOutlet weak var weightGraphicView: UIView!
     @IBOutlet weak var habitsGraphicView: UIView!
     
-    //  graphic itens
     @IBOutlet weak var colorExerciceGraphicsImage: UIImageView!
     @IBOutlet weak var colorFruitsGraphicsImage: UIImageView!
     @IBOutlet weak var colorWaterGraphicsLabel: UIImageView!
+    
     
     //    MARK: - IBAction
     @IBAction func selectImgProfile(_ sender: Any) {
@@ -48,6 +48,11 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
         super.viewDidLoad()
         
         setupStyleViews()
+        
+        var vet = UIDevice.current.name.split(separator: " ")
+        vet.remove(at: 0)
+        vet.remove(at: 0)
+        nameLabel.text = vet.joined(separator: " ").capitalized
     }
     
     //    MARK: - Take Profile Image Functions
