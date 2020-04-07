@@ -430,20 +430,20 @@
         <!--Edit Data View Controller-->
         <scene sceneID="K8d-8d-aV3">
             <objects>
-                <viewController id="YNk-by-jT8" customClass="EditDataViewController" customModule="App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="YNk-by-jT8" customClass="EditDataViewController" customModule="App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jo0-FE-Myn">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tPr-fW-UiQ">
-                                <rect key="frame" x="346" y="20" width="48" height="30"/>
+                                <rect key="frame" x="346" y="64" width="48" height="30"/>
                                 <state key="normal" title="Fechar"/>
                                 <connections>
                                     <action selector="closeViewController:" destination="YNk-by-jT8" eventType="touchUpInside" id="DHt-jr-l3W"/>
                                 </connections>
                             </button>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZTa-Sf-k0K">
-                                <rect key="frame" x="0.0" y="60" width="414" height="748"/>
+                                <rect key="frame" x="0.0" y="104" width="414" height="758"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vvk-oR-50E">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="800"/>
@@ -453,7 +453,7 @@
                                                 <color key="backgroundColor" red="1" green="0.96254017420000004" blue="0.57682183679999999" alpha="0.76900617360000001" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                                <textInputTraits key="textInputTraits" keyboardAppearance="alert" enablesReturnKeyAutomatically="YES"/>
+                                                <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
                                                 <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES"/>
                                             </textView>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hsj-5L-N4J">
@@ -517,7 +517,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="4Vp-gV-aSU"/>
                     <connections>
-                        <outlet property="PlainingTextView" destination="Ibg-g8-eZb" id="aQ6-Or-gQ6"/>
+                        <outlet property="plainingTextView" destination="Ibg-g8-eZb" id="aQ6-Or-gQ6"/>
                         <outlet property="weightTextField" destination="hsj-5L-N4J" id="fW4-qo-123"/>
                     </connections>
                 </viewController>
@@ -536,6 +536,6 @@
         <image name="water" width="200" height="200"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="OT6-wb-w9f"/>
+        <segue reference="aIk-US-4kL"/>
     </inferredMetricsTieBreakers>
 </document>
