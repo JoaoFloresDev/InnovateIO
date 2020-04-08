@@ -10,6 +10,10 @@
 	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Precisamos do acesso a câmera para tirar a foto de perfil</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>Precisamos do acesso a câmera para escolher a foto de perfil</string>
 	<key>CFBundleName</key>
 	<string>$(PRODUCT_NAME)</string>
 	<key>CFBundlePackageType</key>
