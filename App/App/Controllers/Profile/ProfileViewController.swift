@@ -49,6 +49,26 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
         setupStyleViews()
         setupDataProfile()
         setupTexts()
+        
+        // TEST: This is a test implementation for the Core Data
+        // TODO: Please remove it after merging on the master branch
+        
+        do {
+            let dao = try DataLoader.getShared()
+            try dao.createUser(name: "Tony Stark", meta: "Defeat Thanos!")
+        }
+        catch {
+            print(error)
+        }
+        
+        
+//        do {
+//            let dao = try DataLoader.getShared()
+//            try dao.loadUser()
+//        }
+//        catch {
+//            print(error)
+//        }
     }
     
     //    MARK: - User Defauls

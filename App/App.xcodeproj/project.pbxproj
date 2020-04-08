@@ -11,8 +11,7 @@
 		812B30EC243CB03A002F1AFF /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 812B30EA243CB01D002F1AFF /* CoreData.framework */; };
 		812B30F0243CBCD3002F1AFF /* DataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812B30EF243CBCD3002F1AFF /* DataLoader.swift */; };
 		812B30F2243CBF80002F1AFF /* ServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812B30F1243CBF80002F1AFF /* ServiceError.swift */; };
-		81332270243CC3A000F1F44B /* DataLoader + User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8133226F243CC3A000F1F44B /* DataLoader + User.swift */; };
-		81332272243CC95000F1F44B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81332271243CC95000F1F44B /* User.swift */; };
+		81332270243CC3A000F1F44B /* DataLoader+User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8133226F243CC3A000F1F44B /* DataLoader+User.swift */; };
 		C407E921243CC23800DA8490 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C407E920243CC23800DA8490 /* ProfileViewController.swift */; };
 		C407E923243CFD9800DA8490 /* EditDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C407E922243CFD9800DA8490 /* EditDataViewController.swift */; };
 		C44D146A243655BA0094497A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44D1469243655BA0094497A /* AppDelegate.swift */; };
@@ -52,8 +51,7 @@
 		812B30EA243CB01D002F1AFF /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		812B30EF243CBCD3002F1AFF /* DataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataLoader.swift; sourceTree = "<group>"; };
 		812B30F1243CBF80002F1AFF /* ServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceError.swift; sourceTree = "<group>"; };
-		8133226F243CC3A000F1F44B /* DataLoader + User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DataLoader + User.swift"; sourceTree = "<group>"; };
-		81332271243CC95000F1F44B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		8133226F243CC3A000F1F44B /* DataLoader+User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DataLoader+User.swift"; sourceTree = "<group>"; };
 		C407E920243CC23800DA8490 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		C407E922243CFD9800DA8490 /* EditDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDataViewController.swift; sourceTree = "<group>"; };
 		C44D1466243655BA0094497A /* App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = App.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -117,7 +115,7 @@
 			children = (
 				812B30E6243C9DA6002F1AFF /* LocalModels.xcdatamodeld */,
 				812B30EF243CBCD3002F1AFF /* DataLoader.swift */,
-				8133226F243CC3A000F1F44B /* DataLoader + User.swift */,
+				8133226F243CC3A000F1F44B /* DataLoader+User.swift */,
 				812B30F1243CBF80002F1AFF /* ServiceError.swift */,
 			);
 			path = Services;
@@ -134,7 +132,6 @@
 		81568ADE243B74EB00734FCA /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				81332271243CC95000F1F44B /* User.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -366,8 +363,7 @@
 				C407E923243CFD9800DA8490 /* EditDataViewController.swift in Sources */,
 				C407E921243CC23800DA8490 /* ProfileViewController.swift in Sources */,
 				C44D146A243655BA0094497A /* AppDelegate.swift in Sources */,
-				81332272243CC95000F1F44B /* User.swift in Sources */,
-				81332270243CC3A000F1F44B /* DataLoader + User.swift in Sources */,
+				81332270243CC3A000F1F44B /* DataLoader+User.swift in Sources */,
 				C44D146C243655BA0094497A /* SceneDelegate.swift in Sources */,
 				812B30F2243CBF80002F1AFF /* ServiceError.swift in Sources */,
 			);

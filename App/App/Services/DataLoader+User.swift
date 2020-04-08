@@ -21,8 +21,9 @@ extension DataLoader {
     func createUser(name: String, meta: String) throws {
         
         // Loading Core Data's User entity
-        let entity = NSEntityDescription.entity(forEntityName: "User", in: self.managedContext)
-        let user = NSManagedObject(entity: entity!, insertInto: self.managedContext)
+        let user = User(context: self.managedContext)
+        //let entity = NSEntityDescription.entity(forEntityName: "User", in: self.managedContext)
+        //let user = NSManagedObject(entity: entity!, insertInto: self.managedContext)
         
         // Setting values for the new user
         user.setValue(name, forKey: "name")
