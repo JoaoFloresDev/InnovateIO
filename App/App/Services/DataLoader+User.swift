@@ -9,26 +9,27 @@
 import Foundation
 import CoreData
 
+
 // An extension that handles the User's Data (DBO)
 extension DataLoader {
+    
     
     
     /// Creates a new User entity and saves into the local storage.
     /// - Parameters:
     ///   - name: Name of the User
     ///   - meta: Meta to be achieved
-    /// - Throws: An error that says that wasn't possible to write into the local storage
+    /// - Throws: An error that says that isn't possible to write into the local storage
     func createUser(name: String, meta: String) throws {
         
         // Loading Core Data's User entity
-        let user = User(context: self.managedContext)
-        //let entity = NSEntityDescription.entity(forEntityName: "User", in: self.managedContext)
-        //let user = NSManagedObject(entity: entity!, insertInto: self.managedContext)
+        let entity = NSEntityDescription.entity(forEntityName: "User", in: self.managedContext)
+        let user = NSManagedObject(entity: entity!, insertInto: self.managedContext)
         
         // Setting values for the new user
         user.setValue(name, forKey: "name")
         user.setValue(meta, forKey: "meta")
-        
+
         // Trying to save the new data on local storage
         do {
             try self.managedContext.save()
@@ -41,20 +42,23 @@ extension DataLoader {
     
     
     
-    func loadUser() throws {
+    /// Loads an existing Users entity from the local storage.
+    /// - Throws: An error that says isn't possible to load the user
+    /// - Returns: An object of the User
+    func loadUser() throws -> User {
         
-        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "User")
-        
+        // Mounting the type of request
+        let fetchRequest = NSFetchRequest<User>(entityName: "User")
+
+        // Trying to find some User
         do {
-            let user = try managedContext.fetch(fetchRequest)
-            
-            print(user)
-            
+            let users = try managedContext.fetch(fetchRequest)
+            return users[0]
         }
         catch let error as NSError {
             throw error
         }
-        
+
     }
     
 }
