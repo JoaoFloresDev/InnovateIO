@@ -181,6 +181,7 @@
 		81568AE0243B74FD00734FCA /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				D7B2C2F9243E0A080071561C /* Custom Views */,
 				C44D1477243655BC0094497A /* LaunchScreen.storyboard */,
 				C44D146F243655BA0094497A /* Main.storyboard */,
 				C44D149C243657BC0094497A /* Profile.storyboard */,
@@ -234,9 +235,8 @@
 		C44D1468243655BA0094497A /* App */ = {
 			isa = PBXGroup;
 			children = (
-				812B30E5243C9D78002F1AFF /* Services */,
 				812B30E2243C9835002F1AFF /* iOS */,
-				D7B2C2F9243E0A080071561C /* Custom Views */,
+				812B30E5243C9D78002F1AFF /* Services */,
 				81568AE0243B74FD00734FCA /* Views */,
 				81568ADF243B74F600734FCA /* Controllers */,
 				81568ADE243B74EB00734FCA /* Models */,
@@ -269,18 +269,18 @@
 		D7B2C2F9243E0A080071561C /* Custom Views */ = {
 			isa = PBXGroup;
 			children = (
-				D7B2C2FE243E0A5A0071561C /* LineChartTableViewCell */,
+				D7B2C2FE243E0A5A0071561C /* Line Chart */,
 			);
 			path = "Custom Views";
 			sourceTree = "<group>";
 		};
-		D7B2C2FE243E0A5A0071561C /* LineChartTableViewCell */ = {
+		D7B2C2FE243E0A5A0071561C /* Line Chart */ = {
 			isa = PBXGroup;
 			children = (
 				D7B2C2FA243E0A520071561C /* LineChartTableViewCell.swift */,
 				D7B2C2FB243E0A520071561C /* LineChartTableViewCell.xib */,
 			);
-			path = LineChartTableViewCell;
+			path = "Line Chart";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
