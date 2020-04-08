@@ -14,15 +14,14 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
     
     //    MARK: - Variables
     var imagePicker: UIImagePickerController!
+    var defaults = UserDefaults.standard
     
     //    MARK: - IBOutlet
-    
     //  header
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var goalsLabel: UILabel!
-    
     @IBOutlet weak var profileImg: UIImageView!
     
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var plainsLabel: UILabel!
     @IBOutlet weak var currentWeightLabel: UILabel!
     @IBOutlet weak var exercicePercentLabel: UILabel!
     @IBOutlet weak var fruitsPercentLabel: UILabel!
@@ -39,6 +38,7 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
     
     //    MARK: - IBAction
     @IBAction func selectImgProfile(_ sender: Any) {
+        
         openGalery()
     }
     
@@ -46,16 +46,22 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        
         setupStyleViews()
-        
-        var vet = UIDevice.current.name.split(separator: " ")
-        vet.remove(at: 0)
-        vet.remove(at: 0)
-        nameLabel.text = vet.joined(separator: " ").capitalized
+        setupDataProfile()
+        setupTexts()
     }
     
-    //    MARK: - Take Profile Image Functions
+    //    MARK: - User Defauls
+    func setupTexts() {
+        
+        plainsLabel.text = defaults.string(forKey: "Plain") ?? ""
+        currentWeightLabel.text = defaults.string(forKey: "Weight") ?? "00 Kg"
+        exercicePercentLabel.text = defaults.string(forKey: "exercicePercent") ?? "00 %"
+        fruitsPercentLabel.text = defaults.string(forKey: "fruitsPercent") ?? "00 %"
+        waterPercentLabel.text = defaults.string(forKey: "waterPercent") ?? "00 %"
+    }
+    
+    //    MARK: - Take Profile Image
     func openGalery() {
         
         imagePicker =  UIImagePickerController()
@@ -71,28 +77,46 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
         var image : UIImage!
         
         if let img = info[UIImagePickerController.InfoKey.editedImage] as? UIImage
-        {
-            image = img
-            
-        }
+        {   image = img    }
         else if let img = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
-        {
-            image = img
-        }
+        {   image = img    }
         
-        print(profileImg.frame.size.width/2)
-        print(profileImg.frame.size.width)
-        
-        cropBounds(viewlayer: profileImg.layer, cornerRadius: Float(profileImg.frame.size.width/2))
+        cropBounds(viewlayer: profileImg.layer,
+                   cornerRadius: Float(profileImg.frame.size.width/2))
         
         profileImg.image = image
-        
         picker.dismiss(animated: true,completion: nil)
+    }
+    
+    //    MARK: - Data Profile
+    func setupDataProfile() {
+        
+        setupNameProfile()
+        setupDataProfileNotification()
+    }
+    
+    func setupDataProfileNotification() {
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.updateLabel), name: NSNotification.Name(rawValue: "updateDataProfile"), object: nil)
+    }
+    
+    func setupNameProfile() {
+        
+        var vet = UIDevice.current.name.split(separator: " ")
+        for _ in 0...1 {
+            vet.remove(at: 0)
+        }
+        nameLabel.text = vet.joined(separator: " ").capitalized
+    }
+    
+    @objc func updateLabel() {
+        
+        setupTexts()
     }
     
     //    MARK: - Style
     override var preferredStatusBarStyle: UIStatusBarStyle {
-        
+    
         return .lightContent
     }
     

@@ -10,6 +10,9 @@ import UIKit
 
 class EditDataViewController: ViewController {
     
+    //MARK: - Variables
+    var defaults = UserDefaults.standard
+    
     //    MARK: - IBOutlets
     
     @IBOutlet weak var weightTextField: UITextField!
@@ -17,37 +20,46 @@ class EditDataViewController: ViewController {
     
     //    MARK: - IBAction
     
+    @IBAction func saveViewController(_ sender: Any) {
+        saveNewData()
+        self.dismiss(animated: true, completion: nil)
+        updateDataProfile()
+    }
+    
     @IBAction func closeViewController(_ sender: Any) {
-        closeView()
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func clearGoals(_ sender: Any) {
+        plainingTextView.text = ""
     }
     
     //    MARK: - Life Cicle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        plainingTextView.layer.cornerRadius = 10
+        setupTexts()
+        setupStyle()
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        
-        closeView()
-
-        self.navigationController?.setNavigationBarHidden(false, animated: true)
+    func updateDataProfile() {
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "updateDataProfile"),
+                                        object: nil, userInfo: nil)
     }
-    //    MARK: - UIAlerts
-    func closeView() {
-        
-        let refreshAlert = UIAlertController(title: "Deseja salvar alterações?", message: nil, preferredStyle: UIAlertController.Style.alert)
-        
-        refreshAlert.addAction(UIAlertAction(title: "Cancelar", style: .destructive, handler: { (action: UIAlertAction!) in
-            self.dismiss(animated: true, completion: nil)
-        }))
-        refreshAlert.addAction(UIAlertAction(title: "Salvar", style: .default, handler: { (action: UIAlertAction!) in
-            //            self.atualizeNames()
-            self.dismiss(animated: true, completion: nil)
-        }))
-        
-        present(refreshAlert, animated: true, completion: nil)
+    //    MARK: - UserDefaults
+    func setupTexts() {
+        plainingTextView.text = defaults.string(forKey: "Plain")
+        weightTextField.text = defaults.string(forKey: "Weight")
+    }
+    
+    func saveNewData() {
+        defaults.set (plainingTextView.text, forKey: "Plain")
+        defaults.set (weightTextField.text, forKey: "Weight")
+    }
+    
+    
+    //    MARK: - Style
+    func setupStyle() {
+        plainingTextView.layer.cornerRadius = 10
     }
 }
