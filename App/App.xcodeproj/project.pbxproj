@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C407E921243CC23800DA8490 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C407E920243CC23800DA8490 /* ProfileViewController.swift */; };
+		C407E923243CFD9800DA8490 /* EditDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C407E922243CFD9800DA8490 /* EditDataViewController.swift */; };
 		C44D146A243655BA0094497A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44D1469243655BA0094497A /* AppDelegate.swift */; };
 		C44D146C243655BA0094497A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44D146B243655BA0094497A /* SceneDelegate.swift */; };
 		C44D146E243655BA0094497A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44D146D243655BA0094497A /* ViewController.swift */; };
@@ -40,6 +42,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C407E920243CC23800DA8490 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		C407E922243CFD9800DA8490 /* EditDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDataViewController.swift; sourceTree = "<group>"; };
 		C44D1466243655BA0094497A /* App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = App.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C44D1469243655BA0094497A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C44D146B243655BA0094497A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -96,6 +100,7 @@
 		81568ADF243B74F600734FCA /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				C407E91F243CC20500DA8490 /* Profile */,
 				C44D146D243655BA0094497A /* ViewController.swift */,
 			);
 			path = Controllers;
@@ -112,6 +117,15 @@
 				C44D14A2243658680094497A /* Meals.storyboard */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		C407E91F243CC20500DA8490 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				C407E920243CC23800DA8490 /* ProfileViewController.swift */,
+				C407E922243CFD9800DA8490 /* EditDataViewController.swift */,
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 		C44D145D243655BA0094497A = {
@@ -304,6 +318,8 @@
 			files = (
 				C44D146E243655BA0094497A /* ViewController.swift in Sources */,
 				C44D1474243655BA0094497A /* App.xcdatamodeld in Sources */,
+				C407E923243CFD9800DA8490 /* EditDataViewController.swift in Sources */,
+				C407E921243CC23800DA8490 /* ProfileViewController.swift in Sources */,
 				C44D146A243655BA0094497A /* AppDelegate.swift in Sources */,
 				C44D146C243655BA0094497A /* SceneDelegate.swift in Sources */,
 			);
