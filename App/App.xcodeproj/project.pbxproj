@@ -142,14 +142,14 @@
 			path = iOS;
 			sourceTree = "<group>";
 		};
-		812B30E5243C9D78002F1AFF /* Services */ = {
+		812B30E5243C9D78002F1AFF /* Persistence */ = {
 			isa = PBXGroup;
 			children = (
 				81959011243E2872001A6DB9 /* DataLoader.swift */,
 				8133226F243CC3A000F1F44B /* DataLoader+User.swift */,
 				812B30F1243CBF80002F1AFF /* ServiceError.swift */,
 			);
-			path = Services;
+			path = Persistence;
 			sourceTree = "<group>";
 		};
 		812B30E9243CB01D002F1AFF /* Frameworks */ = {
@@ -165,6 +165,7 @@
 		81568ADE243B74EB00734FCA /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				812B30E5243C9D78002F1AFF /* Persistence */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -236,7 +237,6 @@
 			isa = PBXGroup;
 			children = (
 				812B30E2243C9835002F1AFF /* iOS */,
-				812B30E5243C9D78002F1AFF /* Services */,
 				81568AE0243B74FD00734FCA /* Views */,
 				81568ADF243B74F600734FCA /* Controllers */,
 				81568ADE243B74EB00734FCA /* Models */,
