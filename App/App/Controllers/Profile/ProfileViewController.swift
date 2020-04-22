@@ -17,6 +17,11 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
     var defaults = UserDefaults.standard
     
     //    MARK: - IBOutlet
+    
+    //BackgroundImages
+    @IBOutlet weak var topBackgroundImg: UIImageView!
+    @IBOutlet weak var bottomBackgroundImg: UIImageView!
+    
     //  header
     @IBOutlet weak var profileImg: UIImageView!
     
@@ -26,6 +31,7 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
     @IBOutlet weak var exercicePercentLabel: UILabel!
     @IBOutlet weak var fruitsPercentLabel: UILabel!
     @IBOutlet weak var waterPercentLabel: UILabel!
+    @IBOutlet weak var balanceImg: UIImageView!
     
     //  graphics
     @IBOutlet weak var weightGraphicView: UIView!
@@ -56,7 +62,7 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
     func setupTexts() {
         
         plainsLabel.text = defaults.string(forKey: "Plain") ?? "Insira seu plano aqui"
-        currentWeightLabel.text = defaults.string(forKey: "Weight") ?? "00 Kg"
+        currentWeightLabel.text = "\(defaults.string(forKey: "Weight") ?? "00") Kg"
         exercicePercentLabel.text = defaults.string(forKey: "exercicePercent") ?? "00 %"
         fruitsPercentLabel.text = defaults.string(forKey: "fruitsPercent") ?? "00 %"
         waterPercentLabel.text = defaults.string(forKey: "waterPercent") ?? "00 %"
@@ -159,6 +165,9 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
         cropBounds(viewlayer: colorExerciceGraphicsImage.layer, cornerRadius: 5)
         cropBounds(viewlayer: colorFruitsGraphicsImage.layer, cornerRadius: 5)
         cropBounds(viewlayer: colorWaterGraphicsLabel.layer, cornerRadius: 5)
+        cropBounds(viewlayer: bottomBackgroundImg.layer, cornerRadius: 25)
+        cropBounds(viewlayer: topBackgroundImg.layer, cornerRadius: 25)
+        cropBounds(viewlayer: balanceImg.layer, cornerRadius: 15)
     }
     
     func cropBounds(viewlayer: CALayer, cornerRadius: Float) {

@@ -7,7 +7,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Settings-->
+        <!--Configurações-->
         <scene sceneID="hNP-CF-WXx">
             <objects>
                 <viewController id="1Yr-zO-dDl" sceneMemberID="viewController">
@@ -17,7 +17,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="s8B-Ef-aXb"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Settings" id="7Tp-gK-JSa"/>
+                    <tabBarItem key="tabBarItem" title="Configurações" image="ellipsis.circle" catalog="system" selectedImage="ellipsis.circle.fill" id="7Tp-gK-JSa"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8a8-GM-4Lo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -25,4 +25,8 @@
             <point key="canvasLocation" x="230" y="119"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="ellipsis.circle" catalog="system" width="64" height="60"/>
+        <image name="ellipsis.circle.fill" catalog="system" width="64" height="60"/>
+    </resources>
 </document>

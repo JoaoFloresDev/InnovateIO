@@ -7,7 +7,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Meals-->
+        <!--Histórico-->
         <scene sceneID="wxJ-fg-z0c">
             <objects>
                 <viewController id="uyA-oF-TDl" sceneMemberID="viewController">
@@ -17,7 +17,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="BUi-OT-R4x"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Meals" id="5mG-bu-bEW"/>
+                    <tabBarItem key="tabBarItem" title="Histórico" image="calendar.circle" catalog="system" selectedImage="calendar.circle.fill" id="5mG-bu-bEW"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9IY-UY-5Bc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -25,4 +25,8 @@
             <point key="canvasLocation" x="230" y="119"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="calendar.circle" catalog="system" width="64" height="60"/>
+        <image name="calendar.circle.fill" catalog="system" width="64" height="60"/>
+    </resources>
 </document>

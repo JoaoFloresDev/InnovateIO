@@ -167,20 +167,18 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.image` struct is generated, and contains static references to 7 images.
+  /// This `R.image` struct is generated, and contains static references to 6 images.
   struct image {
     /// Image `ExerciseIcon`.
     static let exerciseIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "ExerciseIcon")
-    /// Image `FruitsIcon`.
-    static let fruitsIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "FruitsIcon")
     /// Image `ProfileBackground`.
     static let profileBackground = Rswift.ImageResource(bundle: R.hostingBundle, name: "ProfileBackground")
     /// Image `ProfilePlaceholder`.
     static let profilePlaceholder = Rswift.ImageResource(bundle: R.hostingBundle, name: "ProfilePlaceholder")
-    /// Image `ScaleIcon`.
-    static let scaleIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "ScaleIcon")
-    /// Image `editIcon`.
-    static let editIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "editIcon")
+    /// Image `balance`.
+    static let balance = Rswift.ImageResource(bundle: R.hostingBundle, name: "balance")
+    /// Image `fruits`.
+    static let fruits = Rswift.ImageResource(bundle: R.hostingBundle, name: "fruits")
     /// Image `water`.
     static let water = Rswift.ImageResource(bundle: R.hostingBundle, name: "water")
 
@@ -188,13 +186,6 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "ExerciseIcon", bundle: ..., traitCollection: ...)`
     static func exerciseIcon(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.exerciseIcon, compatibleWith: traitCollection)
-    }
-    #endif
-
-    #if os(iOS) || os(tvOS)
-    /// `UIImage(named: "FruitsIcon", bundle: ..., traitCollection: ...)`
-    static func fruitsIcon(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.fruitsIcon, compatibleWith: traitCollection)
     }
     #endif
 
@@ -213,16 +204,16 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
-    /// `UIImage(named: "ScaleIcon", bundle: ..., traitCollection: ...)`
-    static func scaleIcon(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.scaleIcon, compatibleWith: traitCollection)
+    /// `UIImage(named: "balance", bundle: ..., traitCollection: ...)`
+    static func balance(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.balance, compatibleWith: traitCollection)
     }
     #endif
 
     #if os(iOS) || os(tvOS)
-    /// `UIImage(named: "editIcon", bundle: ..., traitCollection: ...)`
-    static func editIcon(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.editIcon, compatibleWith: traitCollection)
+    /// `UIImage(named: "fruits", bundle: ..., traitCollection: ...)`
+    static func fruits(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.fruits, compatibleWith: traitCollection)
     }
     #endif
 
@@ -383,6 +374,8 @@ struct _R: Rswift.Validatable {
       let name = "Meals"
 
       static func validate() throws {
+        if UIKit.UIImage(named: "calendar.circle", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'calendar.circle' is used in storyboard 'Meals', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "calendar.circle.fill", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'calendar.circle.fill' is used in storyboard 'Meals', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
       }
@@ -400,11 +393,13 @@ struct _R: Rswift.Validatable {
 
       static func validate() throws {
         if UIKit.UIImage(named: "ExerciseIcon", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ExerciseIcon' is used in storyboard 'Profile', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "FruitsIcon", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'FruitsIcon' is used in storyboard 'Profile', but couldn't be loaded.") }
         if UIKit.UIImage(named: "ProfileBackground", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ProfileBackground' is used in storyboard 'Profile', but couldn't be loaded.") }
         if UIKit.UIImage(named: "ProfilePlaceholder", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ProfilePlaceholder' is used in storyboard 'Profile', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "ScaleIcon", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ScaleIcon' is used in storyboard 'Profile', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "editIcon", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'editIcon' is used in storyboard 'Profile', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "balance", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'balance' is used in storyboard 'Profile', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "fruits", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'fruits' is used in storyboard 'Profile', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "person.circle", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'person.circle' is used in storyboard 'Profile', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "person.circle.fill", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'person.circle.fill' is used in storyboard 'Profile', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "square.and.pencil", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'square.and.pencil' is used in storyboard 'Profile', but couldn't be loaded.") }
         if UIKit.UIImage(named: "water", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'water' is used in storyboard 'Profile', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
@@ -422,6 +417,8 @@ struct _R: Rswift.Validatable {
       let name = "Settings"
 
       static func validate() throws {
+        if UIKit.UIImage(named: "ellipsis.circle", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ellipsis.circle' is used in storyboard 'Settings', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "ellipsis.circle.fill", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ellipsis.circle.fill' is used in storyboard 'Settings', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
       }
