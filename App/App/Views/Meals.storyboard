@@ -1,32 +1,188 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="uyA-oF-TDl">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="UcL-qO-qKl">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Histórico-->
-        <scene sceneID="wxJ-fg-z0c">
+        <!--Meals-->
+        <scene sceneID="cF4-VL-M5S">
             <objects>
-                <viewController id="uyA-oF-TDl" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="JN0-gQ-o6w">
+                <viewController id="UcL-qO-qKl" customClass="MealViewController" customModule="App" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="fsr-kU-GDi">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="fNs-1x-YLf">
+                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" verticalCompressionResistancePriority="752" translatesAutoresizingMaskIntoConstraints="NO" id="bpl-9N-qsy" userLabel="DayRateView">
+                                        <rect key="frame" x="40" y="0.0" width="334" height="154"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Avaliação do Dia" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NML-p3-yY1">
+                                                <rect key="frame" x="104.5" y="20" width="125.5" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="f2g-X5-ryG">
+                                                <rect key="frame" x="20" y="60.5" width="294" height="67.5"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wt3-11-HCd">
+                                                        <rect key="frame" x="0.0" y="0.0" width="67.5" height="67.5"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="wt3-11-HCd" secondAttribute="height" id="D4Y-xk-4lS"/>
+                                                        </constraints>
+                                                        <state key="normal" image="square.and.arrow.up" catalog="system"/>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ah6-dE-Sdn">
+                                                        <rect key="frame" x="75.5" y="0.0" width="67.5" height="67.5"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="ah6-dE-Sdn" secondAttribute="height" id="AQt-bX-flG"/>
+                                                        </constraints>
+                                                        <state key="normal" image="square.and.arrow.up" catalog="system"/>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ykf-HE-k8I">
+                                                        <rect key="frame" x="151" y="0.0" width="67.5" height="67.5"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="Ykf-HE-k8I" secondAttribute="height" id="a6j-3A-tjd"/>
+                                                        </constraints>
+                                                        <state key="normal" image="square.and.arrow.up" catalog="system"/>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YyN-hj-PZk">
+                                                        <rect key="frame" x="226.5" y="0.0" width="67.5" height="67.5"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="YyN-hj-PZk" secondAttribute="height" id="q2B-pw-ADP"/>
+                                                        </constraints>
+                                                        <state key="normal" image="square.and.arrow.up" catalog="system"/>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <constraints>
+                                            <constraint firstItem="f2g-X5-ryG" firstAttribute="leading" secondItem="bpl-9N-qsy" secondAttribute="leading" constant="20" id="2of-qy-Tot"/>
+                                            <constraint firstAttribute="trailing" secondItem="f2g-X5-ryG" secondAttribute="trailing" constant="20" id="78g-Es-bCV"/>
+                                            <constraint firstItem="NML-p3-yY1" firstAttribute="centerX" secondItem="bpl-9N-qsy" secondAttribute="centerX" id="AwU-X4-gzR"/>
+                                            <constraint firstItem="NML-p3-yY1" firstAttribute="top" secondItem="bpl-9N-qsy" secondAttribute="top" constant="20" id="CgH-cs-KOe"/>
+                                            <constraint firstItem="f2g-X5-ryG" firstAttribute="top" secondItem="NML-p3-yY1" secondAttribute="bottom" constant="20" id="PkZ-ay-cmJ"/>
+                                            <constraint firstItem="f2g-X5-ryG" firstAttribute="centerX" secondItem="NML-p3-yY1" secondAttribute="centerX" id="zGX-hY-vUU"/>
+                                        </constraints>
+                                    </view>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="7uG-W0-Wiq" userLabel="Register Meal Stack View">
+                                        <rect key="frame" x="20" y="174" width="374" height="307.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Registrar Refeição" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DQT-Cb-jxZ">
+                                                <rect key="frame" x="117.5" y="0.0" width="139.5" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Ldq-q4-MDU" userLabel="Meal Button Stack View">
+                                                <rect key="frame" x="20" y="22.5" width="334" height="77.5"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cQx-3o-p04">
+                                                        <rect key="frame" x="0.0" y="0.0" width="77.5" height="77.5"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="cQx-3o-p04" secondAttribute="height" id="HbA-Ia-D6J"/>
+                                                        </constraints>
+                                                        <state key="normal" image="square.and.arrow.up" catalog="system"/>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dXO-dv-QSW">
+                                                        <rect key="frame" x="85.5" y="0.0" width="77.5" height="77.5"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="dXO-dv-QSW" secondAttribute="height" id="BRF-9u-usU"/>
+                                                        </constraints>
+                                                        <state key="normal" image="square.and.arrow.up" catalog="system"/>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0fB-um-oR1">
+                                                        <rect key="frame" x="171" y="0.0" width="77.5" height="77.5"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="0fB-um-oR1" secondAttribute="height" id="dTr-jA-RA0"/>
+                                                        </constraints>
+                                                        <state key="normal" image="square.and.arrow.up" catalog="system"/>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wiv-6e-DgZ">
+                                                        <rect key="frame" x="256.5" y="0.0" width="77.5" height="77.5"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="wiv-6e-DgZ" secondAttribute="height" id="mSG-9S-I8K"/>
+                                                        </constraints>
+                                                        <state key="normal" image="square.and.arrow.up" catalog="system"/>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                            <datePicker contentMode="scaleToFill" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="5" translatesAutoresizingMaskIntoConstraints="NO" id="oIP-Sd-anT">
+                                                <rect key="frame" x="27" y="102" width="320" height="205.5"/>
+                                            </datePicker>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="Ldq-q4-MDU" secondAttribute="trailing" constant="20" id="2xj-7i-mIu"/>
+                                            <constraint firstItem="Ldq-q4-MDU" firstAttribute="leading" secondItem="7uG-W0-Wiq" secondAttribute="leading" constant="20" id="cwr-ry-0un"/>
+                                        </constraints>
+                                    </stackView>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" verticalCompressionResistancePriority="754" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="rRR-Vo-da1">
+                                        <rect key="frame" x="20" y="501.5" width="374" height="267.5"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <prototypes>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="checkmark" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="mealCell" textLabel="t5W-6V-Cxn" imageView="UOw-uP-0pt" style="IBUITableViewCellStyleDefault" id="i5L-xI-EFl">
+                                                <rect key="frame" x="0.0" y="28" width="374" height="43.5"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="i5L-xI-EFl" id="PjQ-eK-xGQ">
+                                                    <rect key="frame" x="0.0" y="0.0" width="330" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Refeição" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="t5W-6V-Cxn">
+                                                            <rect key="frame" x="59" y="0.0" width="263" height="43.5"/>
+                                                            <autoresizingMask key="autoresizingMask"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" image="square.and.arrow.up" catalog="system" id="UOw-uP-0pt">
+                                                            <rect key="frame" x="22.5" y="10.5" width="19" height="21"/>
+                                                            <autoresizingMask key="autoresizingMask"/>
+                                                        </imageView>
+                                                    </subviews>
+                                                </tableViewCellContentView>
+                                            </tableViewCell>
+                                        </prototypes>
+                                        <sections/>
+                                    </tableView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="bpl-9N-qsy" firstAttribute="leading" secondItem="fNs-1x-YLf" secondAttribute="leading" constant="40" id="0hQ-LG-72M"/>
+                                    <constraint firstItem="7uG-W0-Wiq" firstAttribute="leading" secondItem="rRR-Vo-da1" secondAttribute="leading" id="Bwr-2W-Wdn"/>
+                                    <constraint firstItem="7uG-W0-Wiq" firstAttribute="leading" secondItem="fNs-1x-YLf" secondAttribute="leading" constant="20" id="WOi-op-ynE"/>
+                                    <constraint firstAttribute="trailing" secondItem="7uG-W0-Wiq" secondAttribute="trailing" constant="20" id="aYs-Hp-fbd"/>
+                                    <constraint firstItem="7uG-W0-Wiq" firstAttribute="height" secondItem="fNs-1x-YLf" secondAttribute="height" multiplier="0.4" id="cRj-gM-nUc"/>
+                                    <constraint firstItem="bpl-9N-qsy" firstAttribute="height" secondItem="fNs-1x-YLf" secondAttribute="height" multiplier="0.2" id="vVH-Gn-RQJ"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="BUi-OT-R4x"/>
+                        <constraints>
+                            <constraint firstItem="QKW-hz-2Gt" firstAttribute="bottom" secondItem="fNs-1x-YLf" secondAttribute="bottom" id="IbZ-be-Ra3"/>
+                            <constraint firstItem="fNs-1x-YLf" firstAttribute="top" secondItem="QKW-hz-2Gt" secondAttribute="top" id="WzL-oM-kZU"/>
+                            <constraint firstItem="fNs-1x-YLf" firstAttribute="leading" secondItem="QKW-hz-2Gt" secondAttribute="leading" id="m0b-GA-5OU"/>
+                            <constraint firstItem="QKW-hz-2Gt" firstAttribute="trailing" secondItem="fNs-1x-YLf" secondAttribute="trailing" id="ziC-0T-rjK"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="QKW-hz-2Gt"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Histórico" image="calendar.circle" catalog="system" selectedImage="calendar.circle.fill" id="5mG-bu-bEW"/>
+                    <tabBarItem key="tabBarItem" title="Meals" id="aLM-LD-59K"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="tableView" destination="rRR-Vo-da1" id="zsv-Hn-3zO"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="9IY-UY-5Bc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Bpd-y2-VQ2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="230" y="119"/>
+            <point key="canvasLocation" x="166.66666666666669" y="114.50892857142857"/>
         </scene>
     </scenes>
     <resources>
-        <image name="calendar.circle" catalog="system" width="64" height="60"/>
-        <image name="calendar.circle.fill" catalog="system" width="64" height="60"/>
+        <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
     </resources>
 </document>
