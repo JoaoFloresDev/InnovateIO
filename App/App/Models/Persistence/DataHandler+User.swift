@@ -11,7 +11,7 @@ import CoreData
 
 
 // An extension that handles the User's Data (DBO)
-extension DataLoader {
+extension DataHandler {
     
     
     

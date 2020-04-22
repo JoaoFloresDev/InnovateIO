@@ -8,7 +8,10 @@
 
 import Foundation
 
-enum ServiceError: Error {
+enum PersistenceError: Error {
     case applicationNotRunning
     case dataNotFound
+    case invalidDate
+    case cantSave
+    case cantLoad
 }

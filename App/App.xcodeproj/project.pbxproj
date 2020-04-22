@@ -8,10 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		4F605B0A55AFC4E7176E0C2D /* Pods_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B93CC3942CBD2FF80F007364 /* Pods_App.framework */; };
+		810518992450746A00F8A86E /* DataHandler+DailyDiary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810518982450746A00F8A86E /* DataHandler+DailyDiary.swift */; };
+		8105189C24507BB600F8A86E /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8105189B24507BB600F8A86E /* Date.swift */; };
+		8105189E24508A4A00F8A86E /* DataHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8105189D24508A4A00F8A86E /* DataHandlerTests.swift */; };
 		812B30EC243CB03A002F1AFF /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 812B30EA243CB01D002F1AFF /* CoreData.framework */; };
-		812B30F2243CBF80002F1AFF /* ServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812B30F1243CBF80002F1AFF /* ServiceError.swift */; };
-		81332270243CC3A000F1F44B /* DataLoader+User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8133226F243CC3A000F1F44B /* DataLoader+User.swift */; };
-		81959012243E2873001A6DB9 /* DataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81959011243E2872001A6DB9 /* DataLoader.swift */; };
+		812B30F2243CBF80002F1AFF /* PersistenceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812B30F1243CBF80002F1AFF /* PersistenceError.swift */; };
+		81332270243CC3A000F1F44B /* DataHandler+User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8133226F243CC3A000F1F44B /* DataHandler+User.swift */; };
+		81959012243E2873001A6DB9 /* DataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81959011243E2872001A6DB9 /* DataHandler.swift */; };
 		81959015243E28CF001A6DB9 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 81959013243E28CF001A6DB9 /* Model.xcdatamodeld */; };
 		8E5334D900F61722F7918DB9 /* Pods_App_AppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5715636A1C4B809B17063D14 /* Pods_App_AppUITests.framework */; };
 		AE7E92030D28CAA9F2CA41CC /* Pods_AppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEC02FBEFF18FB094BC2524F /* Pods_AppTests.framework */; };
@@ -58,10 +61,13 @@
 		5715636A1C4B809B17063D14 /* Pods_App_AppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_App_AppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		634BCAF5A9D45C79BADF90B2 /* Pods-AppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppTests.debug.xcconfig"; path = "Target Support Files/Pods-AppTests/Pods-AppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		7FE986771A738672D6665720 /* Pods-App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-App.release.xcconfig"; path = "Target Support Files/Pods-App/Pods-App.release.xcconfig"; sourceTree = "<group>"; };
+		810518982450746A00F8A86E /* DataHandler+DailyDiary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DataHandler+DailyDiary.swift"; sourceTree = "<group>"; };
+		8105189B24507BB600F8A86E /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		8105189D24508A4A00F8A86E /* DataHandlerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataHandlerTests.swift; sourceTree = "<group>"; };
 		812B30EA243CB01D002F1AFF /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		812B30F1243CBF80002F1AFF /* ServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceError.swift; sourceTree = "<group>"; };
-		8133226F243CC3A000F1F44B /* DataLoader+User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DataLoader+User.swift"; sourceTree = "<group>"; };
-		81959011243E2872001A6DB9 /* DataLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataLoader.swift; sourceTree = "<group>"; };
+		812B30F1243CBF80002F1AFF /* PersistenceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceError.swift; sourceTree = "<group>"; };
+		8133226F243CC3A000F1F44B /* DataHandler+User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DataHandler+User.swift"; sourceTree = "<group>"; };
+		81959011243E2872001A6DB9 /* DataHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataHandler.swift; sourceTree = "<group>"; };
 		81959014243E28CF001A6DB9 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		A495976781D0CFCA4734B6F6 /* Pods-AppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppTests.release.xcconfig"; path = "Target Support Files/Pods-AppTests/Pods-AppTests.release.xcconfig"; sourceTree = "<group>"; };
 		B93CC3942CBD2FF80F007364 /* Pods_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -133,6 +139,14 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		8105189A24507B8F00F8A86E /* DefaultTypesExtensions */ = {
+			isa = PBXGroup;
+			children = (
+				8105189B24507BB600F8A86E /* Date.swift */,
+			);
+			path = DefaultTypesExtensions;
+			sourceTree = "<group>";
+		};
 		812B30E2243C9835002F1AFF /* iOS */ = {
 			isa = PBXGroup;
 			children = (
@@ -145,9 +159,10 @@
 		812B30E5243C9D78002F1AFF /* Persistence */ = {
 			isa = PBXGroup;
 			children = (
-				81959011243E2872001A6DB9 /* DataLoader.swift */,
-				8133226F243CC3A000F1F44B /* DataLoader+User.swift */,
-				812B30F1243CBF80002F1AFF /* ServiceError.swift */,
+				81959011243E2872001A6DB9 /* DataHandler.swift */,
+				8133226F243CC3A000F1F44B /* DataHandler+User.swift */,
+				810518982450746A00F8A86E /* DataHandler+DailyDiary.swift */,
+				812B30F1243CBF80002F1AFF /* PersistenceError.swift */,
 			);
 			path = Persistence;
 			sourceTree = "<group>";
@@ -244,6 +259,7 @@
 				C44D147A243655BC0094497A /* Info.plist */,
 				D7B2C300243E17D90071561C /* R.generated.swift */,
 				81959013243E28CF001A6DB9 /* Model.xcdatamodeld */,
+				8105189A24507B8F00F8A86E /* DefaultTypesExtensions */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -253,6 +269,7 @@
 			children = (
 				C44D1483243655BC0094497A /* AppTests.swift */,
 				C44D1485243655BC0094497A /* Info.plist */,
+				8105189D24508A4A00F8A86E /* DataHandlerTests.swift */,
 			);
 			path = AppTests;
 			sourceTree = "<group>";
@@ -547,17 +564,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				81959012243E2873001A6DB9 /* DataLoader.swift in Sources */,
+				81959012243E2873001A6DB9 /* DataHandler.swift in Sources */,
 				C44D146E243655BA0094497A /* ViewController.swift in Sources */,
 				C407E923243CFD9800DA8490 /* EditDataViewController.swift in Sources */,
+				810518992450746A00F8A86E /* DataHandler+DailyDiary.swift in Sources */,
 				D7B2C301243E17D90071561C /* R.generated.swift in Sources */,
 				D7B2C2FC243E0A520071561C /* LineChartTableViewCell.swift in Sources */,
+				8105189C24507BB600F8A86E /* Date.swift in Sources */,
 				C407E921243CC23800DA8490 /* ProfileViewController.swift in Sources */,
 				C44D146A243655BA0094497A /* AppDelegate.swift in Sources */,
-				81332270243CC3A000F1F44B /* DataLoader+User.swift in Sources */,
+				81332270243CC3A000F1F44B /* DataHandler+User.swift in Sources */,
 				C44D146C243655BA0094497A /* SceneDelegate.swift in Sources */,
 				81959015243E28CF001A6DB9 /* Model.xcdatamodeld in Sources */,
-				812B30F2243CBF80002F1AFF /* ServiceError.swift in Sources */,
+				812B30F2243CBF80002F1AFF /* PersistenceError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -565,6 +584,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8105189E24508A4A00F8A86E /* DataHandlerTests.swift in Sources */,
 				C44D1484243655BC0094497A /* AppTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
