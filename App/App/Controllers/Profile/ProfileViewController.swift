@@ -55,6 +55,7 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
         setupStyleViews()
         setupDataProfile()
         setupTexts()
+        
     }
     
     //    MARK: - User Defauls
