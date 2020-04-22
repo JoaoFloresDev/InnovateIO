@@ -13,6 +13,7 @@
 		81332270243CC3A000F1F44B /* DataLoader+User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8133226F243CC3A000F1F44B /* DataLoader+User.swift */; };
 		81959012243E2873001A6DB9 /* DataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81959011243E2872001A6DB9 /* DataLoader.swift */; };
 		81959015243E28CF001A6DB9 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 81959013243E28CF001A6DB9 /* Model.xcdatamodeld */; };
+		8DF1318B24506B8A004C2CC7 /* MealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF1318A24506B8A004C2CC7 /* MealViewController.swift */; };
 		8E5334D900F61722F7918DB9 /* Pods_App_AppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5715636A1C4B809B17063D14 /* Pods_App_AppUITests.framework */; };
 		AE7E92030D28CAA9F2CA41CC /* Pods_AppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEC02FBEFF18FB094BC2524F /* Pods_AppTests.framework */; };
 		C407E921243CC23800DA8490 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C407E920243CC23800DA8490 /* ProfileViewController.swift */; };
@@ -63,6 +64,7 @@
 		8133226F243CC3A000F1F44B /* DataLoader+User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DataLoader+User.swift"; sourceTree = "<group>"; };
 		81959011243E2872001A6DB9 /* DataLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataLoader.swift; sourceTree = "<group>"; };
 		81959014243E28CF001A6DB9 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		8DF1318A24506B8A004C2CC7 /* MealViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealViewController.swift; sourceTree = "<group>"; };
 		A495976781D0CFCA4734B6F6 /* Pods-AppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppTests.release.xcconfig"; path = "Target Support Files/Pods-AppTests/Pods-AppTests.release.xcconfig"; sourceTree = "<group>"; };
 		B93CC3942CBD2FF80F007364 /* Pods_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEC02FBEFF18FB094BC2524F /* Pods_AppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -174,6 +176,7 @@
 			children = (
 				C407E91F243CC20500DA8490 /* Profile */,
 				C44D146D243655BA0094497A /* ViewController.swift */,
+				8DF1318A24506B8A004C2CC7 /* MealViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -556,6 +559,7 @@
 				C44D146A243655BA0094497A /* AppDelegate.swift in Sources */,
 				81332270243CC3A000F1F44B /* DataLoader+User.swift in Sources */,
 				C44D146C243655BA0094497A /* SceneDelegate.swift in Sources */,
+				8DF1318B24506B8A004C2CC7 /* MealViewController.swift in Sources */,
 				81959015243E28CF001A6DB9 /* Model.xcdatamodeld in Sources */,
 				812B30F2243CBF80002F1AFF /* ServiceError.swift in Sources */,
 			);
