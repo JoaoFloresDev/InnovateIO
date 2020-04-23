@@ -12,6 +12,7 @@ enum PersistenceError: Error {
     case applicationNotRunning
     case dataNotFound
     case invalidDate
+    case invalidTime
     case cantSave
     case cantLoad
 }

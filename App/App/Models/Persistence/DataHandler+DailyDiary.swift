@@ -6,37 +6,173 @@
 //  Copyright © 2020 Joao Flores. All rights reserved.
 //
 
-import Foundation
 import CoreData
 
 
 // An extension that handles the Diary's Data (DBO)
 extension DataHandler {
     
-    func createDailyDiary(quality: Int, meal: Meal) throws {
+    
+
+    /// Creates a new Daily Diary entity and saves into the local storage.
+    /// - Parameters:
+    ///   - quality: Quality (between bad, neutral, good or in numbers -1, 0, 1)
+    ///   - didDrinkWater: Did the user drink water
+    ///   - didPracticeExercise: Did the user practice exercise / any sport
+    ///   - didEatFruit: Did the user eat a fruit
+    //// - Throws: Can't save into local storage due to available space is missing or corrupted or can't get the current date.
+    func createDailyDiary(quality: Int, didDrinkWater: Bool, didPracticeExercise: Bool, didEatFruit: Bool) throws {
         
         // Loading Core Data's User entity
         let entity = NSEntityDescription.entity(forEntityName: "DailyDiary", in: self.managedContext)
         let diary = NSManagedObject(entity: entity!, insertInto: self.managedContext)
         
-        // Setting values for the new user
+        // Getting the current date
         let (year, month, day, _, _, _) = Date.getAllInformations(Date())()
         
-        if year == nil || month == nil || day == nil {
+        // Checking for existing previous data
+        do {
+            let _ = try loadDailyDiary(year: year, month: month, day: day)
+            try self.deleteDailyDiary(year: year, month: month, day: day)
+        }
+        catch { }
+        
+        var clampedQuality = 0
+        
+        if (quality < 0) {
+            clampedQuality = -1
+        }
+        else if (quality > 0) {
+            clampedQuality = 1
+        }
+        
+        diary.setValue(clampedQuality, forKey: "quality")
+        diary.setValue(year, forKey: "year")
+        diary.setValue(month, forKey: "month")
+        diary.setValue(day, forKey: "day")
+        diary.setValue(didDrinkWater, forKey: "didDrinkWater")
+        diary.setValue(didPracticeExercise, forKey: "didPracticeExercise")
+        diary.setValue(didEatFruit, forKey: "didEatFruit")
+
+        // Trying to save the new data on local storage
+        do {
+            try self.managedContext.save()
+        }
+        catch {
+            throw PersistenceError.cantSave
+        }
+        
+    }
+    
+
+    
+    /// Creates a new Daily Diary with a Meal entity and saves into the local storage.
+    /// - Parameters:
+    ///   - quality: Quality (between bad, neutral, good or in numbers -1, 0, 1)
+    ///   - didDrinkWater: Did the user drink water
+    ///   - didPracticeExercise: Did the user practice exercise / any sport
+    ///   - didEatFruit: Did the user eat a fruit
+    ///   - meal: The meal object if he/she wants to insert
+    /// - Throws: Can't save into local storage due to available space is missing or corrupted or can't get the current date.
+    func createDailyDiary(quality: Int, didDrinkWater: Bool, didPracticeExercise: Bool, didEatFruit: Bool, meal: Meal) throws {
+        
+        // Loading Core Data's User entity
+        let entity = NSEntityDescription.entity(forEntityName: "DailyDiary", in: self.managedContext)
+        let diary = NSManagedObject(entity: entity!, insertInto: self.managedContext)
+        
+        // Getting the current date
+        let (year, month, day, _, _, _) = Date.getAllInformations(Date())()
+        
+        // Checking for existing previous data
+        do {
+            let _ = try loadDailyDiary(year: year, month: month, day: day)
+            try self.deleteDailyDiary(year: year, month: month, day: day)
+        }
+        catch { }
+        
+        var clampedQuality = 0
+        
+        if (quality < 0) {
+            clampedQuality = -1
+        }
+        else if (quality > 0) {
+            clampedQuality = 1
+        }
+        
+        diary.setValue(clampedQuality, forKey: "quality")
+        diary.setValue(year, forKey: "year")
+        diary.setValue(month, forKey: "month")
+        diary.setValue(day, forKey: "day")
+        diary.setValue(didDrinkWater, forKey: "didDrinkWater")
+        diary.setValue(didPracticeExercise, forKey: "didPracticeExercise")
+        diary.setValue(didEatFruit, forKey: "didEatFruit")
+
+        // Trying to save the new data on local storage
+        do {
+            try self.managedContext.save()
+        }
+        catch {
+            throw PersistenceError.cantSave
+        }
+        
+        do {
+            try self.createMeal(quality: Int(meal.quality), hour: Int(meal.hour), minute: Int(meal.minute))
+        }
+        catch {
+            try self.deleteDailyDiary(year: year, month: month, day: day)
+            throw PersistenceError.cantSave
+        }
+    }
+    
+    
+    
+    /// Creates a new Daily Diary with a Meal entity and saves into the local storage into a certain date.
+    /// - Parameters:
+    ///   - year: Desired Year
+    ///   - month: Desired Month
+    ///   - day: Desired Day
+    ///   - quality: Quality (between bad, neutral, good or in numbers -1, 0, 1)
+    ///   - didDrinkWater: Did the user drink water
+    ///   - didPracticeExercise: Did the user practice exercise / any sport
+    ///   - didEatFruit: Did the user eat a fruit
+    ///   - meal: The meal object if he/she wants to insert
+    /// - Throws: Can't save into local storage due to available space is missing or corrupted or can't get the current date.
+    func createDailyDiary(year: Int, month: Int, day: Int, quality: Int, didDrinkWater: Bool, didPracticeExercise: Bool, didEatFruit: Bool, meal: Meal) throws {
+        
+        // Loading Core Data's User entity
+        let entity = NSEntityDescription.entity(forEntityName: "DailyDiary", in: self.managedContext)
+        let diary = NSManagedObject(entity: entity!, insertInto: self.managedContext)
+        
+        // Checking if the desired date exists
+        let isValidDate = Date().checkDate(year: year, month: month, day: day)
+        
+        if !isValidDate {
             throw PersistenceError.invalidDate
         }
         
         // Checking for existing previous data
         do {
-            let _ = try loadDailyDiary(year: year!, month: month!, day: day!)
-            try self.deleteDailyDiary(year: year!, month: month!, day: day!)
+            let _ = try loadDailyDiary(year: year, month: month, day: day)
+            try self.deleteDailyDiary(year: year, month: month, day: day)
         }
         catch { }
         
-        diary.setValue(quality, forKey: "quality")
-        diary.setValue(year!, forKey: "year")
-        diary.setValue(month!, forKey: "month")
-        diary.setValue(day!, forKey: "day")
+        var clampedQuality = 0
+        
+        if (quality < 0) {
+            clampedQuality = -1
+        }
+        else if (quality > 0) {
+            clampedQuality = 1
+        }
+        
+        diary.setValue(clampedQuality, forKey: "quality")
+        diary.setValue(year, forKey: "year")
+        diary.setValue(month, forKey: "month")
+        diary.setValue(day, forKey: "day")
+        diary.setValue(didDrinkWater, forKey: "didDrinkWater")
+        diary.setValue(didPracticeExercise, forKey: "didPracticeExercise")
+        diary.setValue(didEatFruit, forKey: "didEatFruit")
 
         // Trying to save the new data on local storage
         do {
@@ -50,8 +186,22 @@ extension DataHandler {
     
     
     
-
+    /// Loads a Daily Diary from the local storage.
+    /// - Parameters:
+    ///   - year: Desired year
+    ///   - month: Desired month
+    ///   - day: Desired day
+    /// - Throws: Can't load from local storage because the data wasn't found or the date is invalid.
+    /// - Returns: A Daily Diary object from that Day
     func loadDailyDiary(year: Int, month: Int, day: Int) throws -> DailyDiary {
+        
+        // Checking if the date is valid
+        let date = Date()
+        let isValidDate = date.checkDate(year: year, month: month, day: day)
+        
+        if !isValidDate {
+            throw PersistenceError.invalidDate
+        }
         
         // Mounting the type of request
         let fetchRequest = NSFetchRequest<DailyDiary>(entityName: "DailyDiary")
@@ -67,6 +217,11 @@ extension DataHandler {
         // Trying to find some User
         do {
             let dailyDiary = try managedContext.fetch(fetchRequest)
+            
+            if (dailyDiary.count == 0) {
+                throw PersistenceError.cantLoad
+            }
+            
             return dailyDiary[0]
         }
         catch {
@@ -77,6 +232,12 @@ extension DataHandler {
     
     
     
+    /// Deletes certain Daily Diary from the local storage
+    /// - Parameters:
+    ///   - year: Desired year
+    ///   - month: Desired month
+    ///   - day: Desired day
+    /// - Throws: Can't load from local storage because the data wasn't found
     func deleteDailyDiary(year: Int, month: Int, day: Int) throws {
         
         // Mounting the type of request
