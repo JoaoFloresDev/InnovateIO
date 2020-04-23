@@ -13,6 +13,7 @@ enum PersistenceError: Error {
     case dataNotFound
     case invalidDate
     case invalidTime
+    case invalidEntity
     case cantSave
     case cantLoad
 }

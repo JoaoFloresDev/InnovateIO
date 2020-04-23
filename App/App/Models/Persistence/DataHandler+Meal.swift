@@ -18,52 +18,63 @@ extension DataHandler {
     ///   - quality: Quality (between bad, neutral, good or in numbers -1, 0, 1)
     ///   - hour: The hour of the Meal
     ///   - minute: The minutes related to the hour of the Meal
-    /// - Throws: Can't save into local storage due to available space is missing or corrupted or invalid time.
+    /// - Throws: Can't save into local storage due to available space is missing or corrupted or invalid time or invalid calendar or invalid entity.
     func createMeal(quality: Int, hour: Int, minute: Int) throws {
         
         // Loading Core Data's User entity
         let entity = NSEntityDescription.entity(forEntityName: "Meal", in: self.managedContext)
+        
+        // FIXED: Fixed force wrap by doing this verification and throwing an Exception - PR 11
+        if entity == nil {
+            throw PersistenceError.invalidEntity
+        }
+        
         let diary = NSManagedObject(entity: entity!, insertInto: self.managedContext)
         
         // Getting the current date
-        let date = Date()
-        let (year, month, day, _, _, _) = date.getAllInformations(from: date)
-        
-        // Clamping the values if they were inserted incorrectly!
-        var clampedQuality = 0
-        
-        if (quality < 0) {
-            clampedQuality = -1
-        }
-        else if (quality > 0) {
-            clampedQuality = 1
-        }
-        
-        if (hour > 23) || (hour < 0) {
-            throw PersistenceError.invalidTime
-        }
+        do {
+            let date = Date()
+            let (year, month, day, _, _, _) = try date.getAllInformations(from: date)
+            
+            // Clamping the values if they were inserted incorrectly!
+            var clampedQuality = 0
+            
+            if (quality < 0) {
+                clampedQuality = -1
+            }
+            else if (quality > 0) {
+                clampedQuality = 1
+            }
+            
+            if (hour > 23) || (hour < 0) {
+                throw PersistenceError.invalidTime
+            }
 
 
-        if (minute > 59) || (minute < 0) {
-            throw PersistenceError.invalidTime
-        }
+            if (minute > 59) || (minute < 0) {
+                throw PersistenceError.invalidTime
+            }
          
     
-        // Setting the values into the Core Data's Model
-        diary.setValue(clampedQuality, forKey: "quality")
-        diary.setValue(year, forKey: "year")
-        diary.setValue(month, forKey: "month")
-        diary.setValue(day, forKey: "day")
-        diary.setValue(hour, forKey: "hour")
-        diary.setValue(minute, forKey: "minute")
+            // Setting the values into the Core Data's Model
+            diary.setValue(clampedQuality, forKey: "quality")
+            diary.setValue(year, forKey: "year")
+            diary.setValue(month, forKey: "month")
+            diary.setValue(day, forKey: "day")
+            diary.setValue(hour, forKey: "hour")
+            diary.setValue(minute, forKey: "minute")
 
-        
-        // Trying to save the new data on local storage
-        do {
-            try self.managedContext.save()
+            
+            // Trying to save the new data on local storage
+            do {
+                try self.managedContext.save()
+            }
+            catch {
+                throw PersistenceError.cantSave
+            }
         }
         catch {
-            throw PersistenceError.cantSave
+            throw DateError.calendarNotFound
         }
         
     }
@@ -78,11 +89,17 @@ extension DataHandler {
     ///   - day: Desired Day
     ///   - hour: The hour of the Meal
     ///   - minute: The minutes related to the hour of the Meal
-    /// - Throws: Can't save into local storage due to available space is missing or corrupted or invalid date or invalid time.
+    /// - Throws: Can't save into local storage due to available space is missing or corrupted or invalid date or invalid time or invalid calendar or invalid entity.
     func createMeal(quality: Int, year: Int, month: Int, day: Int, hour: Int, minute: Int) throws {
         
         // Loading Core Data's User entity
         let entity = NSEntityDescription.entity(forEntityName: "Meal", in: self.managedContext)
+        
+        // FIXED: Fixed force wrap by doing this verification and throwing an Exception - PR 11
+        if entity == nil {
+            throw PersistenceError.invalidEntity
+        }
+        
         let diary = NSManagedObject(entity: entity!, insertInto: self.managedContext)
 
         // Clamping the values if they were inserted incorrectly!
@@ -95,10 +112,15 @@ extension DataHandler {
             clampedQuality = 1
         }
         
-        let isValidDate = Date().checkDate(year: year, month: month, day: day)
-        
-        if !isValidDate {
-            throw PersistenceError.invalidDate
+        do {
+            let isValidDate = try Date().checkDate(year: year, month: month, day: day)
+            
+            if !isValidDate {
+                throw PersistenceError.invalidDate
+            }
+        }
+        catch {
+            throw DateError.calendarNotFound
         }
         
         if (hour > 23) || (hour < 0) {
@@ -136,16 +158,21 @@ extension DataHandler {
     ///   - year: Desired Year
     ///   - month: Desired Month
     ///   - day: Desired Day
-    /// - Throws: Can't load storage data because it has invalid parameters.
+    /// - Throws: Can't load storage data because it has invalid parameters or invalid calendar.
     /// - Returns: A list of meals registered in the certain Date.
     func loadMeals(year: Int, month: Int, day: Int) throws -> [Meal] {
         
         // Checking if the date is valid
-        let date = Date()
-        let isValidDate = date.checkDate(year: year, month: month, day: day)
-        
-        if !isValidDate {
-            throw PersistenceError.invalidDate
+        do {
+            let date = Date()
+            let isValidDate = try date.checkDate(year: year, month: month, day: day)
+            
+            if !isValidDate {
+                throw PersistenceError.invalidDate
+            }
+        }
+        catch {
+            throw DateError.calendarNotFound
         }
         
         // Mounting the type of request
@@ -182,11 +209,16 @@ extension DataHandler {
     func deleteMeal(year: Int, month: Int, day: Int, meal: Meal) throws {
         
         // Checking if the date is valid
-        let date = Date()
-        let isValidDate = date.checkDate(year: year, month: month, day: day)
-        
-        if !isValidDate {
-            throw PersistenceError.invalidDate
+        do {
+            let date = Date()
+            let isValidDate = try date.checkDate(year: year, month: month, day: day)
+            
+            if !isValidDate {
+                throw PersistenceError.invalidDate
+            }
+        }
+        catch {
+            throw DateError.calendarNotFound
         }
         
         // Mounting the type of request
@@ -228,11 +260,16 @@ extension DataHandler {
     func deleteAllMeals(year: Int, month: Int, day: Int) throws {
         
         // Checking if the date is valid
-        let date = Date()
-        let isValidDate = date.checkDate(year: year, month: month, day: day)
-        
-        if !isValidDate {
-            throw PersistenceError.invalidDate
+        do {
+            let date = Date()
+            let isValidDate = try date.checkDate(year: year, month: month, day: day)
+                
+            if !isValidDate {
+                throw PersistenceError.invalidDate
+            }
+        }
+        catch {
+            throw DateError.calendarNotFound
         }
         
         // Mounting the type of request

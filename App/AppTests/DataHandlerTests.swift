@@ -42,16 +42,16 @@ class DataHandlerTests: XCTestCase {
         
         // Test
         // Gregorian calendar with future and past dates and leap years
-        XCTAssert(date.checkDate(year: 1800, month: 1, day: 1) == false)
-        XCTAssert(date.checkDate(year: 1900, month: 1, day: 1) == true)
-        XCTAssert(date.checkDate(year: 1900, month: 0, day: 1) == false)
-        XCTAssert(date.checkDate(year: 1900, month: 13, day: 1) == false)
-        XCTAssert(date.checkDate(year: 2077, month: 12, day: 1) == false)
-        XCTAssert(date.checkDate(year: 2000, month: 12, day: 1) == true)
-        XCTAssert(date.checkDate(year: 2012, month: 2, day: 29) == true)  // Leap Year
-        XCTAssert(date.checkDate(year: 2012, month: 2, day: 30) == false) // Leap Year
-        XCTAssert(date.checkDate(year: 2017, month: 2, day: 28) == true)  // Non-Leap Year
-        XCTAssert(date.checkDate(year: 2017, month: 2, day: 29) == false) // Non-Leap Year
+        XCTAssert(try date.checkDate(year: 1800, month: 1, day: 1) == false)
+        XCTAssert(try date.checkDate(year: 1900, month: 1, day: 1) == true)
+        XCTAssert(try date.checkDate(year: 1900, month: 0, day: 1) == false)
+        XCTAssert(try date.checkDate(year: 1900, month: 13, day: 1) == false)
+        XCTAssert(try date.checkDate(year: 2077, month: 12, day: 1) == false)
+        XCTAssert(try date.checkDate(year: 2000, month: 12, day: 1) == true)
+        XCTAssert(try date.checkDate(year: 2012, month: 2, day: 29) == true)  // Leap Year
+        XCTAssert(try date.checkDate(year: 2012, month: 2, day: 30) == false) // Leap Year
+        XCTAssert(try date.checkDate(year: 2017, month: 2, day: 28) == true)  // Non-Leap Year
+        XCTAssert(try date.checkDate(year: 2017, month: 2, day: 29) == false) // Non-Leap Year
         
     }
     
