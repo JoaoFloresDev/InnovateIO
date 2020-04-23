@@ -150,10 +150,43 @@ struct R: Rswift.Validatable {
   }
   #endif
 
-  /// This `R.color` struct is generated, and contains static references to 1 colors.
+  /// This `R.color` struct is generated, and contains static references to 4 colors.
   struct color {
+    /// Color `BadColor`.
+    static let badColor = Rswift.ColorResource(bundle: R.hostingBundle, name: "BadColor")
+    /// Color `GoodColor`.
+    static let goodColor = Rswift.ColorResource(bundle: R.hostingBundle, name: "GoodColor")
+    /// Color `MediumColor`.
+    static let mediumColor = Rswift.ColorResource(bundle: R.hostingBundle, name: "MediumColor")
     /// Color `PrimaryColor`.
     static let primaryColor = Rswift.ColorResource(bundle: R.hostingBundle, name: "PrimaryColor")
+
+    #if os(iOS) || os(tvOS)
+    /// `UIColor(named: "BadColor", bundle: ..., traitCollection: ...)`
+    @available(tvOS 11.0, *)
+    @available(iOS 11.0, *)
+    static func badColor(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
+      return UIKit.UIColor(resource: R.color.badColor, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIColor(named: "GoodColor", bundle: ..., traitCollection: ...)`
+    @available(tvOS 11.0, *)
+    @available(iOS 11.0, *)
+    static func goodColor(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
+      return UIKit.UIColor(resource: R.color.goodColor, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIColor(named: "MediumColor", bundle: ..., traitCollection: ...)`
+    @available(tvOS 11.0, *)
+    @available(iOS 11.0, *)
+    static func mediumColor(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
+      return UIKit.UIColor(resource: R.color.mediumColor, compatibleWith: traitCollection)
+    }
+    #endif
 
     #if os(iOS) || os(tvOS)
     /// `UIColor(named: "PrimaryColor", bundle: ..., traitCollection: ...)`
@@ -376,8 +409,10 @@ struct _R: Rswift.Validatable {
       let name = "Meals"
 
       static func validate() throws {
+        if UIKit.UIImage(named: "fruits", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'fruits' is used in storyboard 'Meals', but couldn't be loaded.") }
         if UIKit.UIImage(named: "square.and.arrow.up", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'square.and.arrow.up' is used in storyboard 'Meals', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
+          if UIKit.UIColor(named: "GoodColor", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'GoodColor' is used in storyboard 'Meals', but couldn't be loaded.") }
         }
       }
 
