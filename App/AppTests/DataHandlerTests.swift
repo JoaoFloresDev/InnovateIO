@@ -61,6 +61,9 @@ class DataHandlerTests: XCTestCase {
         // Adding a Diary without a Meal
         do {
             try self.dataHandler?.createDailyDiary(quality: 1, didDrinkWater: false, didPracticeExercise: false, didEatFruit: false)
+            
+            try self.dataHandler?.createDailyDiary(quality: 1, didDrinkWater: nil, didPracticeExercise: nil, didEatFruit: nil)
+            
         }
         catch {
             XCTFail()
@@ -70,6 +73,8 @@ class DataHandlerTests: XCTestCase {
         // Adding a Diary with a Meal
         do {
             try self.dataHandler?.createDailyDiary(quality: 1, didDrinkWater: false, didPracticeExercise: false, didEatFruit: false, meal: self.meal!)
+            
+            try self.dataHandler?.createDailyDiary(quality: 1, didDrinkWater: nil, didPracticeExercise: nil, didEatFruit: nil, meal: self.meal!)
         }
         catch {
             XCTFail()
@@ -83,6 +88,8 @@ class DataHandlerTests: XCTestCase {
             // PLEASE VERIFY THE DATE BEFORE TESTING //
             // ------------------------------------- //
             try self.dataHandler?.createDailyDiary(year: 2020, month: 4, day: 23, quality: 1, didDrinkWater: false, didPracticeExercise: false, didEatFruit: false, meal: self.meal!)
+            
+            try self.dataHandler?.createDailyDiary(year: 2020, month: 4, day: 23, quality: 1, didDrinkWater: nil, didPracticeExercise: nil, didEatFruit: nil, meal: self.meal!)
         }
         catch {
             XCTFail()

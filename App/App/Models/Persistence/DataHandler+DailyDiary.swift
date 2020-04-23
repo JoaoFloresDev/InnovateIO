@@ -21,7 +21,7 @@ extension DataHandler {
     ///   - didPracticeExercise: Did the user practice exercise / any sport
     ///   - didEatFruit: Did the user eat a fruit
     /// - Throws: Can't save into local storage due to available space is missing or corrupted or can't get the current date or invalid calendar or invalid entity.
-    func createDailyDiary(quality: Int, didDrinkWater: Bool, didPracticeExercise: Bool, didEatFruit: Bool) throws {
+    func createDailyDiary(quality: Int, didDrinkWater: Bool?, didPracticeExercise: Bool?, didEatFruit: Bool?) throws {
         
         // Loading Core Data's User entity
         let entity = NSEntityDescription.entity(forEntityName: "DailyDiary", in: self.managedContext)
@@ -45,6 +45,7 @@ extension DataHandler {
             }
             catch { }
             
+            // Clamping the quality variable
             var clampedQuality = 0
             
             if (quality < 0) {
@@ -54,13 +55,31 @@ extension DataHandler {
                 clampedQuality = 1
             }
             
+            // Checking for optional variables
+            var clampedDidDrinkWater = false
+            var clampedDidPracticeExercise = false
+            var clampedDidEatFruit = false
+            
+            if didDrinkWater != nil {
+                clampedDidDrinkWater = didDrinkWater!
+            }
+            
+            if didPracticeExercise != nil {
+                clampedDidPracticeExercise = didPracticeExercise!
+            }
+            
+            if didEatFruit != nil {
+                clampedDidEatFruit = didEatFruit!
+            }
+            
+            // Setting the values into context
             diary.setValue(clampedQuality, forKey: "quality")
             diary.setValue(year, forKey: "year")
             diary.setValue(month, forKey: "month")
             diary.setValue(day, forKey: "day")
-            diary.setValue(didDrinkWater, forKey: "didDrinkWater")
-            diary.setValue(didPracticeExercise, forKey: "didPracticeExercise")
-            diary.setValue(didEatFruit, forKey: "didEatFruit")
+            diary.setValue(clampedDidDrinkWater, forKey: "didDrinkWater")
+            diary.setValue(clampedDidPracticeExercise, forKey: "didPracticeExercise")
+            diary.setValue(clampedDidEatFruit, forKey: "didEatFruit")
 
             // Trying to save the new data on local storage
             do {
@@ -86,7 +105,7 @@ extension DataHandler {
     ///   - didEatFruit: Did the user eat a fruit
     ///   - meal: The meal object if he/she wants to insert
     /// - Throws: Can't save into local storage due to available space is missing or corrupted or can't get the current date or invalid calendar or invalid entity.
-    func createDailyDiary(quality: Int, didDrinkWater: Bool, didPracticeExercise: Bool, didEatFruit: Bool, meal: Meal) throws {
+    func createDailyDiary(quality: Int, didDrinkWater: Bool?, didPracticeExercise: Bool?, didEatFruit: Bool?, meal: Meal) throws {
         
         // Loading Core Data's User entity
         let entity = NSEntityDescription.entity(forEntityName: "DailyDiary", in: self.managedContext)
@@ -103,6 +122,7 @@ extension DataHandler {
             let date = Date()
             let (year, month, day, _, _, _) = try date.getAllInformations(from: date)
         
+            
             // Checking for existing previous data
             do {
                 let _ = try loadDailyDiary(year: year, month: month, day: day)
@@ -110,6 +130,8 @@ extension DataHandler {
             }
             catch { } // If the catch got some exception... That means there is no previous data
             
+            
+            // Clamping the quality variable
             var clampedQuality = 0
             
             if (quality < 0) {
@@ -119,13 +141,32 @@ extension DataHandler {
                 clampedQuality = 1
             }
             
+            
+            // Checking for optional variables
+            var clampedDidDrinkWater = false
+            var clampedDidPracticeExercise = false
+            var clampedDidEatFruit = false
+            
+            if didDrinkWater != nil {
+                clampedDidDrinkWater = didDrinkWater!
+            }
+            
+            if didPracticeExercise != nil {
+                clampedDidPracticeExercise = didPracticeExercise!
+            }
+            
+            if didEatFruit != nil {
+                clampedDidEatFruit = didEatFruit!
+            }
+            
+            // Setting the values into context
             diary.setValue(clampedQuality, forKey: "quality")
             diary.setValue(year, forKey: "year")
             diary.setValue(month, forKey: "month")
             diary.setValue(day, forKey: "day")
-            diary.setValue(didDrinkWater, forKey: "didDrinkWater")
-            diary.setValue(didPracticeExercise, forKey: "didPracticeExercise")
-            diary.setValue(didEatFruit, forKey: "didEatFruit")
+            diary.setValue(clampedDidDrinkWater, forKey: "didDrinkWater")
+            diary.setValue(clampedDidPracticeExercise, forKey: "didPracticeExercise")
+            diary.setValue(clampedDidEatFruit, forKey: "didEatFruit")
 
             // Trying to save the new data on local storage
             do {
@@ -161,7 +202,7 @@ extension DataHandler {
     ///   - didEatFruit: Did the user eat a fruit
     ///   - meal: The meal object if he/she wants to insert
     /// - Throws: Can't save into local storage due to available space is missing or corrupted or can't get the current date or invalid calendar or invalid entity.
-    func createDailyDiary(year: Int, month: Int, day: Int, quality: Int, didDrinkWater: Bool, didPracticeExercise: Bool, didEatFruit: Bool, meal: Meal) throws {
+    func createDailyDiary(year: Int, month: Int, day: Int, quality: Int, didDrinkWater: Bool?, didPracticeExercise: Bool?, didEatFruit: Bool?, meal: Meal) throws {
         
         // Loading Core Data's User entity
         let entity = NSEntityDescription.entity(forEntityName: "DailyDiary", in: self.managedContext)
@@ -182,6 +223,7 @@ extension DataHandler {
                 throw PersistenceError.invalidDate
             }
             
+            
             // Checking for existing previous data
             do {
                 let _ = try loadDailyDiary(year: year, month: month, day: day)
@@ -189,6 +231,8 @@ extension DataHandler {
             }
             catch { }
             
+            
+            // Clamping the quality variable
             var clampedQuality = 0
             
             if (quality < 0) {
@@ -198,13 +242,31 @@ extension DataHandler {
                 clampedQuality = 1
             }
             
+            
+            // Checking for optional variables
+            var clampedDidDrinkWater = false
+            var clampedDidPracticeExercise = false
+            var clampedDidEatFruit = false
+            
+            if didDrinkWater != nil {
+                clampedDidDrinkWater = didDrinkWater!
+            }
+            
+            if didPracticeExercise != nil {
+                clampedDidPracticeExercise = didPracticeExercise!
+            }
+            
+            if didEatFruit != nil {
+                clampedDidEatFruit = didEatFruit!
+            }
+            
             diary.setValue(clampedQuality, forKey: "quality")
             diary.setValue(year, forKey: "year")
             diary.setValue(month, forKey: "month")
             diary.setValue(day, forKey: "day")
-            diary.setValue(didDrinkWater, forKey: "didDrinkWater")
-            diary.setValue(didPracticeExercise, forKey: "didPracticeExercise")
-            diary.setValue(didEatFruit, forKey: "didEatFruit")
+            diary.setValue(clampedDidDrinkWater, forKey: "didDrinkWater")
+            diary.setValue(clampedDidPracticeExercise, forKey: "didPracticeExercise")
+            diary.setValue(clampedDidEatFruit, forKey: "didEatFruit")
 
             // Trying to save the new data on local storage
             do {
