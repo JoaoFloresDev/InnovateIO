@@ -9,10 +9,10 @@
 import UIKit
 import CoreData
 
-class DataLoader {
+class DataHandler {
     
     // Singleton related
-    private static var shared: DataLoader?
+    private static var shared: DataHandler?
     
     // Default properties related to the DAO (DataLoader)
     private(set) var managedContext: NSManagedObjectContext
@@ -24,7 +24,7 @@ class DataLoader {
 
         guard let appDelegate =
           UIApplication.shared.delegate as? AppDelegate else {
-            throw ServiceError.applicationNotRunning
+            throw PersistenceError.applicationNotRunning
         }
 
         self.managedContext = appDelegate.persistentContainer.viewContext
@@ -37,18 +37,18 @@ class DataLoader {
     /// Gets the shared instance of DataLoader.
     /// - Throws: An error that says the App wasn't fully initialized yet for managing data
     /// - Returns: A shared instance / singleton of DataLoader for managing data
-    static func getShared() throws -> DataLoader {
+    static func getShared() throws -> DataHandler {
         
-        if (DataLoader.shared == nil) {
+        if (DataHandler.shared == nil) {
             do {
-                DataLoader.shared = try DataLoader()
+                DataHandler.shared = try DataHandler()
             }
-            catch let error as ServiceError {
+            catch let error as PersistenceError {
                 throw error
             }
         }
         
-        return DataLoader.shared!
+        return DataHandler.shared!
     }
     
 }
