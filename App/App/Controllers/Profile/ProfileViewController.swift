@@ -20,10 +20,10 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
     
     //BackgroundImages
     @IBOutlet weak var topBackgroundImg: UIImageView!
-    @IBOutlet weak var bottomBackgroundImg: UIImageView!
     
     //  header
     @IBOutlet weak var profileImg: UIImageView!
+    @IBOutlet weak var profileImgView: UIView!
     
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var plainsLabel: UILabel!
@@ -31,11 +31,11 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
     @IBOutlet weak var exercicePercentLabel: UILabel!
     @IBOutlet weak var fruitsPercentLabel: UILabel!
     @IBOutlet weak var waterPercentLabel: UILabel!
-    @IBOutlet weak var balanceImg: UIImageView!
     
     //  graphics
     @IBOutlet weak var weightGraphicView: UIView!
     @IBOutlet weak var habitsGraphicView: UIView!
+    @IBOutlet weak var resumeView: UIView!
     
     @IBOutlet weak var colorExerciceGraphicsImage: UIImageView!
     @IBOutlet weak var colorFruitsGraphicsImage: UIImageView!
@@ -155,19 +155,19 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
     //    MARK: - Style
     override var preferredStatusBarStyle: UIStatusBarStyle {
         
-        return .lightContent
+        return .darkContent
     }
     
     func setupStyleViews() {
         
         cropBounds(viewlayer: weightGraphicView.layer, cornerRadius: 10)
         cropBounds(viewlayer: habitsGraphicView.layer, cornerRadius: 10)
-        cropBounds(viewlayer: colorExerciceGraphicsImage.layer, cornerRadius: 5)
-        cropBounds(viewlayer: colorFruitsGraphicsImage.layer, cornerRadius: 5)
-        cropBounds(viewlayer: colorWaterGraphicsLabel.layer, cornerRadius: 5)
-        cropBounds(viewlayer: bottomBackgroundImg.layer, cornerRadius: 25)
+        cropBounds(viewlayer: resumeView.layer, cornerRadius: 10)
+//        cropBounds(viewlayer: colorExerciceGraphicsImage.layer, cornerRadius: 5)
+//        cropBounds(viewlayer: colorFruitsGraphicsImage.layer, cornerRadius: 5)
+//        cropBounds(viewlayer: colorWaterGraphicsLabel.layer, cornerRadius: 5)
         cropBounds(viewlayer: topBackgroundImg.layer, cornerRadius: 25)
-        cropBounds(viewlayer: balanceImg.layer, cornerRadius: 15)
+        cropBounds(viewlayer: profileImgView.layer, cornerRadius: Float(profileImgView.frame.width/2))
     }
     
     func cropBounds(viewlayer: CALayer, cornerRadius: Float) {

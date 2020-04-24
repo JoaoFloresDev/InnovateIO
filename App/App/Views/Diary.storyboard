@@ -17,7 +17,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="Lcb-ir-xcC"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Diary" id="Q5D-cT-KHw"/>
+                    <tabBarItem key="tabBarItem" title="Diary" image="calendar.circle" catalog="system" selectedImage="calendar.circle.fill" id="Q5D-cT-KHw"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HHa-rb-Q1e" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -25,4 +25,8 @@
             <point key="canvasLocation" x="230" y="119"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="calendar.circle" catalog="system" width="64" height="60"/>
+        <image name="calendar.circle.fill" catalog="system" width="64" height="60"/>
+    </resources>
 </document>
