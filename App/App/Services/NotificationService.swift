@@ -15,6 +15,7 @@ class NotificationService {
     
     let userInfoTypeKey = "notificationType"
     
+    /// Request user's permission to fire notifications.
     func requestPermissions() {
         let notificationOptions: UNAuthorizationOptions = [.alert, .sound, .badge]
         notificationCenter.requestAuthorization(options: notificationOptions) {
@@ -25,6 +26,8 @@ class NotificationService {
         }
     }
     
+    /// Creates a notification content, its trigger and its request to add to notification center, according to the type of the notification.
+    /// - Parameter type: type of notification.
     func sendNotification(type: NotificationType) {
         let notificationContent = UNMutableNotificationContent()
         notificationContent.title = "Não se esqueça!"
@@ -56,6 +59,10 @@ class NotificationService {
         }
     }
     
+    /// Use this to make appropriate navigations inside app depending on type of notification.
+    /// - Parameters:
+    ///   - userInfo: userInfo dictionary associated with notification.
+    ///   - rootVC: the root view controller, which is a tab bar controller.
     func handleNavigation(for userInfo: [AnyHashable : Any], rootVC: UITabBarController) {
         guard let type = userInfo[userInfoTypeKey] as? Int else {
             print("Couldn't handle user info for notification.")
@@ -82,6 +89,7 @@ extension NotificationService {
         case addMeal
         case update
         
+        /// Dictionary which relates a notification's identifier to the hour it should be fired.
         var identifiersAndTime: [String : Int] {
             switch self {
             case .addMeal:
