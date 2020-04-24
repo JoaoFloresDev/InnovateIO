@@ -266,22 +266,18 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.image` struct is generated, and contains static references to 10 images.
+  /// This `R.image` struct is generated, and contains static references to 8 images.
   struct image {
     /// Image `ExerciseIcon`.
     static let exerciseIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "ExerciseIcon")
     /// Image `MealsResumeGraphic`.
     static let mealsResumeGraphic = Rswift.ImageResource(bundle: R.hostingBundle, name: "MealsResumeGraphic")
-    /// Image `ProfileBackground`.
-    static let profileBackground = Rswift.ImageResource(bundle: R.hostingBundle, name: "ProfileBackground")
     /// Image `ProfilePlaceholder`.
     static let profilePlaceholder = Rswift.ImageResource(bundle: R.hostingBundle, name: "ProfilePlaceholder")
     /// Image `WeightCircleGraphic`.
     static let weightCircleGraphic = Rswift.ImageResource(bundle: R.hostingBundle, name: "WeightCircleGraphic")
     /// Image `WeightGraphic`.
     static let weightGraphic = Rswift.ImageResource(bundle: R.hostingBundle, name: "WeightGraphic")
-    /// Image `balance`.
-    static let balance = Rswift.ImageResource(bundle: R.hostingBundle, name: "balance")
     /// Image `fruits`.
     static let fruits = Rswift.ImageResource(bundle: R.hostingBundle, name: "fruits")
     /// Image `habitsGraphic`.
@@ -304,13 +300,6 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
-    /// `UIImage(named: "ProfileBackground", bundle: ..., traitCollection: ...)`
-    static func profileBackground(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.profileBackground, compatibleWith: traitCollection)
-    }
-    #endif
-
-    #if os(iOS) || os(tvOS)
     /// `UIImage(named: "ProfilePlaceholder", bundle: ..., traitCollection: ...)`
     static func profilePlaceholder(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.profilePlaceholder, compatibleWith: traitCollection)
@@ -328,13 +317,6 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "WeightGraphic", bundle: ..., traitCollection: ...)`
     static func weightGraphic(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.weightGraphic, compatibleWith: traitCollection)
-    }
-    #endif
-
-    #if os(iOS) || os(tvOS)
-    /// `UIImage(named: "balance", bundle: ..., traitCollection: ...)`
-    static func balance(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.balance, compatibleWith: traitCollection)
     }
     #endif
 

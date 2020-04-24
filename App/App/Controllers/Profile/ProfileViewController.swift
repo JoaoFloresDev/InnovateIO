@@ -163,9 +163,9 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
         cropBounds(viewlayer: weightGraphicView.layer, cornerRadius: 10)
         cropBounds(viewlayer: habitsGraphicView.layer, cornerRadius: 10)
         cropBounds(viewlayer: resumeView.layer, cornerRadius: 10)
-//        cropBounds(viewlayer: colorExerciceGraphicsImage.layer, cornerRadius: 5)
-//        cropBounds(viewlayer: colorFruitsGraphicsImage.layer, cornerRadius: 5)
-//        cropBounds(viewlayer: colorWaterGraphicsLabel.layer, cornerRadius: 5)
+        cropBounds(viewlayer: colorExerciceGraphicsImage.layer, cornerRadius: 5)
+        cropBounds(viewlayer: colorFruitsGraphicsImage.layer, cornerRadius: 5)
+        cropBounds(viewlayer: colorWaterGraphicsLabel.layer, cornerRadius: 5)
         cropBounds(viewlayer: topBackgroundImg.layer, cornerRadius: 25)
         cropBounds(viewlayer: profileImgView.layer, cornerRadius: Float(profileImgView.frame.width/2))
     }
