@@ -24,7 +24,10 @@ extension MealViewController:UITableViewDataSource, UITableViewDelegate{
 	}
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		let cell = tableView.dequeueReusableCell(withIdentifier: "mealCell")!
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.mealCell.identifier) else {
+            print("Couldn't find cell with identifier \(R.reuseIdentifier.mealCell.identifier)")
+            return UITableViewCell()
+        }
 		
 		cell.textLabel?.text = options[indexPath.row]
 		
