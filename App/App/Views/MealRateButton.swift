@@ -9,26 +9,27 @@
 import Foundation
 import UIKit
 
-class MealRateButton: UIButton{
-	var cornerRadius:CGFloat = 0{
+class MealRateButton: UIButton {
+	@IBInspectable var cornerRadius: CGFloat = 0 {
 		didSet{
 			layer.cornerRadius = cornerRadius
 		}
 	}
 
-	var color:UIColor = UIColor.yellow{
+	@IBInspectable var color: UIColor = UIColor.yellow {
 		didSet{
-			setupButton(color:color)
+			setupButton()
 		}
 	}
 	
-	func setupButton(color:UIColor){
-		let topColor = self.backgroundColor
+	func setupButton() {
+        let topColor = self.backgroundColor ?? .white
 		let downColor = color
 		
 		let gradient = CAGradientLayer()
 		gradient.frame = self.bounds
 		gradient.colors = [topColor, downColor]
+        gradient.locations = [0.0, 0.75]
 		layer.insertSublayer(gradient, at: 0)
 	}
 }
