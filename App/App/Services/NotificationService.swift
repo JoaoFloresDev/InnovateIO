@@ -75,9 +75,9 @@ class NotificationService {
                 return viewController.isKind(of: MealViewController.self)
             })
             
-//        case NotificationType.update.rawValue
-            // TODO: [update notification] add navigation to "update weight and goal" modal
-            
+        case NotificationType.update.rawValue:
+            guard let profileVC = rootVC.selectedViewController as? ProfileViewController else { return }
+            profileVC.performSegue(withIdentifier: R.segue.profileViewController.toEditDataViewController.identifier, sender: nil)
         default: return
             
         }
