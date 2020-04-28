@@ -150,16 +150,43 @@ struct R: Rswift.Validatable {
   }
   #endif
 
-  /// This `R.color` struct is generated, and contains static references to 4 colors.
+  /// This `R.color` struct is generated, and contains static references to 13 colors.
   struct color {
+    /// Color `BackgrondColor`.
+    static let backgrondColor = Rswift.ColorResource(bundle: R.hostingBundle, name: "BackgrondColor")
     /// Color `BadColor`.
     static let badColor = Rswift.ColorResource(bundle: R.hostingBundle, name: "BadColor")
+    /// Color `CellColor`.
+    static let cellColor = Rswift.ColorResource(bundle: R.hostingBundle, name: "CellColor")
     /// Color `GoodColor`.
     static let goodColor = Rswift.ColorResource(bundle: R.hostingBundle, name: "GoodColor")
     /// Color `MediumColor`.
     static let mediumColor = Rswift.ColorResource(bundle: R.hostingBundle, name: "MediumColor")
-    /// Color `PrimaryColor`.
-    static let primaryColor = Rswift.ColorResource(bundle: R.hostingBundle, name: "PrimaryColor")
+    /// Color `PrimaryTextColor`.
+    static let primaryTextColor = Rswift.ColorResource(bundle: R.hostingBundle, name: "PrimaryTextColor")
+    /// Color `SecundaryTextColor`.
+    static let secundaryTextColor = Rswift.ColorResource(bundle: R.hostingBundle, name: "SecundaryTextColor")
+    /// Color `habitsExerciceColor`.
+    static let habitsExerciceColor = Rswift.ColorResource(bundle: R.hostingBundle, name: "habitsExerciceColor")
+    /// Color `habitsFruitsColor`.
+    static let habitsFruitsColor = Rswift.ColorResource(bundle: R.hostingBundle, name: "habitsFruitsColor")
+    /// Color `habitsWaterColor`.
+    static let habitsWaterColor = Rswift.ColorResource(bundle: R.hostingBundle, name: "habitsWaterColor")
+    /// Color `rateGreenColor`.
+    static let rateGreenColor = Rswift.ColorResource(bundle: R.hostingBundle, name: "rateGreenColor")
+    /// Color `rateRedColor`.
+    static let rateRedColor = Rswift.ColorResource(bundle: R.hostingBundle, name: "rateRedColor")
+    /// Color `rateYellowColor`.
+    static let rateYellowColor = Rswift.ColorResource(bundle: R.hostingBundle, name: "rateYellowColor")
+
+    #if os(iOS) || os(tvOS)
+    /// `UIColor(named: "BackgrondColor", bundle: ..., traitCollection: ...)`
+    @available(tvOS 11.0, *)
+    @available(iOS 11.0, *)
+    static func backgrondColor(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
+      return UIKit.UIColor(resource: R.color.backgrondColor, compatibleWith: traitCollection)
+    }
+    #endif
 
     #if os(iOS) || os(tvOS)
     /// `UIColor(named: "BadColor", bundle: ..., traitCollection: ...)`
@@ -167,6 +194,15 @@ struct R: Rswift.Validatable {
     @available(iOS 11.0, *)
     static func badColor(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
       return UIKit.UIColor(resource: R.color.badColor, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIColor(named: "CellColor", bundle: ..., traitCollection: ...)`
+    @available(tvOS 11.0, *)
+    @available(iOS 11.0, *)
+    static func cellColor(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
+      return UIKit.UIColor(resource: R.color.cellColor, compatibleWith: traitCollection)
     }
     #endif
 
@@ -185,24 +221,6 @@ struct R: Rswift.Validatable {
     @available(iOS 11.0, *)
     static func mediumColor(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
       return UIKit.UIColor(resource: R.color.mediumColor, compatibleWith: traitCollection)
-    }
-    #endif
-
-    #if os(iOS) || os(tvOS)
-    /// `UIColor(named: "PrimaryColor", bundle: ..., traitCollection: ...)`
-    @available(tvOS 11.0, *)
-    @available(iOS 11.0, *)
-    static func backgrondColor(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
-      return UIKit.UIColor(resource: R.color.backgrondColor, compatibleWith: traitCollection)
-    }
-    #endif
-
-    #if os(iOS) || os(tvOS)
-    /// `UIColor(named: "CellColor", bundle: ..., traitCollection: ...)`
-    @available(tvOS 11.0, *)
-    @available(iOS 11.0, *)
-    static func cellColor(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
-      return UIKit.UIColor(resource: R.color.cellColor, compatibleWith: traitCollection)
     }
     #endif
 
@@ -379,7 +397,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.reuseIdentifier` struct is generated, and contains static references to 4 reuse identifiers.
+  /// This `R.reuseIdentifier` struct is generated, and contains static references to 3 reuse identifiers.
   struct reuseIdentifier {
     /// Reuse identifier `LineChartTableViewCell`.
     static let lineChartTableViewCell: Rswift.ReuseIdentifier<LineChartTableViewCell> = Rswift.ReuseIdentifier(identifier: "LineChartTableViewCell")
@@ -387,10 +405,6 @@ struct R: Rswift.Validatable {
     static let performanceChart: Rswift.ReuseIdentifier<UIKit.UIView> = Rswift.ReuseIdentifier(identifier: "PerformanceChart")
     /// Reuse identifier `dateCell`.
     static let dateCell: Rswift.ReuseIdentifier<DateCell> = Rswift.ReuseIdentifier(identifier: "dateCell")
-    /// Reuse identifier `mealCell`.
-    static let mealCell: Rswift.ReuseIdentifier<UIKit.UITableViewCell> = Rswift.ReuseIdentifier(identifier: "mealCell")
-    /// Reuse identifier `LineChartTableViewCell`.
-    static let lineChartTableViewCell: Rswift.ReuseIdentifier<LineChartTableViewCell> = Rswift.ReuseIdentifier(identifier: "LineChartTableViewCell")
 
     fileprivate init() {}
   }
@@ -471,8 +485,6 @@ struct _R: Rswift.Validatable {
       }
 
       static func validate() throws {
-        if UIKit.UIImage(named: "calendar.circle", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'calendar.circle' is used in storyboard 'Diary', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "calendar.circle.fill", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'calendar.circle.fill' is used in storyboard 'Diary', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
         if _R.storyboard.calendar().calendarStoryboard() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'calendarStoryboard' could not be loaded from storyboard 'Calendar' as 'CalendarViewController'.") }
