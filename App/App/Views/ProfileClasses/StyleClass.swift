@@ -17,11 +17,24 @@ class StyleFunctions {
         imageLayer.masksToBounds = true
     }
     
-    func applicShadow(Layer: CALayer) {
-        Layer.shadowColor = UIColor.black.cgColor
-        Layer.shadowOpacity = 0.5
-        Layer.shadowOffset = .zero
-        Layer.shadowRadius = 5
+    func applicShadow(layer: CALayer) {
+        layer.shadowColor = UIColor.black.cgColor
+        layer.shadowOpacity = 0.5
+        layer.shadowOffset = .zero
+        layer.shadowRadius = 5
+    }
+    
+    func appliGradient(view: UIView) {
+        let mask = CAGradientLayer()
+        mask.startPoint = CGPoint(x: 0.0, y: 0.0)
+        mask.endPoint = CGPoint(x: 0.0, y: 1)
+        let whiteColor = UIColor.white
+        mask.colors = [whiteColor.withAlphaComponent(0.0).cgColor,whiteColor.withAlphaComponent(1.0),whiteColor.withAlphaComponent(1.0).cgColor]
+        mask.locations = [NSNumber(value: 0.0),NSNumber(value: 0.2),NSNumber(value: 1.0)]
+        
+        view.backgroundColor = UIColor.white
+        mask.frame = view.bounds
+        view.layer.mask = mask
     }
 }
 

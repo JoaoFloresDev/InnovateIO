@@ -17,7 +17,7 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
     
     var timerShowPlain: Timer!
     var headerViewHeightConstraint: NSLayoutConstraint!
-        var myView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+    var gradientView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
     
     //    MARK: - IBOutlet
     
@@ -62,7 +62,6 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
         
         setupStyleViews()
         setupDataProfile()
-        
         setUpdateDataProfileNotification()
         
         for constraints in headerView.constraints {
@@ -70,21 +69,6 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
                 headerViewHeightConstraint = constraints
             }
         }
-        
-        let mask = CAGradientLayer()
-        mask.startPoint = CGPoint(x: 0.0, y: 0.0)
-        mask.endPoint = CGPoint(x: 0.0, y: 1)
-        let whiteColor = UIColor.white
-        mask.colors = [whiteColor.withAlphaComponent(0.0).cgColor,whiteColor.withAlphaComponent(1.0),whiteColor.withAlphaComponent(1.0).cgColor]
-        mask.locations = [NSNumber(value: 0.0),NSNumber(value: 0.2),NSNumber(value: 1.0)]
-        
-        myView = UIView(frame: CGRect(x: 0, y: 0, width: myPlainsTextView.frame.width, height: myPlainsTextView.frame.height))
-        myView.backgroundColor = UIColor.white
-        
-        mask.frame = myView.bounds
-        myView.layer.mask = mask
-        
-        myPlainsTextView.addSubview(myView)
     }
     
     func setUpdateDataProfileNotification() {
@@ -145,7 +129,7 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
         if(headerViewHeightConstraint.constant >= 151) {
             self.timerShowPlain = Timer.scheduledTimer(timeInterval: 0.00005, target: self, selector: #selector(self.animateHide), userInfo: nil, repeats: true)
         } else {
-            myView.removeFromSuperview()
+            gradientView.removeFromSuperview()
             self.timerShowPlain = Timer.scheduledTimer(timeInterval: 0.00005, target: self, selector: #selector(self.animateShow), userInfo: nil, repeats: true)
         }
     }
@@ -169,23 +153,16 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
         
         if(headerViewHeightConstraint.constant >= 210) {
             headerViewHeightConstraint.constant = headerViewHeightConstraint.constant - 0.02
-            print("loop1")
         }
         else if (headerViewHeightConstraint.constant > 150){
             headerViewHeightConstraint.constant = headerViewHeightConstraint.constant - sizeWillFill/3000 - 0.001
-            print("loo2")
         }
         else {
-//            self.myPlainsTextView.addSubview(myView)
-            print("äqui")
-            teste()
             self.timerShowPlain.invalidate()
+            myPlainsTextView.addSubview(gradientView)
         }
     }
     
-    func teste() {
-        myPlainsTextView.addSubview(myView)
-    }
     //    MARK: - Style
     
     func setupStyleViews() {
@@ -199,6 +176,11 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
         
         StyleFunctions().cropBounds(viewlayer: headerBackgroundImg.layer, cornerRadius: 25)
         StyleFunctions().cropBounds(viewlayer: profileImgView.layer, cornerRadius: Float(profileImgView.frame.width/2))
-        StyleFunctions().applicShadow(Layer: headerView.layer)
+        StyleFunctions().applicShadow(layer: headerView.layer)
+        
+        
+        gradientView = UIView(frame: CGRect(x: 0, y: 0, width: myPlainsTextView.frame.width, height: myPlainsTextView.frame.height))
+        StyleFunctions().appliGradient(view: gradientView)
+        myPlainsTextView.addSubview(gradientView)
     }
 }
