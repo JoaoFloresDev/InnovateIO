@@ -70,13 +70,13 @@
                                                 </constraints>
                                             </stackView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k97-4r-Zu3" userLabel="Meal View" customClass="RoundedView" customModule="App" customModuleProvider="target">
-                                                <rect key="frame" x="20" y="368" width="374" height="84"/>
+                                                <rect key="frame" x="20" y="368" width="374" height="82"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WZ9-Nc-oZv">
-                                                        <rect key="frame" x="52" y="11.5" width="317" height="61"/>
+                                                        <rect key="frame" x="51" y="10.5" width="318" height="61"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Y0j-ws-19j">
-                                                                <rect key="frame" x="0.0" y="0.0" width="275" height="61"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="276" height="61"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalCompressionResistancePriority="752" verticalCompressionResistancePriority="752" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y2Q-hE-17Q">
                                                                         <rect key="frame" x="0.0" y="0.0" width="42" height="20.5"/>
@@ -93,7 +93,7 @@
                                                                 </subviews>
                                                             </stackView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="752" verticalCompressionResistancePriority="752" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zr3-Fx-J1y">
-                                                                <rect key="frame" x="275" y="0.0" width="42" height="61"/>
+                                                                <rect key="frame" x="276" y="0.0" width="42" height="61"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
@@ -101,7 +101,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fruits" translatesAutoresizingMaskIntoConstraints="NO" id="zQ5-rw-B9b">
-                                                        <rect key="frame" x="5" y="21" width="42" height="42"/>
+                                                        <rect key="frame" x="5" y="20.5" width="41" height="41"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="zQ5-rw-B9b" secondAttribute="height" id="brP-ie-mIp"/>
                                                         </constraints>
@@ -123,15 +123,18 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="752" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q9s-OG-GEG">
-                                                <rect key="frame" x="20" y="472" width="374" height="35"/>
+                                                <rect key="frame" x="20" y="470" width="374" height="35"/>
                                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                                 <state key="normal" title="Adicionar">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="addMealTapped:" destination="UcL-qO-qKl" eventType="touchUpInside" id="nF3-fD-mDZ"/>
+                                                </connections>
                                             </button>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="EN2-Og-Nsh" userLabel="Register Meal Stack View">
-                                                <rect key="frame" x="20" y="527" width="374" height="139.5"/>
+                                                <rect key="frame" x="20" y="525" width="374" height="139.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalCompressionResistancePriority="752" text="Alimentação Hoje" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iek-rr-RJx">
                                                         <rect key="frame" x="103.5" y="0.0" width="167.5" height="26.5"/>
@@ -150,7 +153,7 @@
                                                 </constraints>
                                             </stackView>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" verticalCompressionResistancePriority="765" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="rRR-Vo-da1">
-                                                <rect key="frame" x="20" y="686.5" width="374" height="183.5"/>
+                                                <rect key="frame" x="20" y="684.5" width="374" height="185.5"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                 <prototypes>
                                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="checkmark" indentationWidth="10" reuseIdentifier="mealCell" textLabel="37M-U4-mLF" imageView="i2Y-Pp-4P1" style="IBUITableViewCellStyleDefault" id="B3N-rm-UNe">
@@ -220,6 +223,7 @@
                     <navigationItem key="navigationItem" title="Diário" id="fRA-BY-ahR"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="datePicker" destination="oIP-Sd-anT" id="k5R-gT-gaW"/>
                         <outlet property="dayMealRatingView" destination="3r8-B8-4wl" id="vyE-46-QaX"/>
                         <outlet property="tableView" destination="rRR-Vo-da1" id="YEw-gq-QLu"/>
                         <outlet property="thisMealRateView" destination="L1N-Ea-jre" id="VkC-Wv-OmL"/>

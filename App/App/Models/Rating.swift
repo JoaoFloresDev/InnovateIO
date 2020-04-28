@@ -8,10 +8,18 @@
 
 import UIKit
 
-enum Rating: String {
-    case bad = "Ruim"
-    case average = "Médio"
-    case good = "Bom"
+enum Rating: Int {
+    case bad = -1
+    case average = 0
+    case good = 1
+    
+    var title: String {
+        switch self {
+        case .bad:      return "Ruim"
+        case .average:  return "Médio"
+        case .good:     return "Bom"
+        }
+    }
     
     var color: UIColor? {
         switch self {

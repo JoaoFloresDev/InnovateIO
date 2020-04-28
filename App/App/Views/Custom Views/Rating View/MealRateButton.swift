@@ -11,6 +11,12 @@ import UIKit
 
 class MealRateButton: UIButton {
     
+    @IBInspectable var cornerRadius: CGFloat = 0 {
+        didSet{
+            layer.cornerRadius = cornerRadius
+        }
+    }
+
     var rating: Rating = Rating.good
     var isTheSelectedButton: Bool = false {
         didSet {
@@ -18,18 +24,12 @@ class MealRateButton: UIButton {
         }
     }
     
-	@IBInspectable var cornerRadius: CGFloat = 0 {
-		didSet{
-			layer.cornerRadius = cornerRadius
-		}
-    }
-    
     func setupButton() {
         setColor()
-        self.setTitle(rating.rawValue, for: .normal)
+        self.setTitle(rating.title, for: .normal)
     }
     
-    fileprivate func setColor() {
+    private func setColor() {
         let topColor = self.backgroundColor ?? .white
         let downColor = rating.color
         

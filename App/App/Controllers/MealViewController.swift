@@ -13,16 +13,18 @@ class MealViewController: UIViewController {
     @IBOutlet weak var thisMealRateView: RatingView!
     @IBOutlet weak var dayMealRatingView: RatingView!
     
+    @IBOutlet weak var datePicker: UIDatePicker!
     
     let options = ["Refeição", "Exercício", "Água"]
     
     var dataHandler: DataHandler?
     var dailyDiary: DailyDiary?
 	
-	override func viewDidLoad() {
-		super.viewDidLoad()
-		tableView.delegate = self
-		tableView.dataSource = self
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupTableView()
+        setupDatePicker()
         
         do {
             dataHandler = try DataHandler.getShared()
@@ -31,7 +33,24 @@ class MealViewController: UIViewController {
         }
         
         fetchDailyData()
-	}
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        thisMealRateView.setup()
+        dayMealRatingView.setup()
+    }
+    
+    fileprivate func setupTableView() {
+            tableView.delegate = self
+            tableView.dataSource = self
+    }
+    
+    fileprivate func setupDatePicker() {
+        datePicker.datePickerMode = .time
+        datePicker.minuteInterval = 10
+    }
     
     func saveMeal(quality: Int, hour: Int, minute: Int) {
         do {
@@ -58,9 +77,29 @@ class MealViewController: UIViewController {
             let date = Date()
             let (year, month, day, _, _, _) = try date.getAllInformations()
             dailyDiary = try dataHandler?.loadDailyDiary(year: year, month: month, day: day)
+            if let dayQuality32 = dailyDiary?.quality {
+                let dayQuality = Int(dayQuality32)
+                dayMealRatingView.selectedRating = Rating(rawValue: dayQuality)
+            }
         } catch {
             print("There's still no daily data for today or something went wrong when trying to fetch.")
         }
+    }
+    
+    @IBAction func addMealTapped(_ sender: Any) {
+        guard let thisMealRate = thisMealRateView.selectedRating else {
+            // TODO: feedback ao usuário ("selecione uma avaliação" ou algo do tipo)
+            print("Can't save meal without rating.")
+            return
+        }
+        do {
+            let (_, _, _, hour, minute, _) = try datePicker.date.getAllInformations()
+            
+            saveMeal(quality: thisMealRate.rawValue, hour: hour, minute: minute)
+        } catch {
+            print("Couldn't get hour and minute from date picker.")
+        }
+        
     }
 }
 

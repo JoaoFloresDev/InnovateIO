@@ -359,7 +359,6 @@
 			children = (
 				D7FA5D9D24585445001B08AA /* Rating View */,
 				D7B2C2FE243E0A5A0071561C /* Line Chart */,
-				8D11BFFA245249AD0062D163 /* MealRateButton.swift */,
 				8D11BFFC24524FF70062D163 /* RoundedView.swift */,
 				812E8E55245703330041719F /* DateCell.swift */,
 				8191C62D24585E3600C8AAF3 /* DateHeader.swift */,
@@ -379,6 +378,7 @@
 		D7FA5D9D24585445001B08AA /* Rating View */ = {
 			isa = PBXGroup;
 			children = (
+				8D11BFFA245249AD0062D163 /* MealRateButton.swift */,
 				D7FA5D9E24585455001B08AA /* RatingView.swift */,
 				D7FA5DA024585481001B08AA /* RatingView.xib */,
 			);
@@ -502,7 +502,7 @@
 				C44D149D243657BC0094497A /* Profile.storyboard in Resources */,
 				C44D14A1243657FF0094497A /* Settings.storyboard in Resources */,
 				C44D1471243655BA0094497A /* Main.storyboard in Resources */,
-				C44D149F243657E70094497A /* Diary.storyboard in Resources */,
+				C44D149F243657E70094497A /* Calendar.storyboard in Resources */,
 				D7FA5DA124585481001B08AA /* RatingView.xib in Resources */,
 				C44D149F243657E70094497A /* Calendar.storyboard in Resources */,
 			);
