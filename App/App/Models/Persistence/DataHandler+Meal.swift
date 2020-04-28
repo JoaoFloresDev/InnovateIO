@@ -34,7 +34,7 @@ extension DataHandler {
         // Getting the current date
         do {
             let date = Date()
-            let (year, month, day, _, _, _) = try date.getAllInformations(from: date)
+            let (year, month, day, _, _, _) = try date.getAllInformations()
             
             // Clamping the values if they were inserted incorrectly!
             var clampedQuality = 0

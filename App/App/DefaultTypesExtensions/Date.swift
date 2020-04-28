@@ -46,46 +46,6 @@ extension Date {
         
     }
     
-    
-    
-    /// Gets all date information from a given date (a.k.a Year, Month, Day, Hour, Minute and Second)
-    /// - Parameter date: The desired Date object
-    /// - Returns: An optional tuple with the following order: Year, Month, Day, Hour, Minute and Second
-    func getAllInformations(from date: Date) throws -> (Int, Int, Int, Int, Int, Int) {
-        
-        // Getting the User's calendar
-        let calendar = Calendar.current
-        
-        // Mounting the request for the Calendar
-        let requestedComponents: Set<Calendar.Component> = [
-            .year,
-            .month,
-            .day,
-            .hour,
-            .minute,
-            .second
-        ]
-        
-        // Getting the components from the Calendar
-        let dateComponents = calendar.dateComponents(requestedComponents, from: date)
-        
-        // Checking for nils
-        do {
-            try self.hasNilComponents(on: dateComponents)
-        }
-        catch let error as DateError{
-            throw error
-        }
-        
-        // FIXED: Force unwrapped is checked now - Pull Request 11.
-        return (dateComponents.year!, dateComponents.month!, dateComponents.day!,
-                dateComponents.hour!, dateComponents.minute!, dateComponents.second!)
-        
-    }
-    
-    
-    
-    
     /// Get amount of days available in certain year and month
     /// - Parameters:
     ///   - year: Desired year

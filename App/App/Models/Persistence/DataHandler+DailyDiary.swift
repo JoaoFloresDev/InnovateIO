@@ -120,7 +120,7 @@ extension DataHandler {
         // Getting the current date
         do {
             let date = Date()
-            let (year, month, day, _, _, _) = try date.getAllInformations(from: date)
+            let (year, month, day, _, _, _) = try date.getAllInformations()
         
             
             // Checking for existing previous data
