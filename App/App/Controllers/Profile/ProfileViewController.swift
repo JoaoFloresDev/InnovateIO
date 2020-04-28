@@ -17,6 +17,7 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
     
     var timerShowPlain: Timer!
     var headerViewHeightConstraint: NSLayoutConstraint!
+        var myView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
     
     //    MARK: - IBOutlet
     
@@ -71,13 +72,19 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
         }
         
         let mask = CAGradientLayer()
-        mask.startPoint = CGPoint(x: 0.0, y: 1)
-        mask.endPoint = CGPoint(x: 0.0, y: 0.5)
+        mask.startPoint = CGPoint(x: 0.0, y: 0.0)
+        mask.endPoint = CGPoint(x: 0.0, y: 1)
         let whiteColor = UIColor.white
         mask.colors = [whiteColor.withAlphaComponent(0.0).cgColor,whiteColor.withAlphaComponent(1.0),whiteColor.withAlphaComponent(1.0).cgColor]
         mask.locations = [NSNumber(value: 0.0),NSNumber(value: 0.2),NSNumber(value: 1.0)]
-        mask.frame = myPlainsTextView.bounds
-        myPlainsTextView.layer.mask = mask
+        
+        myView = UIView(frame: CGRect(x: 0, y: 0, width: myPlainsTextView.frame.width, height: myPlainsTextView.frame.height))
+        myView.backgroundColor = UIColor.white
+        
+        mask.frame = myView.bounds
+        myView.layer.mask = mask
+        
+        myPlainsTextView.addSubview(myView)
     }
     
     func setUpdateDataProfileNotification() {
@@ -136,10 +143,9 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
             }
         }
         if(headerViewHeightConstraint.constant >= 151) {
-            print("animateHide")
             self.timerShowPlain = Timer.scheduledTimer(timeInterval: 0.00005, target: self, selector: #selector(self.animateHide), userInfo: nil, repeats: true)
-            
         } else {
+            myView.removeFromSuperview()
             self.timerShowPlain = Timer.scheduledTimer(timeInterval: 0.00005, target: self, selector: #selector(self.animateShow), userInfo: nil, repeats: true)
         }
     }
@@ -150,8 +156,8 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
         
         if(headerViewHeightConstraint.constant <= neewSize - 60) {
             headerViewHeightConstraint.constant = headerViewHeightConstraint.constant + 0.02
-        } else if(headerViewHeightConstraint.constant <= neewSize && headerViewHeightConstraint.constant < 600) {
-            headerViewHeightConstraint.constant = headerViewHeightConstraint.constant + sizeWillFill/3000
+        } else if(headerViewHeightConstraint.constant < neewSize && headerViewHeightConstraint.constant < 600) {
+            headerViewHeightConstraint.constant = headerViewHeightConstraint.constant + sizeWillFill/3000 + 0.0001
         }
         else {
             self.timerShowPlain.invalidate()
@@ -163,13 +169,22 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
         
         if(headerViewHeightConstraint.constant >= 210) {
             headerViewHeightConstraint.constant = headerViewHeightConstraint.constant - 0.02
+            print("loop1")
         }
-        else if (headerViewHeightConstraint.constant >= 150){
-            headerViewHeightConstraint.constant = headerViewHeightConstraint.constant - sizeWillFill/3000
+        else if (headerViewHeightConstraint.constant > 150){
+            headerViewHeightConstraint.constant = headerViewHeightConstraint.constant - sizeWillFill/3000 - 0.001
+            print("loo2")
         }
         else {
+//            self.myPlainsTextView.addSubview(myView)
+            print("äqui")
+            teste()
             self.timerShowPlain.invalidate()
         }
+    }
+    
+    func teste() {
+        myPlainsTextView.addSubview(myView)
     }
     //    MARK: - Style
     
