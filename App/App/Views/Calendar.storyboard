@@ -24,13 +24,13 @@
                                 </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="ThY-bm-e2M">
                                     <size key="itemSize" width="85" height="84"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="headerReferenceSize" width="50" height="50"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="dateCell" id="cZ8-EK-K7a" customClass="DateCell" customModule="App" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="85" height="84"/>
+                                        <rect key="frame" x="0.0" y="50" width="85" height="84"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="85" height="84"/>
@@ -53,6 +53,25 @@
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
+                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="DateHeader" id="YBB-xV-VEJ" customClass="DateHeader" customModule="App" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MonthLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qhm-4O-xo9">
+                                            <rect key="frame" x="161.5" y="14.5" width="91" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="Qhm-4O-xo9" firstAttribute="centerY" secondItem="YBB-xV-VEJ" secondAttribute="centerY" id="E3X-bJ-DKx"/>
+                                        <constraint firstItem="Qhm-4O-xo9" firstAttribute="centerX" secondItem="YBB-xV-VEJ" secondAttribute="centerX" id="YJy-AE-pLJ"/>
+                                    </constraints>
+                                    <connections>
+                                        <outlet property="monthTitle" destination="Qhm-4O-xo9" id="cx6-na-an5"/>
+                                    </connections>
+                                </collectionReusableView>
                             </collectionView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="CeQ-5b-qll">
                                 <rect key="frame" x="0.0" y="384" width="414" height="429"/>

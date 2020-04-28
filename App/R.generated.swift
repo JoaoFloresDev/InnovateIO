@@ -399,6 +399,8 @@ struct R: Rswift.Validatable {
 
   /// This `R.reuseIdentifier` struct is generated, and contains static references to 3 reuse identifiers.
   struct reuseIdentifier {
+    /// Reuse identifier `DateHeader`.
+    static let dateHeader: Rswift.ReuseIdentifier<DateHeader> = Rswift.ReuseIdentifier(identifier: "DateHeader")
     /// Reuse identifier `LineChartTableViewCell`.
     static let lineChartTableViewCell: Rswift.ReuseIdentifier<LineChartTableViewCell> = Rswift.ReuseIdentifier(identifier: "LineChartTableViewCell")
     /// Reuse identifier `PerformanceChart`.
