@@ -12,12 +12,16 @@ import JTAppleCalendar
 class CalendarViewController: UIViewController {
     
     @IBOutlet weak var calendarView: JTACMonthView!
+    @IBOutlet weak var collectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.calendarView.calendarDelegate = self
         self.calendarView.calendarDataSource = self
+        
+        self.collectionView.delegate = self
+        self.collectionView.dataSource = self
         
     }
     

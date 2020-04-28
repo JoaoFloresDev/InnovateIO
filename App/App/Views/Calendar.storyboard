@@ -4,6 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -53,21 +54,37 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="med-F0-CKl">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="CeQ-5b-qll">
                                 <rect key="frame" x="0.0" y="384" width="414" height="429"/>
-                                <viewLayoutGuide key="contentLayoutGuide" id="BGu-VJ-lyJ"/>
-                                <viewLayoutGuide key="frameLayoutGuide" id="BAz-kw-pjG"/>
-                            </scrollView>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="jM8-wt-czF">
+                                    <size key="itemSize" width="256" height="256"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PerformanceChart" id="COC-SR-bTj">
+                                        <rect key="frame" x="79" y="0.0" width="256" height="256"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="F0e-mD-Edr">
+                                            <rect key="frame" x="0.0" y="0.0" width="256" height="256"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                        <color key="backgroundColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="V5a-NO-0Sa" firstAttribute="top" secondItem="Lcb-ir-xcC" secondAttribute="top" id="3Gq-uo-FRJ"/>
                             <constraint firstItem="V5a-NO-0Sa" firstAttribute="leading" secondItem="Lcb-ir-xcC" secondAttribute="leading" id="9nk-V1-DWF"/>
-                            <constraint firstItem="med-F0-CKl" firstAttribute="leading" secondItem="Lcb-ir-xcC" secondAttribute="leading" id="Hvp-Xk-dCU"/>
-                            <constraint firstItem="med-F0-CKl" firstAttribute="trailing" secondItem="Lcb-ir-xcC" secondAttribute="trailing" id="QNx-hR-e8o"/>
-                            <constraint firstItem="med-F0-CKl" firstAttribute="bottom" secondItem="Lcb-ir-xcC" secondAttribute="bottom" id="Qi0-AJ-cgz"/>
+                            <constraint firstItem="CeQ-5b-qll" firstAttribute="trailing" secondItem="Lcb-ir-xcC" secondAttribute="trailing" id="EZw-kQ-m3F"/>
+                            <constraint firstItem="CeQ-5b-qll" firstAttribute="top" secondItem="V5a-NO-0Sa" secondAttribute="bottom" constant="20" id="U35-KN-iJi"/>
                             <constraint firstItem="V5a-NO-0Sa" firstAttribute="trailing" secondItem="Lcb-ir-xcC" secondAttribute="trailing" id="Vup-PI-jDj"/>
-                            <constraint firstItem="med-F0-CKl" firstAttribute="top" secondItem="V5a-NO-0Sa" secondAttribute="bottom" constant="20" id="o7b-y3-iKR"/>
+                            <constraint firstItem="CeQ-5b-qll" firstAttribute="bottom" secondItem="Lcb-ir-xcC" secondAttribute="bottom" id="idR-nc-Wly"/>
+                            <constraint firstItem="CeQ-5b-qll" firstAttribute="leading" secondItem="Lcb-ir-xcC" secondAttribute="leading" id="pXf-Ez-Na5"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Lcb-ir-xcC"/>
                     </view>
@@ -75,6 +92,7 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="calendarView" destination="V5a-NO-0Sa" id="4rA-Yh-UvZ"/>
+                        <outlet property="collectionView" destination="CeQ-5b-qll" id="Mn8-oy-gWf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HHa-rb-Q1e" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
