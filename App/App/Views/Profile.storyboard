@@ -445,10 +445,10 @@
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d2v-5I-N3v">
-                                                <rect key="frame" x="0.0" y="47" width="268" height="54"/>
+                                                <rect key="frame" x="0.0" y="44.5" width="268" height="59"/>
                                                 <state key="normal" title=""/>
                                                 <connections>
-                                                    <action selector="showPlain:" destination="vxh-ga-XbW" eventType="touchUpInside" id="PDd-66-URh"/>
+                                                    <action selector="showGoals:" destination="vxh-ga-XbW" eventType="touchUpInside" id="PDd-66-URh"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -466,7 +466,7 @@
                                             <constraint firstItem="iFy-xb-VrR" firstAttribute="leading" secondItem="hxV-di-iu0" secondAttribute="trailing" constant="10" id="a4I-ya-Dt6"/>
                                             <constraint firstAttribute="trailing" secondItem="i6q-79-5wS" secondAttribute="trailing" constant="10" id="bs4-pF-FqB"/>
                                             <constraint firstItem="qFt-sa-1fW" firstAttribute="top" secondItem="hhq-YF-Vm0" secondAttribute="top" id="gKg-zX-2BT"/>
-                                            <constraint firstItem="d2v-5I-N3v" firstAttribute="height" secondItem="i6q-79-5wS" secondAttribute="height" id="p0D-Zw-ia6"/>
+                                            <constraint firstItem="d2v-5I-N3v" firstAttribute="height" secondItem="i6q-79-5wS" secondAttribute="height" multiplier="1.1" id="p0D-Zw-ia6"/>
                                             <constraint firstItem="d2v-5I-N3v" firstAttribute="centerY" secondItem="i6q-79-5wS" secondAttribute="centerY" id="rpr-cM-O23"/>
                                             <constraint firstItem="iFy-xb-VrR" firstAttribute="leading" secondItem="qFt-sa-1fW" secondAttribute="trailing" constant="10" id="ser-jT-cUW"/>
                                         </constraints>
@@ -511,7 +511,7 @@
                         <outlet property="habitsGraphicView" destination="af1-Iv-0J9" id="Le6-0N-kjV"/>
                         <outlet property="headerBackgroundImg" destination="vsM-TV-avS" id="F00-rJ-Nse"/>
                         <outlet property="headerView" destination="JcI-ly-uZf" id="dLX-lf-2sh"/>
-                        <outlet property="myPlainsTextView" destination="i6q-79-5wS" id="TPS-3X-UsX"/>
+                        <outlet property="myGoalsTextView" destination="i6q-79-5wS" id="TPS-3X-UsX"/>
                         <outlet property="nameLabel" destination="qFt-sa-1fW" id="fzF-Tl-kli"/>
                         <outlet property="profileImg" destination="51c-Nd-FVz" id="p5U-2E-0Qt"/>
                         <outlet property="profileImgView" destination="QlN-vL-966" id="g1T-xo-cJ0"/>

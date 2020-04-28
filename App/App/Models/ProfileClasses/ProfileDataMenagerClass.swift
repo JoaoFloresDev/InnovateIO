@@ -8,10 +8,12 @@
 
 import UIKit
 
+/// Functions to menage data with profile (image, goals, name, resume)
+
 class ProfimeDataMenager {
     var defaults = UserDefaults.standard
     
-//    MARK: - Profile Labels
+//    MARK: - Profile Labels / UserDefaults
     func setupNameProfile(nameUser: UILabel) {
         var vet = UIDevice.current.name.split(separator: " ")
         for _ in 0...1 {
@@ -21,8 +23,8 @@ class ProfimeDataMenager {
         nameUser.text = vet.joined(separator: " ").capitalized
     }
     
-    func setupHeaderInformations(plainsTextView: UITextView,currentWeightLabel: UILabel) {
-        plainsTextView.text = defaults.string(forKey: "Plain") ?? "Insira seu plano aqui"
+    func setupHeaderInformations(goalsTextView: UITextView,currentWeightLabel: UILabel) {
+        goalsTextView.text = defaults.string(forKey: "Plain") ?? "Insira seu plano aqui"
         currentWeightLabel.text = "\(defaults.string(forKey: "Weight") ?? "00") Kg"
     }
     

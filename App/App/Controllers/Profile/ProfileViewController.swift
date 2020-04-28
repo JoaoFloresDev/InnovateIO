@@ -10,12 +10,18 @@ import UIKit
 import QuartzCore
 import Photos
 
+
+/// Profile screen:
+/// - graphics weight and good habits
+/// - abstract
+/// - header with general data
+
 class ProfileViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
     //    MARK: - Variables
     var imagePicker: UIImagePickerController!
     
-    var timerShowPlain: Timer!
+    var timerGoalsAnimation: Timer!
     var headerViewHeightConstraint: NSLayoutConstraint!
     var gradientView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
     
@@ -30,8 +36,10 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
     @IBOutlet weak var headerView: UIView!
     
     @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var myPlainsTextView: UITextView!
+    @IBOutlet weak var myGoalsTextView: UITextView!
     @IBOutlet weak var currentWeightLabel: UILabel!
+    
+    //  resume
     @IBOutlet weak var exercicePercentLabel: UILabel!
     @IBOutlet weak var fruitsPercentLabel: UILabel!
     @IBOutlet weak var waterPercentLabel: UILabel!
@@ -51,8 +59,8 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
         openGalery()
     }
     
-    @IBAction func showPlain(_ sender: Any) {
-        animatePlain()
+    @IBAction func showGoals(_ sender: Any) {
+        animateGoals()
     }
     
     //    MARK: - Life Cicle
@@ -77,7 +85,7 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
     
     //    MARK: - @objc functions
     @objc func updateHeaderInformations() {
-        ProfimeDataMenager().setupHeaderInformations(plainsTextView: myPlainsTextView,currentWeightLabel: currentWeightLabel)
+        ProfimeDataMenager().setupHeaderInformations(goalsTextView: myGoalsTextView,currentWeightLabel: currentWeightLabel)
     }
     
     //    MARK: - Take Profile Image
@@ -113,29 +121,29 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
     func setupDataProfile() {
         ProfimeDataMenager().setupNameProfile(nameUser: nameLabel)
         ProfimeDataMenager().setupImgProfile(profileImg: profileImg)
-        ProfimeDataMenager().setupHeaderInformations(plainsTextView: myPlainsTextView,
+        ProfimeDataMenager().setupHeaderInformations(goalsTextView: myGoalsTextView,
                                                      currentWeightLabel: currentWeightLabel)
         
         ProfimeDataMenager().setupResumeView(exercicePercentLabel: exercicePercentLabel, fruitsPercentLabel: fruitsPercentLabel,waterPercentLabel: waterPercentLabel)
     }
     
     //    MARK: - Animations
-    func animatePlain() {
-        if let timer = self.timerShowPlain{
+    func animateGoals() {
+        if let timer = self.timerGoalsAnimation{
             do {
                 timer.invalidate()
             }
         }
         if(headerViewHeightConstraint.constant >= 151) {
-            self.timerShowPlain = Timer.scheduledTimer(timeInterval: 0.00005, target: self, selector: #selector(self.animateHide), userInfo: nil, repeats: true)
+            self.timerGoalsAnimation = Timer.scheduledTimer(timeInterval: 0.00005, target: self, selector: #selector(self.animateHide), userInfo: nil, repeats: true)
         } else {
             gradientView.removeFromSuperview()
-            self.timerShowPlain = Timer.scheduledTimer(timeInterval: 0.00005, target: self, selector: #selector(self.animateShow), userInfo: nil, repeats: true)
+            self.timerGoalsAnimation = Timer.scheduledTimer(timeInterval: 0.00005, target: self, selector: #selector(self.animateShow), userInfo: nil, repeats: true)
         }
     }
     
     @objc func animateShow () {
-        let neewSize = 100 + self.myPlainsTextView.contentSize.height
+        let neewSize = 100 + self.myGoalsTextView.contentSize.height
         let sizeWillFill = neewSize - headerViewHeightConstraint.constant
         
         if(headerViewHeightConstraint.constant <= neewSize - 60) {
@@ -144,7 +152,7 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
             headerViewHeightConstraint.constant = headerViewHeightConstraint.constant + sizeWillFill/3000 + 0.0001
         }
         else {
-            self.timerShowPlain.invalidate()
+            self.timerGoalsAnimation.invalidate()
         }
     }
     
@@ -158,8 +166,8 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
             headerViewHeightConstraint.constant = headerViewHeightConstraint.constant - sizeWillFill/3000 - 0.001
         }
         else {
-            self.timerShowPlain.invalidate()
-            myPlainsTextView.addSubview(gradientView)
+            self.timerGoalsAnimation.invalidate()
+            myGoalsTextView.addSubview(gradientView)
         }
     }
     
@@ -179,8 +187,8 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
         StyleFunctions().applicShadow(layer: headerView.layer)
         
         
-        gradientView = UIView(frame: CGRect(x: 0, y: 0, width: myPlainsTextView.frame.width, height: myPlainsTextView.frame.height))
+        gradientView = UIView(frame: CGRect(x: 0, y: 0, width: myGoalsTextView.frame.width, height: myGoalsTextView.frame.height))
         StyleFunctions().appliGradient(view: gradientView)
-        myPlainsTextView.addSubview(gradientView)
+        myGoalsTextView.addSubview(gradientView)
     }
 }

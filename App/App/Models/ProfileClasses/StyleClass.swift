@@ -8,6 +8,8 @@
 
 import UIKit
 
+
+/// Functions to customize views
 class StyleFunctions {
 
     func cropBounds(viewlayer: CALayer, cornerRadius: Float) {
