@@ -14,10 +14,13 @@
 		8105189E24508A4A00F8A86E /* DataHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8105189D24508A4A00F8A86E /* DataHandlerTests.swift */; };
 		812B30EC243CB03A002F1AFF /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 812B30EA243CB01D002F1AFF /* CoreData.framework */; };
 		812B30F2243CBF80002F1AFF /* PersistenceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812B30F1243CBF80002F1AFF /* PersistenceError.swift */; };
+		812E8E56245703330041719F /* DateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812E8E55245703330041719F /* DateCell.swift */; };
 		814F59302451F07200F59991 /* DateError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814F592F2451F07200F59991 /* DateError.swift */; };
 		81721F3B2451D3050066B047 /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81721F3A2451D3050066B047 /* Meal.swift */; };
+		8191C62C2458510600C8AAF3 /* CalendarViewController+Charts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8191C62B2458510600C8AAF3 /* CalendarViewController+Charts.swift */; };
 		81959012243E2873001A6DB9 /* DataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81959011243E2872001A6DB9 /* DataHandler.swift */; };
 		81959015243E28CF001A6DB9 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 81959013243E28CF001A6DB9 /* Model.xcdatamodeld */; };
+		81AA0BD92456FE7B00E78D58 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81AA0BD82456FE7B00E78D58 /* CalendarViewController.swift */; };
 		8D11BFFB245249AD0062D163 /* MealRateButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D11BFFA245249AD0062D163 /* MealRateButton.swift */; };
 		8D11BFFD24524FF70062D163 /* RoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D11BFFC24524FF70062D163 /* RoundedView.swift */; };
 		8DF1318B24506B8A004C2CC7 /* MealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF1318A24506B8A004C2CC7 /* MealViewController.swift */; };
@@ -34,7 +37,7 @@
 		C44D1484243655BC0094497A /* AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44D1483243655BC0094497A /* AppTests.swift */; };
 		C44D148F243655BC0094497A /* AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44D148E243655BC0094497A /* AppUITests.swift */; };
 		C44D149D243657BC0094497A /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C44D149C243657BC0094497A /* Profile.storyboard */; };
-		C44D149F243657E70094497A /* Diary.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C44D149E243657E70094497A /* Diary.storyboard */; };
+		C44D149F243657E70094497A /* Calendar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C44D149E243657E70094497A /* Calendar.storyboard */; };
 		C44D14A1243657FF0094497A /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C44D14A0243657FF0094497A /* Settings.storyboard */; };
 		C44D14A3243658680094497A /* Meals.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C44D14A2243658680094497A /* Meals.storyboard */; };
 		D73311B3245318760080767E /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73311B2245318760080767E /* NotificationService.swift */; };
@@ -73,10 +76,13 @@
 		8105189D24508A4A00F8A86E /* DataHandlerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataHandlerTests.swift; sourceTree = "<group>"; };
 		812B30EA243CB01D002F1AFF /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		812B30F1243CBF80002F1AFF /* PersistenceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceError.swift; sourceTree = "<group>"; };
+		812E8E55245703330041719F /* DateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCell.swift; sourceTree = "<group>"; };
 		814F592F2451F07200F59991 /* DateError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateError.swift; sourceTree = "<group>"; };
 		81721F3A2451D3050066B047 /* Meal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
+		8191C62B2458510600C8AAF3 /* CalendarViewController+Charts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CalendarViewController+Charts.swift"; sourceTree = "<group>"; };
 		81959011243E2872001A6DB9 /* DataHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataHandler.swift; sourceTree = "<group>"; };
 		81959014243E28CF001A6DB9 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		81AA0BD82456FE7B00E78D58 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		8D11BFFA245249AD0062D163 /* MealRateButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealRateButton.swift; sourceTree = "<group>"; };
 		8D11BFFC24524FF70062D163 /* RoundedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedView.swift; sourceTree = "<group>"; };
 		8DF1318A24506B8A004C2CC7 /* MealViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealViewController.swift; sourceTree = "<group>"; };
@@ -100,7 +106,7 @@
 		C44D148E243655BC0094497A /* AppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUITests.swift; sourceTree = "<group>"; };
 		C44D1490243655BC0094497A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C44D149C243657BC0094497A /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
-		C44D149E243657E70094497A /* Diary.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Diary.storyboard; sourceTree = "<group>"; };
+		C44D149E243657E70094497A /* Calendar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Calendar.storyboard; sourceTree = "<group>"; };
 		C44D14A0243657FF0094497A /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		C44D14A2243658680094497A /* Meals.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Meals.storyboard; sourceTree = "<group>"; };
 		D73311B2245318760080767E /* NotificationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
@@ -202,6 +208,7 @@
 		81568ADF243B74F600734FCA /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				81AA0BD72456FE6D00E78D58 /* Calendar */,
 				C407E91F243CC20500DA8490 /* Profile */,
 				C44D146D243655BA0094497A /* ViewController.swift */,
 				8DF1318A24506B8A004C2CC7 /* MealViewController.swift */,
@@ -216,7 +223,7 @@
 				C44D1477243655BC0094497A /* LaunchScreen.storyboard */,
 				C44D146F243655BA0094497A /* Main.storyboard */,
 				C44D149C243657BC0094497A /* Profile.storyboard */,
-				C44D149E243657E70094497A /* Diary.storyboard */,
+				C44D149E243657E70094497A /* Calendar.storyboard */,
 				C44D14A0243657FF0094497A /* Settings.storyboard */,
 				C44D14A2243658680094497A /* Meals.storyboard */,
 				8D11BFFA245249AD0062D163 /* MealRateButton.swift */,
@@ -238,6 +245,15 @@
 				812B30EA243CB01D002F1AFF /* CoreData.framework */,
 			);
 			name = "Recovered References";
+			sourceTree = "<group>";
+		};
+		81AA0BD72456FE6D00E78D58 /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				81AA0BD82456FE7B00E78D58 /* CalendarViewController.swift */,
+				8191C62B2458510600C8AAF3 /* CalendarViewController+Charts.swift */,
+			);
+			path = Calendar;
 			sourceTree = "<group>";
 		};
 		C407E91F243CC20500DA8490 /* Profile */ = {
@@ -321,6 +337,7 @@
 			children = (
 				D7B2C2FE243E0A5A0071561C /* Line Chart */,
 				8D11BFFC24524FF70062D163 /* RoundedView.swift */,
+				812E8E55245703330041719F /* DateCell.swift */,
 			);
 			path = "Custom Views";
 			sourceTree = "<group>";
@@ -451,7 +468,7 @@
 				C44D149D243657BC0094497A /* Profile.storyboard in Resources */,
 				C44D14A1243657FF0094497A /* Settings.storyboard in Resources */,
 				C44D1471243655BA0094497A /* Main.storyboard in Resources */,
-				C44D149F243657E70094497A /* Diary.storyboard in Resources */,
+				C44D149F243657E70094497A /* Calendar.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -598,12 +615,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				81AA0BD92456FE7B00E78D58 /* CalendarViewController.swift in Sources */,
 				8D11BFFB245249AD0062D163 /* MealRateButton.swift in Sources */,
 				814F59302451F07200F59991 /* DateError.swift in Sources */,
 				8D11BFFD24524FF70062D163 /* RoundedView.swift in Sources */,
 				81959012243E2873001A6DB9 /* DataHandler.swift in Sources */,
 				C44D146E243655BA0094497A /* ViewController.swift in Sources */,
 				81721F3B2451D3050066B047 /* Meal.swift in Sources */,
+				8191C62C2458510600C8AAF3 /* CalendarViewController+Charts.swift in Sources */,
 				C407E923243CFD9800DA8490 /* EditDataViewController.swift in Sources */,
 				D73311B3245318760080767E /* NotificationService.swift in Sources */,
 				810518992450746A00F8A86E /* DataHandler+DailyDiary.swift in Sources */,
@@ -613,6 +632,7 @@
 				8105189C24507BB600F8A86E /* Date.swift in Sources */,
 				C407E921243CC23800DA8490 /* ProfileViewController.swift in Sources */,
 				C44D146A243655BA0094497A /* AppDelegate.swift in Sources */,
+				812E8E56245703330041719F /* DateCell.swift in Sources */,
 				C44D146C243655BA0094497A /* SceneDelegate.swift in Sources */,
 				8DF1318B24506B8A004C2CC7 /* MealViewController.swift in Sources */,
 				81959015243E28CF001A6DB9 /* Model.xcdatamodeld in Sources */,

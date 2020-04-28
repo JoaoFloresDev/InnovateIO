@@ -91,8 +91,8 @@ struct R: Rswift.Validatable {
   #if os(iOS) || os(tvOS)
   /// This `R.storyboard` struct is generated, and contains static references to 6 storyboards.
   struct storyboard {
-    /// Storyboard `Diary`.
-    static let diary = _R.storyboard.diary()
+    /// Storyboard `Calendar`.
+    static let calendar = _R.storyboard.calendar()
     /// Storyboard `LaunchScreen`.
     static let launchScreen = _R.storyboard.launchScreen()
     /// Storyboard `Main`.
@@ -105,9 +105,9 @@ struct R: Rswift.Validatable {
     static let settings = _R.storyboard.settings()
 
     #if os(iOS) || os(tvOS)
-    /// `UIStoryboard(name: "Diary", bundle: ...)`
-    static func diary(_: Void = ()) -> UIKit.UIStoryboard {
-      return UIKit.UIStoryboard(resource: R.storyboard.diary)
+    /// `UIStoryboard(name: "Calendar", bundle: ...)`
+    static func calendar(_: Void = ()) -> UIKit.UIStoryboard {
+      return UIKit.UIStoryboard(resource: R.storyboard.calendar)
     }
     #endif
 
@@ -280,8 +280,16 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.reuseIdentifier` struct is generated, and contains static references to 1 reuse identifiers.
+  /// This `R.reuseIdentifier` struct is generated, and contains static references to 4 reuse identifiers.
   struct reuseIdentifier {
+    /// Reuse identifier `LineChartTableViewCell`.
+    static let lineChartTableViewCell: Rswift.ReuseIdentifier<LineChartTableViewCell> = Rswift.ReuseIdentifier(identifier: "LineChartTableViewCell")
+    /// Reuse identifier `PerformanceChart`.
+    static let performanceChart: Rswift.ReuseIdentifier<UIKit.UIView> = Rswift.ReuseIdentifier(identifier: "PerformanceChart")
+    /// Reuse identifier `dateCell`.
+    static let dateCell: Rswift.ReuseIdentifier<DateCell> = Rswift.ReuseIdentifier(identifier: "dateCell")
+    /// Reuse identifier `mealCell`.
+    static let mealCell: Rswift.ReuseIdentifier<UIKit.UITableViewCell> = Rswift.ReuseIdentifier(identifier: "mealCell")
     /// Reuse identifier `LineChartTableViewCell`.
     static let lineChartTableViewCell: Rswift.ReuseIdentifier<LineChartTableViewCell> = Rswift.ReuseIdentifier(identifier: "LineChartTableViewCell")
 
@@ -332,7 +340,7 @@ struct _R: Rswift.Validatable {
   struct storyboard: Rswift.Validatable {
     static func validate() throws {
       #if os(iOS) || os(tvOS)
-      try diary.validate()
+      try calendar.validate()
       #endif
       #if os(iOS) || os(tvOS)
       try launchScreen.validate()
@@ -352,15 +360,21 @@ struct _R: Rswift.Validatable {
     }
 
     #if os(iOS) || os(tvOS)
-    struct diary: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
-      typealias InitialController = UIKit.UIViewController
+    struct calendar: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
+      typealias InitialController = CalendarViewController
 
       let bundle = R.hostingBundle
-      let name = "Diary"
+      let calendarStoryboard = StoryboardViewControllerResource<CalendarViewController>(identifier: "Calendar Storyboard")
+      let name = "Calendar"
+
+      func calendarStoryboard(_: Void = ()) -> CalendarViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: calendarStoryboard)
+      }
 
       static func validate() throws {
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
+        if _R.storyboard.calendar().calendarStoryboard() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'calendarStoryboard' could not be loaded from storyboard 'Calendar' as 'CalendarViewController'.") }
       }
 
       fileprivate init() {}
