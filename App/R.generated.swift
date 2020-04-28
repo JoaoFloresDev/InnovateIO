@@ -290,6 +290,8 @@ struct R: Rswift.Validatable {
     static let dateCell: Rswift.ReuseIdentifier<DateCell> = Rswift.ReuseIdentifier(identifier: "dateCell")
     /// Reuse identifier `mealCell`.
     static let mealCell: Rswift.ReuseIdentifier<UIKit.UITableViewCell> = Rswift.ReuseIdentifier(identifier: "mealCell")
+    /// Reuse identifier `LineChartTableViewCell`.
+    static let lineChartTableViewCell: Rswift.ReuseIdentifier<LineChartTableViewCell> = Rswift.ReuseIdentifier(identifier: "LineChartTableViewCell")
 
     fileprivate init() {}
   }
@@ -413,14 +415,15 @@ struct _R: Rswift.Validatable {
 
     #if os(iOS) || os(tvOS)
     struct meals: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
-      typealias InitialController = MealViewController
+      typealias InitialController = UIKit.UINavigationController
 
       let bundle = R.hostingBundle
       let name = "Meals"
 
       static func validate() throws {
+        if UIKit.UIImage(named: "ExerciseIcon", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ExerciseIcon' is used in storyboard 'Meals', but couldn't be loaded.") }
         if UIKit.UIImage(named: "fruits", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'fruits' is used in storyboard 'Meals', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "square.and.arrow.up", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'square.and.arrow.up' is used in storyboard 'Meals', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "plus", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'plus' is used in storyboard 'Meals', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
           if UIKit.UIColor(named: "BadColor", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'BadColor' is used in storyboard 'Meals', but couldn't be loaded.") }
           if UIKit.UIColor(named: "GoodColor", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'GoodColor' is used in storyboard 'Meals', but couldn't be loaded.") }
