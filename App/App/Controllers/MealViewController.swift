@@ -10,7 +10,11 @@ import UIKit
 
 class MealViewController: UIViewController {
 	@IBOutlet weak var tableView: UITableView!
-	let options = ["Refeição", "Exercício", "Água"]
+    @IBOutlet weak var thisMealRateView: RatingView!
+    @IBOutlet weak var dayMealRatingView: RatingView!
+    
+    
+    let options = ["Refeição", "Exercício", "Água"]
     
     var dataHandler: DataHandler?
     var dailyDiary: DailyDiary?
@@ -60,7 +64,7 @@ class MealViewController: UIViewController {
     }
 }
 
-extension MealViewController:UITableViewDataSource, UITableViewDelegate{
+extension MealViewController: UITableViewDataSource, UITableViewDelegate {
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		return 3
 	}
@@ -70,9 +74,9 @@ extension MealViewController:UITableViewDataSource, UITableViewDelegate{
             print("Couldn't find cell with identifier \(R.reuseIdentifier.mealCell.identifier)")
             return UITableViewCell()
         }
-		
+
 		cell.textLabel?.text = options[indexPath.row]
-		
+
 		return cell
 	}
 }
