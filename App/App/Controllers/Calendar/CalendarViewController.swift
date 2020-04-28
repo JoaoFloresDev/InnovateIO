@@ -40,6 +40,10 @@ class CalendarViewController: UIViewController {
 
 extension CalendarViewController: JTACMonthViewDataSource {
     
+    
+    /// Sets the length / amount of months for the calendar view.
+    /// - Parameter calendar: The calendar view.
+    /// - Returns: Returns the amount of months that can be seen.
     func configureCalendar(_ calendar: JTACMonthView) -> ConfigurationParameters {  
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy MM dd"
@@ -52,6 +56,14 @@ extension CalendarViewController: JTACMonthViewDataSource {
 
 extension CalendarViewController: JTACMonthViewDelegate {
     
+    
+    /// Sets the initial state for the days in the calendar.
+    /// - Parameters:
+    ///   - calendar: The calendar view.
+    ///   - date: The date related to the current day cell.
+    ///   - cellState: The state of the cell (e.g. sets the number of the day in the cell)
+    ///   - indexPath: The index of the
+    /// - Returns: The index path from day perspective
     func calendar(_ calendar: JTACMonthView, cellForItemAt date: Date, cellState: CellState, indexPath: IndexPath) -> JTACDayCell {
         
         let cell = calendar.dequeueReusableJTAppleCell(withReuseIdentifier: "dateCell", for: indexPath) as! DateCell
@@ -61,6 +73,13 @@ extension CalendarViewController: JTACMonthViewDelegate {
     }
     
     
+    /// Sets the current day in number for a cell's label.
+    /// - Parameters:
+    ///   - calendar: The calendar view.
+    ///   - cell: The current cell to be updated.
+    ///   - date: The date related to the current day cell.
+    ///   - cellState: The state of the cell (e.g. sets the number of the day in the cell)
+    ///   - indexPath: The index path from day perspective
     func calendar(_ calendar: JTACMonthView, willDisplay cell: JTACDayCell, forItemAt date: Date, cellState: CellState, indexPath: IndexPath) {
         
         let cell = cell as! DateCell
