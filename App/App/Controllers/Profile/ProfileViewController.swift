@@ -10,62 +10,82 @@ import UIKit
 import QuartzCore
 import Photos
 
+
+/// Profile screen:
+/// - graphics weight and good habits
+/// - abstract
+/// - header with general data
+
 class ProfileViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
     //    MARK: - Variables
     var imagePicker: UIImagePickerController!
-    var defaults = UserDefaults.standard
+    
+    var timerGoalsAnimation: Timer!
+    var headerViewHeightConstraint: NSLayoutConstraint!
+    var gradientView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
     
     //    MARK: - IBOutlet
     
     //BackgroundImages
-    @IBOutlet weak var topBackgroundImg: UIImageView!
-    @IBOutlet weak var bottomBackgroundImg: UIImageView!
+    @IBOutlet weak var headerBackgroundImg: UIImageView!
     
     //  header
     @IBOutlet weak var profileImg: UIImageView!
+    @IBOutlet weak var profileImgView: UIView!
+    @IBOutlet weak var headerView: UIView!
     
     @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var plainsLabel: UILabel!
+    @IBOutlet weak var myGoalsTextView: UITextView!
     @IBOutlet weak var currentWeightLabel: UILabel!
+    
+    //  resume
     @IBOutlet weak var exercicePercentLabel: UILabel!
     @IBOutlet weak var fruitsPercentLabel: UILabel!
     @IBOutlet weak var waterPercentLabel: UILabel!
-    @IBOutlet weak var balanceImg: UIImageView!
     
     //  graphics
     @IBOutlet weak var weightGraphicView: UIView!
     @IBOutlet weak var habitsGraphicView: UIView!
+    @IBOutlet weak var resumeView: UIView!
     
+    //  graphic apple watch boxes
     @IBOutlet weak var colorExerciceGraphicsImage: UIImageView!
     @IBOutlet weak var colorFruitsGraphicsImage: UIImageView!
     @IBOutlet weak var colorWaterGraphicsLabel: UIImageView!
     
-    
     //    MARK: - IBAction
     @IBAction func selectImgProfile(_ sender: Any) {
-        
         openGalery()
+    }
+    
+    @IBAction func showGoals(_ sender: Any) {
+        animateGoals()
     }
     
     //    MARK: - Life Cicle
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        
         setupStyleViews()
         setupDataProfile()
-        setupTexts()
+        setUpdateDataProfileNotification()
         
+        for constraints in headerView.constraints {
+            if(constraints.identifier == "headerView") {
+                headerViewHeightConstraint = constraints
+            }
+        }
     }
     
-    //    MARK: - User Defauls
-    func setupTexts() {
-        
-        plainsLabel.text = defaults.string(forKey: "Plain") ?? "Insira seu plano aqui"
-        currentWeightLabel.text = "\(defaults.string(forKey: "Weight") ?? "00") Kg"
-        exercicePercentLabel.text = defaults.string(forKey: "exercicePercent") ?? "00 %"
-        fruitsPercentLabel.text = defaults.string(forKey: "fruitsPercent") ?? "00 %"
-        waterPercentLabel.text = defaults.string(forKey: "waterPercent") ?? "00 %"
+    func setUpdateDataProfileNotification() {
+        NotificationCenter.default.addObserver(self, selector: #selector(self.updateHeaderInformations), name: NSNotification.Name(rawValue: "updateDataProfile"), object: nil)
+    }
+    
+    //    MARK: - @objc functions
+    @objc func updateHeaderInformations() {
+        ProfimeDataMenager().setupHeaderInformations(goalsTextView: myGoalsTextView,currentWeightLabel: currentWeightLabel)
     }
     
     //    MARK: - Take Profile Image
@@ -88,92 +108,87 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
         else if let img = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
         {   image = img    }
         
-        cropBounds(viewlayer: profileImg.layer,
-                   cornerRadius: Float(profileImg.frame.size.width/2))
+        StyleFunctions().cropBounds(viewlayer: profileImg.layer,
+                                    cornerRadius: Float(profileImg.frame.size.width/2))
         
         profileImg.image = image
         picker.dismiss(animated: true,completion: nil)
         
-        print(saveImage(image: image))
-    }
-    
-    func saveImage(image: UIImage) -> Bool {
-        guard let data = image.jpegData(compressionQuality: 1) ?? image.pngData() else {
-            return false
-        }
-        guard let directory = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false) as NSURL else {
-            return false
-        }
-        do {
-            try data.write(to: directory.appendingPathComponent("fileName.png")!)
-            return true
-        } catch {
-            print(error.localizedDescription)
-            return false
-        }
-    }
-    
-    func getSavedImage(named: String) -> UIImage? {
-        if let dir = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false) {
-            return UIImage(contentsOfFile: URL(fileURLWithPath: dir.absoluteString).appendingPathComponent(named).path)
-        }
-        return nil
+        print(ProfimeDataMenager().saveImage(image: image))
     }
     
     //    MARK: - Data Profile
     func setupDataProfile() {
+        ProfimeDataMenager().setupNameProfile(nameUser: nameLabel)
+        ProfimeDataMenager().setupImgProfile(profileImg: profileImg)
+        ProfimeDataMenager().setupHeaderInformations(goalsTextView: myGoalsTextView,
+                                                     currentWeightLabel: currentWeightLabel)
         
-        setupNameProfile()
-        setupDataProfileNotification()
-        if let image = getSavedImage(named: "fileName") {
-            cropBounds(viewlayer: profileImg.layer,
-                       cornerRadius: Float(profileImg.frame.size.width/2))
-            
-            profileImg.image = image
+        ProfimeDataMenager().setupResumeView(exercicePercentLabel: exercicePercentLabel, fruitsPercentLabel: fruitsPercentLabel,waterPercentLabel: waterPercentLabel)
+    }
+    
+    //    MARK: - Animations
+    func animateGoals() {
+        if let timer = self.timerGoalsAnimation{
+            do {
+                timer.invalidate()
+            }
+        }
+        if(headerViewHeightConstraint.constant >= 151) {
+            self.timerGoalsAnimation = Timer.scheduledTimer(timeInterval: 0.00005, target: self, selector: #selector(self.animateHide), userInfo: nil, repeats: true)
+        } else {
+            gradientView.removeFromSuperview()
+            self.timerGoalsAnimation = Timer.scheduledTimer(timeInterval: 0.00005, target: self, selector: #selector(self.animateShow), userInfo: nil, repeats: true)
         }
     }
     
-    func setupDataProfileNotification() {
+    @objc func animateShow () {
+        let neewSize = 100 + self.myGoalsTextView.contentSize.height
+        let sizeWillFill = neewSize - headerViewHeightConstraint.constant
         
-        NotificationCenter.default.addObserver(self, selector: #selector(self.updateLabel), name: NSNotification.Name(rawValue: "updateDataProfile"), object: nil)
-    }
-    
-    func setupNameProfile() {
-        
-        var vet = UIDevice.current.name.split(separator: " ")
-        for _ in 0...1 {
-            vet.remove(at: 0)
+        if(headerViewHeightConstraint.constant <= neewSize - 60) {
+            headerViewHeightConstraint.constant = headerViewHeightConstraint.constant + 0.02
+        } else if(headerViewHeightConstraint.constant < neewSize && headerViewHeightConstraint.constant < 600) {
+            headerViewHeightConstraint.constant = headerViewHeightConstraint.constant + sizeWillFill/3000 + 0.0001
         }
-        nameLabel.text = vet.joined(separator: " ").capitalized
+        else {
+            self.timerGoalsAnimation.invalidate()
+        }
     }
     
-    @objc func updateLabel() {
+    @objc func animateHide () {
+        let sizeWillFill = headerViewHeightConstraint.constant - 150
         
-        setupTexts()
+        if(headerViewHeightConstraint.constant >= 210) {
+            headerViewHeightConstraint.constant = headerViewHeightConstraint.constant - 0.02
+        }
+        else if (headerViewHeightConstraint.constant > 150){
+            headerViewHeightConstraint.constant = headerViewHeightConstraint.constant - sizeWillFill/3000 - 0.001
+        }
+        else {
+            self.timerGoalsAnimation.invalidate()
+            myGoalsTextView.addSubview(gradientView)
+        }
     }
     
     //    MARK: - Style
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        
-        return .lightContent
-    }
     
     func setupStyleViews() {
+        StyleFunctions().cropBounds(viewlayer: weightGraphicView.layer, cornerRadius: 10)
+        StyleFunctions().cropBounds(viewlayer: habitsGraphicView.layer, cornerRadius: 10)
+        StyleFunctions().cropBounds(viewlayer: resumeView.layer, cornerRadius: 10)
         
-        cropBounds(viewlayer: weightGraphicView.layer, cornerRadius: 10)
-        cropBounds(viewlayer: habitsGraphicView.layer, cornerRadius: 10)
-        cropBounds(viewlayer: colorExerciceGraphicsImage.layer, cornerRadius: 5)
-        cropBounds(viewlayer: colorFruitsGraphicsImage.layer, cornerRadius: 5)
-        cropBounds(viewlayer: colorWaterGraphicsLabel.layer, cornerRadius: 5)
-        cropBounds(viewlayer: bottomBackgroundImg.layer, cornerRadius: 25)
-        cropBounds(viewlayer: topBackgroundImg.layer, cornerRadius: 25)
-        cropBounds(viewlayer: balanceImg.layer, cornerRadius: 15)
-    }
-    
-    func cropBounds(viewlayer: CALayer, cornerRadius: Float) {
+        StyleFunctions().cropBounds(viewlayer: colorExerciceGraphicsImage.layer, cornerRadius: 5)
+        StyleFunctions().cropBounds(viewlayer: colorFruitsGraphicsImage.layer, cornerRadius: 5)
+        StyleFunctions().cropBounds(viewlayer: colorWaterGraphicsLabel.layer, cornerRadius: 5)
         
-        let imageLayer = viewlayer
-        imageLayer.cornerRadius = CGFloat(cornerRadius)
-        imageLayer.masksToBounds = true
+        StyleFunctions().cropBounds(viewlayer: headerBackgroundImg.layer, cornerRadius: 25)
+        StyleFunctions().cropBounds(viewlayer: profileImgView.layer, cornerRadius: Float(profileImgView.frame.width/2))
+        StyleFunctions().applicShadow(layer: headerView.layer)
+        
+        
+        gradientView = UIView(frame: CGRect(x: 0, y: 0, width: myGoalsTextView.frame.width, height: myGoalsTextView.frame.height))
+        StyleFunctions().appliGradient(view: gradientView)
+        myGoalsTextView.addSubview(gradientView)
     }
 }

@@ -40,6 +40,8 @@
 		C44D149F243657E70094497A /* Calendar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C44D149E243657E70094497A /* Calendar.storyboard */; };
 		C44D14A1243657FF0094497A /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C44D14A0243657FF0094497A /* Settings.storyboard */; };
 		C44D14A3243658680094497A /* Meals.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C44D14A2243658680094497A /* Meals.storyboard */; };
+		C451C01E2458668C00C9A9F0 /* StyleClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C451C01D2458668C00C9A9F0 /* StyleClass.swift */; };
+		C451C0202458669900C9A9F0 /* ProfileDataMenagerClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C451C01F2458669900C9A9F0 /* ProfileDataMenagerClass.swift */; };
 		D73311B3245318760080767E /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73311B2245318760080767E /* NotificationService.swift */; };
 		D7B2C2FC243E0A520071561C /* LineChartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B2C2FA243E0A520071561C /* LineChartTableViewCell.swift */; };
 		D7B2C2FD243E0A520071561C /* LineChartTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D7B2C2FB243E0A520071561C /* LineChartTableViewCell.xib */; };
@@ -109,6 +111,8 @@
 		C44D149E243657E70094497A /* Calendar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Calendar.storyboard; sourceTree = "<group>"; };
 		C44D14A0243657FF0094497A /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		C44D14A2243658680094497A /* Meals.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Meals.storyboard; sourceTree = "<group>"; };
+		C451C01D2458668C00C9A9F0 /* StyleClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleClass.swift; sourceTree = "<group>"; };
+		C451C01F2458669900C9A9F0 /* ProfileDataMenagerClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDataMenagerClass.swift; sourceTree = "<group>"; };
 		D73311B2245318760080767E /* NotificationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		D7B2C2FA243E0A520071561C /* LineChartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineChartTableViewCell.swift; sourceTree = "<group>"; };
 		D7B2C2FB243E0A520071561C /* LineChartTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LineChartTableViewCell.xib; sourceTree = "<group>"; };
@@ -199,6 +203,7 @@
 		81568ADE243B74EB00734FCA /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				C451C01C2458667600C9A9F0 /* ProfileClasses */,
 				81721F3C2451D4450066B047 /* Data */,
 				812B30E5243C9D78002F1AFF /* Persistence */,
 			);
@@ -322,6 +327,15 @@
 				C44D1490243655BC0094497A /* Info.plist */,
 			);
 			path = AppUITests;
+			sourceTree = "<group>";
+		};
+		C451C01C2458667600C9A9F0 /* ProfileClasses */ = {
+			isa = PBXGroup;
+			children = (
+				C451C01D2458668C00C9A9F0 /* StyleClass.swift */,
+				C451C01F2458669900C9A9F0 /* ProfileDataMenagerClass.swift */,
+			);
+			path = ProfileClasses;
 			sourceTree = "<group>";
 		};
 		D73311B1245318760080767E /* Services */ = {
@@ -627,9 +641,11 @@
 				D73311B3245318760080767E /* NotificationService.swift in Sources */,
 				810518992450746A00F8A86E /* DataHandler+DailyDiary.swift in Sources */,
 				D7B2C301243E17D90071561C /* R.generated.swift in Sources */,
+				C451C01E2458668C00C9A9F0 /* StyleClass.swift in Sources */,
 				810224622451B1AA00CD7BC0 /* DataHandler+Meal.swift in Sources */,
 				D7B2C2FC243E0A520071561C /* LineChartTableViewCell.swift in Sources */,
 				8105189C24507BB600F8A86E /* Date.swift in Sources */,
+				C451C0202458669900C9A9F0 /* ProfileDataMenagerClass.swift in Sources */,
 				C407E921243CC23800DA8490 /* ProfileViewController.swift in Sources */,
 				C44D146A243655BA0094497A /* AppDelegate.swift in Sources */,
 				812E8E56245703330041719F /* DateCell.swift in Sources */,
@@ -812,7 +828,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = HHRZ35A37Y;
+				DEVELOPMENT_TEAM = NZC6LC8NWM;
 				INFOPLIST_FILE = App/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -831,7 +847,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = HHRZ35A37Y;
+				DEVELOPMENT_TEAM = NZC6LC8NWM;
 				INFOPLIST_FILE = App/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
