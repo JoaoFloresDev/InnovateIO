@@ -60,6 +60,9 @@
                                                     </view>
                                                     <datePicker contentMode="scaleToFill" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="5" translatesAutoresizingMaskIntoConstraints="NO" id="oIP-Sd-anT">
                                                         <rect key="frame" x="27" y="138" width="320" height="210"/>
+                                                        <connections>
+                                                            <action selector="datePickerChanged:" destination="UcL-qO-qKl" eventType="valueChanged" id="TPA-hz-Gay"/>
+                                                        </connections>
                                                     </datePicker>
                                                 </subviews>
                                                 <constraints>

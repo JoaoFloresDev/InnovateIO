@@ -16,6 +16,7 @@ class MealViewController: UIViewController {
     @IBOutlet weak var datePicker: UIDatePicker!
     
     let options = ["Refeição", "Exercício", "Água"]
+    var selectedDate: Date = Date()
     
     var dataHandler: DataHandler?
     var dailyDiary: DailyDiary?
@@ -86,6 +87,10 @@ class MealViewController: UIViewController {
         }
     }
     
+    @IBAction func datePickerChanged(_ sender: UIDatePicker) {
+        selectedDate = sender.date
+    }
+    
     @IBAction func addMealTapped(_ sender: Any) {
         guard let thisMealRate = thisMealRateView.selectedRating else {
             // TODO: feedback ao usuário ("selecione uma avaliação" ou algo do tipo)
@@ -93,7 +98,8 @@ class MealViewController: UIViewController {
             return
         }
         do {
-            let (_, _, _, hour, minute, _) = try datePicker.date.getAllInformations()
+            print(selectedDate)
+            let (_, _, _, hour, minute, _) = try selectedDate.getAllInformations()
             
             saveMeal(quality: thisMealRate.rawValue, hour: hour, minute: minute)
         } catch {
