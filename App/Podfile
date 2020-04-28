@@ -9,6 +9,7 @@ target 'App' do
 
   pod 'Charts'
   pod 'R.swift'
+  pod 'JTAppleCalendar'
 
   target 'AppTests' do
     inherit! :search_paths
