@@ -53,12 +53,21 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="med-F0-CKl">
+                                <rect key="frame" x="0.0" y="384" width="414" height="429"/>
+                                <viewLayoutGuide key="contentLayoutGuide" id="BGu-VJ-lyJ"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="BAz-kw-pjG"/>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="V5a-NO-0Sa" firstAttribute="top" secondItem="Lcb-ir-xcC" secondAttribute="top" id="3Gq-uo-FRJ"/>
                             <constraint firstItem="V5a-NO-0Sa" firstAttribute="leading" secondItem="Lcb-ir-xcC" secondAttribute="leading" id="9nk-V1-DWF"/>
+                            <constraint firstItem="med-F0-CKl" firstAttribute="leading" secondItem="Lcb-ir-xcC" secondAttribute="leading" id="Hvp-Xk-dCU"/>
+                            <constraint firstItem="med-F0-CKl" firstAttribute="trailing" secondItem="Lcb-ir-xcC" secondAttribute="trailing" id="QNx-hR-e8o"/>
+                            <constraint firstItem="med-F0-CKl" firstAttribute="bottom" secondItem="Lcb-ir-xcC" secondAttribute="bottom" id="Qi0-AJ-cgz"/>
                             <constraint firstItem="V5a-NO-0Sa" firstAttribute="trailing" secondItem="Lcb-ir-xcC" secondAttribute="trailing" id="Vup-PI-jDj"/>
+                            <constraint firstItem="med-F0-CKl" firstAttribute="top" secondItem="V5a-NO-0Sa" secondAttribute="bottom" constant="20" id="o7b-y3-iKR"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Lcb-ir-xcC"/>
                     </view>
