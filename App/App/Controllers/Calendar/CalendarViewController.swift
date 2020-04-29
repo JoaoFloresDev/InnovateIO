@@ -67,6 +67,14 @@ extension CalendarViewController: JTACMonthViewDelegate {
     func calendar(_ calendar: JTACMonthView, cellForItemAt date: Date, cellState: CellState, indexPath: IndexPath) -> JTACDayCell {
         
         let cell = calendar.dequeueReusableJTAppleCell(withReuseIdentifier: "dateCell", for: indexPath) as! DateCell
+        
+        if cellState.dateBelongsTo == .thisMonth {
+            cell.dateLabel.textColor = .black
+        }
+        else {
+            cell.dateLabel.textColor = .gray
+        }
+        
         cell.dateLabel.text = cellState.text
         
         return cell
@@ -83,6 +91,14 @@ extension CalendarViewController: JTACMonthViewDelegate {
     func calendar(_ calendar: JTACMonthView, willDisplay cell: JTACDayCell, forItemAt date: Date, cellState: CellState, indexPath: IndexPath) {
         
         let cell = cell as! DateCell
+        
+        if cellState.dateBelongsTo == .thisMonth {
+            cell.dateLabel.textColor = .black
+        }
+        else {
+            cell.dateLabel.textColor = .gray
+        }
+        
         cell.dateLabel.text = cellState.text
     }
     
@@ -104,7 +120,7 @@ extension CalendarViewController: JTACMonthViewDelegate {
     
 
     func calendarSizeForMonths(_ calendar: JTACMonthView?) -> MonthSize? {
-        return MonthSize(defaultSize: 50)
+        return MonthSize(defaultSize: 80)
     }
     
 
