@@ -8,15 +8,21 @@
 
 import UIKit
 
+protocol DailyHabitsViewDelegate {
+    func dailyDiaryDidUpdate(_ diary: DailyDiary)
+}
+
 class DailyHabitsView: UIView {
     
     @IBOutlet var contentView: UIView!
     @IBOutlet weak var dailyHabitsTableView: UITableView!
     @IBOutlet weak var todayRatingView: RatingView!
     
-    var dailyHabits : [DailyHabits : Bool] = [.exercise : false, .fruit : false, .drinkWater : false]
+    private var delegate: DailyHabitsViewDelegate?
+    private var dailyHabits : [DailyHabits : Bool] = [.exercise : false, .fruit : false, .drinkWater : false]
+    private var dailyDiary: DailyDiary?
     
-    var selectedRating: Rating? {
+    private var selectedRating: Rating? {
         set {
             todayRatingView.selectedRating = newValue
         }
@@ -52,8 +58,45 @@ class DailyHabitsView: UIView {
         dailyHabitsTableView.register(UINib(resource: R.nib.dailyHabitsTableViewCell), forCellReuseIdentifier: R.reuseIdentifier.dailyHabitsTableViewCell.identifier)
     }
     
-    func setup() {
+    func setup(delegate: DailyHabitsViewDelegate) {
+        self.delegate = delegate
         todayRatingView.setup()
+    }
+    
+    func setInitialDailyDiary(_ diary: DailyDiary?) {
+        self.dailyDiary = diary
+        updateViewToDiary()
+    }
+    
+    private func updateViewToDiary() {
+        guard let dailyDiary = self.dailyDiary else { return }
+        
+        dailyHabits[.drinkWater] = dailyDiary.didDrinkWater
+        dailyHabits[.exercise] = dailyDiary.didPracticeExercise
+        dailyHabits[.fruit] = dailyDiary.didEatFruit
+        todayRatingView.selectedRating = Rating(rawValue: Int(dailyDiary.quality))
+        
+        dailyHabitsTableView.reloadData()
+    }
+    
+    private func updatedDailyDiary() {
+        if let diary = self.dailyDiary {
+            delegate?.dailyDiaryDidUpdate(diary)
+        }
+    }
+    
+    private func updatedHabit(_ habit: DailyHabits) {
+        let change = dailyHabits[habit] ?? false
+        switch habit {
+        case .drinkWater:
+            dailyDiary?.didDrinkWater = change
+        case .exercise:
+            dailyDiary?.didPracticeExercise = change
+        case .fruit:
+            dailyDiary?.didEatFruit = change
+        }
+        
+        updatedDailyDiary()
     }
 }
 
@@ -67,27 +110,36 @@ extension DailyHabitsView: UITableViewDataSource, UITableViewDelegate {
         
         let habitKeys: [DailyHabits] = Array(dailyHabits.keys)
         let habit = habitKeys[indexPath.row]
-        let isSelected = dailyHabits[habit]
         
         cell.setup(title: habit.title, icon: habit.icon)
-        cell.isSelected = isSelected ?? false
         
         return cell
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableView.automaticDimension
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+
+        let habitKeys: [DailyHabits] = Array(dailyHabits.keys)
+        let habit = habitKeys[indexPath.row]
+        let isSelected = dailyHabits[habit]
+        if isSelected ?? false {
+            tableView.selectRow(at: indexPath, animated: true, scrollPosition: .none)
+        } else {
+            tableView.deselectRow(at: indexPath, animated: true)
+        }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let habitKeys: [DailyHabits] = Array(dailyHabits.keys)
-        let habit = habitKeys[indexPath.row]
-        dailyHabits[habit] = true
+        didSelectHabit(true, indexPath)
     }
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        didSelectHabit(false, indexPath)
+    }
+    
+    fileprivate func didSelectHabit(_ selected: Bool, _ indexPath: IndexPath) {
         let habitKeys: [DailyHabits] = Array(dailyHabits.keys)
         let habit = habitKeys[indexPath.row]
-        dailyHabits[habit] = false
+        dailyHabits[habit] = selected
+        updatedHabit(habit)
     }
 }
