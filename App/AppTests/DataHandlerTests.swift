@@ -87,7 +87,7 @@ class DataHandlerTests: XCTestCase {
             // ------------------------------------- //
             // PLEASE VERIFY THE DATE BEFORE TESTING //
             // ------------------------------------- //
-            try self.dataHandler?.createDailyDiary(year: 2020, month: 4, day: 23, quality: 1, didDrinkWater: false, didPracticeExercise: false, didEatFruit: false, meal: self.meal!)
+            try self.dataHandler?.createDailyDiary(year: 2020, month: 4, day: 1, quality: -1, didDrinkWater: false, didPracticeExercise: false, didEatFruit: false, meal: self.meal!)
             
             try self.dataHandler?.createDailyDiary(year: 2020, month: 4, day: 23, quality: 1, didDrinkWater: nil, didPracticeExercise: nil, didEatFruit: nil, meal: self.meal!)
         }
