@@ -9,13 +9,8 @@
 import UIKit
 
 class MealViewController: UIViewController {
-    @IBOutlet weak var thisMealRateView: RatingView!
+    @IBOutlet weak var registerMealView: RegisterMealView!
     @IBOutlet weak var dailyHabitsView: DailyHabitsView!
-    
-    @IBOutlet weak var datePicker: UIDatePicker!
-    
-    let options = ["Refeição", "Exercício", "Água"]
-    var selectedDate: Date = Date()
     
     var dataHandler: DataHandler?
     var dailyDiary: DailyDiary?
@@ -23,7 +18,6 @@ class MealViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupDatePicker()
         
         do {
             dataHandler = try DataHandler.getShared()
@@ -36,22 +30,8 @@ class MealViewController: UIViewController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        
-        thisMealRateView.setup()
         dailyHabitsView.setup()
-    }
-    
-    fileprivate func setupDatePicker() {
-        datePicker.datePickerMode = .time
-        datePicker.minuteInterval = 10
-    }
-    
-    func saveMeal(quality: Int, hour: Int, minute: Int) {
-        do {
-            try dataHandler?.createMeal(quality: quality, hour: hour, minute: minute)
-        } catch {
-            print("Couldn't create new meal.")
-        }
+        registerMealView.setup(delegate: self)
     }
     
     func updateDailyData() {
@@ -79,25 +59,18 @@ class MealViewController: UIViewController {
             print("There's still no daily data for today or something went wrong when trying to fetch.")
         }
     }
-    
-    @IBAction func datePickerChanged(_ sender: UIDatePicker) {
-        selectedDate = sender.date
+}
+
+extension MealViewController: RegisterMealViewDelegate {
+    func saveMeal(quality: Int, hour: Int, minute: Int) {
+        do {
+            try dataHandler?.createMeal(quality: quality, hour: hour, minute: minute)
+        } catch {
+            print("Couldn't create new meal.")
+        }
     }
     
-    @IBAction func addMealTapped(_ sender: Any) {
-        guard let thisMealRate = thisMealRateView.selectedRating else {
-            // TODO: feedback ao usuário ("selecione uma avaliação" ou algo do tipo)
-            print("Can't save meal without rating.")
-            return
-        }
-        do {
-            print(selectedDate)
-            let (_, _, _, hour, minute, _) = try selectedDate.getAllInformations()
-            
-            saveMeal(quality: thisMealRate.rawValue, hour: hour, minute: minute)
-        } catch {
-            print("Couldn't get hour and minute from date picker.")
-        }
-        
+    func presentAlert(_ alert: UIAlertController) {
+        self.present(alert, animated: true)
     }
 }
