@@ -16,9 +16,6 @@ extension Date {
     /// - Returns: An optional tuple with the following order: Year, Month, Day, Hour, Minute and Second
     func getAllInformations() throws -> (Int, Int, Int, Int, Int, Int) {
         
-        // Setting the current date
-        let date = Date()
-        
         // Getting the User's calendar
         let calendar = Calendar.current
         
@@ -33,7 +30,7 @@ extension Date {
         ]
         
         // Getting the components from the Calendar
-        let dateComponents = calendar.dateComponents(requestedComponents, from: date)
+        let dateComponents = calendar.dateComponents(requestedComponents, from: self)
         
         // Checking for nils
         do {
