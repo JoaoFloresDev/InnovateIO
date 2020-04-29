@@ -77,7 +77,7 @@ class NotificationService {
             
         case NotificationType.update.rawValue:
             guard let profileVC = rootVC.selectedViewController as? ProfileViewController else { return }
-            profileVC.performSegue(withIdentifier: R.segue.profileViewController.toEditDataViewController.identifier, sender: nil)
+            profileVC.performSegue(withIdentifier: R.segue.profileViewController.toEditData.identifier, sender: nil)
         default: return
             
         }
