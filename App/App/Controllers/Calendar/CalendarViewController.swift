@@ -69,7 +69,7 @@ extension CalendarViewController: JTACMonthViewDataSource {
 extension CalendarViewController: JTACMonthViewDelegate {
     
     
-    /// Sets the initial state for the days in the calendar.
+    /// Sets the initial state for the days in the calendar and colorize the cells.
     /// - Parameters:
     ///   - calendar: The calendar view.
     ///   - date: The date related to the current day cell.
@@ -89,6 +89,7 @@ extension CalendarViewController: JTACMonthViewDelegate {
         
         cell.dateLabel.text = cellState.text
         
+        // Colorizing the cells
         do {
 
             let (year, month, day, _, _, _) = try date.getAllInformations()
