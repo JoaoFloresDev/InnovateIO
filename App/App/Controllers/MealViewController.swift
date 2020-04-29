@@ -9,9 +9,8 @@
 import UIKit
 
 class MealViewController: UIViewController {
-	@IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var thisMealRateView: RatingView!
-    @IBOutlet weak var dayMealRatingView: RatingView!
+    @IBOutlet weak var dailyHabitsView: DailyHabitsView!
     
     @IBOutlet weak var datePicker: UIDatePicker!
     
@@ -24,7 +23,6 @@ class MealViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupTableView()
         setupDatePicker()
         
         do {
@@ -40,12 +38,7 @@ class MealViewController: UIViewController {
         super.viewDidLayoutSubviews()
         
         thisMealRateView.setup()
-        dayMealRatingView.setup()
-    }
-    
-    fileprivate func setupTableView() {
-            tableView.delegate = self
-            tableView.dataSource = self
+        dailyHabitsView.setup()
     }
     
     fileprivate func setupDatePicker() {
@@ -80,7 +73,7 @@ class MealViewController: UIViewController {
             dailyDiary = try dataHandler?.loadDailyDiary(year: year, month: month, day: day)
             if let dayQuality32 = dailyDiary?.quality {
                 let dayQuality = Int(dayQuality32)
-                dayMealRatingView.selectedRating = Rating(rawValue: dayQuality)
+                dailyHabitsView.selectedRating = Rating(rawValue: dayQuality)
             }
         } catch {
             print("There's still no daily data for today or something went wrong when trying to fetch.")
@@ -107,21 +100,4 @@ class MealViewController: UIViewController {
         }
         
     }
-}
-
-extension MealViewController: UITableViewDataSource, UITableViewDelegate {
-	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return 3
-	}
-	
-	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.mealCell.identifier) else {
-            print("Couldn't find cell with identifier \(R.reuseIdentifier.mealCell.identifier)")
-            return UITableViewCell()
-        }
-
-		cell.textLabel?.text = options[indexPath.row]
-
-		return cell
-	}
 }
