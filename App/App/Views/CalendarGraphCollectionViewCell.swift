@@ -17,16 +17,4 @@ class CalendarGraphCollectionViewCell: UICollectionViewCell {
 			timeDots[i].isHidden = true
 		}
 	}
-	
-	init(time:[Float]) {
-		configureTimeDots()
-	}
-	
-	required init?(coder: NSCoder) {
-		configureTimeDots()
-
-		fatalError("init(coder:) has not been implemented")
-	}
-	
-	
 }
