@@ -11,10 +11,13 @@ import JTAppleCalendar
 
 class CalendarViewController: UIViewController {
     
+    // Attributes related to the interface builder
     @IBOutlet weak var calendarView: JTACMonthView!
     @IBOutlet weak var collectionView: UICollectionView!
     
+    // Attributes related to the calendar itself
     var formatter = DateFormatter()
+    private var dataHandler: DataHandler?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +37,14 @@ class CalendarViewController: UIViewController {
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
         
+        
+        // Setting up the Data Handler (Core Data interface)
+        do {
+            self.dataHandler = try DataHandler.getShared()
+        }
+        catch { }
+        
+        self.calendarView.reloadData()
     }
     
 }
@@ -51,13 +62,14 @@ extension CalendarViewController: JTACMonthViewDataSource {
         let endDate = Date()
         return ConfigurationParameters(startDate: startDate, endDate: endDate)
     }
+
     
 }
 
 extension CalendarViewController: JTACMonthViewDelegate {
     
     
-    /// Sets the initial state for the days in the calendar.
+    /// Sets the initial state for the days in the calendar and colorize the cells.
     /// - Parameters:
     ///   - calendar: The calendar view.
     ///   - date: The date related to the current day cell.
@@ -77,9 +89,33 @@ extension CalendarViewController: JTACMonthViewDelegate {
         
         cell.dateLabel.text = cellState.text
         
+        // Colorizing the cells
+        do {
+
+            let (year, month, day, _, _, _) = try date.getAllInformations()
+            let daily = try dataHandler?.loadDailyDiary(year: year, month: month, day: day)
+
+            switch (daily?.quality) {
+            case 1:
+                cell.dateLabel.backgroundColor = .green
+                break
+            case 0:
+                cell.dateLabel.backgroundColor = .yellow
+                break
+            case -1:
+                cell.dateLabel.backgroundColor = .red
+                break
+            default:
+                cell.dateLabel.backgroundColor = .clear
+                break
+            }
+
+        }
+        catch {} // If catch has returned something... That means that we don't have anything on this date.
+
         return cell
     }
-    
+
     
     /// Sets the current day in number for a cell's label.
     /// - Parameters:
@@ -91,15 +127,8 @@ extension CalendarViewController: JTACMonthViewDelegate {
     func calendar(_ calendar: JTACMonthView, willDisplay cell: JTACDayCell, forItemAt date: Date, cellState: CellState, indexPath: IndexPath) {
         
         let cell = cell as! DateCell
-        
-        if cellState.dateBelongsTo == .thisMonth {
-            cell.dateLabel.textColor = .black
-        }
-        else {
-            cell.dateLabel.textColor = .gray
-        }
-        
         cell.dateLabel.text = cellState.text
+        
     }
     
     
