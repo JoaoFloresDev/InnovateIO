@@ -69,8 +69,22 @@ class RegisterMealView: UIView {
             let (_, _, _, hour, minute, _) = try selectedDate.getAllInformations()
             
             delegate?.saveMeal(quality: thisMealRate.rawValue, hour: hour, minute: minute)
+            
+            let alert = UIAlertController(title: "Salvo!", message: "Sua refeição foi registrada.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
+                alert.dismiss(animated: true)
+                self.datePicker.date = Date()
+                self.thisMealRatingView.setInitiallySelectedRating(nil)
+            }))
+            delegate?.presentAlert(alert)
         } catch {
             print("Couldn't get hour and minute from date picker.")
+            
+            let alert = UIAlertController(title: "Ops!", message: "Algo deu errado, tente novamente!", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
+                alert.dismiss(animated: true)
+            }))
+            delegate?.presentAlert(alert)
         }
     }
 }

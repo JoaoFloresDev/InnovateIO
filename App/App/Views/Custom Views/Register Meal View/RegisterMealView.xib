@@ -24,7 +24,7 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DGw-A5-4s4" userLabel="Header View">
                             <rect key="frame" x="20.5" y="0.0" width="373" height="29"/>
                             <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qEG-ia-ScL">
+                                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qEG-ia-ScL">
                                     <rect key="frame" x="353" y="4.5" width="20" height="20"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="20" id="egt-VG-cws"/>
@@ -41,7 +41,7 @@
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wI1-Xs-ooK">
+                                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wI1-Xs-ooK">
                                     <rect key="frame" x="0.0" y="-0.5" width="30" height="30"/>
                                     <state key="normal" title="Info"/>
                                 </button>

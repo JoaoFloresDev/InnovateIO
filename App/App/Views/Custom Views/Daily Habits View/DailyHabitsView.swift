@@ -60,7 +60,7 @@ class DailyHabitsView: UIView {
     
     func setup(delegate: DailyHabitsViewDelegate) {
         self.delegate = delegate
-        todayRatingView.setup()
+        todayRatingView.setup(delegate: self)
     }
     
     func setInitialDailyDiary(_ diary: DailyDiary?) {
@@ -74,7 +74,8 @@ class DailyHabitsView: UIView {
         dailyHabits[.drinkWater] = dailyDiary.didDrinkWater
         dailyHabits[.exercise] = dailyDiary.didPracticeExercise
         dailyHabits[.fruit] = dailyDiary.didEatFruit
-        todayRatingView.selectedRating = Rating(rawValue: Int(dailyDiary.quality))
+        let initialRating = Rating(rawValue: Int(dailyDiary.quality)) ?? .average
+        todayRatingView.setInitiallySelectedRating(initialRating)
         
         dailyHabitsTableView.reloadData()
     }
@@ -141,5 +142,13 @@ extension DailyHabitsView: UITableViewDataSource, UITableViewDelegate {
         let habit = habitKeys[indexPath.row]
         dailyHabits[habit] = selected
         updatedHabit(habit)
+    }
+}
+
+extension DailyHabitsView: RatingViewDelegate {
+    func selectedRatingDidChange(to rating: Rating?) {
+        guard let diary = dailyDiary, let rating = rating else { return }
+        diary.quality = Int32(rating.rawValue)
+        updatedDailyDiary()
     }
 }

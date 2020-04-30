@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol RatingViewDelegate {
+    func selectedRatingDidChange(to rating: Rating?)
+}
+
 class RatingView: UIView {
     @IBOutlet var contentView: UIView!
     @IBOutlet weak var goodRateButton: MealRateButton!
@@ -15,7 +19,13 @@ class RatingView: UIView {
     @IBOutlet weak var badRateButton: MealRateButton!
     
     var buttons: [MealRateButton] = []
-    var selectedRating: Rating?
+    var selectedRating: Rating? {
+        didSet {
+            delegate?.selectedRatingDidChange(to: selectedRating)
+        }
+    }
+    
+    var delegate: RatingViewDelegate?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -50,9 +60,26 @@ class RatingView: UIView {
         }
     }
     
-    func setup() {
+    func setup(delegate: RatingViewDelegate? = nil) {
         for button in buttons {
             button.setupButton()
+        }
+        self.delegate = delegate
+    }
+    
+    func setInitiallySelectedRating( _ rating: Rating?) {
+        self.selectedRating = rating
+        switch rating {
+        case .good:
+            goodRateButton.isTheSelectedButton = true
+        case .average:
+            averageRateButton.isTheSelectedButton = true
+        case .bad:
+            badRateButton.isTheSelectedButton = true
+        case nil:
+            for button in buttons {
+                button.isTheSelectedButton = false
+            }
         }
     }
     
