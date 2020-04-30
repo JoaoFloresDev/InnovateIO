@@ -527,7 +527,30 @@
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <connections>
-                                            <outletCollection property="timeDots" destination="ePc-qf-7nP" collectionClass="NSMutableArray" id="mdc-SG-r3O"/>
+                                            <outletCollection property="timeDots" destination="ukv-uZ-WUz" collectionClass="NSMutableArray" id="LxQ-m7-k5L"/>
+                                            <outletCollection property="timeDots" destination="cet-5t-f6e" collectionClass="NSMutableArray" id="U66-qr-u5f"/>
+                                            <outletCollection property="timeDots" destination="cmC-oi-35c" collectionClass="NSMutableArray" id="Hlt-Yk-ZqB"/>
+                                            <outletCollection property="timeDots" destination="ePc-qf-7nP" collectionClass="NSMutableArray" id="tGM-bE-snN"/>
+                                            <outletCollection property="timeDots" destination="E2t-EC-22S" collectionClass="NSMutableArray" id="Tk4-jw-yEb"/>
+                                            <outletCollection property="timeDots" destination="wE5-da-ZMe" collectionClass="NSMutableArray" id="WSs-vF-GZP"/>
+                                            <outletCollection property="timeDots" destination="Ytg-EX-rSG" collectionClass="NSMutableArray" id="vHZ-E0-bvj"/>
+                                            <outletCollection property="timeDots" destination="6LT-EU-jRy" collectionClass="NSMutableArray" id="z45-SN-e3c"/>
+                                            <outletCollection property="timeDots" destination="esC-lF-tb0" collectionClass="NSMutableArray" id="KDW-y2-hEf"/>
+                                            <outletCollection property="timeDots" destination="QGX-Ke-WgV" collectionClass="NSMutableArray" id="9a2-2y-C0W"/>
+                                            <outletCollection property="timeDots" destination="8FN-87-yDe" collectionClass="NSMutableArray" id="siq-cG-NgG"/>
+                                            <outletCollection property="timeDots" destination="q9r-Ii-Y4c" collectionClass="NSMutableArray" id="1go-Ff-G4e"/>
+                                            <outletCollection property="timeDots" destination="4DB-Ae-QkZ" collectionClass="NSMutableArray" id="ed4-Gt-3Zg"/>
+                                            <outletCollection property="timeDots" destination="qtD-N3-fid" collectionClass="NSMutableArray" id="YnV-Br-OvZ"/>
+                                            <outletCollection property="timeDots" destination="HXF-Wl-HdH" collectionClass="NSMutableArray" id="2Rs-s7-CVZ"/>
+                                            <outletCollection property="timeDots" destination="AJk-jz-mts" collectionClass="NSMutableArray" id="8A8-tM-AKf"/>
+                                            <outletCollection property="timeDots" destination="Rfs-fN-guk" collectionClass="NSMutableArray" id="2U3-hE-RCh"/>
+                                            <outletCollection property="timeDots" destination="oFf-7T-ael" collectionClass="NSMutableArray" id="riA-EB-qs7"/>
+                                            <outletCollection property="timeDots" destination="heM-HR-eWn" collectionClass="NSMutableArray" id="vef-9f-jBa"/>
+                                            <outletCollection property="timeDots" destination="LpI-X4-VQi" collectionClass="NSMutableArray" id="C5w-py-H1J"/>
+                                            <outletCollection property="timeDots" destination="C6L-T3-FtF" collectionClass="NSMutableArray" id="bcV-hp-Mhd"/>
+                                            <outletCollection property="timeDots" destination="T61-D8-u08" collectionClass="NSMutableArray" id="1w7-pJ-AU4"/>
+                                            <outletCollection property="timeDots" destination="gw4-ho-4Rf" collectionClass="NSMutableArray" id="9p7-NS-Bkc"/>
+                                            <outletCollection property="timeDots" destination="JhB-Fx-B61" collectionClass="NSMutableArray" id="oYo-7v-CsK"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>

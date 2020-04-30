@@ -12,9 +12,9 @@ class CalendarGraphCollectionViewCell: UICollectionViewCell {
     
 	@IBOutlet var timeDots: [RoundedView]!
 	
-	fileprivate func configureTimeDots() {
+	func configureTimeDots() {
 		for i in 0..<timeDots.count{
-			timeDots[i].isHidden = true
+			timeDots[i].alpha = 0
 		}
 	}
 }
