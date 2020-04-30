@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RegisterMealView" customModule="App" customModuleProvider="target">
+            <connections>
+                <outlet property="contentView" destination="iN0-l3-epB" id="Az5-OQ-xxk"/>
+                <outlet property="datePicker" destination="Iw9-D2-w3d" id="nQ4-62-blG"/>
+                <outlet property="thisMealRatingView" destination="pzl-DW-ErW" id="WbV-7u-Nqa"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="iN0-l3-epB" customClass="RoundedView" customModule="App" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="B7h-7o-zHL">
+                    <rect key="frame" x="0.0" y="42" width="414" height="838"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DGw-A5-4s4" userLabel="Header View">
+                            <rect key="frame" x="20.5" y="0.0" width="373" height="29"/>
+                            <subviews>
+                                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qEG-ia-ScL">
+                                    <rect key="frame" x="353" y="4.5" width="20" height="20"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="20" id="egt-VG-cws"/>
+                                        <constraint firstAttribute="width" constant="20" id="g95-FP-r51"/>
+                                    </constraints>
+                                    <state key="normal" image="plus" catalog="system"/>
+                                </button>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Registrar Refeição" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jJk-lf-sOO">
+                                    <rect key="frame" x="86.5" y="0.0" width="200" height="29"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="29" id="1h6-tD-fdv"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wI1-Xs-ooK">
+                                    <rect key="frame" x="0.0" y="-0.5" width="30" height="30"/>
+                                    <state key="normal" title="Info"/>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="qEG-ia-ScL" secondAttribute="trailing" id="6jl-E5-3CC"/>
+                                <constraint firstItem="wI1-Xs-ooK" firstAttribute="leading" secondItem="DGw-A5-4s4" secondAttribute="leading" id="9hD-Sl-Muk"/>
+                                <constraint firstItem="jJk-lf-sOO" firstAttribute="top" secondItem="DGw-A5-4s4" secondAttribute="top" id="DFc-Gm-efe"/>
+                                <constraint firstItem="jJk-lf-sOO" firstAttribute="centerX" secondItem="DGw-A5-4s4" secondAttribute="centerX" id="EJ9-4D-m08"/>
+                                <constraint firstItem="qEG-ia-ScL" firstAttribute="centerY" secondItem="DGw-A5-4s4" secondAttribute="centerY" id="Ly2-in-o9D"/>
+                                <constraint firstAttribute="bottom" secondItem="jJk-lf-sOO" secondAttribute="bottom" id="gvB-JJ-W6T"/>
+                                <constraint firstItem="wI1-Xs-ooK" firstAttribute="centerY" secondItem="DGw-A5-4s4" secondAttribute="centerY" id="pP6-zD-CW8"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pzl-DW-ErW" customClass="RatingView" customModule="App" customModuleProvider="target">
+                            <rect key="frame" x="76.5" y="37" width="261" height="611"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        </view>
+                        <datePicker contentMode="scaleToFill" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="5" translatesAutoresizingMaskIntoConstraints="NO" id="Iw9-D2-w3d">
+                            <rect key="frame" x="47" y="656" width="320" height="130"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="130" id="VeH-a2-ffz"/>
+                            </constraints>
+                            <connections>
+                                <action selector="datePickerChanged:" destination="-1" eventType="valueChanged" id="J8t-vK-61X"/>
+                            </connections>
+                        </datePicker>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1r5-m7-dly" customClass="RoundedButton" customModule="App" customModuleProvider="target">
+                            <rect key="frame" x="17.5" y="794" width="379" height="44"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="44" id="ZpX-eI-Zar"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                            <state key="normal" title="Adicionar"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="12"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                    <real key="value" value="2"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                    <color key="value" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="addButtonTapped:" destination="-1" eventType="touchUpInside" id="ECI-Gf-64l"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                </stackView>
+            </subviews>
+            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+            <constraints>
+                <constraint firstItem="B7h-7o-zHL" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="42" id="0ho-zg-MSL"/>
+                <constraint firstItem="1r5-m7-dly" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.915" id="3gN-2p-gF5"/>
+                <constraint firstItem="DGw-A5-4s4" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.9" id="4p7-HQ-y4A"/>
+                <constraint firstItem="pzl-DW-ErW" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.63" id="99I-zA-Z42"/>
+                <constraint firstAttribute="trailing" secondItem="B7h-7o-zHL" secondAttribute="trailing" id="Mun-8e-kQ3"/>
+                <constraint firstAttribute="bottom" secondItem="B7h-7o-zHL" secondAttribute="bottom" constant="16" id="VM7-xq-wF9"/>
+                <constraint firstItem="B7h-7o-zHL" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="lIh-Qz-GWo"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                    <real key="value" value="22"/>
+                </userDefinedRuntimeAttribute>
+            </userDefinedRuntimeAttributes>
+            <point key="canvasLocation" x="139" y="79"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="plus" catalog="system" width="128" height="113"/>
+    </resources>
+</document>
