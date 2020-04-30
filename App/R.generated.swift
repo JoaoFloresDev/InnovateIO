@@ -89,6 +89,30 @@ struct R: Rswift.Validatable {
   }
 
   #if os(iOS) || os(tvOS)
+  /// This `R.segue` struct is generated, and contains static references to 1 view controllers.
+  struct segue {
+    /// This struct is generated for `ProfileViewController`, and contains static references to 1 segues.
+    struct profileViewController {
+      /// Segue identifier `toEditData`.
+      static let toEditData: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, ProfileViewController, EditDataViewController> = Rswift.StoryboardSegueIdentifier(identifier: "toEditData")
+
+      #if os(iOS) || os(tvOS)
+      /// Optionally returns a typed version of segue `toEditData`.
+      /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
+      /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
+      static func toEditData(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, ProfileViewController, EditDataViewController>? {
+        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.profileViewController.toEditData, segue: segue)
+      }
+      #endif
+
+      fileprivate init() {}
+    }
+
+    fileprivate init() {}
+  }
+  #endif
+
+  #if os(iOS) || os(tvOS)
   /// This `R.storyboard` struct is generated, and contains static references to 6 storyboards.
   struct storyboard {
     /// Storyboard `Calendar`.
@@ -404,7 +428,7 @@ struct R: Rswift.Validatable {
     /// Reuse identifier `LineChartTableViewCell`.
     static let lineChartTableViewCell: Rswift.ReuseIdentifier<LineChartTableViewCell> = Rswift.ReuseIdentifier(identifier: "LineChartTableViewCell")
     /// Reuse identifier `PerformanceChart`.
-    static let performanceChart: Rswift.ReuseIdentifier<UIKit.UIView> = Rswift.ReuseIdentifier(identifier: "PerformanceChart")
+    static let performanceChart: Rswift.ReuseIdentifier<CalendarGraphCollectionViewCell> = Rswift.ReuseIdentifier(identifier: "PerformanceChart")
     /// Reuse identifier `dateCell`.
     static let dateCell: Rswift.ReuseIdentifier<DateCell> = Rswift.ReuseIdentifier(identifier: "dateCell")
 
