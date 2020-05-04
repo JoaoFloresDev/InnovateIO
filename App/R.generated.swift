@@ -651,6 +651,8 @@ struct _R: Rswift.Validatable {
       let name = "Meals"
 
       static func validate() throws {
+        if UIKit.UIImage(named: "plus.app", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'plus.app' is used in storyboard 'Meals', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "plus.app.fill", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'plus.app.fill' is used in storyboard 'Meals', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
       }
@@ -671,8 +673,8 @@ struct _R: Rswift.Validatable {
         if UIKit.UIImage(named: "MealsResumeGraphic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'MealsResumeGraphic' is used in storyboard 'Profile', but couldn't be loaded.") }
         if UIKit.UIImage(named: "ProfilePlaceholder", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ProfilePlaceholder' is used in storyboard 'Profile', but couldn't be loaded.") }
         if UIKit.UIImage(named: "fruits", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'fruits' is used in storyboard 'Profile', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "person.circle", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'person.circle' is used in storyboard 'Profile', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "person.circle.fill", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'person.circle.fill' is used in storyboard 'Profile', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "person", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'person' is used in storyboard 'Profile', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "person.fill", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'person.fill' is used in storyboard 'Profile', but couldn't be loaded.") }
         if UIKit.UIImage(named: "water", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'water' is used in storyboard 'Profile', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
           if UIKit.UIColor(named: "BackgrondColor", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'BackgrondColor' is used in storyboard 'Profile', but couldn't be loaded.") }

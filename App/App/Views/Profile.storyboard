@@ -400,7 +400,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="3gs-JI-4iU"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Você" image="person.circle" catalog="system" selectedImage="person.circle.fill" id="V7e-WY-n85"/>
+                    <tabBarItem key="tabBarItem" title="Você" image="person" catalog="system" selectedImage="person.fill" id="V7e-WY-n85"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="currentWeightLabel" destination="hxV-di-iu0" id="SGm-sL-hdM"/>
@@ -552,8 +552,8 @@
         <image name="MealsResumeGraphic" width="311" height="16"/>
         <image name="ProfilePlaceholder" width="512" height="512"/>
         <image name="fruits" width="512" height="512"/>
-        <image name="person.circle" catalog="system" width="64" height="60"/>
-        <image name="person.circle.fill" catalog="system" width="64" height="60"/>
+        <image name="person" catalog="system" width="64" height="58"/>
+        <image name="person.fill" catalog="system" width="64" height="60"/>
         <image name="water" width="512" height="512"/>
         <namedColor name="BackgrondColor">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
