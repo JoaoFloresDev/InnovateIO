@@ -105,29 +105,37 @@ extension CalendarViewController: JTACMonthViewDelegate {
         cell.dateLabel.text = cellState.text
         
         // Colorizing the cells
-        do {
+        if cellState.dateBelongsTo == .thisMonth {
+        
+            do {
 
-            let (year, month, day, _, _, _) = try date.getAllInformations()
-            let daily = try dataHandler?.loadDailyDiary(year: year, month: month, day: day)
+                let (year, month, day, _, _, _) = try date.getAllInformations()
+                let daily = try dataHandler?.loadDailyDiary(year: year, month: month, day: day)
 
-            switch (daily?.quality) {
-            case 1:
-                cell.dateLabel.backgroundColor = .green
-                break
-            case 0:
-                cell.dateLabel.backgroundColor = .yellow
-                break
-            case -1:
-                cell.dateLabel.backgroundColor = .red
-                break
-            default:
-                cell.dateLabel.backgroundColor = .clear
-                break
+                switch (daily?.quality) {
+                case 1:
+                    cell.dateLabel.backgroundColor = .green
+                    break
+                case 0:
+                    cell.dateLabel.backgroundColor = .yellow
+                    break
+                case -1:
+                    cell.dateLabel.backgroundColor = .red
+                    break
+                default:
+                    cell.dateLabel.backgroundColor = .clear
+                    break
+                }
+
             }
+            catch {} // If catch has returned something... That means that we don't have anything on this date.
 
         }
-        catch {} // If catch has returned something... That means that we don't have anything on this date.
-
+        else {
+            cell.dateLabel.backgroundColor = .none
+        }
+        
+        
         return cell
     }
 
@@ -165,12 +173,6 @@ extension CalendarViewController: JTACMonthViewDelegate {
 
     func calendarSizeForMonths(_ calendar: JTACMonthView?) -> MonthSize? {
         return MonthSize(defaultSize: 80)
-    }
-    
-    
-    
-    func calendarDidScroll(_ calendar: JTACMonthView) {
-        self.calendarView.reloadData()
     }
 
     
