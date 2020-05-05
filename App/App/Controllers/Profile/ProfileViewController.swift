@@ -51,6 +51,7 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
     
     @IBOutlet weak var weightGraphicLineView: UIView!
     @IBOutlet weak var habitsGraphicLineView: UIView!
+    @IBOutlet weak var meatsGraphicBarsView: UIView!
     
     @IBOutlet weak var boxWaterLegend: UIView!
     @IBOutlet weak var boxFruitsLegend: UIView!
@@ -96,9 +97,11 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
         
         PlotGraphicClass().setLayoutLegends(views: [boxWaterLegend, boxFruitsLegend, boxExerciceLegend])
         
-        PlotGraphicClass().plotGraphicLine(graphicVIew: weightGraphicLineView, numLines: 1, colorArray: [UIColor.black], dates: dates, topNumber: NSNumber(120), bottomNumber: NSNumber(30))
+        PlotGraphicClass().plotGraphicHorizontalBars (view: meatsGraphicBarsView, greenPercent: 0.5, yellowPercent: 0.3 )
         
-        PlotGraphicClass().plotGraphicLine(graphicVIew: habitsGraphicLineView, numLines: 3, colorArray: [UIColor.blue, UIColor.purple, UIColor.pink()], dates: dates, topNumber: NSNumber(100), bottomNumber: NSNumber(0))
+        PlotGraphicClass().plotGraphicLine(graphicVIew: weightGraphicLineView, numLines: 1, colorArray: [UIColor.black], dates: dates, topNumber: 120, bottomNumber: 30)
+        
+        PlotGraphicClass().plotGraphicLine(graphicVIew: habitsGraphicLineView, numLines: 3, colorArray: [UIColor.blue, UIColor.purple, UIColor.pink()], dates: dates, topNumber: 100, bottomNumber: 0)
     }
     
     //    MARK: - Take Profile Image
@@ -122,7 +125,7 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
         {   image = img    }
         
         StyleClass().cropBounds(viewlayer: profileImg.layer,
-                                    cornerRadius: Float(profileImg.frame.size.width/2))
+                                cornerRadius: Float(profileImg.frame.size.width/2))
         
         profileImg.image = image
         picker.dismiss(animated: true,completion: nil)

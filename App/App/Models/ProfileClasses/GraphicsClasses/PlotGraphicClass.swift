@@ -11,11 +11,13 @@ import XJYChart
 
 class PlotGraphicClass {
     
-    func plotGraphicLine(graphicVIew: UIView, numLines: Int, colorArray: [UIColor], dates: NSMutableArray, topNumber: NSNumber, bottomNumber: NSNumber) {
+    func plotGraphicLine(graphicVIew: UIView, numLines: Int, colorArray: [UIColor], dates: NSMutableArray, topNumber: Int, bottomNumber: Int) {
         
         var itemArray: [AnyHashable] = []
         var numbersArray = [[Int32]]()
         
+        
+//        aleatory data
         for _ in 0..<numLines {
             var numberArray = [Int32]()
             
@@ -32,20 +34,20 @@ class PlotGraphicClass {
             itemArray.append(item!)
         }
         
+//        plot graphic
         let configuration = XNormalLineChartConfiguration()
         configuration.lineMode = XLineMode.CurveLine
         
-        let lineChart = XLineChart(frame: CGRect(x: 0, y: 0, width: graphicVIew.frame.width, height: 250), dataItemArray: NSMutableArray(array: itemArray), dataDiscribeArray: dates, topNumber: topNumber, bottomNumber: bottomNumber, graphMode: XLineGraphMode.MutiLineGraph, chartConfiguration: configuration)
+        let lineChart = XLineChart(frame: CGRect(x: 0, y: 0, width: graphicVIew.frame.width, height: graphicVIew.frame.height), dataItemArray: NSMutableArray(array: itemArray), dataDiscribeArray: dates, topNumber: NSNumber(value: topNumber), bottomNumber: NSNumber(value: bottomNumber), graphMode: XLineGraphMode.MutiLineGraph, chartConfiguration: configuration)
         
         
         if let views = lineChart?.subviews {
-            for view123 in views {
-                if view123 is UIScrollView {
+            for viewScroll in views {
+                if viewScroll is UIScrollView {
+                    print(viewScroll)
                     
-                    print(view123)
-                    
-                    let scrollView = UIScrollView(frame: CGRect(x: 0, y: 0, width: 400, height: 200))
-                    scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
+//                    let scrollView = UIScrollView(frame: CGRect(x: 0, y: 0, width: 400, height: 200))
+//                    scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
                 }
             }
         }
@@ -57,6 +59,21 @@ class PlotGraphicClass {
         for view in views {
             StyleClass().cropBounds(viewlayer: view.layer, cornerRadius: Float(view.frame.width/2))
         }
+    }
+    
+    func plotGraphicHorizontalBars (view: UIView, greenPercent: Float, yellowPercent: Float) {
+        
+        let greenView = UIView(frame: CGRect(x: 0, y: 0, width: Int(Float(view.frame.width) * greenPercent), height: Int(view.frame.height)))
+        greenView.backgroundColor = UIColor.green
+        
+        let yellowView = UIView(frame: CGRect(x: Int(Float(view.frame.width) * greenPercent), y: 0, width: Int(Float(view.frame.width) * yellowPercent), height: Int(view.frame.height)))
+        yellowView.backgroundColor = UIColor.yellow
+        
+        view.backgroundColor = UIColor.red
+        view.addSubview(greenView)
+        view.addSubview(yellowView)
+        
+        StyleClass().cropBounds(viewlayer: view.layer, cornerRadius: Float(view.frame.height/2))
     }
 }
 
