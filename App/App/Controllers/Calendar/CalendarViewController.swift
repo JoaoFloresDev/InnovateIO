@@ -8,6 +8,7 @@
 
 import UIKit
 import JTAppleCalendar
+import os.log
 
 class CalendarViewController: UIViewController {
     
@@ -113,23 +114,15 @@ extension CalendarViewController: JTACMonthViewDelegate {
                 let (year, month, day, _, _, _) = try date.getAllInformations()
                 let daily = try dataHandler?.loadDailyDiary(year: year, month: month, day: day)
                 
-                switch (daily?.quality) {
-                case 1:
-                    cell.dateLabel.backgroundColor = .green
-                    break
-                case 0:
-                    cell.dateLabel.backgroundColor = .yellow
-                    break
-                case -1:
-                    cell.dateLabel.backgroundColor = .red
-                    break
-                default:
-                    cell.dateLabel.backgroundColor = .clear
-                    break
+                if daily != nil {
+                    let quality = Rating(rawValue: Int(daily!.quality))
+                    cell.dateLabel.backgroundColor = quality?.color
                 }
                 
             }
-            catch {} // If catch has returned something... That means that we don't have anything on this date.
+            catch {
+                os_log("[APP] No entry was found!")
+            } // If catch has returned something... That means that we don't have anything on this date.
 
         }
         
