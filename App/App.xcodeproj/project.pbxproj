@@ -45,6 +45,8 @@
 		C451C0202458669900C9A9F0 /* ProfileDataMenagerClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C451C01F2458669900C9A9F0 /* ProfileDataMenagerClass.swift */; };
 		C4CC1B20246080ED0048B0B7 /* CycleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CC1B1E246080ED0048B0B7 /* CycleTableViewCell.swift */; };
 		C4CC1B21246080ED0048B0B7 /* PlotGraphicClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CC1B1F246080ED0048B0B7 /* PlotGraphicClass.swift */; };
+		D71DF4232461995700DDA7BE /* MealHistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71DF4212461995700DDA7BE /* MealHistoryTableViewCell.swift */; };
+		D71DF4242461995700DDA7BE /* MealHistoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D71DF4222461995700DDA7BE /* MealHistoryTableViewCell.xib */; };
 		D73311B3245318760080767E /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73311B2245318760080767E /* NotificationService.swift */; };
 		D77126DF2459AAAA00EFFEEC /* RegisterMealView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D77126DE2459AAA900EFFEEC /* RegisterMealView.xib */; };
 		D77126E12459AABE00EFFEEC /* RegisterMealView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77126E02459AABE00EFFEEC /* RegisterMealView.swift */; };
@@ -129,6 +131,8 @@
 		C451C01F2458669900C9A9F0 /* ProfileDataMenagerClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDataMenagerClass.swift; sourceTree = "<group>"; };
 		C4CC1B1E246080ED0048B0B7 /* CycleTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CycleTableViewCell.swift; sourceTree = "<group>"; };
 		C4CC1B1F246080ED0048B0B7 /* PlotGraphicClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlotGraphicClass.swift; sourceTree = "<group>"; };
+		D71DF4212461995700DDA7BE /* MealHistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealHistoryTableViewCell.swift; sourceTree = "<group>"; };
+		D71DF4222461995700DDA7BE /* MealHistoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MealHistoryTableViewCell.xib; sourceTree = "<group>"; };
 		D73311B2245318760080767E /* NotificationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		D77126DE2459AAA900EFFEEC /* RegisterMealView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterMealView.xib; sourceTree = "<group>"; };
 		D77126E02459AABE00EFFEEC /* RegisterMealView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterMealView.swift; sourceTree = "<group>"; };
@@ -375,6 +379,15 @@
 			path = GraphicsClasses;
 			sourceTree = "<group>";
 		};
+		D71DF4202461992800DDA7BE /* Meal History Cell */ = {
+			isa = PBXGroup;
+			children = (
+				D71DF4212461995700DDA7BE /* MealHistoryTableViewCell.swift */,
+				D71DF4222461995700DDA7BE /* MealHistoryTableViewCell.xib */,
+			);
+			path = "Meal History Cell";
+			sourceTree = "<group>";
+		};
 		D73311B1245318760080767E /* Services */ = {
 			isa = PBXGroup;
 			children = (
@@ -395,6 +408,7 @@
 		D7B2C2F9243E0A080071561C /* Custom Views */ = {
 			isa = PBXGroup;
 			children = (
+				D71DF4202461992800DDA7BE /* Meal History Cell */,
 				D77126DD2459AA8C00EFFEEC /* Register Meal View */,
 				D7FA5DA424588351001B08AA /* Daily Habits View */,
 				D7FA5D9D24585445001B08AA /* Rating View */,
@@ -555,6 +569,7 @@
 				C44D14A1243657FF0094497A /* Settings.storyboard in Resources */,
 				C44D1471243655BA0094497A /* Main.storyboard in Resources */,
 				C44D149F243657E70094497A /* Calendar.storyboard in Resources */,
+				D71DF4242461995700DDA7BE /* MealHistoryTableViewCell.xib in Resources */,
 				D7FA5DA624588369001B08AA /* DailyHabitsView.xib in Resources */,
 				D7FA5DA124585481001B08AA /* RatingView.xib in Resources */,
 				D7FA5DAE24588A00001B08AA /* DailyHabitsTableViewCell.xib in Resources */,
@@ -726,6 +741,7 @@
 				D7FA5DAA245888D4001B08AA /* DailyHabits.swift in Sources */,
 				D7B2C2FC243E0A520071561C /* LineChartTableViewCell.swift in Sources */,
 				D7FA5DA3245858A7001B08AA /* Rating.swift in Sources */,
+				D71DF4232461995700DDA7BE /* MealHistoryTableViewCell.swift in Sources */,
 				8105189C24507BB600F8A86E /* Date.swift in Sources */,
 				C451C0202458669900C9A9F0 /* ProfileDataMenagerClass.swift in Sources */,
 				C407E921243CC23800DA8490 /* ProfileViewController.swift in Sources */,
