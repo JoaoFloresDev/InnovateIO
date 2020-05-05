@@ -11,8 +11,7 @@ import XJYChart
 
 class PlotGraphicClass {
     
-    func plotGraphicLine(graphicVIew: UIView, numLines: Int, colorArray: [UIColor]) {
-        let dates: NSMutableArray = ["13\n04", "13\n04", "13\n04", "13\n04", "13\n04","13\n04", "13\n04", "13\n04", "13\n04", "13\n04", "13\n04", "13\n04", "13\n04"]
+    func plotGraphicLine(graphicVIew: UIView, numLines: Int, colorArray: [UIColor], dates: NSMutableArray) {
         
         var itemArray: [AnyHashable] = []
         var numbersArray = [[Int32]]()
