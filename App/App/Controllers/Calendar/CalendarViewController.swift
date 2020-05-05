@@ -103,15 +103,16 @@ extension CalendarViewController: JTACMonthViewDelegate {
         }
         
         cell.dateLabel.text = cellState.text
+        cell.dateLabel.backgroundColor = .none
         
         // Colorizing the cells
         if cellState.dateBelongsTo == .thisMonth {
-        
+            
             do {
-
+                
                 let (year, month, day, _, _, _) = try date.getAllInformations()
                 let daily = try dataHandler?.loadDailyDiary(year: year, month: month, day: day)
-
+                
                 switch (daily?.quality) {
                 case 1:
                     cell.dateLabel.backgroundColor = .green
@@ -126,15 +127,11 @@ extension CalendarViewController: JTACMonthViewDelegate {
                     cell.dateLabel.backgroundColor = .clear
                     break
                 }
-
+                
             }
             catch {} // If catch has returned something... That means that we don't have anything on this date.
 
         }
-        else {
-            cell.dateLabel.backgroundColor = .none
-        }
-        
         
         return cell
     }
@@ -175,6 +172,19 @@ extension CalendarViewController: JTACMonthViewDelegate {
         return MonthSize(defaultSize: 80)
     }
 
+    
+    func calendar(_ calendar: JTACMonthView, didScrollToDateSegmentWith visibleDates: DateSegmentInfo) {
+        
+        for (_, indexPath) in visibleDates.monthDates {
+            
+            let cell = calendar.dequeueReusableJTAppleCell(withReuseIdentifier: "dateCell", for: indexPath) as! DateCell
+            
+            cell.backgroundColor = .none
+            
+            
+        }
+        
+    }
     
 
     
