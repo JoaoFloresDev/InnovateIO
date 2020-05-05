@@ -71,7 +71,7 @@
         <!--Meals-->
         <scene sceneID="df3-q3-U7N">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="o7q-eH-PVj" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="MealNavigationViewController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="o7q-eH-PVj" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Meals" id="aLM-LD-59K"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="eA6-VF-lSH">
