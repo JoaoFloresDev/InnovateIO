@@ -43,6 +43,8 @@
 		C44D14A3243658680094497A /* Meals.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C44D14A2243658680094497A /* Meals.storyboard */; };
 		C451C01E2458668C00C9A9F0 /* StyleClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C451C01D2458668C00C9A9F0 /* StyleClass.swift */; };
 		C451C0202458669900C9A9F0 /* ProfileDataMenagerClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C451C01F2458669900C9A9F0 /* ProfileDataMenagerClass.swift */; };
+		C4CC1B20246080ED0048B0B7 /* CycleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CC1B1E246080ED0048B0B7 /* CycleTableViewCell.swift */; };
+		C4CC1B21246080ED0048B0B7 /* PlotGraphicClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CC1B1F246080ED0048B0B7 /* PlotGraphicClass.swift */; };
 		D73311B3245318760080767E /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73311B2245318760080767E /* NotificationService.swift */; };
 		D77126DF2459AAAA00EFFEEC /* RegisterMealView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D77126DE2459AAA900EFFEEC /* RegisterMealView.xib */; };
 		D77126E12459AABE00EFFEEC /* RegisterMealView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77126E02459AABE00EFFEEC /* RegisterMealView.swift */; };
@@ -125,6 +127,8 @@
 		C44D14A2243658680094497A /* Meals.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Meals.storyboard; sourceTree = "<group>"; };
 		C451C01D2458668C00C9A9F0 /* StyleClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleClass.swift; sourceTree = "<group>"; };
 		C451C01F2458669900C9A9F0 /* ProfileDataMenagerClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDataMenagerClass.swift; sourceTree = "<group>"; };
+		C4CC1B1E246080ED0048B0B7 /* CycleTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CycleTableViewCell.swift; sourceTree = "<group>"; };
+		C4CC1B1F246080ED0048B0B7 /* PlotGraphicClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlotGraphicClass.swift; sourceTree = "<group>"; };
 		D73311B2245318760080767E /* NotificationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		D77126DE2459AAA900EFFEEC /* RegisterMealView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterMealView.xib; sourceTree = "<group>"; };
 		D77126E02459AABE00EFFEEC /* RegisterMealView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterMealView.swift; sourceTree = "<group>"; };
@@ -355,10 +359,20 @@
 		C451C01C2458667600C9A9F0 /* ProfileClasses */ = {
 			isa = PBXGroup;
 			children = (
+				C4CC1B19246080BE0048B0B7 /* GraphicsClasses */,
 				C451C01D2458668C00C9A9F0 /* StyleClass.swift */,
 				C451C01F2458669900C9A9F0 /* ProfileDataMenagerClass.swift */,
 			);
 			path = ProfileClasses;
+			sourceTree = "<group>";
+		};
+		C4CC1B19246080BE0048B0B7 /* GraphicsClasses */ = {
+			isa = PBXGroup;
+			children = (
+				C4CC1B1E246080ED0048B0B7 /* CycleTableViewCell.swift */,
+				C4CC1B1F246080ED0048B0B7 /* PlotGraphicClass.swift */,
+			);
+			path = GraphicsClasses;
 			sourceTree = "<group>";
 		};
 		D73311B1245318760080767E /* Services */ = {
@@ -695,8 +709,10 @@
 				8D11BFFB245249AD0062D163 /* MealRateButton.swift in Sources */,
 				814F59302451F07200F59991 /* DateError.swift in Sources */,
 				8D11BFFD24524FF70062D163 /* RoundedView.swift in Sources */,
+				C4CC1B21246080ED0048B0B7 /* PlotGraphicClass.swift in Sources */,
 				D7FA5D9F24585455001B08AA /* RatingView.swift in Sources */,
 				81959012243E2873001A6DB9 /* DataHandler.swift in Sources */,
+				C4CC1B20246080ED0048B0B7 /* CycleTableViewCell.swift in Sources */,
 				C44D146E243655BA0094497A /* ViewController.swift in Sources */,
 				81721F3B2451D3050066B047 /* Meal.swift in Sources */,
 				8191C62E24585E3600C8AAF3 /* DateHeader.swift in Sources */,
