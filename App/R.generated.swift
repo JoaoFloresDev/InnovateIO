@@ -115,8 +115,6 @@ struct R: Rswift.Validatable {
   #if os(iOS) || os(tvOS)
   /// This `R.storyboard` struct is generated, and contains static references to 5 storyboards.
   struct storyboard {
-    /// Storyboard `Calendar`.
-    static let calendar = _R.storyboard.calendar()
     /// Storyboard `LaunchScreen`.
     static let launchScreen = _R.storyboard.launchScreen()
     /// Storyboard `Main`.
@@ -127,13 +125,6 @@ struct R: Rswift.Validatable {
     static let profile = _R.storyboard.profile()
     /// Storyboard `Settings`.
     static let settings = _R.storyboard.settings()
-
-    #if os(iOS) || os(tvOS)
-    /// `UIStoryboard(name: "Calendar", bundle: ...)`
-    static func calendar(_: Void = ()) -> UIKit.UIStoryboard {
-      return UIKit.UIStoryboard(resource: R.storyboard.calendar)
-    }
-    #endif
 
     #if os(iOS) || os(tvOS)
     /// `UIStoryboard(name: "LaunchScreen", bundle: ...)`
@@ -634,9 +625,6 @@ struct _R: Rswift.Validatable {
   #if os(iOS) || os(tvOS)
   struct storyboard: Rswift.Validatable {
     static func validate() throws {
-      #if os(iOS) || os(tvOS)
-      try calendar.validate()
-      #endif
       #if os(iOS) || os(tvOS)
       try launchScreen.validate()
       #endif
