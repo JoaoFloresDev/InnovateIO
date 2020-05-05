@@ -3,6 +3,7 @@
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -152,7 +153,7 @@
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ukv-uZ-WUz" userLabel="0" customClass="RoundedView" customModule="App" customModuleProvider="target">
                                                             <rect key="frame" x="15" y="0.0" width="10" height="10"/>
-                                                            <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <color key="backgroundColor" name="rateRedColor"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="ukv-uZ-WUz" secondAttribute="height" id="7Kh-Qa-2OR"/>
                                                                 <constraint firstAttribute="width" constant="10" id="FRF-Fr-TZp"/>
@@ -165,7 +166,7 @@
                                                         </view>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cet-5t-f6e" userLabel="1" customClass="RoundedView" customModule="App" customModuleProvider="target">
                                                             <rect key="frame" x="15" y="14" width="10" height="10"/>
-                                                            <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <color key="backgroundColor" name="rateRedColor"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="cet-5t-f6e" secondAttribute="height" id="LJ5-I3-FET"/>
                                                                 <constraint firstAttribute="width" constant="10" id="xWq-TR-D2F"/>
@@ -178,7 +179,7 @@
                                                         </view>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cmC-oi-35c" userLabel="2" customClass="RoundedView" customModule="App" customModuleProvider="target">
                                                             <rect key="frame" x="15" y="27.666666666666671" width="10" height="10"/>
-                                                            <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <color key="backgroundColor" name="rateRedColor"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="10" id="7IT-31-oHo"/>
                                                                 <constraint firstAttribute="width" secondItem="cmC-oi-35c" secondAttribute="height" id="fBo-lI-bxm"/>
@@ -191,7 +192,7 @@
                                                         </view>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ePc-qf-7nP" userLabel="3" customClass="RoundedView" customModule="App" customModuleProvider="target">
                                                             <rect key="frame" x="15" y="41.666666666666664" width="10" height="10"/>
-                                                            <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <color key="backgroundColor" name="rateRedColor"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="ePc-qf-7nP" secondAttribute="height" id="9y5-Pw-eSf"/>
                                                                 <constraint firstAttribute="width" constant="10" id="oL0-Gh-tOJ"/>
@@ -204,7 +205,7 @@
                                                         </view>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E2t-EC-22S" userLabel="4" customClass="RoundedView" customModule="App" customModuleProvider="target">
                                                             <rect key="frame" x="15" y="55.666666666666664" width="10" height="9.9999999999999929"/>
-                                                            <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <color key="backgroundColor" name="rateRedColor"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="E2t-EC-22S" secondAttribute="height" id="KUM-im-g2k"/>
                                                                 <constraint firstAttribute="width" constant="10" id="c4V-rg-Rvq"/>
@@ -217,7 +218,7 @@
                                                         </view>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wE5-da-ZMe" userLabel="5" customClass="RoundedView" customModule="App" customModuleProvider="target">
                                                             <rect key="frame" x="15" y="69.666666666666671" width="10" height="10"/>
-                                                            <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <color key="backgroundColor" name="rateRedColor"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="wE5-da-ZMe" secondAttribute="height" id="Kgb-SB-ge0"/>
                                                                 <constraint firstAttribute="width" constant="10" id="dcN-2w-UNo"/>
@@ -230,7 +231,7 @@
                                                         </view>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ytg-EX-rSG" userLabel="6" customClass="RoundedView" customModule="App" customModuleProvider="target">
                                                             <rect key="frame" x="15" y="83.333333333333329" width="10" height="10"/>
-                                                            <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <color key="backgroundColor" name="rateRedColor"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="Ytg-EX-rSG" secondAttribute="height" id="B5e-A0-V1i"/>
                                                                 <constraint firstAttribute="width" constant="10" id="B70-SU-oS9"/>
@@ -243,7 +244,7 @@
                                                         </view>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6LT-EU-jRy" userLabel="7" customClass="RoundedView" customModule="App" customModuleProvider="target">
                                                             <rect key="frame" x="15" y="97.333333333333329" width="10" height="10"/>
-                                                            <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <color key="backgroundColor" name="rateRedColor"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="6LT-EU-jRy" secondAttribute="height" id="68s-ke-Obs"/>
                                                                 <constraint firstAttribute="width" constant="10" id="cvc-c7-lXh"/>
@@ -256,7 +257,7 @@
                                                         </view>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="esC-lF-tb0" userLabel="8" customClass="RoundedView" customModule="App" customModuleProvider="target">
                                                             <rect key="frame" x="15" y="111.33333333333333" width="10" height="10"/>
-                                                            <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <color key="backgroundColor" name="rateRedColor"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="esC-lF-tb0" secondAttribute="height" id="May-kS-Cbf"/>
                                                                 <constraint firstAttribute="width" constant="10" id="S3f-FE-gpi"/>
@@ -269,7 +270,7 @@
                                                         </view>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QGX-Ke-WgV" userLabel="9" customClass="RoundedView" customModule="App" customModuleProvider="target">
                                                             <rect key="frame" x="15" y="125.33333333333331" width="10" height="10"/>
-                                                            <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <color key="backgroundColor" name="rateRedColor"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="10" id="FGP-cG-Hdr"/>
                                                                 <constraint firstAttribute="width" secondItem="QGX-Ke-WgV" secondAttribute="height" id="I0C-il-U2u"/>
@@ -282,7 +283,7 @@
                                                         </view>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8FN-87-yDe" userLabel="10" customClass="RoundedView" customModule="App" customModuleProvider="target">
                                                             <rect key="frame" x="15" y="139" width="10" height="10"/>
-                                                            <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <color key="backgroundColor" name="rateRedColor"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="8FN-87-yDe" secondAttribute="height" id="LKC-MX-IYH"/>
                                                                 <constraint firstAttribute="width" constant="10" id="u96-fB-VWV"/>
@@ -295,7 +296,7 @@
                                                         </view>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q9r-Ii-Y4c" userLabel="11" customClass="RoundedView" customModule="App" customModuleProvider="target">
                                                             <rect key="frame" x="15" y="153" width="10" height="10"/>
-                                                            <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <color key="backgroundColor" name="rateRedColor"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="10" id="Wgu-mu-Skh"/>
                                                                 <constraint firstAttribute="width" secondItem="q9r-Ii-Y4c" secondAttribute="height" id="uT5-in-ADT"/>
@@ -308,7 +309,7 @@
                                                         </view>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4DB-Ae-QkZ" userLabel="12" customClass="RoundedView" customModule="App" customModuleProvider="target">
                                                             <rect key="frame" x="15" y="167" width="10" height="10"/>
-                                                            <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <color key="backgroundColor" name="rateRedColor"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="10" id="Fim-AW-Ax0"/>
                                                                 <constraint firstAttribute="width" secondItem="4DB-Ae-QkZ" secondAttribute="height" id="hTL-np-N4N"/>
@@ -321,7 +322,7 @@
                                                         </view>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qtD-N3-fid" userLabel="13" customClass="RoundedView" customModule="App" customModuleProvider="target">
                                                             <rect key="frame" x="15" y="181" width="10" height="10"/>
-                                                            <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <color key="backgroundColor" name="rateRedColor"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="10" id="C1i-MV-9zN"/>
                                                                 <constraint firstAttribute="width" secondItem="qtD-N3-fid" secondAttribute="height" id="y75-iL-bcd"/>
@@ -334,7 +335,7 @@
                                                         </view>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HXF-Wl-HdH" userLabel="14" customClass="RoundedView" customModule="App" customModuleProvider="target">
                                                             <rect key="frame" x="15" y="194.66666666666666" width="10" height="10"/>
-                                                            <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <color key="backgroundColor" name="rateRedColor"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="HXF-Wl-HdH" secondAttribute="height" id="bPY-Qw-ozP"/>
                                                                 <constraint firstAttribute="width" constant="10" id="x80-o1-pxj"/>
@@ -347,7 +348,7 @@
                                                         </view>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AJk-jz-mts" userLabel="15" customClass="RoundedView" customModule="App" customModuleProvider="target">
                                                             <rect key="frame" x="15" y="208.66666666666666" width="10" height="10"/>
-                                                            <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <color key="backgroundColor" name="rateRedColor"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="AJk-jz-mts" secondAttribute="height" id="L2a-Lm-ldd"/>
                                                                 <constraint firstAttribute="width" constant="10" id="jMN-Ze-75t"/>
@@ -360,7 +361,7 @@
                                                         </view>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rfs-fN-guk" userLabel="16" customClass="RoundedView" customModule="App" customModuleProvider="target">
                                                             <rect key="frame" x="15" y="222.66666666666666" width="10" height="10"/>
-                                                            <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <color key="backgroundColor" name="rateRedColor"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="Rfs-fN-guk" secondAttribute="height" id="SRE-W6-0QN"/>
                                                                 <constraint firstAttribute="width" constant="10" id="wM3-4X-aMt"/>
@@ -373,7 +374,7 @@
                                                         </view>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oFf-7T-ael" userLabel="17" customClass="RoundedView" customModule="App" customModuleProvider="target">
                                                             <rect key="frame" x="15" y="236.66666666666666" width="10" height="10"/>
-                                                            <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <color key="backgroundColor" name="rateRedColor"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="oFf-7T-ael" secondAttribute="height" id="agw-EB-0ML"/>
                                                                 <constraint firstAttribute="width" constant="10" id="vAk-Lv-MkI"/>
@@ -386,7 +387,7 @@
                                                         </view>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="heM-HR-eWn" userLabel="18" customClass="RoundedView" customModule="App" customModuleProvider="target">
                                                             <rect key="frame" x="15" y="250.33333333333334" width="10" height="10.000000000000028"/>
-                                                            <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <color key="backgroundColor" name="rateRedColor"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="10" id="AUq-Hc-zWI"/>
                                                                 <constraint firstAttribute="width" secondItem="heM-HR-eWn" secondAttribute="height" id="ean-Zt-esJ"/>
@@ -399,7 +400,7 @@
                                                         </view>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LpI-X4-VQi" userLabel="19" customClass="RoundedView" customModule="App" customModuleProvider="target">
                                                             <rect key="frame" x="15" y="264.33333333333331" width="10" height="10"/>
-                                                            <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <color key="backgroundColor" name="rateRedColor"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="10" id="gEI-Uc-z3q"/>
                                                                 <constraint firstAttribute="width" secondItem="LpI-X4-VQi" secondAttribute="height" id="sIq-AB-YwM"/>
@@ -412,7 +413,7 @@
                                                         </view>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C6L-T3-FtF" userLabel="20" customClass="RoundedView" customModule="App" customModuleProvider="target">
                                                             <rect key="frame" x="15" y="278.33333333333331" width="10" height="10"/>
-                                                            <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <color key="backgroundColor" name="rateRedColor"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="C6L-T3-FtF" secondAttribute="height" id="kUa-f0-hny"/>
                                                                 <constraint firstAttribute="width" constant="10" id="vax-Gl-e1p"/>
@@ -425,7 +426,7 @@
                                                         </view>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T61-D8-u08" userLabel="21" customClass="RoundedView" customModule="App" customModuleProvider="target">
                                                             <rect key="frame" x="15" y="292.33333333333331" width="10" height="10"/>
-                                                            <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <color key="backgroundColor" name="rateRedColor"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="T61-D8-u08" secondAttribute="height" id="VUt-ve-33n"/>
                                                                 <constraint firstAttribute="width" constant="10" id="eNY-4p-FAE"/>
@@ -438,7 +439,7 @@
                                                         </view>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gw4-ho-4Rf" userLabel="22" customClass="RoundedView" customModule="App" customModuleProvider="target">
                                                             <rect key="frame" x="15" y="306" width="10" height="10"/>
-                                                            <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <color key="backgroundColor" name="rateRedColor"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="gw4-ho-4Rf" secondAttribute="height" id="Ncv-Z6-DQt"/>
                                                                 <constraint firstAttribute="width" constant="10" id="mhE-3B-EEq"/>
@@ -451,7 +452,7 @@
                                                         </view>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JhB-Fx-B61" userLabel="23" customClass="RoundedView" customModule="App" customModuleProvider="target">
                                                             <rect key="frame" x="15" y="320" width="10" height="10"/>
-                                                            <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <color key="backgroundColor" name="rateRedColor"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="JhB-Fx-B61" secondAttribute="height" id="GjZ-1n-pWO"/>
                                                                 <constraint firstAttribute="width" constant="10" id="knR-5d-2Zc"/>
@@ -580,4 +581,9 @@
             <point key="canvasLocation" x="228.98550724637684" y="118.52678571428571"/>
         </scene>
     </scenes>
+    <resources>
+        <namedColor name="rateRedColor">
+            <color red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
 </document>

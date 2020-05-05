@@ -16,5 +16,11 @@ class CalendarGraphCollectionViewCell: UICollectionViewCell {
 		for i in 0..<timeDots.count{
 			timeDots[i].alpha = 0
 		}
+		
+		var rand = Int.random(in: 0..<timeDots.count)
+		timeDots[rand].alpha = 1
+		
+		rand = Int.random(in: 0..<timeDots.count)
+		timeDots[rand].alpha = 1
 	}
 }
