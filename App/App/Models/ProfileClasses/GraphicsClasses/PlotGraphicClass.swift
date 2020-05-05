@@ -11,7 +11,7 @@ import XJYChart
 
 class PlotGraphicClass {
     
-    func plotGraphicLine(graphicVIew: UIView, numLines: Int, colorArray: [UIColor], dates: NSMutableArray, topNumber: Int, bottomNumber: Int) {
+    func plotGraphicLine(graphicVIew: UIView, numLines: Int, colorLinesArray: [UIColor], datesX: NSMutableArray, topNumber: Int, bottomNumber: Int) {
         
         var itemArray: [AnyHashable] = []
         var numbersArray = [[Int32]]()
@@ -21,7 +21,7 @@ class PlotGraphicClass {
         for _ in 0..<numLines {
             var numberArray = [Int32]()
             
-            for _ in 0..<dates.count {
+            for _ in 0..<datesX.count {
                 let num: Int = Int.random(in: 32 ..< 90)
                 let number = Int32(num)
                 numberArray.append(number)
@@ -30,7 +30,7 @@ class PlotGraphicClass {
         }
         
         for i in 0..<numLines {
-            let item = XLineChartItem(dataNumber: NSMutableArray(array: numbersArray[i]), color: colorArray[i])
+            let item = XLineChartItem(dataNumber: NSMutableArray(array: numbersArray[i]), color: colorLinesArray[i])
             itemArray.append(item!)
         }
         
@@ -38,7 +38,7 @@ class PlotGraphicClass {
         let configuration = XNormalLineChartConfiguration()
         configuration.lineMode = XLineMode.CurveLine
         
-        let lineChart = XLineChart(frame: CGRect(x: 0, y: 0, width: graphicVIew.frame.width, height: graphicVIew.frame.height), dataItemArray: NSMutableArray(array: itemArray), dataDiscribeArray: dates, topNumber: NSNumber(value: topNumber), bottomNumber: NSNumber(value: bottomNumber), graphMode: XLineGraphMode.MutiLineGraph, chartConfiguration: configuration)
+        let lineChart = XLineChart(frame: CGRect(x: 0, y: 0, width: graphicVIew.frame.width, height: graphicVIew.frame.height), dataItemArray: NSMutableArray(array: itemArray), dataDiscribeArray: datesX, topNumber: NSNumber(value: topNumber), bottomNumber: NSNumber(value: bottomNumber), graphMode: XLineGraphMode.MutiLineGraph, chartConfiguration: configuration)
         
         
         if let views = lineChart?.subviews {
@@ -77,25 +77,26 @@ class PlotGraphicClass {
     }
 }
 
-extension UIScrollViewDelegate {
-    
-    func setContentOffset(_ contentOffset: CGPoint, animated: Bool) {
-        print("alooo")
-    }
-    
-    func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
-        print("222")
-    }
-}
-
-extension UIScrollView {
-    
-    func setContentOffset(_ contentOffset: CGPoint, animated: Bool) {
-        print("alooo")
-    }
-    
-    func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
-        print("222")
-    }
-}
+//
+//extension UIScrollViewDelegate {
+//
+//    func setContentOffset(_ contentOffset: CGPoint, animated: Bool) {
+//        print("alooo")
+//    }
+//
+//    func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
+//        print("222")
+//    }
+//}
+//
+//extension UIScrollView {
+//
+//    func setContentOffset(_ contentOffset: CGPoint, animated: Bool) {
+//        print("alooo")
+//    }
+//
+//    func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
+//        print("222")
+//    }
+//}
 
