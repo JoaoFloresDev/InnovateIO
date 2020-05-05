@@ -494,7 +494,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1120;
-				LastUpgradeCheck = 1120;
+				LastUpgradeCheck = 1140;
 				ORGANIZATIONNAME = "Joao Flores";
 				TargetAttributes = {
 					C44D1465243655BA0094497A = {
@@ -547,7 +547,6 @@
 				D7FA5DA624588369001B08AA /* DailyHabitsView.xib in Resources */,
 				D7FA5DA124585481001B08AA /* RatingView.xib in Resources */,
 				D7FA5DAE24588A00001B08AA /* DailyHabitsTableViewCell.xib in Resources */,
-				C44D149F243657E70094497A /* Calendar.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
