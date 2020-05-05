@@ -95,9 +95,10 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
         let dates: NSMutableArray = ["13\n04", "13\n04", "13\n04", "13\n04", "13\n04","13\n04", "13\n04", "13\n04", "13\n04", "13\n04", "13\n04", "13\n04", "13\n04"]
         
         PlotGraphicClass().setLayoutLegends(views: [boxWaterLegend, boxFruitsLegend, boxExerciceLegend])
-        PlotGraphicClass().plotGraphicLine(graphicVIew: weightGraphicLineView, numLines: 1, colorArray: [UIColor.black], dates: dates)
         
-        PlotGraphicClass().plotGraphicLine(graphicVIew: habitsGraphicLineView, numLines: 3, colorArray: [UIColor.blue, UIColor.purple, UIColor.pink()], dates: dates)
+        PlotGraphicClass().plotGraphicLine(graphicVIew: weightGraphicLineView, numLines: 1, colorArray: [UIColor.black], dates: dates, topNumber: NSNumber(120), bottomNumber: NSNumber(30))
+        
+        PlotGraphicClass().plotGraphicLine(graphicVIew: habitsGraphicLineView, numLines: 3, colorArray: [UIColor.blue, UIColor.purple, UIColor.pink()], dates: dates, topNumber: NSNumber(100), bottomNumber: NSNumber(0))
     }
     
     //    MARK: - Take Profile Image

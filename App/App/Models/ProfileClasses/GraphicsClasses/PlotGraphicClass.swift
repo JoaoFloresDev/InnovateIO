@@ -11,7 +11,7 @@ import XJYChart
 
 class PlotGraphicClass {
     
-    func plotGraphicLine(graphicVIew: UIView, numLines: Int, colorArray: [UIColor], dates: NSMutableArray) {
+    func plotGraphicLine(graphicVIew: UIView, numLines: Int, colorArray: [UIColor], dates: NSMutableArray, topNumber: NSNumber, bottomNumber: NSNumber) {
         
         var itemArray: [AnyHashable] = []
         var numbersArray = [[Int32]]()
@@ -20,7 +20,7 @@ class PlotGraphicClass {
             var numberArray = [Int32]()
             
             for _ in 0..<dates.count {
-                let num: Int = Int.random(in: 32 ..< 110)
+                let num: Int = Int.random(in: 32 ..< 90)
                 let number = Int32(num)
                 numberArray.append(number)
             }
@@ -35,7 +35,7 @@ class PlotGraphicClass {
         let configuration = XNormalLineChartConfiguration()
         configuration.lineMode = XLineMode.CurveLine
         
-        let lineChart = XLineChart(frame: CGRect(x: 0, y: 0, width: graphicVIew.frame.width, height: 250), dataItemArray: NSMutableArray(array: itemArray), dataDiscribeArray: dates, topNumber: 120, bottomNumber: 30, graphMode: XLineGraphMode.MutiLineGraph, chartConfiguration: configuration)
+        let lineChart = XLineChart(frame: CGRect(x: 0, y: 0, width: graphicVIew.frame.width, height: 250), dataItemArray: NSMutableArray(array: itemArray), dataDiscribeArray: dates, topNumber: topNumber, bottomNumber: bottomNumber, graphMode: XLineGraphMode.MutiLineGraph, chartConfiguration: configuration)
         
         
         if let views = lineChart?.subviews {
