@@ -569,7 +569,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Lcb-ir-xcC"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Diary" id="Q5D-cT-KHw"/>
+                    <tabBarItem key="tabBarItem" title="Histórico" image="book" catalog="system" selectedImage="book.fill" id="Q5D-cT-KHw"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="calendarView" destination="V5a-NO-0Sa" id="4rA-Yh-UvZ"/>
@@ -585,5 +585,7 @@
         <namedColor name="rateRedColor">
             <color red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <image name="book" catalog="system" width="64" height="50"/>
+        <image name="book.fill" catalog="system" width="64" height="50"/>
     </resources>
 </document>
