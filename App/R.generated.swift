@@ -89,10 +89,32 @@ struct R: Rswift.Validatable {
   }
 
   #if os(iOS) || os(tvOS)
-  /// This `R.storyboard` struct is generated, and contains static references to 6 storyboards.
+  /// This `R.segue` struct is generated, and contains static references to 1 view controllers.
+  struct segue {
+    /// This struct is generated for `ProfileViewController`, and contains static references to 1 segues.
+    struct profileViewController {
+      /// Segue identifier `toEditData`.
+      static let toEditData: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, ProfileViewController, EditDataViewController> = Rswift.StoryboardSegueIdentifier(identifier: "toEditData")
+
+      #if os(iOS) || os(tvOS)
+      /// Optionally returns a typed version of segue `toEditData`.
+      /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
+      /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
+      static func toEditData(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, ProfileViewController, EditDataViewController>? {
+        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.profileViewController.toEditData, segue: segue)
+      }
+      #endif
+
+      fileprivate init() {}
+    }
+
+    fileprivate init() {}
+  }
+  #endif
+
+  #if os(iOS) || os(tvOS)
+  /// This `R.storyboard` struct is generated, and contains static references to 5 storyboards.
   struct storyboard {
-    /// Storyboard `Calendar`.
-    static let calendar = _R.storyboard.calendar()
     /// Storyboard `LaunchScreen`.
     static let launchScreen = _R.storyboard.launchScreen()
     /// Storyboard `Main`.
@@ -103,13 +125,6 @@ struct R: Rswift.Validatable {
     static let profile = _R.storyboard.profile()
     /// Storyboard `Settings`.
     static let settings = _R.storyboard.settings()
-
-    #if os(iOS) || os(tvOS)
-    /// `UIStoryboard(name: "Calendar", bundle: ...)`
-    static func calendar(_: Void = ()) -> UIKit.UIStoryboard {
-      return UIKit.UIStoryboard(resource: R.storyboard.calendar)
-    }
-    #endif
 
     #if os(iOS) || os(tvOS)
     /// `UIStoryboard(name: "LaunchScreen", bundle: ...)`
@@ -377,10 +392,34 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.nib` struct is generated, and contains static references to 1 nibs.
+  /// This `R.nib` struct is generated, and contains static references to 5 nibs.
   struct nib {
+    /// Nib `DailyHabitsTableViewCell`.
+    static let dailyHabitsTableViewCell = _R.nib._DailyHabitsTableViewCell()
+    /// Nib `DailyHabitsView`.
+    static let dailyHabitsView = _R.nib._DailyHabitsView()
     /// Nib `LineChartTableViewCell`.
     static let lineChartTableViewCell = _R.nib._LineChartTableViewCell()
+    /// Nib `RatingView`.
+    static let ratingView = _R.nib._RatingView()
+    /// Nib `RegisterMealView`.
+    static let registerMealView = _R.nib._RegisterMealView()
+
+    #if os(iOS) || os(tvOS)
+    /// `UINib(name: "DailyHabitsTableViewCell", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.dailyHabitsTableViewCell) instead")
+    static func dailyHabitsTableViewCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.dailyHabitsTableViewCell)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UINib(name: "DailyHabitsView", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.dailyHabitsView) instead")
+    static func dailyHabitsView(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.dailyHabitsView)
+    }
+    #endif
 
     #if os(iOS) || os(tvOS)
     /// `UINib(name: "LineChartTableViewCell", in: bundle)`
@@ -390,15 +429,49 @@ struct R: Rswift.Validatable {
     }
     #endif
 
+    #if os(iOS) || os(tvOS)
+    /// `UINib(name: "RatingView", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.ratingView) instead")
+    static func ratingView(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.ratingView)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UINib(name: "RegisterMealView", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.registerMealView) instead")
+    static func registerMealView(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.registerMealView)
+    }
+    #endif
+
+    static func dailyHabitsTableViewCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> DailyHabitsTableViewCell? {
+      return R.nib.dailyHabitsTableViewCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? DailyHabitsTableViewCell
+    }
+
+    static func dailyHabitsView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+      return R.nib.dailyHabitsView.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+    }
+
     static func lineChartTableViewCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> LineChartTableViewCell? {
       return R.nib.lineChartTableViewCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? LineChartTableViewCell
+    }
+
+    static func ratingView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+      return R.nib.ratingView.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+    }
+
+    static func registerMealView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> RoundedView? {
+      return R.nib.registerMealView.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? RoundedView
     }
 
     fileprivate init() {}
   }
 
-  /// This `R.reuseIdentifier` struct is generated, and contains static references to 4 reuse identifiers.
+  /// This `R.reuseIdentifier` struct is generated, and contains static references to 5 reuse identifiers.
   struct reuseIdentifier {
+    /// Reuse identifier `DailyHabitsTableViewCell`.
+    static let dailyHabitsTableViewCell: Rswift.ReuseIdentifier<DailyHabitsTableViewCell> = Rswift.ReuseIdentifier(identifier: "DailyHabitsTableViewCell")
     /// Reuse identifier `DateHeader`.
     static let dateHeader: Rswift.ReuseIdentifier<DateHeader> = Rswift.ReuseIdentifier(identifier: "DateHeader")
     /// Reuse identifier `LineChartTableViewCell`.
@@ -427,12 +500,51 @@ struct R: Rswift.Validatable {
 struct _R: Rswift.Validatable {
   static func validate() throws {
     #if os(iOS) || os(tvOS)
+    try nib.validate()
+    #endif
+    #if os(iOS) || os(tvOS)
     try storyboard.validate()
     #endif
   }
 
   #if os(iOS) || os(tvOS)
-  struct nib {
+  struct nib: Rswift.Validatable {
+    static func validate() throws {
+      try _DailyHabitsTableViewCell.validate()
+      try _RegisterMealView.validate()
+    }
+
+    struct _DailyHabitsTableViewCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType, Rswift.Validatable {
+      typealias ReusableType = DailyHabitsTableViewCell
+
+      let bundle = R.hostingBundle
+      let identifier = "DailyHabitsTableViewCell"
+      let name = "DailyHabitsTableViewCell"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> DailyHabitsTableViewCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? DailyHabitsTableViewCell
+      }
+
+      static func validate() throws {
+        if UIKit.UIImage(named: "checkmark", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'checkmark' is used in nib 'DailyHabitsTableViewCell', but couldn't be loaded.") }
+        if #available(iOS 11.0, tvOS 11.0, *) {
+        }
+      }
+
+      fileprivate init() {}
+    }
+
+    struct _DailyHabitsView: Rswift.NibResourceType {
+      let bundle = R.hostingBundle
+      let name = "DailyHabitsView"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+      }
+
+      fileprivate init() {}
+    }
+
     struct _LineChartTableViewCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType {
       typealias ReusableType = LineChartTableViewCell
 
@@ -447,6 +559,34 @@ struct _R: Rswift.Validatable {
       fileprivate init() {}
     }
 
+    struct _RatingView: Rswift.NibResourceType {
+      let bundle = R.hostingBundle
+      let name = "RatingView"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+      }
+
+      fileprivate init() {}
+    }
+
+    struct _RegisterMealView: Rswift.NibResourceType, Rswift.Validatable {
+      let bundle = R.hostingBundle
+      let name = "RegisterMealView"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> RoundedView? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? RoundedView
+      }
+
+      static func validate() throws {
+        if UIKit.UIImage(named: "plus", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'plus' is used in nib 'RegisterMealView', but couldn't be loaded.") }
+        if #available(iOS 11.0, tvOS 11.0, *) {
+        }
+      }
+
+      fileprivate init() {}
+    }
+
     fileprivate init() {}
   }
   #endif
@@ -454,9 +594,6 @@ struct _R: Rswift.Validatable {
   #if os(iOS) || os(tvOS)
   struct storyboard: Rswift.Validatable {
     static func validate() throws {
-      #if os(iOS) || os(tvOS)
-      try calendar.validate()
-      #endif
       #if os(iOS) || os(tvOS)
       try launchScreen.validate()
       #endif
@@ -473,28 +610,6 @@ struct _R: Rswift.Validatable {
       try settings.validate()
       #endif
     }
-
-    #if os(iOS) || os(tvOS)
-    struct calendar: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
-      typealias InitialController = CalendarViewController
-
-      let bundle = R.hostingBundle
-      let calendarStoryboard = StoryboardViewControllerResource<CalendarViewController>(identifier: "Calendar Storyboard")
-      let name = "Calendar"
-
-      func calendarStoryboard(_: Void = ()) -> CalendarViewController? {
-        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: calendarStoryboard)
-      }
-
-      static func validate() throws {
-        if #available(iOS 11.0, tvOS 11.0, *) {
-        }
-        if _R.storyboard.calendar().calendarStoryboard() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'calendarStoryboard' could not be loaded from storyboard 'Calendar' as 'CalendarViewController'.") }
-      }
-
-      fileprivate init() {}
-    }
-    #endif
 
     #if os(iOS) || os(tvOS)
     struct launchScreen: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
@@ -536,13 +651,7 @@ struct _R: Rswift.Validatable {
       let name = "Meals"
 
       static func validate() throws {
-        if UIKit.UIImage(named: "ExerciseIcon", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ExerciseIcon' is used in storyboard 'Meals', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "fruits", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'fruits' is used in storyboard 'Meals', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "plus", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'plus' is used in storyboard 'Meals', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
-          if UIKit.UIColor(named: "BadColor", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'BadColor' is used in storyboard 'Meals', but couldn't be loaded.") }
-          if UIKit.UIColor(named: "GoodColor", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'GoodColor' is used in storyboard 'Meals', but couldn't be loaded.") }
-          if UIKit.UIColor(named: "MediumColor", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'MediumColor' is used in storyboard 'Meals', but couldn't be loaded.") }
         }
       }
 

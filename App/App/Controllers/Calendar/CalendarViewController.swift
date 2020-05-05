@@ -47,6 +47,17 @@ class CalendarViewController: UIViewController {
         self.calendarView.reloadData()
     }
     
+    
+    override func viewDidAppear(_ animated: Bool) {
+        // If the tab bar selected item has changed into this View Controller...
+        // We reload the calendar!
+        self.calendarView.reloadData()
+    }
+
+    override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
+        self.calendarView.reloadData()
+    }
+    
 }
 
 extension CalendarViewController: JTACMonthViewDataSource {
@@ -81,7 +92,11 @@ extension CalendarViewController: JTACMonthViewDelegate {
         let cell = calendar.dequeueReusableJTAppleCell(withReuseIdentifier: "dateCell", for: indexPath) as! DateCell
         
         if cellState.dateBelongsTo == .thisMonth {
-            cell.dateLabel.textColor = .black
+            if self.traitCollection.userInterfaceStyle == .dark {
+                cell.dateLabel.textColor = .white
+            } else {
+                cell.dateLabel.textColor = .black
+            }
         }
         else {
             cell.dateLabel.textColor = .gray
@@ -152,6 +167,11 @@ extension CalendarViewController: JTACMonthViewDelegate {
         return MonthSize(defaultSize: 80)
     }
     
+    
+    
+    func calendarDidScroll(_ calendar: JTACMonthView) {
+        self.calendarView.reloadData()
+    }
 
     
 
