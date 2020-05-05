@@ -49,10 +49,8 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
     @IBOutlet weak var habitsGraphicView: UIView!
     @IBOutlet weak var resumeView: UIView!
     
-    //  graphic apple watch boxes
-    @IBOutlet weak var colorExerciceGraphicsImage: UIImageView!
-    @IBOutlet weak var colorFruitsGraphicsImage: UIImageView!
-    @IBOutlet weak var colorWaterGraphicsLabel: UIImageView!
+    @IBOutlet weak var weightGraphicLineView: UIView!
+    @IBOutlet weak var habitsGraphicLineView: UIView!
     
     //    MARK: - IBAction
     @IBAction func selectImgProfile(_ sender: Any) {
@@ -71,7 +69,7 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
         setupStyleViews()
         setupDataProfile()
         setUpdateDataProfileNotification()
-        
+        setupGraphic()
         for constraints in headerView.constraints {
             if(constraints.identifier == "headerView") {
                 headerViewHeightConstraint = constraints
@@ -88,6 +86,12 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
         ProfimeDataMenager().setupHeaderInformations(goalsTextView: myGoalsTextView,currentWeightLabel: currentWeightLabel)
     }
     
+    //    MARK: - Graphics
+    func setupGraphic() {
+        PlotGraphicClass().plotGraphicLine(graphicVIew: weightGraphicLineView, numLines: 1)
+        
+        PlotGraphicClass().plotGraphicLine(graphicVIew: habitsGraphicLineView, numLines: 3)
+    }
     //    MARK: - Take Profile Image
     func openGalery() {
         
@@ -177,10 +181,6 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
         StyleFunctions().cropBounds(viewlayer: weightGraphicView.layer, cornerRadius: 10)
         StyleFunctions().cropBounds(viewlayer: habitsGraphicView.layer, cornerRadius: 10)
         StyleFunctions().cropBounds(viewlayer: resumeView.layer, cornerRadius: 10)
-        
-        StyleFunctions().cropBounds(viewlayer: colorExerciceGraphicsImage.layer, cornerRadius: 5)
-        StyleFunctions().cropBounds(viewlayer: colorFruitsGraphicsImage.layer, cornerRadius: 5)
-        StyleFunctions().cropBounds(viewlayer: colorWaterGraphicsLabel.layer, cornerRadius: 5)
         
         StyleFunctions().cropBounds(viewlayer: headerBackgroundImg.layer, cornerRadius: 25)
         StyleFunctions().cropBounds(viewlayer: profileImgView.layer, cornerRadius: Float(profileImgView.frame.width/2))

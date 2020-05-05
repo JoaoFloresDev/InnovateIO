@@ -9,14 +9,14 @@ import UIKit
 
 /// This `R` struct is generated and contains references to static resources.
 struct R: Rswift.Validatable {
-  fileprivate static let applicationLocale = hostingBundle.preferredLocalizations.first.flatMap(Locale.init) ?? Locale.current
+  fileprivate static let applicationLocale = hostingBundle.preferredLocalizations.first.flatMap { Locale(identifier: $0) } ?? Locale.current
   fileprivate static let hostingBundle = Bundle(for: R.Class.self)
 
   /// Find first language and bundle for which the table exists
   fileprivate static func localeBundle(tableName: String, preferredLanguages: [String]) -> (Foundation.Locale, Foundation.Bundle)? {
     // Filter preferredLanguages to localizations, use first locale
     var languages = preferredLanguages
-      .map(Locale.init)
+      .map { Locale(identifier: $0) }
       .prefix(1)
       .flatMap { locale -> [String] in
         if hostingBundle.localizations.contains(locale.identifier) {
@@ -392,6 +392,37 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
+  /// This `R.info` struct is generated, and contains static references to 1 properties.
+  struct info {
+    struct uiApplicationSceneManifest {
+      static let _key = "UIApplicationSceneManifest"
+      static let uiApplicationSupportsMultipleScenes = false
+
+      struct uiSceneConfigurations {
+        static let _key = "UISceneConfigurations"
+
+        struct uiWindowSceneSessionRoleApplication {
+          struct defaultConfiguration {
+            static let _key = "Default Configuration"
+            static let uiSceneConfigurationName = infoPlistString(path: ["UIApplicationSceneManifest", "UISceneConfigurations", "UIWindowSceneSessionRoleApplication", "Default Configuration"], key: "UISceneConfigurationName") ?? "Default Configuration"
+            static let uiSceneDelegateClassName = infoPlistString(path: ["UIApplicationSceneManifest", "UISceneConfigurations", "UIWindowSceneSessionRoleApplication", "Default Configuration"], key: "UISceneDelegateClassName") ?? "$(PRODUCT_MODULE_NAME).SceneDelegate"
+            static let uiSceneStoryboardFile = infoPlistString(path: ["UIApplicationSceneManifest", "UISceneConfigurations", "UIWindowSceneSessionRoleApplication", "Default Configuration"], key: "UISceneStoryboardFile") ?? "Main"
+
+            fileprivate init() {}
+          }
+
+          fileprivate init() {}
+        }
+
+        fileprivate init() {}
+      }
+
+      fileprivate init() {}
+    }
+
+    fileprivate init() {}
+  }
+
   /// This `R.nib` struct is generated, and contains static references to 5 nibs.
   struct nib {
     /// Nib `DailyHabitsTableViewCell`.
@@ -612,6 +643,31 @@ struct _R: Rswift.Validatable {
     }
 
     #if os(iOS) || os(tvOS)
+    struct calendar: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
+      typealias InitialController = CalendarViewController
+
+      let bundle = R.hostingBundle
+      let calendarStoryboard = StoryboardViewControllerResource<CalendarViewController>(identifier: "Calendar Storyboard")
+      let name = "Calendar"
+
+      func calendarStoryboard(_: Void = ()) -> CalendarViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: calendarStoryboard)
+      }
+
+      static func validate() throws {
+        if UIKit.UIImage(named: "book", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'book' is used in storyboard 'Calendar', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "book.fill", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'book.fill' is used in storyboard 'Calendar', but couldn't be loaded.") }
+        if #available(iOS 11.0, tvOS 11.0, *) {
+          if UIKit.UIColor(named: "rateRedColor", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'rateRedColor' is used in storyboard 'Calendar', but couldn't be loaded.") }
+        }
+        if _R.storyboard.calendar().calendarStoryboard() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'calendarStoryboard' could not be loaded from storyboard 'Calendar' as 'CalendarViewController'.") }
+      }
+
+      fileprivate init() {}
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
     struct launchScreen: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
       typealias InitialController = UIKit.UIViewController
 
@@ -651,6 +707,8 @@ struct _R: Rswift.Validatable {
       let name = "Meals"
 
       static func validate() throws {
+        if UIKit.UIImage(named: "plus.app", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'plus.app' is used in storyboard 'Meals', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "plus.app.fill", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'plus.app.fill' is used in storyboard 'Meals', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
       }
@@ -670,21 +728,15 @@ struct _R: Rswift.Validatable {
         if UIKit.UIImage(named: "ExerciseIcon", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ExerciseIcon' is used in storyboard 'Profile', but couldn't be loaded.") }
         if UIKit.UIImage(named: "MealsResumeGraphic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'MealsResumeGraphic' is used in storyboard 'Profile', but couldn't be loaded.") }
         if UIKit.UIImage(named: "ProfilePlaceholder", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ProfilePlaceholder' is used in storyboard 'Profile', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "WeightCircleGraphic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'WeightCircleGraphic' is used in storyboard 'Profile', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "WeightGraphic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'WeightGraphic' is used in storyboard 'Profile', but couldn't be loaded.") }
         if UIKit.UIImage(named: "fruits", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'fruits' is used in storyboard 'Profile', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "habitsGraphic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'habitsGraphic' is used in storyboard 'Profile', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "person.circle", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'person.circle' is used in storyboard 'Profile', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "person.circle.fill", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'person.circle.fill' is used in storyboard 'Profile', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "person", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'person' is used in storyboard 'Profile', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "person.fill", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'person.fill' is used in storyboard 'Profile', but couldn't be loaded.") }
         if UIKit.UIImage(named: "water", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'water' is used in storyboard 'Profile', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
           if UIKit.UIColor(named: "BackgrondColor", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'BackgrondColor' is used in storyboard 'Profile', but couldn't be loaded.") }
           if UIKit.UIColor(named: "CellColor", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'CellColor' is used in storyboard 'Profile', but couldn't be loaded.") }
           if UIKit.UIColor(named: "PrimaryTextColor", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'PrimaryTextColor' is used in storyboard 'Profile', but couldn't be loaded.") }
           if UIKit.UIColor(named: "SecundaryTextColor", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'SecundaryTextColor' is used in storyboard 'Profile', but couldn't be loaded.") }
-          if UIKit.UIColor(named: "habitsExerciceColor", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'habitsExerciceColor' is used in storyboard 'Profile', but couldn't be loaded.") }
-          if UIKit.UIColor(named: "habitsFruitsColor", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'habitsFruitsColor' is used in storyboard 'Profile', but couldn't be loaded.") }
-          if UIKit.UIColor(named: "habitsWaterColor", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'habitsWaterColor' is used in storyboard 'Profile', but couldn't be loaded.") }
         }
       }
 
