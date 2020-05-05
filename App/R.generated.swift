@@ -314,7 +314,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.image` struct is generated, and contains static references to 8 images.
+  /// This `R.image` struct is generated, and contains static references to 11 images.
   struct image {
     /// Image `ExerciseIcon`.
     static let exerciseIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "ExerciseIcon")
@@ -330,6 +330,12 @@ struct R: Rswift.Validatable {
     static let fruits = Rswift.ImageResource(bundle: R.hostingBundle, name: "fruits")
     /// Image `habitsGraphic`.
     static let habitsGraphic = Rswift.ImageResource(bundle: R.hostingBundle, name: "habitsGraphic")
+    /// Image `lineBlue`.
+    static let lineBlue = Rswift.ImageResource(bundle: R.hostingBundle, name: "lineBlue")
+    /// Image `linePink`.
+    static let linePink = Rswift.ImageResource(bundle: R.hostingBundle, name: "linePink")
+    /// Image `linePurple`.
+    static let linePurple = Rswift.ImageResource(bundle: R.hostingBundle, name: "linePurple")
     /// Image `water`.
     static let water = Rswift.ImageResource(bundle: R.hostingBundle, name: "water")
 
@@ -379,6 +385,27 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "habitsGraphic", bundle: ..., traitCollection: ...)`
     static func habitsGraphic(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.habitsGraphic, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "lineBlue", bundle: ..., traitCollection: ...)`
+    static func lineBlue(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.lineBlue, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "linePink", bundle: ..., traitCollection: ...)`
+    static func linePink(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.linePink, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "linePurple", bundle: ..., traitCollection: ...)`
+    static func linePurple(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.linePurple, compatibleWith: traitCollection)
     }
     #endif
 
@@ -673,6 +700,9 @@ struct _R: Rswift.Validatable {
         if UIKit.UIImage(named: "MealsResumeGraphic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'MealsResumeGraphic' is used in storyboard 'Profile', but couldn't be loaded.") }
         if UIKit.UIImage(named: "ProfilePlaceholder", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ProfilePlaceholder' is used in storyboard 'Profile', but couldn't be loaded.") }
         if UIKit.UIImage(named: "fruits", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'fruits' is used in storyboard 'Profile', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "lineBlue", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'lineBlue' is used in storyboard 'Profile', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "linePink", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'linePink' is used in storyboard 'Profile', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "linePurple", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'linePurple' is used in storyboard 'Profile', but couldn't be loaded.") }
         if UIKit.UIImage(named: "person", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'person' is used in storyboard 'Profile', but couldn't be loaded.") }
         if UIKit.UIImage(named: "person.fill", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'person.fill' is used in storyboard 'Profile', but couldn't be loaded.") }
         if UIKit.UIImage(named: "water", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'water' is used in storyboard 'Profile', but couldn't be loaded.") }

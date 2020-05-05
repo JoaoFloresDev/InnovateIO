@@ -11,7 +11,7 @@ import XJYChart
 
 class PlotGraphicClass {
     
-    func plotGraphicLine(graphicVIew: UIView, numLines: Int) {
+    func plotGraphicLine(graphicVIew: UIView, numLines: Int, colorArray: [UIColor]) {
         let dates: NSMutableArray = ["13\n04", "13\n04", "13\n04", "13\n04", "13\n04","13\n04", "13\n04", "13\n04", "13\n04", "13\n04", "13\n04", "13\n04", "13\n04"]
         
         var itemArray: [AnyHashable] = []
@@ -21,14 +21,12 @@ class PlotGraphicClass {
             var numberArray = [Int32]()
             
             for _ in 0..<dates.count {
-                let num: Int = Int.random(in: 32 ..< 120)
+                let num: Int = Int.random(in: 32 ..< 110)
                 let number = Int32(num)
                 numberArray.append(number)
             }
             numbersArray.append(numberArray)
         }
-        
-        let colorArray = [UIColor.teal(), UIColor.brickRed(), UIColor.banana(), UIColor.babyBlue(), UIColor.orchid()]
         
         for i in 0..<numLines {
             let item = XLineChartItem(dataNumber: NSMutableArray(array: numbersArray[i]), color: colorArray[i])
@@ -38,7 +36,7 @@ class PlotGraphicClass {
         let configuration = XNormalLineChartConfiguration()
         configuration.lineMode = XLineMode.CurveLine
         
-        let lineChart = XLineChart(frame: CGRect(x: 0, y: 0, width: 400, height: 250), dataItemArray: NSMutableArray(array: itemArray), dataDiscribeArray: dates, topNumber: 120, bottomNumber: 30, graphMode: XLineGraphMode.MutiLineGraph, chartConfiguration: configuration)
+        let lineChart = XLineChart(frame: CGRect(x: 0, y: 0, width: graphicVIew.frame.width, height: 250), dataItemArray: NSMutableArray(array: itemArray), dataDiscribeArray: dates, topNumber: 120, bottomNumber: 30, graphMode: XLineGraphMode.MutiLineGraph, chartConfiguration: configuration)
         
         
         if let views = lineChart?.subviews {
@@ -54,6 +52,12 @@ class PlotGraphicClass {
         }
         
         graphicVIew.addSubview(lineChart!)
+    }
+    
+    func setLayoutLegends(views: [UIView]) {
+        for view in views {
+            StyleClass().cropBounds(viewlayer: view.layer, cornerRadius: Float(view.frame.width/2))
+        }
     }
 }
 
