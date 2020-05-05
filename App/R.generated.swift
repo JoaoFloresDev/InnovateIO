@@ -113,7 +113,7 @@ struct R: Rswift.Validatable {
   #endif
 
   #if os(iOS) || os(tvOS)
-  /// This `R.storyboard` struct is generated, and contains static references to 6 storyboards.
+  /// This `R.storyboard` struct is generated, and contains static references to 5 storyboards.
   struct storyboard {
     /// Storyboard `Calendar`.
     static let calendar = _R.storyboard.calendar()
@@ -517,7 +517,7 @@ struct R: Rswift.Validatable {
     /// Reuse identifier `LineChartTableViewCell`.
     static let lineChartTableViewCell: Rswift.ReuseIdentifier<LineChartTableViewCell> = Rswift.ReuseIdentifier(identifier: "LineChartTableViewCell")
     /// Reuse identifier `PerformanceChart`.
-    static let performanceChart: Rswift.ReuseIdentifier<CalendarGraphCollectionViewCell> = Rswift.ReuseIdentifier(identifier: "PerformanceChart")
+    static let performanceChart: Rswift.ReuseIdentifier<UIKit.UIView> = Rswift.ReuseIdentifier(identifier: "PerformanceChart")
     /// Reuse identifier `dateCell`.
     static let dateCell: Rswift.ReuseIdentifier<DateCell> = Rswift.ReuseIdentifier(identifier: "dateCell")
 

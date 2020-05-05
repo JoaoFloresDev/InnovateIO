@@ -24,7 +24,6 @@
 		81AA0BD92456FE7B00E78D58 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81AA0BD82456FE7B00E78D58 /* CalendarViewController.swift */; };
 		8D11BFFB245249AD0062D163 /* MealRateButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D11BFFA245249AD0062D163 /* MealRateButton.swift */; };
 		8D11BFFD24524FF70062D163 /* RoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D11BFFC24524FF70062D163 /* RoundedView.swift */; };
-		8DDDEB66245B00810038A490 /* CalendarGraphCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DDDEB65245B00810038A490 /* CalendarGraphCollectionViewCell.swift */; };
 		8DF1318B24506B8A004C2CC7 /* MealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF1318A24506B8A004C2CC7 /* MealViewController.swift */; };
 		8E5334D900F61722F7918DB9 /* Pods_App_AppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5715636A1C4B809B17063D14 /* Pods_App_AppUITests.framework */; };
 		AE7E92030D28CAA9F2CA41CC /* Pods_AppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEC02FBEFF18FB094BC2524F /* Pods_AppTests.framework */; };
@@ -102,7 +101,6 @@
 		81AA0BD82456FE7B00E78D58 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		8D11BFFA245249AD0062D163 /* MealRateButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealRateButton.swift; sourceTree = "<group>"; };
 		8D11BFFC24524FF70062D163 /* RoundedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedView.swift; sourceTree = "<group>"; };
-		8DDDEB65245B00810038A490 /* CalendarGraphCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarGraphCollectionViewCell.swift; sourceTree = "<group>"; };
 		8DF1318A24506B8A004C2CC7 /* MealViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealViewController.swift; sourceTree = "<group>"; };
 		A495976781D0CFCA4734B6F6 /* Pods-AppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppTests.release.xcconfig"; path = "Target Support Files/Pods-AppTests/Pods-AppTests.release.xcconfig"; sourceTree = "<group>"; };
 		B93CC3942CBD2FF80F007364 /* Pods_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -254,7 +252,6 @@
 		81568AE0243B74FD00734FCA /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				8DDDEB65245B00810038A490 /* CalendarGraphCollectionViewCell.swift */,
 				D7B2C2F9243E0A080071561C /* Custom Views */,
 				C44D1477243655BC0094497A /* LaunchScreen.storyboard */,
 				C44D146F243655BA0094497A /* Main.storyboard */,
@@ -508,7 +505,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1120;
-				LastUpgradeCheck = 1140;
+				LastUpgradeCheck = 1120;
 				ORGANIZATIONNAME = "Joao Flores";
 				TargetAttributes = {
 					C44D1465243655BA0094497A = {
@@ -561,6 +558,7 @@
 				D7FA5DA624588369001B08AA /* DailyHabitsView.xib in Resources */,
 				D7FA5DA124585481001B08AA /* RatingView.xib in Resources */,
 				D7FA5DAE24588A00001B08AA /* DailyHabitsTableViewCell.xib in Resources */,
+				C44D149F243657E70094497A /* Calendar.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -740,7 +738,6 @@
 				81959015243E28CF001A6DB9 /* Model.xcdatamodeld in Sources */,
 				D7FA5DAD24588A00001B08AA /* DailyHabitsTableViewCell.swift in Sources */,
 				812B30F2243CBF80002F1AFF /* PersistenceError.swift in Sources */,
-				8DDDEB66245B00810038A490 /* CalendarGraphCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

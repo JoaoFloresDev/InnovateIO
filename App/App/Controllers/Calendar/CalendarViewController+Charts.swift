@@ -11,14 +11,12 @@ import UIKit
 extension CalendarViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 7
+        return 4
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PerformanceChart", for: indexPath) as! CalendarGraphCollectionViewCell
-		
-		cell.configureTimeDots()
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PerformanceChart", for: indexPath)
         
         return cell
         
