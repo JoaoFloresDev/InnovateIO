@@ -116,7 +116,7 @@ extension CalendarViewController: JTACMonthViewDelegate {
                 
                 if daily != nil {
                     let quality = Rating(rawValue: Int(daily!.quality))
-                    cell.dateLabel.backgroundColor = quality?.color
+                    cell.circle.backgroundColor = quality?.color
                 }
                 
             }
@@ -159,24 +159,27 @@ extension CalendarViewController: JTACMonthViewDelegate {
         header.monthTitle.text = formatter.string(from: range.start)
         return header
     }
-    
-
-    func calendarSizeForMonths(_ calendar: JTACMonthView?) -> MonthSize? {
-        return MonthSize(defaultSize: 80)
-    }
 
     
+    /// A handler for checking if the calendar was scrolled. In that case we change the background color for each cell.
+    /// - Parameters:
+    ///   - calendar: The calendar view
+    ///   - visibleDates: The visible dates in this segment (month)
     func calendar(_ calendar: JTACMonthView, didScrollToDateSegmentWith visibleDates: DateSegmentInfo) {
         
         for (_, indexPath) in visibleDates.monthDates {
             
             let cell = calendar.dequeueReusableJTAppleCell(withReuseIdentifier: "dateCell", for: indexPath) as! DateCell
             
-            cell.backgroundColor = .none
-            
+            cell.circle.backgroundColor = .none
             
         }
         
+    }
+    
+    
+    func calendarSizeForMonths(_ calendar: JTACMonthView?) -> MonthSize? {
+        return MonthSize(defaultSize: 80)
     }
     
 

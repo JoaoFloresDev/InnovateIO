@@ -273,6 +273,15 @@
 			name = "Recovered References";
 			sourceTree = "<group>";
 		};
+		819920712462D4660015CF60 /* Calendar View */ = {
+			isa = PBXGroup;
+			children = (
+				812E8E55245703330041719F /* DateCell.swift */,
+				8191C62D24585E3600C8AAF3 /* DateHeader.swift */,
+			);
+			path = "Calendar View";
+			sourceTree = "<group>";
+		};
 		81AA0BD72456FE6D00E78D58 /* Calendar */ = {
 			isa = PBXGroup;
 			children = (
@@ -408,14 +417,13 @@
 		D7B2C2F9243E0A080071561C /* Custom Views */ = {
 			isa = PBXGroup;
 			children = (
+				819920712462D4660015CF60 /* Calendar View */,
 				D71DF4202461992800DDA7BE /* Meal History Cell */,
 				D77126DD2459AA8C00EFFEEC /* Register Meal View */,
 				D7FA5DA424588351001B08AA /* Daily Habits View */,
 				D7FA5D9D24585445001B08AA /* Rating View */,
 				D7B2C2FE243E0A5A0071561C /* Line Chart */,
 				8D11BFFC24524FF70062D163 /* RoundedView.swift */,
-				812E8E55245703330041719F /* DateCell.swift */,
-				8191C62D24585E3600C8AAF3 /* DateHeader.swift */,
 			);
 			path = "Custom Views";
 			sourceTree = "<group>";
