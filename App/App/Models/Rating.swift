@@ -28,4 +28,15 @@ enum Rating: Int {
         case .good:     return R.color.goodColor()
         }
     }
+    
+    var defaultNoteForMeal: String {
+        switch self {
+        case .bad:
+            return "Minha alimentação não foi muito saudável. Que tal tentar comer vegetais ou frutas da próxima vez?"
+        case .average:
+            return "Não comi bem nem mal. Acho que ainda posso melhorar."
+        case .good:
+            return "Isso aí! Comi muito bem, espero continuar assim!"
+        }
+    }
 }
