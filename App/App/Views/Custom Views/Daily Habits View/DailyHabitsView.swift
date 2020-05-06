@@ -19,6 +19,7 @@ class DailyHabitsView: UIView {
     @IBOutlet weak var todayRatingView: RatingView!
     
     private var delegate: DailyHabitsViewDelegate?
+    private let orderedHabits: [DailyHabits] = [.drinkWater, .fruit, .exercise]
     private var dailyHabits : [DailyHabits : Bool] = [.exercise : false, .fruit : false, .drinkWater : false]
     private var dailyDiary: DailyDiary?
     
@@ -103,14 +104,13 @@ class DailyHabitsView: UIView {
 
 extension DailyHabitsView: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dailyHabits.keys.count
+        return orderedHabits.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.dailyHabitsTableViewCell.identifier) as? DailyHabitsTableViewCell else { return UITableViewCell() }
         
-        let habitKeys: [DailyHabits] = Array(dailyHabits.keys)
-        let habit = habitKeys[indexPath.row]
+        let habit = orderedHabits[indexPath.row]
         
         cell.setup(title: habit.title, icon: habit.icon)
         
@@ -119,8 +119,7 @@ extension DailyHabitsView: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
 
-        let habitKeys: [DailyHabits] = Array(dailyHabits.keys)
-        let habit = habitKeys[indexPath.row]
+        let habit = orderedHabits[indexPath.row]
         let isSelected = dailyHabits[habit]
         if isSelected ?? false {
             tableView.selectRow(at: indexPath, animated: true, scrollPosition: .none)
@@ -138,8 +137,7 @@ extension DailyHabitsView: UITableViewDataSource, UITableViewDelegate {
     }
     
     fileprivate func didSelectHabit(_ selected: Bool, _ indexPath: IndexPath) {
-        let habitKeys: [DailyHabits] = Array(dailyHabits.keys)
-        let habit = habitKeys[indexPath.row]
+        let habit = orderedHabits[indexPath.row]
         dailyHabits[habit] = selected
         updatedHabit(habit)
     }
