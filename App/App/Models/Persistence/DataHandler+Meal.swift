@@ -19,7 +19,7 @@ extension DataHandler {
     ///   - hour: The hour of the Meal
     ///   - minute: The minutes related to the hour of the Meal
     /// - Throws: Can't save into local storage due to available space is missing or corrupted or invalid time or invalid calendar or invalid entity.
-    func createMeal(quality: Int, hour: Int, minute: Int) throws {
+    func createMeal(quality: Int, hour: Int, minute: Int, note: String? = nil) throws {
         
         // Loading Core Data's User entity
         let entity = NSEntityDescription.entity(forEntityName: "Meal", in: self.managedContext)
@@ -63,6 +63,7 @@ extension DataHandler {
             diary.setValue(day, forKey: "day")
             diary.setValue(hour, forKey: "hour")
             diary.setValue(minute, forKey: "minute")
+            diary.setValue(note, forKey: "note")
 
             
             // Trying to save the new data on local storage

@@ -27,8 +27,7 @@ class MealHistoryTableViewCell: UITableViewCell {
         // TODO: change to gradient
         colorView.backgroundColor = rating.color
         
-        // TODO: uncomment when meal note is implemented in Core Data.
-//        noteLabel.text = note == nil ? rating.defaultNoteForMeal : note
+        noteLabel.text = meal.note == nil ? rating.defaultNoteForMeal : meal.note
         
         // TODO: uncomment when meal image is implemented in Core Data.
 //        mealImage.isHidden = image == nil
