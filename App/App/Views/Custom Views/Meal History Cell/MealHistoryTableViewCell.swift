@@ -24,7 +24,6 @@ class MealHistoryTableViewCell: UITableViewCell {
             return
         }
         
-        // TODO: change to gradient
         colorView.backgroundColor = rating.color
         
         noteLabel.text = meal.note == nil ? rating.defaultNoteForMeal : meal.note
