@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="16119" systemVersion="19E287" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="16119" systemVersion="19D76" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="DailyDiary" representedClassName="DailyDiary" syncable="YES" codeGenerationType="class">
         <attribute name="day" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="didDrinkWater" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
@@ -15,6 +15,7 @@
         <attribute name="hour" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="minute" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="month" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="note" optional="YES" attributeType="String"/>
         <attribute name="quality" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="year" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
     </entity>
@@ -27,7 +28,7 @@
     </entity>
     <elements>
         <element name="DailyDiary" positionX="-47.5859375" positionY="-125.2734375" width="113.67578125" height="163"/>
-        <element name="Meal" positionX="-45" positionY="27" width="128" height="133"/>
+        <element name="Meal" positionX="-45" positionY="27" width="128" height="148"/>
         <element name="Meals" positionX="-45.35546875" positionY="-37.671875" width="128" height="58"/>
         <element name="User" positionX="-231.0703125" positionY="36.08203125" width="128" height="73"/>
     </elements>
