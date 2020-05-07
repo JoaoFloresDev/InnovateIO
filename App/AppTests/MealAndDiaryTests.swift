@@ -10,7 +10,7 @@
 import XCTest
 import CoreData
 
-class DataHandlerTests: XCTestCase {
+class MealAndDiaryTests: XCTestCase {
 
     var dataHandler: DataHandler?
     var meal: Meal?
