@@ -8,6 +8,10 @@
 
 import UIKit
 import CoreData
+import AppCenter
+import AppCenterDistribute
+import AppCenterAnalytics
+import AppCenterCrashes
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,6 +20,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
+        // Starting the MSAppCenter analytics...
+        #if DEBUG
+           MSAppCenter.start("c3af0928-77f2-4f27-9f53-857a8f2651a2", withServices:[])
+        #else
+           MSAppCenter.start("c3af0928-77f2-4f27-9f53-857a8f2651a2", withServices:[
+               MSDistribute.self,
+               MSAnalytics.self,
+               MSCrashes.self
+           ])
+        #endif
+        
+        // Setting up the notification service...
         notificationService.notificationCenter.delegate = self
         notificationService.requestPermissions()
         notificationService.sendNotification(type: .addMeal)
