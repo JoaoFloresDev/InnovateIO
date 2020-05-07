@@ -13,7 +13,7 @@ import os.log
 extension DataHandler {
     
     
-    /// Creates a weight registry into the local storage.
+    /// Creates a weight registry into the local storage by using the today's date.
     /// - Parameters:
     ///   - value: The value of the weight.
     /// - Throws: An invalid entity error or no space available on local storage.
@@ -22,7 +22,6 @@ extension DataHandler {
         // Loading Core Data's User entity
         let entity = NSEntityDescription.entity(forEntityName: "Weight", in: self.managedContext)
         
-        // FIXED: Fixed force wrap by doing this verification and throwing an Exception - PR 11
         if entity == nil {
             throw PersistenceError.invalidEntity
         }
