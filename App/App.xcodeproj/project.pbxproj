@@ -10,17 +10,19 @@
 		810224622451B1AA00CD7BC0 /* DataHandler+Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810224612451B1AA00CD7BC0 /* DataHandler+Meal.swift */; };
 		810518992450746A00F8A86E /* DataHandler+DailyDiary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810518982450746A00F8A86E /* DataHandler+DailyDiary.swift */; };
 		8105189C24507BB600F8A86E /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8105189B24507BB600F8A86E /* Date.swift */; };
-		8105189E24508A4A00F8A86E /* DataHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8105189D24508A4A00F8A86E /* DataHandlerTests.swift */; };
+		8105189E24508A4A00F8A86E /* MealAndDiaryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8105189D24508A4A00F8A86E /* MealAndDiaryTests.swift */; };
 		812B30EC243CB03A002F1AFF /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 812B30EA243CB01D002F1AFF /* CoreData.framework */; };
 		812B30F2243CBF80002F1AFF /* PersistenceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812B30F1243CBF80002F1AFF /* PersistenceError.swift */; };
 		812E8E56245703330041719F /* DateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812E8E55245703330041719F /* DateCell.swift */; };
 		814F59302451F07200F59991 /* DateError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814F592F2451F07200F59991 /* DateError.swift */; };
 		81721F3B2451D3050066B047 /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81721F3A2451D3050066B047 /* Meal.swift */; };
+		81883CCC2464367C00156FED /* WeightTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81883CCB2464367C00156FED /* WeightTests.swift */; };
 		8191C62C2458510600C8AAF3 /* CalendarViewController+Charts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8191C62B2458510600C8AAF3 /* CalendarViewController+Charts.swift */; };
 		8191C62E24585E3600C8AAF3 /* DateHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8191C62D24585E3600C8AAF3 /* DateHeader.swift */; };
 		81959012243E2873001A6DB9 /* DataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81959011243E2872001A6DB9 /* DataHandler.swift */; };
 		81959015243E28CF001A6DB9 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 81959013243E28CF001A6DB9 /* Model.xcdatamodeld */; };
 		81AA0BD92456FE7B00E78D58 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81AA0BD82456FE7B00E78D58 /* CalendarViewController.swift */; };
+		81F5FCF624642F560030D12F /* DataHandler+Weight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F5FCF524642F560030D12F /* DataHandler+Weight.swift */; };
 		8D11BFFB245249AD0062D163 /* MealRateButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D11BFFA245249AD0062D163 /* MealRateButton.swift */; };
 		8D11BFFD24524FF70062D163 /* RoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D11BFFC24524FF70062D163 /* RoundedView.swift */; };
 		8DF1318B24506B8A004C2CC7 /* MealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF1318A24506B8A004C2CC7 /* MealViewController.swift */; };
@@ -87,17 +89,19 @@
 		810224612451B1AA00CD7BC0 /* DataHandler+Meal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DataHandler+Meal.swift"; sourceTree = "<group>"; };
 		810518982450746A00F8A86E /* DataHandler+DailyDiary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DataHandler+DailyDiary.swift"; sourceTree = "<group>"; };
 		8105189B24507BB600F8A86E /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
-		8105189D24508A4A00F8A86E /* DataHandlerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataHandlerTests.swift; sourceTree = "<group>"; };
+		8105189D24508A4A00F8A86E /* MealAndDiaryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealAndDiaryTests.swift; sourceTree = "<group>"; };
 		812B30EA243CB01D002F1AFF /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		812B30F1243CBF80002F1AFF /* PersistenceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceError.swift; sourceTree = "<group>"; };
 		812E8E55245703330041719F /* DateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCell.swift; sourceTree = "<group>"; };
 		814F592F2451F07200F59991 /* DateError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateError.swift; sourceTree = "<group>"; };
 		81721F3A2451D3050066B047 /* Meal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
+		81883CCB2464367C00156FED /* WeightTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightTests.swift; sourceTree = "<group>"; };
 		8191C62B2458510600C8AAF3 /* CalendarViewController+Charts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CalendarViewController+Charts.swift"; sourceTree = "<group>"; };
 		8191C62D24585E3600C8AAF3 /* DateHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHeader.swift; sourceTree = "<group>"; };
 		81959011243E2872001A6DB9 /* DataHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataHandler.swift; sourceTree = "<group>"; };
 		81959014243E28CF001A6DB9 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		81AA0BD82456FE7B00E78D58 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
+		81F5FCF524642F560030D12F /* DataHandler+Weight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DataHandler+Weight.swift"; sourceTree = "<group>"; };
 		8D11BFFA245249AD0062D163 /* MealRateButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealRateButton.swift; sourceTree = "<group>"; };
 		8D11BFFC24524FF70062D163 /* RoundedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedView.swift; sourceTree = "<group>"; };
 		8DF1318A24506B8A004C2CC7 /* MealViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealViewController.swift; sourceTree = "<group>"; };
@@ -215,6 +219,7 @@
 				81959011243E2872001A6DB9 /* DataHandler.swift */,
 				810518982450746A00F8A86E /* DataHandler+DailyDiary.swift */,
 				810224612451B1AA00CD7BC0 /* DataHandler+Meal.swift */,
+				81F5FCF524642F560030D12F /* DataHandler+Weight.swift */,
 				812B30F1243CBF80002F1AFF /* PersistenceError.swift */,
 			);
 			path = Persistence;
@@ -355,7 +360,8 @@
 			children = (
 				C44D1483243655BC0094497A /* AppTests.swift */,
 				C44D1485243655BC0094497A /* Info.plist */,
-				8105189D24508A4A00F8A86E /* DataHandlerTests.swift */,
+				8105189D24508A4A00F8A86E /* MealAndDiaryTests.swift */,
+				81883CCB2464367C00156FED /* WeightTests.swift */,
 			);
 			path = AppTests;
 			sourceTree = "<group>";
@@ -698,7 +704,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$SRCROOT/R.generated.swift",
+				$SRCROOT/R.generated.swift,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -749,6 +755,7 @@
 				D7FA5DAA245888D4001B08AA /* DailyHabits.swift in Sources */,
 				D7B2C2FC243E0A520071561C /* LineChartTableViewCell.swift in Sources */,
 				D7FA5DA3245858A7001B08AA /* Rating.swift in Sources */,
+				81F5FCF624642F560030D12F /* DataHandler+Weight.swift in Sources */,
 				D71DF4232461995700DDA7BE /* MealHistoryTableViewCell.swift in Sources */,
 				8105189C24507BB600F8A86E /* Date.swift in Sources */,
 				C451C0202458669900C9A9F0 /* ProfileDataMenagerClass.swift in Sources */,
@@ -769,8 +776,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8105189E24508A4A00F8A86E /* DataHandlerTests.swift in Sources */,
+				8105189E24508A4A00F8A86E /* MealAndDiaryTests.swift in Sources */,
 				C44D1484243655BC0094497A /* AppTests.swift in Sources */,
+				81883CCC2464367C00156FED /* WeightTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
