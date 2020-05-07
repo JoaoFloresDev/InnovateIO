@@ -13,11 +13,12 @@ import os.log
 extension DataHandler {
     
     
-    /// Creates a weight registry into the local storage by using the today's date.
+    /// Creates a weight registry into the local storage by using the today's date or given date.
     /// - Parameters:
     ///   - value: The value of the weight.
+    ///   - date: (Optional) The value of a date to be inserted.
     /// - Throws: An invalid entity error or no space available on local storage.
-    func createWeight(weight value: Float) throws {
+    func createWeight(value: Float, date: Date?) throws {
         
         // Loading Core Data's User entity
         let entity = NSEntityDescription.entity(forEntityName: "Weight", in: self.managedContext)
@@ -28,10 +29,17 @@ extension DataHandler {
         
         let weight = NSManagedObject(entity: entity!, insertInto: self.managedContext)
         
-        // Getting the current date
+        // Getting the current date...
         do {
-            let date = Date()
-            let (year, month, day, _, _, _) = try date.getAllInformations()
+            
+            var dateToConvert: Date = Date()
+            
+            // Checking if we can use the user's date...
+            if date != nil {
+                dateToConvert = date!
+            }
+            
+            let (year, month, day, _, _, _) = try dateToConvert.getAllInformations()
             
 
             // Checking for existing previous data

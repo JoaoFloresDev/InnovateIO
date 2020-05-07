@@ -25,6 +25,8 @@ class WeightTests: XCTestCase {
 
 
     func testCRUD() {
+        
+        // Test 1
         do {
             try self.create()
             try self.load()
@@ -38,7 +40,7 @@ class WeightTests: XCTestCase {
     func create() throws {
         
         do {
-            try self.dataHandler?.createWeight(weight: 65)
+            try self.dataHandler?.createWeight(value: 65, date: nil)
         }
         catch {
             throw error
