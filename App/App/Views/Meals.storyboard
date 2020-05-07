@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="o7q-eH-PVj">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="o7q-eH-PVj">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -18,15 +18,15 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H4M-09-hoa">
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="28" translatesAutoresizingMaskIntoConstraints="NO" id="fNs-1x-YLf">
-                                        <rect key="frame" x="0.0" y="-26" width="414" height="870"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="28" translatesAutoresizingMaskIntoConstraints="NO" id="fNs-1x-YLf">
+                                        <rect key="frame" x="0.0" y="-26" width="414" height="920"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3KV-BP-m2O" customClass="RegisterMealView" customModule="App" customModuleProvider="target">
-                                                <rect key="frame" x="8.5" y="0.0" width="397" height="0.0"/>
+                                                <rect key="frame" x="8.5" y="0.0" width="397" height="50"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </view>
                                             <view contentMode="scaleToFill" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="6hK-ls-JFJ" customClass="DailyHabitsView" customModule="App" customModuleProvider="target">
-                                                <rect key="frame" x="8.5" y="28" width="397" height="842"/>
+                                                <rect key="frame" x="8.5" y="78" width="397" height="842"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </view>
                                         </subviews>
@@ -37,7 +37,6 @@
                                     <constraint firstAttribute="bottom" secondItem="fNs-1x-YLf" secondAttribute="bottom" constant="20" id="3pp-f2-qX1"/>
                                     <constraint firstItem="fNs-1x-YLf" firstAttribute="width" secondItem="H4M-09-hoa" secondAttribute="width" id="8B1-Sl-SlI"/>
                                     <constraint firstItem="fNs-1x-YLf" firstAttribute="leading" secondItem="H4M-09-hoa" secondAttribute="leading" id="DpM-Ri-Wyg"/>
-                                    <constraint firstItem="fNs-1x-YLf" firstAttribute="height" secondItem="H4M-09-hoa" secondAttribute="height" multiplier="1.2" id="Iuv-ey-h3n"/>
                                     <constraint firstItem="fNs-1x-YLf" firstAttribute="top" secondItem="H4M-09-hoa" secondAttribute="top" constant="-26" id="shl-jx-sut"/>
                                     <constraint firstAttribute="trailing" secondItem="fNs-1x-YLf" secondAttribute="trailing" id="y7D-pt-K2y"/>
                                 </constraints>
@@ -89,7 +88,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="plus.app" catalog="system" width="64" height="56"/>
-        <image name="plus.app.fill" catalog="system" width="64" height="56"/>
+        <image name="plus.app" catalog="system" width="128" height="114"/>
+        <image name="plus.app.fill" catalog="system" width="128" height="114"/>
     </resources>
 </document>
