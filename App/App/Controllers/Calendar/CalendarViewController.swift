@@ -8,6 +8,7 @@
 
 import UIKit
 import JTAppleCalendar
+import os.log
 
 class CalendarViewController: UIViewController {
     
@@ -47,6 +48,17 @@ class CalendarViewController: UIViewController {
         self.calendarView.reloadData()
     }
     
+    
+    override func viewDidAppear(_ animated: Bool) {
+        // If the tab bar selected item has changed into this View Controller...
+        // We reload the calendar!
+        self.calendarView.reloadData()
+    }
+
+    override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
+        self.calendarView.reloadData()
+    }
+    
 }
 
 extension CalendarViewController: JTACMonthViewDataSource {
@@ -81,38 +93,39 @@ extension CalendarViewController: JTACMonthViewDelegate {
         let cell = calendar.dequeueReusableJTAppleCell(withReuseIdentifier: "dateCell", for: indexPath) as! DateCell
         
         if cellState.dateBelongsTo == .thisMonth {
-            cell.dateLabel.textColor = .black
+            if self.traitCollection.userInterfaceStyle == .dark {
+                cell.dateLabel.textColor = .white
+            } else {
+                cell.dateLabel.textColor = .black
+            }
         }
         else {
             cell.dateLabel.textColor = .gray
         }
         
         cell.dateLabel.text = cellState.text
+        cell.dateLabel.backgroundColor = .none
         
         // Colorizing the cells
-        do {
-
-            let (year, month, day, _, _, _) = try date.getAllInformations()
-            let daily = try dataHandler?.loadDailyDiary(year: year, month: month, day: day)
-
-            switch (daily?.quality) {
-            case 1:
-                cell.dateLabel.backgroundColor = .green
-                break
-            case 0:
-                cell.dateLabel.backgroundColor = .yellow
-                break
-            case -1:
-                cell.dateLabel.backgroundColor = .red
-                break
-            default:
-                cell.dateLabel.backgroundColor = .clear
-                break
+        if cellState.dateBelongsTo == .thisMonth {
+            
+            do {
+                
+                let (year, month, day, _, _, _) = try date.getAllInformations()
+                let daily = try dataHandler?.loadDailyDiary(year: year, month: month, day: day)
+                
+                if daily != nil {
+                    let quality = Rating(rawValue: Int(daily!.quality))
+                    cell.circle.backgroundColor = quality?.color
+                }
+                
             }
+            catch {
+                os_log("[APP] No entry was found!")
+            } // If catch has returned something... That means that we don't have anything on this date.
 
         }
-        catch {} // If catch has returned something... That means that we don't have anything on this date.
-
+        
         return cell
     }
 
@@ -146,13 +159,28 @@ extension CalendarViewController: JTACMonthViewDelegate {
         header.monthTitle.text = formatter.string(from: range.start)
         return header
     }
-    
 
+    
+    /// A handler for checking if the calendar was scrolled. In that case we change the background color for each cell.
+    /// - Parameters:
+    ///   - calendar: The calendar view
+    ///   - visibleDates: The visible dates in this segment (month)
+    func calendar(_ calendar: JTACMonthView, didScrollToDateSegmentWith visibleDates: DateSegmentInfo) {
+        
+        for (_, indexPath) in visibleDates.monthDates {
+            
+            let cell = calendar.dequeueReusableJTAppleCell(withReuseIdentifier: "dateCell", for: indexPath) as! DateCell
+            
+            cell.circle.backgroundColor = .none
+            
+        }
+        
+    }
+    
+    
     func calendarSizeForMonths(_ calendar: JTACMonthView?) -> MonthSize? {
         return MonthSize(defaultSize: 80)
     }
-    
-
     
 
     

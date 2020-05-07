@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="kUW-Y7-4uP">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="kUW-Y7-4uP">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -30,25 +30,47 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="dateCell" id="cZ8-EK-K7a" customClass="DateCell" customModule="App" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="95" width="85" height="84"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="85" height="84"/>
+                                        <rect key="frame" x="0.0" y="95" width="85" height="83.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="79P-Vk-JFd">
+                                            <rect key="frame" x="0.0" y="0.0" width="85" height="83.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="dateHere" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zMj-fV-tKg" userLabel="Date Label">
-                                                    <rect key="frame" x="7" y="31.5" width="71" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lrH-0x-4mR" customClass="RoundedView" customModule="App" customModuleProvider="target">
+                                                    <rect key="frame" x="10.5" y="5" width="64" height="74"/>
+                                                    <subviews>
+                                                        <label verifyAmbiguity="off" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="dateHere" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zMj-fV-tKg" userLabel="Date Label">
+                                                            <rect key="frame" x="-3.5" y="27" width="71" height="20.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="64" id="9DO-I2-5nZ"/>
+                                                        <constraint firstAttribute="height" constant="60" id="MX0-67-4LL"/>
+                                                        <constraint firstItem="zMj-fV-tKg" firstAttribute="centerX" secondItem="lrH-0x-4mR" secondAttribute="centerX" id="haj-fS-nx5"/>
+                                                        <constraint firstItem="zMj-fV-tKg" firstAttribute="centerY" secondItem="lrH-0x-4mR" secondAttribute="centerY" id="x9K-ba-6Fm"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                            <real key="value" value="16"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
                                             </subviews>
-                                        </view>
-                                        <constraints>
-                                            <constraint firstItem="zMj-fV-tKg" firstAttribute="centerX" secondItem="cZ8-EK-K7a" secondAttribute="centerX" id="GRe-3p-wAS"/>
-                                            <constraint firstItem="zMj-fV-tKg" firstAttribute="centerY" secondItem="cZ8-EK-K7a" secondAttribute="centerY" id="Opd-6L-gg5"/>
-                                        </constraints>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="lrH-0x-4mR" secondAttribute="trailing" constant="10.5" id="6sd-Ea-80u"/>
+                                                <constraint firstItem="lrH-0x-4mR" firstAttribute="centerX" secondItem="79P-Vk-JFd" secondAttribute="centerX" id="DUS-aM-xQh"/>
+                                                <constraint firstItem="lrH-0x-4mR" firstAttribute="top" secondItem="79P-Vk-JFd" secondAttribute="top" constant="5" id="atk-b3-ZwP"/>
+                                                <constraint firstItem="lrH-0x-4mR" firstAttribute="centerY" secondItem="79P-Vk-JFd" secondAttribute="centerY" id="b4V-3h-nyK"/>
+                                                <constraint firstAttribute="bottom" secondItem="lrH-0x-4mR" secondAttribute="bottom" constant="4.5" id="cgY-EG-sUy"/>
+                                                <constraint firstItem="lrH-0x-4mR" firstAttribute="leading" secondItem="79P-Vk-JFd" secondAttribute="leading" constant="10.5" id="kdr-zm-b03"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="85" height="83.5"/>
                                         <connections>
+                                            <outlet property="circle" destination="lrH-0x-4mR" id="1cf-Vh-Jjg"/>
                                             <outlet property="dateLabel" destination="zMj-fV-tKg" id="Vkb-Mh-S2b"/>
                                         </connections>
                                     </collectionViewCell>
@@ -137,10 +159,10 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PerformanceChart" id="COC-SR-bTj">
-                                        <rect key="frame" x="79" y="0.0" width="256" height="50"/>
+                                        <rect key="frame" x="79" y="0.0" width="256" height="256"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="F0e-mD-Edr">
-                                            <rect key="frame" x="0.0" y="0.0" width="256" height="50"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="256" height="256"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </collectionViewCellContentView>
                                         <color key="backgroundColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -173,7 +195,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="book" catalog="system" width="64" height="50"/>
-        <image name="book.fill" catalog="system" width="64" height="50"/>
+        <image name="book" catalog="system" width="128" height="101"/>
+        <image name="book.fill" catalog="system" width="128" height="100"/>
     </resources>
 </document>

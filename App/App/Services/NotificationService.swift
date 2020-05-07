@@ -72,7 +72,7 @@ class NotificationService {
         switch type {
         case NotificationType.addMeal.rawValue:
             rootVC.selectedViewController = rootVC.viewControllers?.first(where: { (viewController) -> Bool in
-                return viewController.isKind(of: MealViewController.self)
+                return viewController.restorationIdentifier == "MealNavigationViewController"
             })
             
         case NotificationType.update.rawValue:

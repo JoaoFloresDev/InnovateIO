@@ -7,10 +7,16 @@ target 'App' do
 
   # Pods for App
 
+  # Major pods
   pod 'Charts'
   pod 'R.swift'
   pod 'JTAppleCalendar'
   pod 'XJYChart'
+
+  # MS Apps related Pods
+  pod 'AppCenter'
+  pod 'AppCenter/Distribute'
+
   target 'AppTests' do
     inherit! :search_paths
     # Pods for testing

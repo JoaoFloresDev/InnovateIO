@@ -1,18 +1,30 @@
 PODS:
-  - Charts (3.4.0):
-    - Charts/Core (= 3.4.0)
-  - Charts/Core (3.4.0)
+  - AppCenter (3.1.1):
+    - AppCenter/Analytics (= 3.1.1)
+    - AppCenter/Crashes (= 3.1.1)
+  - AppCenter/Analytics (3.1.1):
+    - AppCenter/Core
+  - AppCenter/Core (3.1.1)
+  - AppCenter/Crashes (3.1.1):
+    - AppCenter/Core
+  - AppCenter/Distribute (3.1.1):
+    - AppCenter/Core
+  - Charts (3.5.0):
+    - Charts/Core (= 3.5.0)
+  - Charts/Core (3.5.0)
   - Colours (5.13.0):
     - Colours/ObjC (= 5.13.0)
   - Colours/ObjC (5.13.0)
   - JTAppleCalendar (8.0.3)
-  - R.swift (5.1.0):
-    - R.swift.Library (~> 5.1.0)
-  - R.swift.Library (5.1.0)
+  - R.swift (5.2.2):
+    - R.swift.Library (~> 5.2.0)
+  - R.swift.Library (5.2.0)
   - XJYChart (2.5.0):
     - Colours (= 5.13.0)
 
 DEPENDENCIES:
+  - AppCenter
+  - AppCenter/Distribute
   - Charts
   - JTAppleCalendar
   - R.swift
@@ -20,6 +32,7 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
+    - AppCenter
     - Charts
     - Colours
     - JTAppleCalendar
@@ -28,13 +41,14 @@ SPEC REPOS:
     - XJYChart
 
 SPEC CHECKSUMS:
-  Charts: 74c9f256eaf0460c0c416522d1cf8c634ea6b286
+  AppCenter: 513d32888854d67d8cfbd3a8db16aeb5fb2e2a75
+  Charts: 40a08591df1f8ad5c223ddedfb1a06da92f24f7c
   Colours: f24220c38f13deac88612667e9b4a7fb96b871d4
   JTAppleCalendar: 932cadea40b1051beab10f67843451d48ba16c99
-  R.swift: 8cbc4fc69b740305b6a17c8a8ed968eb788962d9
-  R.swift.Library: fa85ce1e0d0b7e818cd9e080df910ba54d2776cc
+  R.swift: 7c52cdc57a66840ffe6cbd8a823d732059d42a32
+  R.swift.Library: 5ba4f1631300caf9a4d890186930da85d540769d
   XJYChart: ce3180be5e67b107c25f523e279ed5eb8dae1c34
 
-PODFILE CHECKSUM: 031d40907ef12637e9af44f664e3ebb9f9e0d51b
+PODFILE CHECKSUM: ca2921eda0f8d8c94643cb844d543a42837133cc
 
-COCOAPODS: 1.8.4
+COCOAPODS: 1.9.1
