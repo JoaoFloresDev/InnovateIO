@@ -125,6 +125,9 @@ extension CalendarViewController: JTACMonthViewDelegate {
             } // If catch has returned something... That means that we don't have anything on this date.
 
         }
+        else {
+            cell.circle.backgroundColor = .none
+        }
         
         return cell
     }
@@ -167,7 +170,26 @@ extension CalendarViewController: JTACMonthViewDelegate {
     ///   - visibleDates: The visible dates in this segment (month)
     func calendar(_ calendar: JTACMonthView, didScrollToDateSegmentWith visibleDates: DateSegmentInfo) {
         
+        // Clearing the circle color on days related to the selected month
         for (_, indexPath) in visibleDates.monthDates {
+            
+            let cell = calendar.dequeueReusableJTAppleCell(withReuseIdentifier: "dateCell", for: indexPath) as! DateCell
+            
+            cell.circle.backgroundColor = .none
+            
+        }
+        
+        // Clearing the circle color on indates (previous days) related before to the selected month
+        for (_, indexPath) in visibleDates.indates {
+            
+            let cell = calendar.dequeueReusableJTAppleCell(withReuseIdentifier: "dateCell", for: indexPath) as! DateCell
+            
+            cell.circle.backgroundColor = .none
+            
+        }
+        
+        // Clearing the circle color on outdates (posteriori days) related after to the selected month
+        for (_, indexPath) in visibleDates.outdates {
             
             let cell = calendar.dequeueReusableJTAppleCell(withReuseIdentifier: "dateCell", for: indexPath) as! DateCell
             
