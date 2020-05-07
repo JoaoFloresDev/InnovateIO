@@ -10,21 +10,21 @@
         <!--Meal History View Controller-->
         <scene sceneID="jjb-En-4y4">
             <objects>
-                <viewController id="8nu-Qx-oFa" customClass="MealHistoryViewController" customModule="App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="8nu-Qx-oFa" customClass="MealHistoryViewController" customModule="My_Way" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uAV-5H-0V7">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pEW-oW-Rd0">
-                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="60" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="pEW-oW-Rd0">
+                                <rect key="frame" x="16" y="88" width="382" height="774"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="pEW-oW-Rd0" firstAttribute="top" secondItem="n5y-6g-KRe" secondAttribute="top" id="2SB-gd-6Vx"/>
-                            <constraint firstItem="pEW-oW-Rd0" firstAttribute="leading" secondItem="n5y-6g-KRe" secondAttribute="leading" id="Lzz-JK-tF6"/>
-                            <constraint firstItem="n5y-6g-KRe" firstAttribute="trailing" secondItem="pEW-oW-Rd0" secondAttribute="trailing" id="bUK-kK-UD7"/>
+                            <constraint firstItem="pEW-oW-Rd0" firstAttribute="leading" secondItem="n5y-6g-KRe" secondAttribute="leading" constant="16" id="Lzz-JK-tF6"/>
+                            <constraint firstItem="n5y-6g-KRe" firstAttribute="trailing" secondItem="pEW-oW-Rd0" secondAttribute="trailing" constant="16" id="bUK-kK-UD7"/>
                             <constraint firstItem="n5y-6g-KRe" firstAttribute="bottom" secondItem="pEW-oW-Rd0" secondAttribute="bottom" id="rq8-0T-VMA"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="n5y-6g-KRe"/>
