@@ -522,7 +522,7 @@ struct R: Rswift.Validatable {
     /// Reuse identifier `LineChartTableViewCell`.
     static let lineChartTableViewCell: Rswift.ReuseIdentifier<LineChartTableViewCell> = Rswift.ReuseIdentifier(identifier: "LineChartTableViewCell")
     /// Reuse identifier `PerformanceChart`.
-    static let performanceChart: Rswift.ReuseIdentifier<UIKit.UIView> = Rswift.ReuseIdentifier(identifier: "PerformanceChart")
+    static let performanceChart: Rswift.ReuseIdentifier<My_Way.PerformanceChartCollectionViewCell> = Rswift.ReuseIdentifier(identifier: "PerformanceChart")
     /// Reuse identifier `dateCell`.
     static let dateCell: Rswift.ReuseIdentifier<DateCell> = Rswift.ReuseIdentifier(identifier: "dateCell")
 
