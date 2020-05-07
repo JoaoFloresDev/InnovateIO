@@ -423,7 +423,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.nib` struct is generated, and contains static references to 5 nibs.
+  /// This `R.nib` struct is generated, and contains static references to 6 nibs.
   struct nib {
     /// Nib `DailyHabitsTableViewCell`.
     static let dailyHabitsTableViewCell = _R.nib._DailyHabitsTableViewCell()
@@ -431,6 +431,8 @@ struct R: Rswift.Validatable {
     static let dailyHabitsView = _R.nib._DailyHabitsView()
     /// Nib `LineChartTableViewCell`.
     static let lineChartTableViewCell = _R.nib._LineChartTableViewCell()
+    /// Nib `MealHistoryTableViewCell`.
+    static let mealHistoryTableViewCell = _R.nib._MealHistoryTableViewCell()
     /// Nib `RatingView`.
     static let ratingView = _R.nib._RatingView()
     /// Nib `RegisterMealView`.
@@ -461,6 +463,14 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
+    /// `UINib(name: "MealHistoryTableViewCell", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.mealHistoryTableViewCell) instead")
+    static func mealHistoryTableViewCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.mealHistoryTableViewCell)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
     /// `UINib(name: "RatingView", in: bundle)`
     @available(*, deprecated, message: "Use UINib(resource: R.nib.ratingView) instead")
     static func ratingView(_: Void = ()) -> UIKit.UINib {
@@ -486,6 +496,10 @@ struct R: Rswift.Validatable {
 
     static func lineChartTableViewCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> LineChartTableViewCell? {
       return R.nib.lineChartTableViewCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? LineChartTableViewCell
+    }
+
+    static func mealHistoryTableViewCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> MealHistoryTableViewCell? {
+      return R.nib.mealHistoryTableViewCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? MealHistoryTableViewCell
     }
 
     static func ratingView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
@@ -590,6 +604,17 @@ struct _R: Rswift.Validatable {
       fileprivate init() {}
     }
 
+    struct _MealHistoryTableViewCell: Rswift.NibResourceType {
+      let bundle = R.hostingBundle
+      let name = "MealHistoryTableViewCell"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> MealHistoryTableViewCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? MealHistoryTableViewCell
+      }
+
+      fileprivate init() {}
+    }
+
     struct _RatingView: Rswift.NibResourceType {
       let bundle = R.hostingBundle
       let name = "RatingView"
@@ -643,31 +668,6 @@ struct _R: Rswift.Validatable {
     }
 
     #if os(iOS) || os(tvOS)
-    struct calendar: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
-      typealias InitialController = CalendarViewController
-
-      let bundle = R.hostingBundle
-      let calendarStoryboard = StoryboardViewControllerResource<CalendarViewController>(identifier: "Calendar Storyboard")
-      let name = "Calendar"
-
-      func calendarStoryboard(_: Void = ()) -> CalendarViewController? {
-        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: calendarStoryboard)
-      }
-
-      static func validate() throws {
-        if UIKit.UIImage(named: "book", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'book' is used in storyboard 'Calendar', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "book.fill", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'book.fill' is used in storyboard 'Calendar', but couldn't be loaded.") }
-        if #available(iOS 11.0, tvOS 11.0, *) {
-          if UIKit.UIColor(named: "rateRedColor", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'rateRedColor' is used in storyboard 'Calendar', but couldn't be loaded.") }
-        }
-        if _R.storyboard.calendar().calendarStoryboard() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'calendarStoryboard' could not be loaded from storyboard 'Calendar' as 'CalendarViewController'.") }
-      }
-
-      fileprivate init() {}
-    }
-    #endif
-
-    #if os(iOS) || os(tvOS)
     struct launchScreen: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
       typealias InitialController = UIKit.UIViewController
 
@@ -704,13 +704,19 @@ struct _R: Rswift.Validatable {
       typealias InitialController = UIKit.UINavigationController
 
       let bundle = R.hostingBundle
+      let mealNavigationViewController = StoryboardViewControllerResource<UIKit.UINavigationController>(identifier: "MealNavigationViewController")
       let name = "Meals"
+
+      func mealNavigationViewController(_: Void = ()) -> UIKit.UINavigationController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: mealNavigationViewController)
+      }
 
       static func validate() throws {
         if UIKit.UIImage(named: "plus.app", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'plus.app' is used in storyboard 'Meals', but couldn't be loaded.") }
         if UIKit.UIImage(named: "plus.app.fill", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'plus.app.fill' is used in storyboard 'Meals', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
+        if _R.storyboard.meals().mealNavigationViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'mealNavigationViewController' could not be loaded from storyboard 'Meals' as 'UIKit.UINavigationController'.") }
       }
 
       fileprivate init() {}
