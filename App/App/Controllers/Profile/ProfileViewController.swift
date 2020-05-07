@@ -93,15 +93,25 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
     
     //    MARK: - Graphics
     func setupGraphic() {
+        
+        
         let dates: NSMutableArray = ["13\n04", "13\n04", "13\n04", "13\n04", "13\n04","13\n04", "13\n04", "13\n04", "13\n04", "13\n04", "13\n04", "13\n04", "13\n04"]
+        
+        var numbersArray = [[Int32]]()
         
         PlotGraphicClass().setLayoutLegends(views: [boxWaterLegend, boxFruitsLegend, boxExerciceLegend])
         
         PlotGraphicClass().plotGraphicHorizontalBars (view: meatsGraphicBarsView, greenPercent: 0.5, yellowPercent: 0.3 )
         
-        PlotGraphicClass().plotGraphicLine(graphicVIew: weightGraphicLineView, numLines: 1, colorArray: [UIColor.black], dates: dates, topNumber: 120, bottomNumber: 30)
+        //  Populate with aleatory values
+        numbersArray = PlotGraphicClass().generateValues(numLines: 1, datesCount: dates.count)
         
-        PlotGraphicClass().plotGraphicLine(graphicVIew: habitsGraphicLineView, numLines: 3, colorArray: [UIColor.blue, UIColor.purple, UIColor.pink()], dates: dates, topNumber: 100, bottomNumber: 0)
+        PlotGraphicClass().plotGraphicLine(graphicVIew: weightGraphicLineView, colorLinesArray: [UIColor.black], datesX: dates, numbersArray: numbersArray, topNumber: 120, bottomNumber: 30)
+        
+        //  Populate with aleatory values
+        numbersArray = PlotGraphicClass().generateValues(numLines: 3, datesCount: dates.count)
+        
+        PlotGraphicClass().plotGraphicLine(graphicVIew: habitsGraphicLineView, colorLinesArray: [UIColor.blue, UIColor.purple, UIColor.pink()], datesX: dates, numbersArray: numbersArray, topNumber: 100, bottomNumber: 0)
     }
     
     //    MARK: - Take Profile Image

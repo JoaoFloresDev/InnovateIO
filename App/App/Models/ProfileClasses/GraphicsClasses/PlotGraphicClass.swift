@@ -11,54 +11,41 @@ import XJYChart
 
 class PlotGraphicClass {
     
-    func plotGraphicLine(graphicVIew: UIView, numLines: Int, colorLinesArray: [UIColor], datesX: NSMutableArray, topNumber: Int, bottomNumber: Int) {
+    func plotGraphicLine(graphicVIew: UIView, colorLinesArray: [UIColor], datesX: NSMutableArray, numbersArray: [[Int32]], topNumber: Int, bottomNumber: Int) {
+        
         
         var itemArray: [AnyHashable] = []
-        var numbersArray = [[Int32]]()
         
-        
-//        aleatory data
-        for _ in 0..<numLines {
-            var numberArray = [Int32]()
-            
-            for _ in 0..<datesX.count {
-                let num: Int = Int.random(in: 32 ..< 90)
-                let number = Int32(num)
-                numberArray.append(number)
-            }
-            numbersArray.append(numberArray)
-        }
-        
-        for i in 0..<numLines {
+//      Create lines lines
+        for i in 0..<numbersArray.count {
             let item = XLineChartItem(dataNumber: NSMutableArray(array: numbersArray[i]), color: colorLinesArray[i])
             itemArray.append(item!)
         }
         
-//        plot graphic
+//      Plot graphic
         let configuration = XNormalLineChartConfiguration()
         configuration.lineMode = XLineMode.CurveLine
         
-        let lineChart = XLineChart(frame: CGRect(x: 0, y: 0, width: graphicVIew.frame.width, height: graphicVIew.frame.height), dataItemArray: NSMutableArray(array: itemArray), dataDiscribeArray: datesX, topNumber: NSNumber(value: topNumber), bottomNumber: NSNumber(value: bottomNumber), graphMode: XLineGraphMode.MutiLineGraph, chartConfiguration: configuration)
+        let widthGraphic = graphicVIew.frame.width
+        let heightGraphic = graphicVIew.frame.height
+        let topNumberGraphic = NSNumber(value: topNumber)
+        let bottomNumberGraphic = NSNumber(value: bottomNumber)
+        
+        let lineChart = XLineChart(frame: CGRect(x: 0, y: 0, width: widthGraphic, height: heightGraphic), dataItemArray: NSMutableArray(array: itemArray), dataDiscribeArray: datesX, topNumber: topNumberGraphic, bottomNumber: bottomNumberGraphic, graphMode: XLineGraphMode.MutiLineGraph, chartConfiguration: configuration)
         
         
         if let views = lineChart?.subviews {
             for viewScroll in views {
                 if viewScroll is UIScrollView {
-                    print(viewScroll)
-                    
-//                    let scrollView = UIScrollView(frame: CGRect(x: 0, y: 0, width: 400, height: 200))
-//                    scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
+                    if let scroll = viewScroll as? UIScrollView {
+                        print(scroll)
+                        scroll.setContentOffset(CGPoint(x: 1000, y: 0), animated: true)
+                    }
                 }
             }
         }
         
         graphicVIew.addSubview(lineChart!)
-    }
-    
-    func setLayoutLegends(views: [UIView]) {
-        for view in views {
-            StyleClass().cropBounds(viewlayer: view.layer, cornerRadius: Float(view.frame.width/2))
-        }
     }
     
     func plotGraphicHorizontalBars (view: UIView, greenPercent: Float, yellowPercent: Float) {
@@ -75,28 +62,52 @@ class PlotGraphicClass {
         
         StyleClass().cropBounds(viewlayer: view.layer, cornerRadius: Float(view.frame.height/2))
     }
+    
+    func setLayoutLegends(views: [UIView]) {
+        for view in views {
+            StyleClass().cropBounds(viewlayer: view.layer, cornerRadius: Float(view.frame.width/2))
+        }
+    }
+    
+    func generateValues(numLines: Int, datesCount: Int) -> [[Int32]] {
+        
+        var numbersArray = [[Int32]]()
+        
+        for _ in 0..<numLines {
+            var numberArray = [Int32]()
+            
+            for _ in 0..<datesCount {
+                let num: Int = Int.random(in: 32 ..< 90)
+                let number = Int32(num)
+                numberArray.append(number)
+            }
+            numbersArray.append(numberArray)
+        }
+        
+        return numbersArray
+    }
 }
 
-//
-//extension UIScrollViewDelegate {
-//
-//    func setContentOffset(_ contentOffset: CGPoint, animated: Bool) {
-//        print("alooo")
-//    }
-//
-//    func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
-//        print("222")
-//    }
-//}
-//
-//extension UIScrollView {
-//
-//    func setContentOffset(_ contentOffset: CGPoint, animated: Bool) {
-//        print("alooo")
-//    }
-//
-//    func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
-//        print("222")
-//    }
-//}
+
+extension UIScrollViewDelegate {
+
+    func setContentOffset(_ contentOffset: CGPoint, animated: Bool) {
+        print("setContentOffset1")
+    }
+
+    func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
+        print("scrollViewDidEndScrollingAnimation1")
+    }
+}
+
+extension UIScrollView {
+
+    func setContentOffset(_ contentOffset: CGPoint, animated: Bool) {
+        print("setContentOffset2")
+    }
+
+    func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
+        print("scrollViewDidEndScrollingAnimation2")
+    }
+}
 
