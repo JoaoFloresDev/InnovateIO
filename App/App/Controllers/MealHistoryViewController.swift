@@ -19,6 +19,7 @@ class MealHistoryViewController: UIViewController {
         }
     }
     var meals: [Date : [Meal]] = [:]
+    var dateSelected: Date = Date()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +37,12 @@ class MealHistoryViewController: UIViewController {
         let yesterday = Calendar.current.date(byAdding: .day, value: -1, to: today)!
         let beforeYesterday = Calendar.current.date(byAdding: .day, value: -2, to: today)!
         receivedDates = [beforeYesterday, yesterday, today]
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        fetchMeals()
     }
     
     func fetchMeals() {
@@ -59,6 +66,15 @@ class MealHistoryViewController: UIViewController {
                                   forHeaderFooterViewReuseIdentifier: "MealHistoryHeader")
         historyTableView.delegate = self
         historyTableView.dataSource = self
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
+        if segue.identifier == R.segue.mealHistoryViewController.toRegisterMeal.identifier
+        {
+            let vc = segue.destination as? AddDatedMealViewController
+            vc?.receivedDate = dateSelected
+        }
     }
 }
 
@@ -104,7 +120,7 @@ extension MealHistoryViewController: UITableViewDelegate, UITableViewDataSource 
 
 extension MealHistoryViewController: MealHistoryHeaderDelegate {
     func plusButtonTapped(date: Date) {
-        // TODO: go to screen to add meal for this date.
-        performSegue(withIdentifier: R.segue.mealHistoryViewController.toRegisterMeal.identifier, sender: self)
+        self.dateSelected = date
+        performSegue(withIdentifier: R.segue.mealHistoryViewController.toRegisterMeal.identifier, sender: nil)
     }
 }
