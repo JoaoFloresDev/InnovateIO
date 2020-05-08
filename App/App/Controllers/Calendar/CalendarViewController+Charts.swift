@@ -18,7 +18,8 @@ extension CalendarViewController: UICollectionViewDelegate, UICollectionViewData
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PerformanceChart", for: indexPath) as! PerformanceChartCollectionViewCell
 		
-		cell.configureTimeDots()
+		cell.initTimeDots()
+		cell.getMealsForWeek()
         
         return cell
         
