@@ -39,7 +39,7 @@ class ProfimeDataMenager {
 //    Load
     func setupImgProfile(profileImg: UIImageView) {
         if let image = getSavedImage(named: "ProfileImg") {
-            StyleFunctions().cropBounds(viewlayer: profileImg.layer,
+            StyleClass().cropBounds(viewlayer: profileImg.layer,
                        cornerRadius: Float(profileImg.frame.size.width/2))
             
             profileImg.image = image

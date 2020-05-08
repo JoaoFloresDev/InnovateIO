@@ -11,71 +11,84 @@ import XJYChart
 
 class PlotGraphicClass {
     
-    func plotGraphicLine(graphicVIew: UIView, numLines: Int) {
-        let dates: NSMutableArray = ["13\n04", "13\n04", "13\n04", "13\n04", "13\n04","13\n04", "13\n04", "13\n04", "13\n04", "13\n04", "13\n04", "13\n04", "13\n04"]
+    var scrollView: UIScrollView!
+    var timerGoalsAnimation: Timer!
+    
+    func plotGraphicLine(graphicVIew: UIView, colorLinesArray: [UIColor], datesX: NSMutableArray, numbersArray: [[Int32]], topNumber: Int, bottomNumber: Int) {
         
         var itemArray: [AnyHashable] = []
-        var numbersArray = [[Int32]]()
         
-        for _ in 0..<numLines {
-            var numberArray = [Int32]()
-            
-            for _ in 0..<dates.count {
-                let num: Int = Int.random(in: 32 ..< 120)
-                let number = Int32(num)
-                numberArray.append(number)
-            }
-            numbersArray.append(numberArray)
-        }
-        
-        let colorArray = [UIColor.teal(), UIColor.brickRed(), UIColor.banana(), UIColor.babyBlue(), UIColor.orchid()]
-        
-        for i in 0..<numLines {
-            let item = XLineChartItem(dataNumber: NSMutableArray(array: numbersArray[i]), color: colorArray[i])
+//      Create lines lines
+        for i in 0..<numbersArray.count {
+            let item = XLineChartItem(dataNumber: NSMutableArray(array: numbersArray[i]), color: colorLinesArray[i])
             itemArray.append(item!)
         }
         
+//      Plot graphic
         let configuration = XNormalLineChartConfiguration()
         configuration.lineMode = XLineMode.CurveLine
         
-        let lineChart = XLineChart(frame: CGRect(x: 0, y: 0, width: 400, height: 250), dataItemArray: NSMutableArray(array: itemArray), dataDiscribeArray: dates, topNumber: 120, bottomNumber: 30, graphMode: XLineGraphMode.MutiLineGraph, chartConfiguration: configuration)
+        let widthGraphic = graphicVIew.frame.width
+        let heightGraphic = graphicVIew.frame.height
+        let topNumberGraphic = NSNumber(value: topNumber)
+        let bottomNumberGraphic = NSNumber(value: bottomNumber)
+        
+        let lineChart = XLineChart(frame: CGRect(x: 0, y: 0, width: widthGraphic, height: heightGraphic), dataItemArray: NSMutableArray(array: itemArray), dataDiscribeArray: datesX, topNumber: topNumberGraphic, bottomNumber: bottomNumberGraphic, graphMode: XLineGraphMode.MutiLineGraph, chartConfiguration: configuration)
         
         
         if let views = lineChart?.subviews {
-            for view123 in views {
-                if view123 is UIScrollView {
-                    
-                    print(view123)
-                    
-                    let scrollView = UIScrollView(frame: CGRect(x: 0, y: 0, width: 400, height: 200))
-                    scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
+            for viewScroll in views {
+                if viewScroll is UIScrollView {
+                    if let scroll = viewScroll as? UIScrollView {
+                        print(scroll)
+                        scrollView = scroll
+                        let newOffset = CGPoint(x: scrollView.contentSize.width - graphicVIew.frame.width + 40, y: 0)
+                        scrollView.setContentOffset(newOffset, animated: true)
+                    }
                 }
             }
         }
         
         graphicVIew.addSubview(lineChart!)
     }
-}
-
-extension UIScrollViewDelegate {
     
-    func setContentOffset(_ contentOffset: CGPoint, animated: Bool) {
-        print("alooo")
+    func plotGraphicHorizontalBars (view: UIView, greenPercent: Float, yellowPercent: Float) {
+        
+        let greenView = UIView(frame: CGRect(x: 0, y: 0, width: Int(Float(view.frame.width) * greenPercent), height: Int(view.frame.height)))
+        greenView.backgroundColor = UIColor.green
+        
+        let yellowView = UIView(frame: CGRect(x: Int(Float(view.frame.width) * greenPercent), y: 0, width: Int(Float(view.frame.width) * yellowPercent), height: Int(view.frame.height)))
+        yellowView.backgroundColor = UIColor.yellow
+        
+        view.backgroundColor = UIColor.red
+        view.addSubview(greenView)
+        view.addSubview(yellowView)
+        
+        StyleClass().cropBounds(viewlayer: view.layer, cornerRadius: Float(view.frame.height/2))
     }
     
-    func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
-        print("222")
-    }
-}
-
-extension UIScrollView {
-    
-    func setContentOffset(_ contentOffset: CGPoint, animated: Bool) {
-        print("alooo")
+    func setLayoutLegends(views: [UIView]) {
+        for view in views {
+            StyleClass().cropBounds(viewlayer: view.layer, cornerRadius: Float(view.frame.width/2))
+        }
     }
     
-    func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
-        print("222")
+    func generateValues(numLines: Int, datesCount: Int) -> [[Int32]] {
+        
+        var numbersArray = [[Int32]]()
+        
+        for _ in 0..<numLines {
+            var numberArray = [Int32]()
+            
+            for _ in 0..<datesCount {
+                let num: Int = Int.random(in: 32 ..< 90)
+                let number = Int32(num)
+                numberArray.append(number)
+            }
+            numbersArray.append(numberArray)
+        }
+        
+        return numbersArray
     }
 }
 

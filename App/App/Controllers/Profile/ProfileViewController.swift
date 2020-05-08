@@ -51,6 +51,11 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
     
     @IBOutlet weak var weightGraphicLineView: UIView!
     @IBOutlet weak var habitsGraphicLineView: UIView!
+    @IBOutlet weak var meatsGraphicBarsView: UIView!
+    
+    @IBOutlet weak var boxWaterLegend: UIView!
+    @IBOutlet weak var boxFruitsLegend: UIView!
+    @IBOutlet weak var boxExerciceLegend: UIView!
     
     //    MARK: - IBAction
     @IBAction func selectImgProfile(_ sender: Any) {
@@ -88,10 +93,27 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
     
     //    MARK: - Graphics
     func setupGraphic() {
-        PlotGraphicClass().plotGraphicLine(graphicVIew: weightGraphicLineView, numLines: 1)
         
-        PlotGraphicClass().plotGraphicLine(graphicVIew: habitsGraphicLineView, numLines: 3)
+        
+        let dates: NSMutableArray = ["13\nJan", "13\nFev", "13\nMar", "13\nAbr", "13\nMai","13\nJun", "13\nJul", "13\nAgo", "13\nSet", "13\nOut", "13\nNov", "13\nDez"]
+        
+        var numbersArray = [[Int32]]()
+        
+        PlotGraphicClass().setLayoutLegends(views: [boxWaterLegend, boxFruitsLegend, boxExerciceLegend])
+        
+        PlotGraphicClass().plotGraphicHorizontalBars (view: meatsGraphicBarsView, greenPercent: 0.5, yellowPercent: 0.3 )
+        
+        //  Populate with aleatory values
+        numbersArray = PlotGraphicClass().generateValues(numLines: 1, datesCount: dates.count)
+        
+        PlotGraphicClass().plotGraphicLine(graphicVIew: weightGraphicLineView, colorLinesArray: [UIColor.black], datesX: dates, numbersArray: numbersArray, topNumber: 120, bottomNumber: 30)
+        
+        //  Populate with aleatory values
+        numbersArray = PlotGraphicClass().generateValues(numLines: 3, datesCount: dates.count)
+        
+        PlotGraphicClass().plotGraphicLine(graphicVIew: habitsGraphicLineView, colorLinesArray: [UIColor.blue, UIColor.purple, UIColor.pink()], datesX: dates, numbersArray: numbersArray, topNumber: 100, bottomNumber: 0)
     }
+    
     //    MARK: - Take Profile Image
     func openGalery() {
         
@@ -112,8 +134,8 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
         else if let img = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
         {   image = img    }
         
-        StyleFunctions().cropBounds(viewlayer: profileImg.layer,
-                                    cornerRadius: Float(profileImg.frame.size.width/2))
+        StyleClass().cropBounds(viewlayer: profileImg.layer,
+                                cornerRadius: Float(profileImg.frame.size.width/2))
         
         profileImg.image = image
         picker.dismiss(animated: true,completion: nil)
@@ -178,17 +200,17 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
     //    MARK: - Style
     
     func setupStyleViews() {
-        StyleFunctions().cropBounds(viewlayer: weightGraphicView.layer, cornerRadius: 10)
-        StyleFunctions().cropBounds(viewlayer: habitsGraphicView.layer, cornerRadius: 10)
-        StyleFunctions().cropBounds(viewlayer: resumeView.layer, cornerRadius: 10)
+        StyleClass().cropBounds(viewlayer: weightGraphicView.layer, cornerRadius: 10)
+        StyleClass().cropBounds(viewlayer: habitsGraphicView.layer, cornerRadius: 10)
+        StyleClass().cropBounds(viewlayer: resumeView.layer, cornerRadius: 10)
         
-        StyleFunctions().cropBounds(viewlayer: headerBackgroundImg.layer, cornerRadius: 25)
-        StyleFunctions().cropBounds(viewlayer: profileImgView.layer, cornerRadius: Float(profileImgView.frame.width/2))
-        StyleFunctions().applicShadow(layer: headerView.layer)
+        StyleClass().cropBounds(viewlayer: headerBackgroundImg.layer, cornerRadius: 25)
+        StyleClass().cropBounds(viewlayer: profileImgView.layer, cornerRadius: Float(profileImgView.frame.width/2))
+        StyleClass().applicShadow(layer: headerView.layer)
         
         
         gradientView = UIView(frame: CGRect(x: 0, y: 0, width: myGoalsTextView.frame.width, height: myGoalsTextView.frame.height))
-        StyleFunctions().appliGradient(view: gradientView)
+        StyleClass().appliGradient(view: gradientView)
         myGoalsTextView.addSubview(gradientView)
     }
 }

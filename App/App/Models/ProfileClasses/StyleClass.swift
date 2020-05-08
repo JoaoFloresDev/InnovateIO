@@ -10,7 +10,7 @@ import UIKit
 
 
 /// Functions to customize views
-class StyleFunctions {
+class StyleClass {
 
     func cropBounds(viewlayer: CALayer, cornerRadius: Float) {
         

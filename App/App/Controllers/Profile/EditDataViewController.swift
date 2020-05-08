@@ -12,6 +12,9 @@ import os.log
 class EditDataViewController: ViewController {
     
     
+    //MARK: - Variables
+    var defaults = UserDefaults.standard
+    
     // MARK: - IBOutlets
     // Interface builder outlets
     @IBOutlet weak var weightTextField: UITextField!
@@ -20,7 +23,6 @@ class EditDataViewController: ViewController {
     
     //MARK: - Variables
     // Private properties related to the Edit View
-    private var defaults = UserDefaults.standard
     private var dataHandler: DataHandler?
     
     

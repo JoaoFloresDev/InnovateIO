@@ -11,7 +11,7 @@ target 'App' do
   pod 'Charts'
   pod 'R.swift'
   pod 'JTAppleCalendar'
-  pod 'XJYChart'
+  pod 'XJYChart', '2.5.0'
 
   # MS Apps related Pods
   pod 'AppCenter'
