@@ -105,5 +105,6 @@ extension MealHistoryViewController: UITableViewDelegate, UITableViewDataSource 
 extension MealHistoryViewController: MealHistoryHeaderDelegate {
     func plusButtonTapped(date: Date) {
         // TODO: go to screen to add meal for this date.
+        performSegue(withIdentifier: R.segue.mealHistoryViewController.toRegisterMeal.identifier, sender: self)
     }
 }

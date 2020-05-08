@@ -53,6 +53,7 @@
 		D73311B3245318760080767E /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73311B2245318760080767E /* NotificationService.swift */; };
 		D77126DF2459AAAA00EFFEEC /* RegisterMealView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D77126DE2459AAA900EFFEEC /* RegisterMealView.xib */; };
 		D77126E12459AABE00EFFEEC /* RegisterMealView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77126E02459AABE00EFFEEC /* RegisterMealView.swift */; };
+		D7720E4A2465A149004BC3DA /* AddDatedMealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7720E492465A149004BC3DA /* AddDatedMealViewController.swift */; };
 		D7AADD8024643BD100033287 /* MealHistoryHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7AADD7F24643BD100033287 /* MealHistoryHeader.swift */; };
 		D7AADD8224643C6F00033287 /* MealHistoryHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = D7AADD8124643C6F00033287 /* MealHistoryHeader.xib */; };
 		D7B2C2FC243E0A520071561C /* LineChartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B2C2FA243E0A520071561C /* LineChartTableViewCell.swift */; };
@@ -146,6 +147,7 @@
 		D73311B2245318760080767E /* NotificationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		D77126DE2459AAA900EFFEEC /* RegisterMealView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterMealView.xib; sourceTree = "<group>"; };
 		D77126E02459AABE00EFFEEC /* RegisterMealView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterMealView.swift; sourceTree = "<group>"; };
+		D7720E492465A149004BC3DA /* AddDatedMealViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDatedMealViewController.swift; sourceTree = "<group>"; };
 		D7AADD7F24643BD100033287 /* MealHistoryHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealHistoryHeader.swift; sourceTree = "<group>"; };
 		D7AADD8124643C6F00033287 /* MealHistoryHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MealHistoryHeader.xib; sourceTree = "<group>"; };
 		D7B2C2FA243E0A520071561C /* LineChartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineChartTableViewCell.swift; sourceTree = "<group>"; };
@@ -267,6 +269,7 @@
 				C44D146D243655BA0094497A /* ViewController.swift */,
 				8DF1318A24506B8A004C2CC7 /* MealViewController.swift */,
 				D7FC5D452462E68C00FB5B81 /* MealHistoryViewController.swift */,
+				D7720E492465A149004BC3DA /* AddDatedMealViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -824,6 +827,7 @@
 				8DF1318B24506B8A004C2CC7 /* MealViewController.swift in Sources */,
 				D7FA5DA824588530001B08AA /* DailyHabitsView.swift in Sources */,
 				81959015243E28CF001A6DB9 /* Model.xcdatamodeld in Sources */,
+				D7720E4A2465A149004BC3DA /* AddDatedMealViewController.swift in Sources */,
 				D7FA5DAD24588A00001B08AA /* DailyHabitsTableViewCell.swift in Sources */,
 				812B30F2243CBF80002F1AFF /* PersistenceError.swift in Sources */,
 			);
