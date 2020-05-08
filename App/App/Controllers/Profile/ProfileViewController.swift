@@ -95,7 +95,7 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
     func setupGraphic() {
         
         
-        let dates: NSMutableArray = ["13\n04", "13\n04", "13\n04", "13\n04", "13\n04","13\n04", "13\n04", "13\n04", "13\n04", "13\n04", "13\n04", "13\n04", "13\n04"]
+        let dates: NSMutableArray = ["13\nJan", "13\nFev", "13\nMar", "13\nAbr", "13\nMai","13\nJun", "13\nJul", "13\nAgo", "13\nSet", "13\nOut", "13\nNov", "13\nDez"]
         
         var numbersArray = [[Int32]]()
         

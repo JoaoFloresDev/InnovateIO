@@ -11,8 +11,10 @@ import XJYChart
 
 class PlotGraphicClass {
     
+    var scrollView: UIScrollView!
+    var timerGoalsAnimation: Timer!
+    
     func plotGraphicLine(graphicVIew: UIView, colorLinesArray: [UIColor], datesX: NSMutableArray, numbersArray: [[Int32]], topNumber: Int, bottomNumber: Int) {
-        
         
         var itemArray: [AnyHashable] = []
         
@@ -39,7 +41,9 @@ class PlotGraphicClass {
                 if viewScroll is UIScrollView {
                     if let scroll = viewScroll as? UIScrollView {
                         print(scroll)
-                        scroll.setContentOffset(CGPoint(x: 1000, y: 0), animated: true)
+                        scrollView = scroll
+                        let newOffset = CGPoint(x: scrollView.contentSize.width - graphicVIew.frame.width + 40, y: 0)
+                        scrollView.setContentOffset(newOffset, animated: true)
                     }
                 }
             }
@@ -85,29 +89,6 @@ class PlotGraphicClass {
         }
         
         return numbersArray
-    }
-}
-
-
-extension UIScrollViewDelegate {
-
-    func setContentOffset(_ contentOffset: CGPoint, animated: Bool) {
-        print("setContentOffset1")
-    }
-
-    func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
-        print("scrollViewDidEndScrollingAnimation1")
-    }
-}
-
-extension UIScrollView {
-
-    func setContentOffset(_ contentOffset: CGPoint, animated: Bool) {
-        print("setContentOffset2")
-    }
-
-    func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
-        print("scrollViewDidEndScrollingAnimation2")
     }
 }
 
