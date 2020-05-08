@@ -393,7 +393,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hhq-YF-Vm0">
-                                        <rect key="frame" x="126" y="54" width="278" height="96"/>
+                                        <rect key="frame" x="126" y="59" width="278" height="91"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nome" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qFt-sa-1fW">
                                                 <rect key="frame" x="0.0" y="0.0" width="198" height="22"/>
@@ -429,14 +429,14 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i6q-79-5wS">
-                                                <rect key="frame" x="0.0" y="47" width="268" height="49"/>
+                                                <rect key="frame" x="0.0" y="47" width="268" height="44"/>
                                                 <string key="text">Esse é um plano de exemplo: aaaaaaaaaaa aaaaaaaaaaa aaaaaaaaaaa aaaaaaaaaaa aaaaaaaaaaa aaaaaaaaaaa aaaaaaaaaaa aaaaaaaaaaa aaaaaaaaaaa aaaaaaaaaaa aaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaa aaaaaaaaaaa aaaaaaaaaaa aaaaaaaaaaa aaaaaaaaaaa aaaaaaaaaaa aaaaaaaaaaa aaaaaaaaaaa aaaaaaaaaaa aaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaa aaaaaaaaaaa aaaaaaaaaaa aaaaaaaaaaa aaaaaaaaaaa aaaaaaaaaaa aaaaaaaaaaa aaaaaaaaaaa aaaaaaaaaaa aaaaaaaaaaa aaaaaaaaaaa</string>
                                                 <color key="textColor" name="SecundaryTextColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d2v-5I-N3v">
-                                                <rect key="frame" x="0.0" y="44.5" width="268" height="54"/>
+                                                <rect key="frame" x="0.0" y="45" width="268" height="48"/>
                                                 <state key="normal" title=""/>
                                                 <connections>
                                                     <action selector="showGoals:" destination="vxh-ga-XbW" eventType="touchUpInside" id="PDd-66-URh"/>
@@ -481,7 +481,7 @@
                             <constraint firstItem="QlN-vL-966" firstAttribute="top" secondItem="3gs-JI-4iU" secondAttribute="top" constant="5" id="47D-o9-ypi"/>
                             <constraint firstItem="JcI-ly-uZf" firstAttribute="top" secondItem="wXh-0K-UFn" secondAttribute="top" id="Agx-5c-pCN"/>
                             <constraint firstItem="JcI-ly-uZf" firstAttribute="leading" secondItem="3gs-JI-4iU" secondAttribute="leading" id="BBF-6s-duP"/>
-                            <constraint firstItem="hhq-YF-Vm0" firstAttribute="top" secondItem="3gs-JI-4iU" secondAttribute="top" constant="10" id="CwW-O9-dEG"/>
+                            <constraint firstItem="hhq-YF-Vm0" firstAttribute="top" secondItem="3gs-JI-4iU" secondAttribute="top" constant="15" id="CwW-O9-dEG"/>
                             <constraint firstItem="3gs-JI-4iU" firstAttribute="trailing" secondItem="JcI-ly-uZf" secondAttribute="trailing" id="Cx9-1O-BYh"/>
                             <constraint firstItem="HwW-Kd-p1E" firstAttribute="leading" secondItem="3gs-JI-4iU" secondAttribute="leading" id="fVd-m7-2bi"/>
                             <constraint firstItem="HwW-Kd-p1E" firstAttribute="top" secondItem="3gs-JI-4iU" secondAttribute="top" constant="100" id="haw-Dk-MRw"/>
@@ -662,7 +662,7 @@
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="SecundaryTextColor">
-            <color red="0.50195443630218506" green="0.5019574761390686" blue="0.50196552276611328" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.50199997425079346" green="0.50199997425079346" blue="0.50199997425079346" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
     </resources>
 </document>

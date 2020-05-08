@@ -23,7 +23,6 @@ class EditDataViewController: ViewController {
     
     //MARK: - Variables
     // Private properties related to the Edit View
-    private var defaults = UserDefaults.standard
     private var dataHandler: DataHandler?
     
     
