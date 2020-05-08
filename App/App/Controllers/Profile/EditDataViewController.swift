@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EditDataViewController: ViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class EditDataViewController: ViewController {
     
     
     //MARK: - Variables
@@ -41,9 +41,6 @@ class EditDataViewController: ViewController, UIPickerViewDelegate, UIPickerView
         super.viewDidLoad()
         setupTexts()
         setupStyle()
-        
-        let thePicker = UIPickerView()
-        weightTextField.inputView = thePicker
     }
     
     func updateDataProfile() {
@@ -65,23 +62,5 @@ class EditDataViewController: ViewController, UIPickerViewDelegate, UIPickerView
     //    MARK: - Style
     func setupStyle() {
         plainingTextView.layer.cornerRadius = 10
-    }
-    
-    let myPickerData = ["Peter", "Jane", "Paul", "Mary", "Kevin", "Lucy"]
-    
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-
-    func pickerView( _ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return myPickerData.count
-    }
-
-    func pickerView( _ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-     return myPickerData[row]
-    }
-
-    func pickerView( _ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        weightTextField.text = myPickerData[row]
     }
 }
