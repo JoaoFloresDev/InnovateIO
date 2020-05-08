@@ -6,7 +6,7 @@
 //  Copyright © 2020 Joao Flores. All rights reserved.
 //
 
-@testable import App
+@testable import My_Way
 import XCTest
 import CoreData
 
@@ -37,6 +37,17 @@ class WeightTests: XCTestCase {
         }
     }
     
+    func testOnlyLoad() {
+        
+        do {
+            try self.load()
+        }
+        catch {
+            XCTFail()
+        }
+        
+    }
+    
     func create() throws {
         
         do {
@@ -51,7 +62,7 @@ class WeightTests: XCTestCase {
     func load() throws {
         
         do {
-            _ = try self.dataHandler?.loadWeight(year: 2020, month: 5, day: 7)
+            _ = try self.dataHandler?.loadWeight(year: 2020, month: 5, day: 8)
         }
         catch {
             throw error
