@@ -49,6 +49,8 @@ class RegisterMealView: UIView {
     fileprivate func setupDatePicker() {
         datePicker.datePickerMode = .time
         datePicker.minuteInterval = 10
+        datePicker.locale = Locale(identifier: "pt_BR")
+        datePicker.setValue(UIColor.black, forKeyPath: "textColor")
     }
     
     @IBAction func datePickerChanged(_ sender: UIDatePicker) {

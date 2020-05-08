@@ -26,7 +26,7 @@
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="18g-P1-aME">
                         <rect key="frame" x="62" y="16.5" width="196" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
+                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Mj-02-Szc" userLabel="CheckButton" customClass="RoundedButton" customModule="My_Way" customModuleProvider="target">
@@ -51,6 +51,7 @@
                         </userDefinedRuntimeAttributes>
                     </button>
                 </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="zVz-Ge-fUB" secondAttribute="bottom" constant="12" id="DWg-d5-3rk"/>
                     <constraint firstItem="1Mj-02-Szc" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="Igz-ma-32q"/>
@@ -65,6 +66,7 @@
                     <constraint firstItem="18g-P1-aME" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="zRt-R5-rqE"/>
                 </constraints>
             </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="checkButton" destination="1Mj-02-Szc" id="i1S-Xs-OnS"/>
