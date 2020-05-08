@@ -6,7 +6,7 @@
 //  Copyright © 2020 Joao Flores. All rights reserved.
 //
 
-@testable import App
+@testable import My_Way
 import XCTest
 import CoreData
 
