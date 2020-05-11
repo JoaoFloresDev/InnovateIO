@@ -15,7 +15,11 @@ class MealViewController: UIViewController {
     var dataHandler: DataHandler?
     var dailyDiary: DailyDiary?
 	
-    override func viewDidLoad() {
+	@IBAction func AddNoteTapped(_ sender: Any) {
+		segueToNote()
+	}
+	
+	override func viewDidLoad() {
         super.viewDidLoad()
         
         do {
@@ -44,6 +48,17 @@ class MealViewController: UIViewController {
             print("Couldn't update daily diary.")
         }
     }
+	
+	func segueToNote(){
+		self.performSegue(withIdentifier: "toNoteModal", sender: nil)
+	}
+	
+	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+		guard let dest = segue.destination as? AddNoteViewController else{
+			return
+		}
+		
+	}
     
     func fetchDailyData() {
         do {

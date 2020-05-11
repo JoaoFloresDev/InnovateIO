@@ -89,8 +89,25 @@ struct R: Rswift.Validatable {
   }
 
   #if os(iOS) || os(tvOS)
-  /// This `R.segue` struct is generated, and contains static references to 1 view controllers.
+  /// This `R.segue` struct is generated, and contains static references to 2 view controllers.
   struct segue {
+    /// This struct is generated for `MealViewController`, and contains static references to 1 segues.
+    struct mealViewController {
+      /// Segue identifier `toNoteModal`.
+      static let toNoteModal: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, MealViewController, AddNoteViewController> = Rswift.StoryboardSegueIdentifier(identifier: "toNoteModal")
+
+      #if os(iOS) || os(tvOS)
+      /// Optionally returns a typed version of segue `toNoteModal`.
+      /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
+      /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
+      static func toNoteModal(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, MealViewController, AddNoteViewController>? {
+        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.mealViewController.toNoteModal, segue: segue)
+      }
+      #endif
+
+      fileprivate init() {}
+    }
+
     /// This struct is generated for `ProfileViewController`, and contains static references to 1 segues.
     struct profileViewController {
       /// Segue identifier `toEditData`.
