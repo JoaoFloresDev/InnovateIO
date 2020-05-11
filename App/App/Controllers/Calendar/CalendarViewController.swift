@@ -91,6 +91,7 @@ extension CalendarViewController: JTACMonthViewDelegate {
         
         let cell = calendar.dequeueReusableJTAppleCell(withReuseIdentifier: "dateCell", for: indexPath) as! DateCell
         
+        // Painting the text
         if cellState.dateBelongsTo == .thisMonth {
             if self.traitCollection.userInterfaceStyle == .dark {
                 cell.dateLabel.textColor = .white
@@ -110,6 +111,7 @@ extension CalendarViewController: JTACMonthViewDelegate {
             
             do {
                 
+                // Getting the current date...
                 let (year, month, day, _, _, _) = try date.getAllInformations()
                 let daily = try dataHandler?.loadDailyDiary(year: year, month: month, day: day)
                 
@@ -195,6 +197,30 @@ extension CalendarViewController: JTACMonthViewDelegate {
             cell.circle.backgroundColor = .none
             
         }
+        
+    }
+    
+    
+    
+    func calendar(_ calendar: JTACMonthView, didSelectDate date: Date, cell: JTACDayCell?, cellState: CellState, indexPath: IndexPath) {
+
+        do {
+            
+            // Getting the current date...
+            let (year, month, day, _, _, _) = try date.getAllInformations()
+            let daily = try dataHandler?.loadDailyDiary(year: year, month: month, day: day)
+            
+            if daily != nil {
+                
+                // TODO: Do something here...
+            }
+            
+        }
+        catch {
+            os_log("[APP] No entry was found!")
+        }
+
+        
         
     }
     
