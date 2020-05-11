@@ -125,6 +125,55 @@ extension DataHandler {
     }
     
     
+    
+    /// Loads a weight entities multiple times from a given month and year  from the local storage into the memory.
+    /// - Parameters:
+    ///   - year: Year to be checked
+    ///   - month: Month to be checked
+    /// - Throws: Can't load from local storage because the data wasn't found or the date is invalid or invalid calendar.
+    /// - Returns: A Weight Entity from certain day.
+    func loadWeight(year: Int, month: Int) throws -> [Weight] {
+        
+        // Checking if the date is valid
+        do {
+            let date = Date()
+            let isValidDate = try date.checkDate(year: year, month: month, day: 1) // Workaround for day...
+            
+            if !isValidDate {
+                throw PersistenceError.invalidDate
+            }
+            
+            // Mounting the type of request
+            let fetchRequest = NSFetchRequest<Weight>(entityName: "Weight")
+
+            let yearPredicate = NSPredicate(format: "year == %@", String(year))
+            let monthPredicate = NSPredicate(format: "month == %@", String(month))
+            
+            let predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [yearPredicate, monthPredicate])
+            
+            fetchRequest.predicate = predicate
+            
+            // Trying to find some User
+            do {
+                let weights = try managedContext.fetch(fetchRequest)
+                
+                if (weights.count == 0) {
+                    throw PersistenceError.cantLoad
+                }
+                
+                return weights
+            }
+            catch {
+                throw PersistenceError.cantLoad
+            }
+        }
+        catch {
+            throw DateError.calendarNotFound
+        }
+
+    }
+    
+    
 
     /// Deletes a Weight registry in local storage.
     /// - Parameter date: The date that must be checked
