@@ -8,8 +8,9 @@
 
 import UIKit
 import os.log
+import NumericPicker
 
-class EditDataViewController: ViewController {
+class EditDataViewController: ViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
     
     //MARK: - Variables
@@ -20,11 +21,11 @@ class EditDataViewController: ViewController {
     @IBOutlet weak var weightTextField: UITextField!
     @IBOutlet weak var plainingTextView: UITextView!
     
-    
     //MARK: - Variables
     // Private properties related to the Edit View
     private var dataHandler: DataHandler?
-    
+    let integerPickerData = (30...120).map { String($0) }
+    var decimalPickerData2 = (0...9).map { String($0) }
     
     //    MARK: - IBAction
     
@@ -36,15 +37,11 @@ class EditDataViewController: ViewController {
         updateDataProfile()
     }
     
-    
-    
     /// Closes the view.
     /// - Parameter sender: The tap / swipe action.
     @IBAction func closeViewController(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
-    
-    
     
     /// Clears the goal field.
     /// - Parameter sender: The tap action.
@@ -66,7 +63,7 @@ class EditDataViewController: ViewController {
         
         setupTexts()
         setupStyle()
-        
+        setupPickerView()
     }
     
     func updateDataProfile() {
@@ -86,8 +83,6 @@ class EditDataViewController: ViewController {
         weightTextField.text = defaults.string(forKey: "Weight")
     }
     
-    
-    
     /// Saves the new data into local storage.
     /// The data that will be saved by using the User Defaults and the Core Data.
     func saveNewData() {
@@ -99,9 +94,16 @@ class EditDataViewController: ViewController {
         defaults.set (weightTextField.text, forKey: "Weight")
         
         if self.weightTextField.text != nil && !self.weightTextField.text!.isEmpty {
-            let convertedValue = Float(self.weightTextField.text!)
+            let valueArray = self.weightTextField.text!.split(separator: ",")
+            let integer = Float(valueArray[0])
+            var convertedValue = integer ?? 0
+            
+            if let decimal = Float(valueArray[1]) {
+                convertedValue = convertedValue + decimal/100
+            }
+            
             do {
-                try self.dataHandler?.createWeight(value: convertedValue!, date: nil)
+                try self.dataHandler?.createWeight(value: convertedValue, date: nil)
             }
             catch DateError.calendarNotFound {
                 os_log("[ERROR] Couldn't get the iOS calendar system!")
@@ -116,10 +118,77 @@ class EditDataViewController: ViewController {
         
     }
     
-    
-    
     //    MARK: - Style
     func setupStyle() {
         plainingTextView.layer.cornerRadius = 10
+    }
+    
+    //    MARK: - Picker View
+    fileprivate func setupPickerView() {
+        let thePicker = UIPickerView()
+        thePicker.delegate = self
+        weightTextField.inputView = thePicker
+        
+        var i = 0
+        for value in decimalPickerData2 {
+            decimalPickerData2[i] = String((Int(value)!) * 10)
+            if(decimalPickerData2[i] == "0") {
+                decimalPickerData2[i] = "00"
+            }
+            i = i + 1
+        }
+        
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
+        
+        view.addGestureRecognizer(tap)
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 3
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        
+        var sizeValue: Int!
+        switch component {
+        case 0:
+            sizeValue = integerPickerData.count
+        case 1:
+            sizeValue = 1
+        default:
+            sizeValue = decimalPickerData2.count
+        }
+        return sizeValue
+    }
+    
+    func pickerView( _ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        
+        var dataValue: String!
+        switch component {
+        case 0:
+            dataValue = integerPickerData[row]
+        case 1:
+            dataValue = ","
+        default:
+            dataValue = decimalPickerData2[row]
+        }
+        
+        return dataValue
+    }
+    
+    func pickerView( _ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        
+        let rowInteger = pickerView.selectedRow(inComponent: 0)
+        let rowDecimal = pickerView.selectedRow(inComponent: 2)
+        
+        weightTextField.text = integerPickerData[rowInteger] + "," + decimalPickerData2[rowDecimal]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, widthForComponent component: Int) -> CGFloat {
+        return 40.0
     }
 }

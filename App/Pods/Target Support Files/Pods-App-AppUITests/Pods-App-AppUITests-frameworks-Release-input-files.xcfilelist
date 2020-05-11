@@ -2,5 +2,6 @@ ${PODS_ROOT}/Target Support Files/Pods-App-AppUITests/Pods-App-AppUITests-framew
 ${BUILT_PRODUCTS_DIR}/Charts/Charts.framework
 ${BUILT_PRODUCTS_DIR}/Colours/Colours.framework
 ${BUILT_PRODUCTS_DIR}/JTAppleCalendar/JTAppleCalendar.framework
+${BUILT_PRODUCTS_DIR}/NumericPicker/NumericPicker.framework
 ${BUILT_PRODUCTS_DIR}/R.swift.Library/Rswift.framework
 ${BUILT_PRODUCTS_DIR}/XJYChart/XJYChart.framework
