@@ -50,13 +50,23 @@ class MealHistoryViewController: UIViewController {
             do {
                 let (year, month, day, _, _, _) = try date.getAllInformations()
                 let mealsForDate = try dataHandler?.loadMeals(year: year, month: month, day: day)
-                meals[date] = mealsForDate ?? []
+                meals[date] = orderByTime(mealsForDate ?? [])
             } catch {
                 os_log("Couldn't fetch meals for date.")
             }
         }
         
         historyTableView.reloadData()
+    }
+    
+    func orderByTime(_ meals: [Meal]) -> [Meal] {
+        return meals.sorted { (meal1, meal2) -> Bool in
+            if meal1.hour != meal2.hour {
+                return meal1.hour < meal2.hour
+            } else {
+                return meal1.minute < meal2.minute
+            }
+        }
     }
     
     func setupTableView() {
