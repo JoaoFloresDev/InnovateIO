@@ -12,6 +12,7 @@ target 'App' do
   pod 'R.swift'
   pod 'JTAppleCalendar'
   pod 'XJYChart', '2.5.0'
+  pod "NumericPicker"
 
   # MS Apps related Pods
   pod 'AppCenter'
