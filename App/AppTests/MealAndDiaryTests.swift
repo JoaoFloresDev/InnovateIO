@@ -116,7 +116,7 @@ class MealAndDiaryTests: XCTestCase {
             // ------------------------------------- //
             // PLEASE VERIFY THE DATE BEFORE TESTING //
             // ------------------------------------- //
-            try self.dataHandler?.deleteMeal(year: 2020, month: 4, day: 23, meal: self.meal!)
+            try self.dataHandler?.deleteMeal(meal: self.meal!)
         }
         catch {
             XCTFail()
