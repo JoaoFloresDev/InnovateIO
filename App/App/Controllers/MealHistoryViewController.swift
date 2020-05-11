@@ -20,6 +20,7 @@ class MealHistoryViewController: UIViewController {
     }
     var meals: [Date : [Meal]] = [:]
     var dateSelected: Date = Date()
+    var mealSelected: Meal?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,17 +32,12 @@ class MealHistoryViewController: UIViewController {
         } catch {
             os_log("Couldn't get shared DataHandler.")
         }
-        
-        // TODO: tirar depois
-        let today = Date()
-        let yesterday = Calendar.current.date(byAdding: .day, value: -1, to: today)!
-        let beforeYesterday = Calendar.current.date(byAdding: .day, value: -2, to: today)!
-        receivedDates = [beforeYesterday, yesterday, today]
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        dateSelected = Date()
+        mealSelected = nil
         fetchMeals()
     }
     
@@ -69,6 +65,15 @@ class MealHistoryViewController: UIViewController {
         }
     }
     
+    func deleteMeal(_ meal: Meal) {
+        do {
+            try dataHandler?.deleteMeal(meal: meal)
+            fetchMeals()
+        } catch {
+            os_log("Couldn't delete meal.")
+        }
+    }
+    
     func setupTableView() {
         historyTableView.register(UINib(resource: R.nib.mealHistoryTableViewCell),
                                   forCellReuseIdentifier: R.reuseIdentifier.mealHistoryTableViewCell.identifier)
@@ -84,6 +89,7 @@ class MealHistoryViewController: UIViewController {
         {
             let vc = segue.destination as? AddDatedMealViewController
             vc?.receivedDate = dateSelected
+            vc?.receivedMeal = mealSelected
         }
     }
 }
@@ -125,6 +131,55 @@ extension MealHistoryViewController: UITableViewDelegate, UITableViewDataSource 
         header.setup(date: date, delegate: self)
         
         return header
+    }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        guard let cell = tableView.cellForRow(at: indexPath) as? MealHistoryTableViewCell else { return nil }
+        
+        if cell.noMealView.isHidden == true {
+            let date = receivedDates[indexPath.section]
+            guard let meal = meals[date]?[indexPath.row] else { return nil }
+            
+            let action = UIContextualAction(
+                style: .destructive,
+                title: "Deletar",
+                handler: { (action, view, completion) in
+                    self.deleteMeal(meal)
+                    completion(true)
+            })
+
+            action.backgroundColor = .red
+            let configuration = UISwipeActionsConfiguration(actions: [action])
+            configuration.performsFirstActionWithFullSwipe = true
+            return configuration
+        } else {
+            return nil
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        guard let cell = tableView.cellForRow(at: indexPath) as? MealHistoryTableViewCell else { return nil }
+        
+        if cell.noMealView.isHidden == true {
+            let date = receivedDates[indexPath.section]
+            guard let meal = meals[date]?[indexPath.row] else { return nil }
+            
+            let action = UIContextualAction(
+                style: .normal,
+                title: "Editar",
+                handler: { (action, view, completion) in
+                    self.dateSelected = date
+                    self.mealSelected = meal
+                    self.performSegue(withIdentifier: R.segue.mealHistoryViewController.toRegisterMeal.identifier, sender: nil)
+            })
+
+            action.backgroundColor = .gray
+            let configuration = UISwipeActionsConfiguration(actions: [action])
+            configuration.performsFirstActionWithFullSwipe = true
+            return configuration
+        } else {
+            return nil
+        }
     }
 }
 

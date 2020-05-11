@@ -14,7 +14,18 @@ class AddDatedMealViewController: UIViewController {
     @IBOutlet weak var datePicker: UIDatePicker!
     
     var dataHandler: DataHandler?
-    var receivedDate: Date?
+    var receivedDate: Date? {
+        didSet {
+            modifiedDate = receivedDate
+        }
+    }
+    var modifiedDate: Date?
+    var receivedMeal: Meal? {
+        didSet {
+            modifiedMeal = receivedMeal
+        }
+    }
+    var modifiedMeal: Meal?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +39,10 @@ class AddDatedMealViewController: UIViewController {
         datePicker.date = receivedDate ?? Date()
         datePicker.setValue(UIColor.black, forKeyPath: "textColor")
         datePicker.setValue(false, forKeyPath: "highlightsToday")
+        
+        if let meal = receivedMeal {
+            registerMealView.set(meal: meal)
+        }
     }
 
     override func viewDidLayoutSubviews() {
@@ -36,21 +51,28 @@ class AddDatedMealViewController: UIViewController {
     }
     
     @IBAction func dateChanged(_ sender: UIDatePicker) {
-        receivedDate = sender.date
+        modifiedDate = sender.date
     }
 }
 
 extension AddDatedMealViewController: RegisterMealViewDelegate {
     func saveMeal(quality: Int, hour: Int, minute: Int) {
-        guard let receivedDate = self.receivedDate else { return }
+        guard let date = self.modifiedDate else { return }
         do {
-            let (year, month, day, _, _, _) = try receivedDate.getAllInformations()
+            let (year, month, day, _, _, _) = try date.getAllInformations()
+            
+            // When received meal is not nil, user is modifying a pre-existing meal. We then  delete the meal he wants to modify and create a new one.
+            if let receivedMeal = receivedMeal {
+                try dataHandler?.deleteMeal(meal: receivedMeal)
+            }
+            
             try dataHandler?.createMeal(quality: quality,
-                                        year: year,
-                                        month: month,
-                                        day: day,
-                                        hour: hour,
-                                        minute: minute)
+            year: year,
+            month: month,
+            day: day,
+            hour: hour,
+            minute: minute)
+            
         } catch {
             os_log("Couldn't create new meal.")
         }

@@ -7,7 +7,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Meal History View Controller-->
+        <!--Histórico-->
         <scene sceneID="jjb-En-4y4">
             <objects>
                 <viewController id="8nu-Qx-oFa" customClass="MealHistoryViewController" customModule="My_Way" customModuleProvider="target" sceneMemberID="viewController">
@@ -29,7 +29,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="n5y-6g-KRe"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Wcb-EV-rEs"/>
+                    <navigationItem key="navigationItem" title="Histórico" id="dUK-vJ-DCt" userLabel="Histórico"/>
                     <connections>
                         <outlet property="historyTableView" destination="pEW-oW-Rd0" id="JbB-4K-jAZ"/>
                         <segue destination="6GJ-VH-6lH" kind="show" identifier="toRegisterMeal" id="zG8-ve-3EN"/>
