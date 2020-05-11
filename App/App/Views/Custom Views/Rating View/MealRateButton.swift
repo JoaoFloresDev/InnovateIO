@@ -36,14 +36,7 @@ class MealRateButton: UIButton {
     }
     
     private func setColor() {
-        let topColor = self.backgroundColor ?? .white
-        let downColor = rating.color
-        // TODO: gradient not working
-        let gradient = CAGradientLayer()
-        gradient.frame = self.bounds
-        gradient.colors = [topColor, downColor]
-        gradient.locations = [0.0, 0.75]
-        layer.insertSublayer(gradient, at: 0)
+        self.backgroundColor = rating.color
     }
     
     private func setShadow() {

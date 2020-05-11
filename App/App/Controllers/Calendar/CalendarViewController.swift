@@ -58,7 +58,6 @@ class CalendarViewController: UIViewController {
     override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
         self.calendarView.reloadData()
     }
-    
 }
 
 extension CalendarViewController: JTACMonthViewDataSource {

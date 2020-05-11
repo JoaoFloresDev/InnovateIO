@@ -141,4 +141,19 @@ extension Date {
         }
         
     }
+    
+    static func fromComponents(year: Int, month: Int, day: Int, hour: Int, minute: Int) -> Date? {
+        // Specify date components
+        var dateComponents = DateComponents()
+        dateComponents.year = year
+        dateComponents.month = month
+        dateComponents.day = day
+        dateComponents.timeZone = TimeZone.current
+        dateComponents.hour = hour
+        dateComponents.minute = minute
+
+        // Create date from components
+        let userCalendar = Calendar.current // user calendar
+        return userCalendar.date(from: dateComponents)
+    }
 }

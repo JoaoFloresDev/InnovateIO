@@ -91,7 +91,7 @@ extension DataHandler {
     ///   - hour: The hour of the Meal
     ///   - minute: The minutes related to the hour of the Meal
     /// - Throws: Can't save into local storage due to available space is missing or corrupted or invalid date or invalid time or invalid calendar or invalid entity.
-    func createMeal(quality: Int, year: Int, month: Int, day: Int, hour: Int, minute: Int) throws {
+    func createMeal(quality: Int, year: Int, month: Int, day: Int, hour: Int, minute: Int, note: String? = nil) throws {
         
         // Loading Core Data's User entity
         let entity = NSEntityDescription.entity(forEntityName: "Meal", in: self.managedContext)
@@ -140,6 +140,7 @@ extension DataHandler {
         diary.setValue(day, forKey: "day")
         diary.setValue(hour, forKey: "hour")
         diary.setValue(minute, forKey: "minute")
+        diary.setValue(note, forKey: "note")
 
         
         // Trying to save the new data on local storage
@@ -200,19 +201,16 @@ extension DataHandler {
     
     
     
-    /// Deletes a certain Meal by passing a certain Date
+    /// Deletes a certain Meal
     /// - Parameters:
-    ///   - year: Desired Year
-    ///   - month: Desired Month
-    ///   - day: Desired Day
     ///   - meal: The desired Meal (reference) to be removed
     /// - Throws: Can't load storage data because it has invalid parameters.
-    func deleteMeal(year: Int, month: Int, day: Int, meal: Meal) throws {
+    func deleteMeal(meal: Meal) throws {
         
         // Checking if the date is valid
         do {
             let date = Date()
-            let isValidDate = try date.checkDate(year: year, month: month, day: day)
+            let isValidDate = try date.checkDate(year: Int(meal.year), month: Int(meal.month), day: Int(meal.day))
             
             if !isValidDate {
                 throw PersistenceError.invalidDate
@@ -225,9 +223,9 @@ extension DataHandler {
         // Mounting the type of request
         let fetchRequest = NSFetchRequest<Meal>(entityName: "Meal")
 
-        let yearPredicate = NSPredicate(format: "year == %@", String(year))
-        let monthPredicate = NSPredicate(format: "month == %@", String(month))
-        let dayPredicate = NSPredicate(format: "day == %@", String(day))
+        let yearPredicate = NSPredicate(format: "year == %@", String(meal.year))
+        let monthPredicate = NSPredicate(format: "month == %@", String(meal.month))
+        let dayPredicate = NSPredicate(format: "day == %@", String(meal.day))
         
         let predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [yearPredicate, monthPredicate, dayPredicate])
         
@@ -238,11 +236,10 @@ extension DataHandler {
             let meals = try managedContext.fetch(fetchRequest)
             
             for foundMeal in meals {
-                if foundMeal.isEqual(foundMeal) {
+                if foundMeal.isEqual(meal) {
                     managedContext.delete(foundMeal)
                 }
             }
-
         }
         catch {
             throw PersistenceError.cantLoad
@@ -298,6 +295,4 @@ extension DataHandler {
         }
         
     }
-
-    
 }

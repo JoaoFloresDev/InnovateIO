@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RatingView" customModule="App" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RatingView" customModule="My_Way" customModuleProvider="target">
             <connections>
                 <outlet property="averageRateButton" destination="Q29-hF-6wW" id="zOU-Nl-kaw"/>
                 <outlet property="badRateButton" destination="1XA-UX-4eO" id="yG1-Ws-fLO"/>
@@ -24,7 +24,7 @@
                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="sEZ-qu-4Go">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F0K-7K-OKu" customClass="MealRateButton" customModule="App" customModuleProvider="target">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F0K-7K-OKu" customClass="MealRateButton" customModule="My_Way" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="381.5" width="132.5" height="133"/>
                             <color key="backgroundColor" name="GoodColor"/>
                             <constraints>
@@ -42,7 +42,7 @@
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q29-hF-6wW" customClass="MealRateButton" customModule="App" customModuleProvider="target">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q29-hF-6wW" customClass="MealRateButton" customModule="My_Way" customModuleProvider="target">
                             <rect key="frame" x="140.5" y="381.5" width="133" height="133"/>
                             <color key="backgroundColor" name="MediumColor"/>
                             <constraints>
@@ -60,7 +60,7 @@
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1XA-UX-4eO" customClass="MealRateButton" customModule="App" customModuleProvider="target">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1XA-UX-4eO" customClass="MealRateButton" customModule="My_Way" customModuleProvider="target">
                             <rect key="frame" x="281.5" y="381.5" width="132.5" height="133"/>
                             <color key="backgroundColor" name="BadColor"/>
                             <constraints>

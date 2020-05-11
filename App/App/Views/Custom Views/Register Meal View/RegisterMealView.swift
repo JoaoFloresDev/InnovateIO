@@ -46,9 +46,18 @@ class RegisterMealView: UIView {
         setupDatePicker()
     }
     
+    func set(meal: Meal) {
+        thisMealRatingView.setInitiallySelectedRating(Rating(rawValue: Int(meal.quality)))
+        
+        let (year, month, day, hour, minute) = (Int(meal.year), Int(meal.month), Int(meal.day), Int(meal.hour), Int(meal.minute))
+        datePicker.date = Date.fromComponents(year: year, month: month, day: day, hour: hour, minute: minute) ?? Date()
+    }
+    
     fileprivate func setupDatePicker() {
         datePicker.datePickerMode = .time
         datePicker.minuteInterval = 10
+        datePicker.locale = Locale(identifier: "pt_BR")
+        datePicker.setValue(UIColor.black, forKeyPath: "textColor")
     }
     
     @IBAction func datePickerChanged(_ sender: UIDatePicker) {
