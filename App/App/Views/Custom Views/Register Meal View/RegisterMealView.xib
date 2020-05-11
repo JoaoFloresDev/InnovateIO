@@ -6,7 +6,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RegisterMealView" customModule="App" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RegisterMealView" customModule="My_Way" customModuleProvider="target">
             <connections>
                 <outlet property="contentView" destination="iN0-l3-epB" id="Az5-OQ-xxk"/>
                 <outlet property="datePicker" destination="Iw9-D2-w3d" id="nQ4-62-blG"/>
@@ -14,7 +14,7 @@
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="iN0-l3-epB" customClass="RoundedView" customModule="App" customModuleProvider="target">
+        <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="iN0-l3-epB" customClass="RoundedView" customModule="My_Way" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
@@ -38,7 +38,7 @@
                                         <constraint firstAttribute="height" constant="29" id="1h6-tD-fdv"/>
                                     </constraints>
                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
-                                    <nil key="textColor"/>
+                                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wI1-Xs-ooK">
@@ -46,7 +46,7 @@
                                     <state key="normal" title="Info"/>
                                 </button>
                             </subviews>
-                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstAttribute="trailing" secondItem="qEG-ia-ScL" secondAttribute="trailing" id="6jl-E5-3CC"/>
                                 <constraint firstItem="wI1-Xs-ooK" firstAttribute="leading" secondItem="DGw-A5-4s4" secondAttribute="leading" id="9hD-Sl-Muk"/>
@@ -57,12 +57,13 @@
                                 <constraint firstItem="wI1-Xs-ooK" firstAttribute="centerY" secondItem="DGw-A5-4s4" secondAttribute="centerY" id="pP6-zD-CW8"/>
                             </constraints>
                         </view>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pzl-DW-ErW" customClass="RatingView" customModule="App" customModuleProvider="target">
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pzl-DW-ErW" customClass="RatingView" customModule="My_Way" customModuleProvider="target">
                             <rect key="frame" x="76.5" y="37" width="261" height="611"/>
-                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </view>
                         <datePicker contentMode="scaleToFill" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="5" translatesAutoresizingMaskIntoConstraints="NO" id="Iw9-D2-w3d">
                             <rect key="frame" x="47" y="656" width="320" height="130"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="130" id="VeH-a2-ffz"/>
                             </constraints>
@@ -70,8 +71,9 @@
                                 <action selector="datePickerChanged:" destination="-1" eventType="valueChanged" id="J8t-vK-61X"/>
                             </connections>
                         </datePicker>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1r5-m7-dly" customClass="RoundedButton" customModule="App" customModuleProvider="target">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1r5-m7-dly" customClass="RoundedButton" customModule="My_Way" customModuleProvider="target">
                             <rect key="frame" x="17.5" y="794" width="379" height="44"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="44" id="ZpX-eI-Zar"/>
                             </constraints>
@@ -95,7 +97,7 @@
                     </subviews>
                 </stackView>
             </subviews>
-            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="B7h-7o-zHL" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="42" id="0ho-zg-MSL"/>
                 <constraint firstItem="1r5-m7-dly" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.915" id="3gN-2p-gF5"/>
