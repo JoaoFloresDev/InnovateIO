@@ -89,8 +89,25 @@ struct R: Rswift.Validatable {
   }
 
   #if os(iOS) || os(tvOS)
-  /// This `R.segue` struct is generated, and contains static references to 2 view controllers.
+  /// This `R.segue` struct is generated, and contains static references to 3 view controllers.
   struct segue {
+    /// This struct is generated for `MealHistoryViewController`, and contains static references to 1 segues.
+    struct mealHistoryViewController {
+      /// Segue identifier `toRegisterMeal`.
+      static let toRegisterMeal: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, MealHistoryViewController, AddDatedMealViewController> = Rswift.StoryboardSegueIdentifier(identifier: "toRegisterMeal")
+
+      #if os(iOS) || os(tvOS)
+      /// Optionally returns a typed version of segue `toRegisterMeal`.
+      /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
+      /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
+      static func toRegisterMeal(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, MealHistoryViewController, AddDatedMealViewController>? {
+        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.mealHistoryViewController.toRegisterMeal, segue: segue)
+      }
+      #endif
+
+      fileprivate init() {}
+    }
+
     /// This struct is generated for `MealViewController`, and contains static references to 1 segues.
     struct mealViewController {
       /// Segue identifier `toNoteModal`.
@@ -130,12 +147,14 @@ struct R: Rswift.Validatable {
   #endif
 
   #if os(iOS) || os(tvOS)
-  /// This `R.storyboard` struct is generated, and contains static references to 5 storyboards.
+  /// This `R.storyboard` struct is generated, and contains static references to 6 storyboards.
   struct storyboard {
     /// Storyboard `LaunchScreen`.
     static let launchScreen = _R.storyboard.launchScreen()
     /// Storyboard `Main`.
     static let main = _R.storyboard.main()
+    /// Storyboard `MealHistory`.
+    static let mealHistory = _R.storyboard.mealHistory()
     /// Storyboard `Meals`.
     static let meals = _R.storyboard.meals()
     /// Storyboard `Profile`.
@@ -154,6 +173,13 @@ struct R: Rswift.Validatable {
     /// `UIStoryboard(name: "Main", bundle: ...)`
     static func main(_: Void = ()) -> UIKit.UIStoryboard {
       return UIKit.UIStoryboard(resource: R.storyboard.main)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIStoryboard(name: "MealHistory", bundle: ...)`
+    static func mealHistory(_: Void = ()) -> UIKit.UIStoryboard {
+      return UIKit.UIStoryboard(resource: R.storyboard.mealHistory)
     }
     #endif
 
@@ -467,7 +493,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.nib` struct is generated, and contains static references to 6 nibs.
+  /// This `R.nib` struct is generated, and contains static references to 7 nibs.
   struct nib {
     /// Nib `DailyHabitsTableViewCell`.
     static let dailyHabitsTableViewCell = _R.nib._DailyHabitsTableViewCell()
@@ -475,6 +501,8 @@ struct R: Rswift.Validatable {
     static let dailyHabitsView = _R.nib._DailyHabitsView()
     /// Nib `LineChartTableViewCell`.
     static let lineChartTableViewCell = _R.nib._LineChartTableViewCell()
+    /// Nib `MealHistoryHeader`.
+    static let mealHistoryHeader = _R.nib._MealHistoryHeader()
     /// Nib `MealHistoryTableViewCell`.
     static let mealHistoryTableViewCell = _R.nib._MealHistoryTableViewCell()
     /// Nib `RatingView`.
@@ -503,6 +531,14 @@ struct R: Rswift.Validatable {
     @available(*, deprecated, message: "Use UINib(resource: R.nib.lineChartTableViewCell) instead")
     static func lineChartTableViewCell(_: Void = ()) -> UIKit.UINib {
       return UIKit.UINib(resource: R.nib.lineChartTableViewCell)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UINib(name: "MealHistoryHeader", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.mealHistoryHeader) instead")
+    static func mealHistoryHeader(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.mealHistoryHeader)
     }
     #endif
 
@@ -542,6 +578,10 @@ struct R: Rswift.Validatable {
       return R.nib.lineChartTableViewCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? LineChartTableViewCell
     }
 
+    static func mealHistoryHeader(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> MealHistoryHeader? {
+      return R.nib.mealHistoryHeader.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? MealHistoryHeader
+    }
+
     static func mealHistoryTableViewCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> MealHistoryTableViewCell? {
       return R.nib.mealHistoryTableViewCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? MealHistoryTableViewCell
     }
@@ -557,7 +597,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.reuseIdentifier` struct is generated, and contains static references to 5 reuse identifiers.
+  /// This `R.reuseIdentifier` struct is generated, and contains static references to 6 reuse identifiers.
   struct reuseIdentifier {
     /// Reuse identifier `DailyHabitsTableViewCell`.
     static let dailyHabitsTableViewCell: Rswift.ReuseIdentifier<DailyHabitsTableViewCell> = Rswift.ReuseIdentifier(identifier: "DailyHabitsTableViewCell")
@@ -565,6 +605,8 @@ struct R: Rswift.Validatable {
     static let dateHeader: Rswift.ReuseIdentifier<DateHeader> = Rswift.ReuseIdentifier(identifier: "DateHeader")
     /// Reuse identifier `LineChartTableViewCell`.
     static let lineChartTableViewCell: Rswift.ReuseIdentifier<LineChartTableViewCell> = Rswift.ReuseIdentifier(identifier: "LineChartTableViewCell")
+    /// Reuse identifier `MealHistoryTableViewCell`.
+    static let mealHistoryTableViewCell: Rswift.ReuseIdentifier<MealHistoryTableViewCell> = Rswift.ReuseIdentifier(identifier: "MealHistoryTableViewCell")
     /// Reuse identifier `PerformanceChart`.
     static let performanceChart: Rswift.ReuseIdentifier<My_Way.PerformanceChartCollectionViewCell> = Rswift.ReuseIdentifier(identifier: "PerformanceChart")
     /// Reuse identifier `dateCell`.
@@ -600,6 +642,7 @@ struct _R: Rswift.Validatable {
   struct nib: Rswift.Validatable {
     static func validate() throws {
       try _DailyHabitsTableViewCell.validate()
+      try _MealHistoryHeader.validate()
       try _RegisterMealView.validate()
     }
 
@@ -648,8 +691,28 @@ struct _R: Rswift.Validatable {
       fileprivate init() {}
     }
 
-    struct _MealHistoryTableViewCell: Rswift.NibResourceType {
+    struct _MealHistoryHeader: Rswift.NibResourceType, Rswift.Validatable {
       let bundle = R.hostingBundle
+      let name = "MealHistoryHeader"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> MealHistoryHeader? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? MealHistoryHeader
+      }
+
+      static func validate() throws {
+        if UIKit.UIImage(named: "plus", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'plus' is used in nib 'MealHistoryHeader', but couldn't be loaded.") }
+        if #available(iOS 11.0, tvOS 11.0, *) {
+        }
+      }
+
+      fileprivate init() {}
+    }
+
+    struct _MealHistoryTableViewCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType {
+      typealias ReusableType = MealHistoryTableViewCell
+
+      let bundle = R.hostingBundle
+      let identifier = "MealHistoryTableViewCell"
       let name = "MealHistoryTableViewCell"
 
       func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> MealHistoryTableViewCell? {
@@ -701,6 +764,9 @@ struct _R: Rswift.Validatable {
       try main.validate()
       #endif
       #if os(iOS) || os(tvOS)
+      try mealHistory.validate()
+      #endif
+      #if os(iOS) || os(tvOS)
       try meals.validate()
       #endif
       #if os(iOS) || os(tvOS)
@@ -733,6 +799,22 @@ struct _R: Rswift.Validatable {
 
       let bundle = R.hostingBundle
       let name = "Main"
+
+      static func validate() throws {
+        if #available(iOS 11.0, tvOS 11.0, *) {
+        }
+      }
+
+      fileprivate init() {}
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    struct mealHistory: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
+      typealias InitialController = UIKit.UINavigationController
+
+      let bundle = R.hostingBundle
+      let name = "MealHistory"
 
       static func validate() throws {
         if #available(iOS 11.0, tvOS 11.0, *) {
