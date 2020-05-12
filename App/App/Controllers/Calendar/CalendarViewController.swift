@@ -46,15 +46,13 @@ class CalendarViewController: UIViewController {
     
     
     override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
         // If the tab bar selected item has changed into this View Controller...
         // We reload the calendar!
         self.calendarView.reloadData()
     }
 
-    override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
-        self.calendarView?.reloadData()
-    }
-    
     fileprivate func setupCalendarView() {
         // Configuring the calendar view settings
         self.calendarView.calendarDelegate = self
@@ -63,7 +61,7 @@ class CalendarViewController: UIViewController {
         self.calendarView.scrollDirection = .horizontal
         self.calendarView.scrollingMode = .stopAtEachCalendarFrame
         self.calendarView.showsHorizontalScrollIndicator = false
-        
+
         self.calendarView.scrollToDate(Date())
     }
     
