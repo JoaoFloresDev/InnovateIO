@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="kUW-Y7-4uP">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01H-JE-uRe">
     <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -13,12 +13,12 @@
         <scene sceneID="p0i-wh-FGM">
             <objects>
                 <viewController storyboardIdentifier="Calendar Storyboard" id="kUW-Y7-4uP" userLabel="Calendar" customClass="CalendarViewController" customModule="My_Way" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="9tv-K3-8FI">
+                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="9tv-K3-8FI">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="V5a-NO-0Sa" customClass="JTACMonthView" customModule="JTAppleCalendar">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="320"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="V5a-NO-0Sa" customClass="JTACMonthView" customModule="JTAppleCalendar">
+                                <rect key="frame" x="0.0" y="44" width="320" height="276"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="320" id="ePh-af-m4B"/>
@@ -146,7 +146,7 @@
                                     </connections>
                                 </collectionReusableView>
                             </collectionView>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="1cQ-7Q-pON" customClass="PerformanceChart" customModule="My_Way" customModuleProvider="target">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" dataMode="prototypes" id="1cQ-7Q-pON" customClass="PerformanceChart" customModule="My_Way" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="340" width="320" height="179"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -576,7 +576,7 @@
                                         </connections>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="sKC-1e-w1j">
-                                        <rect key="frame" x="117.5" y="0.0" width="85" height="330"/>
+                                        <rect key="frame" x="235" y="0.0" width="85" height="330"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="5vp-tQ-dlD">
                                             <rect key="frame" x="0.0" y="0.0" width="85" height="330"/>
@@ -584,7 +584,7 @@
                                         </collectionViewCellContentView>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="U7l-8x-VOR">
-                                        <rect key="frame" x="235" y="0.0" width="85" height="330"/>
+                                        <rect key="frame" x="117.5" y="0.0" width="85" height="330"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="9v7-LP-W3r">
                                             <rect key="frame" x="0.0" y="0.0" width="85" height="330"/>
@@ -593,6 +593,13 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1SX-Wr-djt">
+                                <rect key="frame" x="216" y="310" width="88" height="30"/>
+                                <state key="normal" title="Ver Detalhes"/>
+                                <connections>
+                                    <action selector="tappedSeeHistoryButton:" destination="kUW-Y7-4uP" eventType="touchUpInside" id="mgf-j5-ECw"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -600,18 +607,51 @@
                             <constraint firstItem="V5a-NO-0Sa" firstAttribute="top" secondItem="Lcb-ir-xcC" secondAttribute="top" id="3Gq-uo-FRJ"/>
                             <constraint firstItem="V5a-NO-0Sa" firstAttribute="leading" secondItem="Lcb-ir-xcC" secondAttribute="leading" id="9nk-V1-DWF"/>
                             <constraint firstItem="Lcb-ir-xcC" firstAttribute="bottom" secondItem="1cQ-7Q-pON" secondAttribute="bottom" id="E7Q-r7-XO9"/>
+                            <constraint firstItem="Lcb-ir-xcC" firstAttribute="trailing" secondItem="1SX-Wr-djt" secondAttribute="trailing" constant="16" id="I0e-kh-5AN"/>
                             <constraint firstItem="V5a-NO-0Sa" firstAttribute="trailing" secondItem="Lcb-ir-xcC" secondAttribute="trailing" id="Vup-PI-jDj"/>
+                            <constraint firstItem="1cQ-7Q-pON" firstAttribute="top" secondItem="1SX-Wr-djt" secondAttribute="bottom" id="nSl-QD-wef"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Lcb-ir-xcC"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Histórico" image="book" catalog="system" selectedImage="book.fill" id="Q5D-cT-KHw"/>
+                    <navigationItem key="navigationItem" id="y27-XE-4Se"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="calendarView" destination="V5a-NO-0Sa" id="4rA-Yh-UvZ"/>
-                        <outlet property="collectionView" destination="1cQ-7Q-pON" id="oxh-rj-eVR"/>
+                        <outlet property="chartCollectionView" destination="1cQ-7Q-pON" id="oxh-rj-eVR"/>
+                        <outlet property="seeHistoryButton" destination="1SX-Wr-djt" id="nm5-Wd-ZB5"/>
+                        <segue destination="GLe-4G-xk0" kind="show" identifier="toMealHistory" id="bKh-YG-gwS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HHa-rb-Q1e" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1226.25" y="118.30985915492958"/>
+        </scene>
+        <!--MealHistory-->
+        <scene sceneID="3HN-dE-HhW">
+            <objects>
+                <viewControllerPlaceholder storyboardName="MealHistory" id="GLe-4G-xk0" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="d9o-lx-Cka"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eVi-QI-JZ1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2100" y="117.25352112676056"/>
+        </scene>
+        <!--Histórico-->
+        <scene sceneID="B67-Ux-pH7">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="01H-JE-uRe" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Histórico" image="book" catalog="system" selectedImage="book.fill" id="Q5D-cT-KHw"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="pJa-NB-36A">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="kUW-Y7-4uP" kind="relationship" relationship="rootViewController" id="lGP-Al-aYG"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xc4-Mf-pqe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="228.75" y="118.30985915492958"/>
         </scene>

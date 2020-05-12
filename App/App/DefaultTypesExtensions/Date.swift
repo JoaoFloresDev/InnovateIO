@@ -156,4 +156,14 @@ extension Date {
         let userCalendar = Calendar.current // user calendar
         return userCalendar.date(from: dateComponents)
     }
+    
+    func getAllDaysForWeek() -> [Date] {
+        let calendar = Calendar.current
+        let date = calendar.startOfDay(for: self)
+        let dayOfWeek = calendar.component(.weekday, from: date)
+        let weekdays = calendar.range(of: .weekday, in: .weekOfYear, for: date)!
+        let days = (weekdays.lowerBound ..< weekdays.upperBound)
+            .compactMap { calendar.date(byAdding: .day, value: $0 - dayOfWeek, to: date) }
+        return days
+    }
 }
