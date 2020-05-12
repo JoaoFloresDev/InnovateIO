@@ -10,6 +10,7 @@
             <connections>
                 <outlet property="contentView" destination="iN0-l3-epB" id="Az5-OQ-xxk"/>
                 <outlet property="datePicker" destination="Iw9-D2-w3d" id="nQ4-62-blG"/>
+                <outlet property="noteTableView" destination="4IU-TN-8a3" id="C6w-gW-Ljk"/>
                 <outlet property="thisMealRatingView" destination="pzl-DW-ErW" id="WbV-7u-Nqa"/>
             </connections>
         </placeholder>
@@ -24,13 +25,18 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DGw-A5-4s4" userLabel="Header View">
                             <rect key="frame" x="20.5" y="0.0" width="373" height="29"/>
                             <subviews>
-                                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qEG-ia-ScL">
-                                    <rect key="frame" x="353" y="4.5" width="20" height="20"/>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qEG-ia-ScL">
+                                    <rect key="frame" x="340" y="4.5" width="33" height="20"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="20" id="egt-VG-cws"/>
-                                        <constraint firstAttribute="width" constant="20" id="g95-FP-r51"/>
                                     </constraints>
-                                    <state key="normal" image="plus" catalog="system"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                    <state key="normal" title="Nota">
+                                        <color key="titleColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="addNoteTapped:" destination="-1" eventType="touchUpInside" id="LGN-rE-gEG"/>
+                                    </connections>
                                 </button>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Registrar Refeição" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jJk-lf-sOO">
                                     <rect key="frame" x="86.5" y="0.0" width="200" height="29"/>
@@ -71,6 +77,13 @@
                                 <action selector="datePickerChanged:" destination="-1" eventType="valueChanged" id="J8t-vK-61X"/>
                             </connections>
                         </datePicker>
+                        <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4IU-TN-8a3">
+                            <rect key="frame" x="17.5" y="790" width="379" height="88"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="88" id="bzh-MX-FoC"/>
+                            </constraints>
+                        </tableView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1r5-m7-dly" customClass="RoundedButton" customModule="My_Way" customModuleProvider="target">
                             <rect key="frame" x="17.5" y="794" width="379" height="44"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -105,6 +118,7 @@
                 <constraint firstItem="pzl-DW-ErW" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.63" id="99I-zA-Z42"/>
                 <constraint firstAttribute="trailing" secondItem="B7h-7o-zHL" secondAttribute="trailing" id="Mun-8e-kQ3"/>
                 <constraint firstAttribute="bottom" secondItem="B7h-7o-zHL" secondAttribute="bottom" constant="16" id="VM7-xq-wF9"/>
+                <constraint firstItem="4IU-TN-8a3" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.915" id="gr2-Uy-K8b"/>
                 <constraint firstItem="B7h-7o-zHL" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="lIh-Qz-GWo"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
@@ -116,7 +130,4 @@
             <point key="canvasLocation" x="139" y="79"/>
         </view>
     </objects>
-    <resources>
-        <image name="plus" catalog="system" width="128" height="113"/>
-    </resources>
 </document>

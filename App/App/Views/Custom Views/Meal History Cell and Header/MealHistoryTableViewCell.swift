@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import os.log
 
 class MealHistoryTableViewCell: UITableViewCell {
     @IBOutlet weak var mealRoundedView: RoundedView!
@@ -28,23 +29,26 @@ class MealHistoryTableViewCell: UITableViewCell {
     func setup(meal: Meal?) {
         if let meal = meal {
             guard let rating = Rating(rawValue: Int(meal.quality)) else {
-                        print("Error when mapping quality of fetched meal to Rating instance.")
+                        os_log("Error when mapping quality of fetched meal to Rating instance.")
                         return
                     }
                     
-                    colorView.backgroundColor = rating.color
-                    
-                    noteLabel.text = meal.note == nil ? rating.defaultNoteForMeal : meal.note
-                    
-                    // TODO: uncomment when meal image is implemented in Core Data.
-            //        mealImage.isHidden = image == nil
-            //        mealImage.image = image
-                    
-                    timeLabel.text = String(format: "%02d", meal.hour) + "h" + String(format: "%02d", meal.minute
-                    )
+            commonSetup(rating: rating, note: meal.note, hour: Int(meal.hour), minute: Int(meal.minute))
         } else {
             mealRoundedView.isHidden = true
             noMealView.isHidden = false
         }
+    }
+    
+    func commonSetup(rating: Rating?, note: String? = nil, image: UIImage? = nil, hour: Int, minute: Int) {
+        colorView.backgroundColor = rating?.color ?? .white
+        
+        noteLabel.text = note == nil ? rating?.defaultNoteForMeal : note
+        
+        // TODO: uncomment when meal image is implemented in Core Data.
+             //        mealImage.isHidden = image == nil
+             //        mealImage.image = image
+        
+        timeLabel.text = String(format: "%02d", hour) + "h" + String(format: "%02d", minute)
     }
 }

@@ -33,7 +33,7 @@ class AddDatedMealViewController: UIViewController {
         do {
             dataHandler = try DataHandler.getShared()
         } catch {
-            print("Couldn't get shared DataHandler.")
+            os_log("Couldn't get shared DataHandler.")
         }
         
         datePicker.date = receivedDate ?? Date()
@@ -56,7 +56,7 @@ class AddDatedMealViewController: UIViewController {
 }
 
 extension AddDatedMealViewController: RegisterMealViewDelegate {
-    func saveMeal(quality: Int, hour: Int, minute: Int) {
+    func saveMeal(quality: Int, hour: Int, minute: Int, note: String?) {
         guard let date = self.modifiedDate else { return }
         do {
             let (year, month, day, _, _, _) = try date.getAllInformations()
@@ -71,11 +71,16 @@ extension AddDatedMealViewController: RegisterMealViewDelegate {
             month: month,
             day: day,
             hour: hour,
-            minute: minute)
+            minute: minute,
+            note: note)
             
         } catch {
             os_log("Couldn't create new meal.")
         }
+    }
+    
+    func goToNote(note: String?) {
+        // TODO: priscila:
     }
     
     func presentAlert(_ alert: UIAlertController) {
