@@ -14,29 +14,25 @@ class CalendarViewController: UIViewController {
     
     // Attributes related to the interface builder
     @IBOutlet weak var calendarView: JTACMonthView!
-    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var chartCollectionView: UICollectionView!
+    @IBOutlet weak var seeHistoryButton: UIButton!
     
     // Attributes related to the calendar itself
     var formatter = DateFormatter()
+    var selectedWeek: [Date] = [] {
+        didSet {
+            seeHistoryButton.isHidden = selectedWeek.count == 0
+        }
+    }
     private var dataHandler: DataHandler?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Configuring the calendar view settings
-        self.calendarView.calendarDelegate = self
-        self.calendarView.calendarDataSource = self
-        
-        self.calendarView.scrollDirection = .horizontal
-        self.calendarView.scrollingMode = .stopAtEachCalendarFrame
-        self.calendarView.showsHorizontalScrollIndicator = false
-        
-        self.calendarView.scrollToDate(Date())
+        setupCalendarView()
         
         
-        // Configuring the collection view for showing the charts
-        self.collectionView.delegate = self
-        self.collectionView.dataSource = self
+        setupChartCollectionView()
         
         
         // Setting up the Data Handler (Core Data interface)
@@ -57,7 +53,36 @@ class CalendarViewController: UIViewController {
         self.calendarView.reloadData()
     }
 
+    fileprivate func setupCalendarView() {
+        // Configuring the calendar view settings
+        self.calendarView.calendarDelegate = self
+        self.calendarView.calendarDataSource = self
+        
+        self.calendarView.scrollDirection = .horizontal
+        self.calendarView.scrollingMode = .stopAtEachCalendarFrame
+        self.calendarView.showsHorizontalScrollIndicator = false
 
+        self.calendarView.scrollToDate(Date())
+    }
+    
+    fileprivate func setupChartCollectionView() {
+        // Configuring the collection view for showing the charts
+        self.chartCollectionView.delegate = self
+        self.chartCollectionView.dataSource = self
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
+        if segue.identifier == R.segue.calendarViewController.toMealHistory.identifier
+        {
+            let vc = segue.destination as? MealHistoryViewController
+            vc?.receivedDates = selectedWeek
+        }
+    }
+    
+    @IBAction func tappedSeeHistoryButton(_ sender: Any) {
+        performSegue(withIdentifier: R.segue.calendarViewController.toMealHistory.identifier, sender: nil)
+    }
 }
 
 extension CalendarViewController: JTACMonthViewDataSource {
@@ -73,8 +98,6 @@ extension CalendarViewController: JTACMonthViewDataSource {
         let endDate = Date()
         return ConfigurationParameters(startDate: startDate, endDate: endDate)
     }
-
-    
 }
 
 extension CalendarViewController: JTACMonthViewDelegate {
@@ -195,14 +218,12 @@ extension CalendarViewController: JTACMonthViewDelegate {
             let cell = calendar.dequeueReusableJTAppleCell(withReuseIdentifier: "dateCell", for: indexPath) as! DateCell
             
             cell.circle.backgroundColor = .none
-            
         }
-        
     }
-    
-    
-    
+
     func calendar(_ calendar: JTACMonthView, didSelectDate date: Date, cell: JTACDayCell?, cellState: CellState, indexPath: IndexPath) {
+
+        selectedWeek = date.getAllDaysForWeek()
 
         do {
             
@@ -219,16 +240,9 @@ extension CalendarViewController: JTACMonthViewDelegate {
         catch {
             os_log("[APP] No entry was found!")
         }
-
-        
-        
     }
-    
     
     func calendarSizeForMonths(_ calendar: JTACMonthView?) -> MonthSize? {
         return MonthSize(defaultSize: 80)
     }
-    
-
-    
 }

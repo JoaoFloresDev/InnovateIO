@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fPd-xE-mUT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8nu-Qx-oFa">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -16,7 +16,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="60" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="pEW-oW-Rd0">
-                                <rect key="frame" x="16" y="88" width="382" height="774"/>
+                                <rect key="frame" x="16" y="44" width="382" height="818"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                         </subviews>
@@ -44,14 +44,14 @@
             <objects>
                 <viewController id="6GJ-VH-6lH" customClass="AddDatedMealViewController" customModule="My_Way" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="p8o-e2-QES">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="28" translatesAutoresizingMaskIntoConstraints="NO" id="dKR-3X-L70">
-                                <rect key="frame" x="8.5" y="88" width="397" height="774"/>
+                                <rect key="frame" x="8.5" y="0.0" width="397" height="808"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ygf-GZ-gac" customClass="RoundedView" customModule="My_Way" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="397" height="95"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="397" height="99"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZCG-M9-ng9" userLabel="Header View">
                                                 <rect key="frame" x="0.0" y="8" width="397" height="29"/>
@@ -74,7 +74,7 @@
                                                 </constraints>
                                             </view>
                                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" translatesAutoresizingMaskIntoConstraints="NO" id="hUD-pG-dXr">
-                                                <rect key="frame" x="0.0" y="45" width="397" height="42"/>
+                                                <rect key="frame" x="0.0" y="45" width="397" height="46"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <locale key="locale" localeIdentifier="pt_BR"/>
                                                 <connections>
@@ -99,7 +99,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e5J-mQ-4Bh" customClass="RegisterMealView" customModule="My_Way" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="123" width="397" height="651"/>
+                                        <rect key="frame" x="0.0" y="127" width="397" height="681"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
                                 </subviews>
@@ -124,24 +124,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qcb-fB-UyJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1957.9710144927537" y="77.678571428571431"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="ps3-Qc-pbH">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="fPd-xE-mUT" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="nYe-n6-84z">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="8nu-Qx-oFa" kind="relationship" relationship="rootViewController" id="Ytj-8M-tS8"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="403-v4-WL0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="97.101449275362327" y="77.678571428571431"/>
         </scene>
     </scenes>
 </document>
