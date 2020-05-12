@@ -52,7 +52,7 @@ class MealHistoryViewController: UIViewController {
             }
         }
         
-        historyTableView.reloadData()
+        historyTableView?.reloadData()
     }
     
     func orderByTime(_ meals: [Meal]) -> [Meal] {
