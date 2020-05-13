@@ -12,6 +12,7 @@ protocol RegisterMealViewDelegate {
     func saveMeal(quality: Int, hour: Int, minute: Int, note: String?)
     func goToNote(note: String?)
     func presentAlert(_ alert: UIAlertController)
+    func dismissVCIfApplicable()
 }
 
 class RegisterMealView: UIView {
@@ -19,6 +20,7 @@ class RegisterMealView: UIView {
     @IBOutlet weak var thisMealRatingView: RatingView!
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var noteTableView: UITableView!
+    @IBOutlet weak var finishButton: RoundedButton!
     
     var delegate: RegisterMealViewDelegate?
     var note: String? {
@@ -72,7 +74,12 @@ class RegisterMealView: UIView {
         thisMealRatingView.setInitiallySelectedRating(Rating(rawValue: Int(meal.quality)))
         
         let (year, month, day, hour, minute) = (Int(meal.year), Int(meal.month), Int(meal.day), Int(meal.hour), Int(meal.minute))
-        datePicker.date = Date.fromComponents(year: year, month: month, day: day, hour: hour, minute: minute) ?? Date()
+        let receivedDate = Date.fromComponents(year: year, month: month, day: day, hour: hour, minute: minute) ?? Date()
+        datePicker.date = receivedDate
+        selectedDate = receivedDate
+        note = meal.note
+        
+        finishButton.setTitle("Confirmar", for: .normal)
     }
     
     fileprivate func setupDatePicker() {
@@ -115,6 +122,7 @@ class RegisterMealView: UIView {
             let alert = UIAlertController(title: "Salvo!", message: "Sua refeição foi registrada.", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
                 alert.dismiss(animated: true)
+                self.delegate?.dismissVCIfApplicable()
                 self.reset()
             }))
             delegate?.presentAlert(alert)

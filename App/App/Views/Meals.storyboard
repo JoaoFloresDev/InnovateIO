@@ -70,7 +70,7 @@
         <!--Add Note View Controller-->
         <scene sceneID="gAI-FM-2UT">
             <objects>
-                <viewController id="5Me-D5-VNr" customClass="AddNoteViewController" customModule="My_Way" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddNoteViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="5Me-D5-VNr" customClass="AddNoteViewController" customModule="My_Way" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kfh-x6-yUS">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

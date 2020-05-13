@@ -10,6 +10,7 @@
             <connections>
                 <outlet property="contentView" destination="iN0-l3-epB" id="Az5-OQ-xxk"/>
                 <outlet property="datePicker" destination="Iw9-D2-w3d" id="nQ4-62-blG"/>
+                <outlet property="finishButton" destination="1r5-m7-dly" id="ETp-Vh-VZE"/>
                 <outlet property="noteTableView" destination="4IU-TN-8a3" id="C6w-gW-Ljk"/>
                 <outlet property="thisMealRatingView" destination="pzl-DW-ErW" id="WbV-7u-Nqa"/>
             </connections>

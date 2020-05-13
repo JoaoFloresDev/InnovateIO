@@ -65,9 +65,9 @@ class MealHistoryViewController: UIViewController {
         }
     }
     
-    func deleteMeal(_ meal: Meal) {
+    func deleteMeal(_ mealID: String) {
         do {
-            try dataHandler?.deleteMeal(meal: meal)
+            try dataHandler?.deleteMeal(mealID: mealID)
             fetchMeals()
         } catch {
             os_log("Couldn't delete meal.")
@@ -93,7 +93,7 @@ class MealHistoryViewController: UIViewController {
         }
     }
 }
-
+// MARK: - TABLE VIEW DATA SOURCE AND DELEGATE
 extension MealHistoryViewController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return receivedDates.count
@@ -138,13 +138,13 @@ extension MealHistoryViewController: UITableViewDelegate, UITableViewDataSource 
         
         if cell.noMealView.isHidden == true {
             let date = receivedDates[indexPath.section]
-            guard let meal = meals[date]?[indexPath.row] else { return nil }
+            guard let mealID = meals[date]?[indexPath.row].id else { return nil }
             
             let action = UIContextualAction(
                 style: .destructive,
                 title: "Deletar",
                 handler: { (action, view, completion) in
-                    self.deleteMeal(meal)
+                    self.deleteMeal(mealID)
                     completion(true)
             })
 
@@ -181,8 +181,20 @@ extension MealHistoryViewController: UITableViewDelegate, UITableViewDataSource 
             return nil
         }
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let date = receivedDates[indexPath.section]
+        var meal: Meal?
+        if meals[date]?.count ?? 0 > indexPath.row {
+            meal = meals[date]?[indexPath.row]
+        }
+        
+        self.dateSelected = date
+        self.mealSelected = meal
+        self.performSegue(withIdentifier: R.segue.mealHistoryViewController.toRegisterMeal.identifier, sender: nil)
+    }
 }
-
+// MARK: - MEAL HISTORY HEADER DELEGATE
 extension MealHistoryViewController: MealHistoryHeaderDelegate {
     func plusButtonTapped(date: Date) {
         self.dateSelected = date

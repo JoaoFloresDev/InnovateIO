@@ -94,6 +94,10 @@ class MealViewController: UIViewController {
 }
 // MARK: - REGISTER MEAL VIEW DELEGATE
 extension MealViewController: RegisterMealViewDelegate {
+    func dismissVCIfApplicable() {
+        // Do nothing.
+    }
+    
     func saveMeal(quality: Int, hour: Int, minute: Int, note: String?) {
         do {
             try dataHandler?.createMeal(quality: quality, hour: hour, minute: minute, note: note)

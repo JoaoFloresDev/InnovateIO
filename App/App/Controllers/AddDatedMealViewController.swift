@@ -54,16 +54,20 @@ class AddDatedMealViewController: UIViewController {
         modifiedDate = sender.date
     }
 }
-
+// MARK: - REGISTER MEAL VIEW DELEGATE
 extension AddDatedMealViewController: RegisterMealViewDelegate {
+    func dismissVCIfApplicable() {
+        _ = navigationController?.popViewController(animated: true)
+    }
+    
     func saveMeal(quality: Int, hour: Int, minute: Int, note: String?) {
         guard let date = self.modifiedDate else { return }
         do {
             let (year, month, day, _, _, _) = try date.getAllInformations()
             
             // When received meal is not nil, user is modifying a pre-existing meal. We then  delete the meal he wants to modify and create a new one.
-            if let receivedMeal = receivedMeal {
-                try dataHandler?.deleteMeal(meal: receivedMeal)
+            if let receivedMealID = receivedMeal?.id {
+                try dataHandler?.deleteMeal(mealID: receivedMealID)
             }
             
             try dataHandler?.createMeal(quality: quality,
@@ -80,10 +84,21 @@ extension AddDatedMealViewController: RegisterMealViewDelegate {
     }
     
     func goToNote(note: String?) {
-        // TODO: priscila:
+        if let addNoteViewController = R.storyboard.meals.addNoteViewController() {
+            addNoteViewController.delegate = self
+            addNoteViewController.note = note
+            self.present(addNoteViewController, animated: true, completion: nil)
+        }
     }
     
     func presentAlert(_ alert: UIAlertController) {
         self.present(alert, animated: true)
+    }
+}
+// MARK: - ADD NOTE VC DELEGATE
+extension AddDatedMealViewController: AddNoteVCDelegate {
+    func didFinishEditingNote(_ note: String?) {
+        modifiedMeal?.note = note
+        registerMealView.note = note
     }
 }
