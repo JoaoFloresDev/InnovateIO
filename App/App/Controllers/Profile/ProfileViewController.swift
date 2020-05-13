@@ -113,7 +113,11 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
                 
                 // Getting the current day of the week
                 let (year, month, day, _, _, _) = try day.getAllInformations()
-                dates.add("\(day)\n\(month)")
+                
+                // Converting month number into text
+                let monthString: String = Date.convertMonthFromIntToString(value: month)
+                
+                dates.add("\(day)\n\(monthString)")
                 
                 // Getting the weight for that day
                 var weight: Int32 = 0
