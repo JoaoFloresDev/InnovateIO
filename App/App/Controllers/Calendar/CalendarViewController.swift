@@ -235,6 +235,13 @@ extension CalendarViewController: JTACMonthViewDelegate {
                 
                 // TODO: Do something here...
             }
+			
+			//update performance chart
+			updateChart(week:selectedWeek)
+			
+			
+			
+			
             
         }
         catch {

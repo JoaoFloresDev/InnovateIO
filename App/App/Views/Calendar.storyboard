@@ -13,12 +13,12 @@
         <scene sceneID="p0i-wh-FGM">
             <objects>
                 <viewController storyboardIdentifier="Calendar Storyboard" id="kUW-Y7-4uP" userLabel="Calendar" customClass="CalendarViewController" customModule="My_Way" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="9tv-K3-8FI">
+                    <view key="view" contentMode="scaleToFill" id="9tv-K3-8FI">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="V5a-NO-0Sa" customClass="JTACMonthView" customModule="JTAppleCalendar">
-                                <rect key="frame" x="0.0" y="44" width="320" height="276"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="V5a-NO-0Sa" customClass="JTACMonthView" customModule="JTAppleCalendar">
+                                <rect key="frame" x="0.0" y="44" width="320" height="0.0"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="320" id="ePh-af-m4B"/>
@@ -146,7 +146,7 @@
                                     </connections>
                                 </collectionReusableView>
                             </collectionView>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" dataMode="prototypes" id="1cQ-7Q-pON" customClass="PerformanceChart" customModule="My_Way" customModuleProvider="target">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="1cQ-7Q-pON" customClass="PerformanceChart" customModule="My_Way" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="340" width="320" height="179"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -576,7 +576,7 @@
                                         </connections>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="sKC-1e-w1j">
-                                        <rect key="frame" x="235" y="0.0" width="85" height="330"/>
+                                        <rect key="frame" x="117.5" y="0.0" width="85" height="330"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="5vp-tQ-dlD">
                                             <rect key="frame" x="0.0" y="0.0" width="85" height="330"/>
@@ -584,7 +584,7 @@
                                         </collectionViewCellContentView>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="U7l-8x-VOR">
-                                        <rect key="frame" x="117.5" y="0.0" width="85" height="330"/>
+                                        <rect key="frame" x="235" y="0.0" width="85" height="330"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="9v7-LP-W3r">
                                             <rect key="frame" x="0.0" y="0.0" width="85" height="330"/>
@@ -593,8 +593,8 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1SX-Wr-djt">
-                                <rect key="frame" x="216" y="310" width="88" height="30"/>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1SX-Wr-djt">
+                                <rect key="frame" x="216" y="34" width="88" height="30"/>
                                 <state key="normal" title="Ver Detalhes"/>
                                 <connections>
                                     <action selector="tappedSeeHistoryButton:" destination="kUW-Y7-4uP" eventType="touchUpInside" id="mgf-j5-ECw"/>
