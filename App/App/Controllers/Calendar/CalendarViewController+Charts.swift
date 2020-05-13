@@ -27,7 +27,7 @@ extension CalendarViewController: UICollectionViewDelegate, UICollectionViewData
 		for day in 0..<week.count{
 			let cell = chartCollectionView.cellForItem(at: IndexPath(item: day, section: 0)) as! PerformanceChartCollectionViewCell
 			
-			cell.configureDotsForDay(day: day, mealTime: week[])
+			cell.configureDotsForDay(day: day, mealTime: [4])
 		}
 	}
 }

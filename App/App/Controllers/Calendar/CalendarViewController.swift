@@ -234,7 +234,11 @@ extension CalendarViewController: JTACMonthViewDelegate {
             if daily != nil {
                 
 				//update performance chart
+				let meals = try dataHandler?.loadMeals(year: year, month: month, day: day)
+				meals?[0].day
+				
 				updateChart(week:selectedWeek)
+			
             }
         }
         catch {
