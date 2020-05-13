@@ -13,17 +13,17 @@ class PerformanceChartCollectionViewCell: UICollectionViewCell {
 	@IBOutlet var timeDots: [RoundedView]!
 	private var dataHandler: DataHandler?
 
-	func initTimeDots(){
+	func makeBlankTimeDots(){
 		//make all dissappear
 		for i in 0..<timeDots.count{
 			timeDots[i].deactivate()
 		}
-		
-		timeDots[5].activate()
 	}
 	
-	func getWeekForDay(day:Date){
-		var thisWeek = day.getAllDaysForWeek()//OK, ta pegando
-		print(thisWeek)
+	func configureDotsForDay(day:Int, mealTime:[Int]){
+		makeBlankTimeDots()
+		for i in mealTime{
+			timeDots[i].activate()
+		}
 	}
 }

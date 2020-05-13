@@ -233,16 +233,9 @@ extension CalendarViewController: JTACMonthViewDelegate {
             
             if daily != nil {
                 
-                // TODO: Do something here...
+				//update performance chart
+				updateChart(week:selectedWeek)
             }
-			
-			//update performance chart
-			updateChart(week:selectedWeek)
-			
-			
-			
-			
-            
         }
         catch {
             os_log("[APP] No entry was found!")
