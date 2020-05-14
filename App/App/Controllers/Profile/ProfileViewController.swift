@@ -18,14 +18,7 @@ import os.log
 
 class ProfileViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
-    //    MARK: - Variables
-    var imagePicker: UIImagePickerController!
-    
-    var timerGoalsAnimation: Timer!
-    var headerViewHeightConstraint: NSLayoutConstraint!
-    var gradientView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
-    
-    private var dataHandler: DataHandler?
+    @IBOutlet weak var scrollContentView: UIView!
     
     //    MARK: - IBOutlet
     
@@ -59,14 +52,14 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
     @IBOutlet weak var boxFruitsLegend: UIView!
     @IBOutlet weak var boxExerciceLegend: UIView!
     
-    //    MARK: - IBAction
-    @IBAction func selectImgProfile(_ sender: Any) {
-        openGalery()
-    }
+    //    MARK: - Variables
+    var imagePicker: UIImagePickerController!
     
-    @IBAction func showGoals(_ sender: Any) {
-        animateGoals()
-    }
+    var timerGoalsAnimation: Timer!
+    var headerViewHeightConstraint: NSLayoutConstraint!
+    var gradientView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+    
+    private var dataHandler: DataHandler?
     
     //    MARK: - Life Cicle
     override func viewDidLoad() {
@@ -93,6 +86,22 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
     
     func setUpdateDataProfileNotification() {
         NotificationCenter.default.addObserver(self, selector: #selector(self.updateHeaderInformations), name: NSNotification.Name(rawValue: "updateDataProfile"), object: nil)
+    }
+    
+    // MARK: - Share functions
+    func getScreenshot() -> UIImage? {
+        let renderer = UIGraphicsImageRenderer(size: scrollContentView.bounds.size)
+        let image = renderer.image { ctx in
+            scrollContentView.drawHierarchy(in: scrollContentView.bounds, afterScreenUpdates: true)
+        }
+
+        return image
+    }
+    
+    func shareScreenshot() {
+        let items : [Any] = [getScreenshot()]
+        let ac = UIActivityViewController(activityItems: items, applicationActivities: nil)
+        present(ac, animated: true)
     }
     
     //    MARK: - @objc functions
@@ -259,4 +268,13 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
         StyleClass().appliGradient(view: gradientView)
         myGoalsTextView.addSubview(gradientView)
     }
+    
+    //    MARK: - IBAction
+      @IBAction func selectImgProfile(_ sender: Any) {
+          openGalery()
+      }
+      
+      @IBAction func showGoals(_ sender: Any) {
+          animateGoals()
+      }
 }
