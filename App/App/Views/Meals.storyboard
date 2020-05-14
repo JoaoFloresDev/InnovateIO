@@ -19,7 +19,7 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="28" translatesAutoresizingMaskIntoConstraints="NO" id="fNs-1x-YLf">
-                                        <rect key="frame" x="0.0" y="20" width="414" height="920"/>
+                                        <rect key="frame" x="0.0" y="-35" width="414" height="920"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3KV-BP-m2O" customClass="RegisterMealView" customModule="My_Way" customModuleProvider="target">
                                                 <rect key="frame" x="8.5" y="0.0" width="397" height="50"/>
@@ -36,7 +36,7 @@
                                     <constraint firstAttribute="bottom" secondItem="fNs-1x-YLf" secondAttribute="bottom" constant="20" id="3pp-f2-qX1"/>
                                     <constraint firstItem="fNs-1x-YLf" firstAttribute="width" secondItem="H4M-09-hoa" secondAttribute="width" id="8B1-Sl-SlI"/>
                                     <constraint firstItem="fNs-1x-YLf" firstAttribute="leading" secondItem="H4M-09-hoa" secondAttribute="leading" id="DpM-Ri-Wyg"/>
-                                    <constraint firstItem="fNs-1x-YLf" firstAttribute="top" secondItem="H4M-09-hoa" secondAttribute="top" constant="20" id="shl-jx-sut"/>
+                                    <constraint firstItem="fNs-1x-YLf" firstAttribute="top" secondItem="H4M-09-hoa" secondAttribute="top" constant="-35" id="shl-jx-sut"/>
                                     <constraint firstAttribute="trailing" secondItem="fNs-1x-YLf" secondAttribute="trailing" id="y7D-pt-K2y"/>
                                 </constraints>
                                 <viewLayoutGuide key="contentLayoutGuide" id="xYB-tD-Q6n"/>
@@ -55,13 +55,7 @@
                         <viewLayoutGuide key="safeArea" id="QKW-hz-2Gt"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Diário" image="plus.app" catalog="system" selectedImage="plus.app.fill" id="hBw-ep-HBC"/>
-                    <navigationItem key="navigationItem" title="Diário" id="fRA-BY-ahR">
-                        <barButtonItem key="rightBarButtonItem" title="Nota" id="9Qw-Ch-oSg">
-                            <connections>
-                                <action selector="AddNoteTapped:" destination="UcL-qO-qKl" id="40m-Iy-SWu"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Diário" id="fRA-BY-ahR"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="dailyHabitsView" destination="6hK-ls-JFJ" id="fai-jz-OR7"/>
@@ -76,7 +70,7 @@
         <!--Add Note View Controller-->
         <scene sceneID="gAI-FM-2UT">
             <objects>
-                <viewController id="5Me-D5-VNr" customClass="AddNoteViewController" customModule="My_Way" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddNoteViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="5Me-D5-VNr" customClass="AddNoteViewController" customModule="My_Way" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kfh-x6-yUS">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -98,7 +92,7 @@
                                 </items>
                             </toolbar>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" borderStyle="roundedRect" placeholder="Insira a sua nota aqui" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Lx1-7c-aIU">
-                                <rect key="frame" x="0.0" y="44" width="414" height="764"/>
+                                <rect key="frame" x="16" y="60" width="382" height="764"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
@@ -108,13 +102,13 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="Lx1-7c-aIU" firstAttribute="leading" secondItem="ygl-FK-RnB" secondAttribute="leading" constant="16" id="2vU-7p-QIm"/>
                             <constraint firstItem="PnG-Vs-tD9" firstAttribute="top" secondItem="ygl-FK-RnB" secondAttribute="top" id="3RH-RE-Y2H"/>
-                            <constraint firstItem="ygl-FK-RnB" firstAttribute="trailing" secondItem="Lx1-7c-aIU" secondAttribute="trailing" id="Ibn-66-JCj"/>
+                            <constraint firstItem="ygl-FK-RnB" firstAttribute="trailing" secondItem="Lx1-7c-aIU" secondAttribute="trailing" constant="16" id="ISM-TC-1Wz"/>
+                            <constraint firstItem="Lx1-7c-aIU" firstAttribute="bottom" secondItem="ygl-FK-RnB" secondAttribute="bottom" constant="16" id="NWi-ne-eTS"/>
                             <constraint firstItem="PnG-Vs-tD9" firstAttribute="leading" secondItem="ygl-FK-RnB" secondAttribute="leading" id="RjG-FR-Kdo"/>
                             <constraint firstItem="PnG-Vs-tD9" firstAttribute="trailing" secondItem="ygl-FK-RnB" secondAttribute="trailing" id="Vuq-IM-QMu"/>
-                            <constraint firstItem="ygl-FK-RnB" firstAttribute="bottom" secondItem="Lx1-7c-aIU" secondAttribute="bottom" id="bIK-Mk-fL8"/>
-                            <constraint firstItem="Lx1-7c-aIU" firstAttribute="leading" secondItem="ygl-FK-RnB" secondAttribute="leading" id="hLz-54-tIa"/>
-                            <constraint firstItem="Lx1-7c-aIU" firstAttribute="top" secondItem="PnG-Vs-tD9" secondAttribute="bottom" id="nNu-aj-n8J"/>
+                            <constraint firstItem="Lx1-7c-aIU" firstAttribute="top" secondItem="PnG-Vs-tD9" secondAttribute="bottom" constant="16" id="hC3-rB-wOk"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ygl-FK-RnB"/>
                     </view>
@@ -124,7 +118,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9xq-N6-ihA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1924" y="124"/>
+            <point key="canvasLocation" x="1923" y="115"/>
         </scene>
         <!--Meals-->
         <scene sceneID="df3-q3-U7N">

@@ -55,8 +55,10 @@ extension DataHandler {
                 throw PersistenceError.invalidTime
             }
          
-    
+            let id = UUID().uuidString
+            
             // Setting the values into the Core Data's Model
+            diary.setValue(id, forKey: "id")
             diary.setValue(clampedQuality, forKey: "quality")
             diary.setValue(year, forKey: "year")
             diary.setValue(month, forKey: "month")
@@ -131,9 +133,11 @@ extension DataHandler {
         if (minute > 59) || (minute < 0) {
             throw PersistenceError.invalidTime
         }
-         
-    
+        
+        let id = UUID().uuidString
+        
         // Setting the values into the Core Data's Model
+        diary.setValue(id, forKey: "id")
         diary.setValue(clampedQuality, forKey: "quality")
         diary.setValue(year, forKey: "year")
         diary.setValue(month, forKey: "month")
@@ -201,50 +205,30 @@ extension DataHandler {
     
     
     
-    /// Deletes a certain Meal
+    /// Deletes a certain Meal by id.
     /// - Parameters:
     ///   - meal: The desired Meal (reference) to be removed
     /// - Throws: Can't load storage data because it has invalid parameters.
-    func deleteMeal(meal: Meal) throws {
-        
-        // Checking if the date is valid
-        do {
-            let date = Date()
-            let isValidDate = try date.checkDate(year: Int(meal.year), month: Int(meal.month), day: Int(meal.day))
-            
-            if !isValidDate {
-                throw PersistenceError.invalidDate
-            }
-        }
-        catch {
-            throw DateError.calendarNotFound
-        }
-        
+    func deleteMeal(mealID: String) throws {
+
         // Mounting the type of request
         let fetchRequest = NSFetchRequest<Meal>(entityName: "Meal")
 
-        let yearPredicate = NSPredicate(format: "year == %@", String(meal.year))
-        let monthPredicate = NSPredicate(format: "month == %@", String(meal.month))
-        let dayPredicate = NSPredicate(format: "day == %@", String(meal.day))
+        let idPredicate = NSPredicate(format: "id == %@", mealID)
         
-        let predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [yearPredicate, monthPredicate, dayPredicate])
-        
-        fetchRequest.predicate = predicate
+        fetchRequest.predicate = idPredicate
         
         // Trying to find some User
         do {
             let meals = try managedContext.fetch(fetchRequest)
             
             for foundMeal in meals {
-                if foundMeal.isEqual(meal) {
-                    managedContext.delete(foundMeal)
-                }
+                managedContext.delete(foundMeal)
             }
         }
         catch {
             throw PersistenceError.cantLoad
         }
-        
     }
     
     
@@ -293,6 +277,5 @@ extension DataHandler {
         catch {
             throw PersistenceError.cantLoad
         }
-        
     }
 }

@@ -16,7 +16,6 @@
 		812B30F2243CBF80002F1AFF /* PersistenceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812B30F1243CBF80002F1AFF /* PersistenceError.swift */; };
 		812E8E56245703330041719F /* DateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812E8E55245703330041719F /* DateCell.swift */; };
 		814F59302451F07200F59991 /* DateError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814F592F2451F07200F59991 /* DateError.swift */; };
-		81721F3B2451D3050066B047 /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81721F3A2451D3050066B047 /* Meal.swift */; };
 		81883CCC2464367C00156FED /* WeightTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81883CCB2464367C00156FED /* WeightTests.swift */; };
 		8191C62C2458510600C8AAF3 /* CalendarViewController+Charts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8191C62B2458510600C8AAF3 /* CalendarViewController+Charts.swift */; };
 		8191C62E24585E3600C8AAF3 /* DateHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8191C62D24585E3600C8AAF3 /* DateHeader.swift */; };
@@ -54,6 +53,7 @@
 		D77126DF2459AAAA00EFFEEC /* RegisterMealView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D77126DE2459AAA900EFFEEC /* RegisterMealView.xib */; };
 		D77126E12459AABE00EFFEEC /* RegisterMealView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77126E02459AABE00EFFEEC /* RegisterMealView.swift */; };
 		D7720E4A2465A149004BC3DA /* AddDatedMealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7720E492465A149004BC3DA /* AddDatedMealViewController.swift */; };
+		D77A5C20246AFDEC0018E3A5 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77A5C1F246AFDEC0018E3A5 /* String+.swift */; };
 		D7AADD8024643BD100033287 /* MealHistoryHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7AADD7F24643BD100033287 /* MealHistoryHeader.swift */; };
 		D7AADD8224643C6F00033287 /* MealHistoryHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = D7AADD8124643C6F00033287 /* MealHistoryHeader.xib */; };
 		D7B2C2FC243E0A520071561C /* LineChartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B2C2FA243E0A520071561C /* LineChartTableViewCell.swift */; };
@@ -104,7 +104,6 @@
 		812B30F1243CBF80002F1AFF /* PersistenceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceError.swift; sourceTree = "<group>"; };
 		812E8E55245703330041719F /* DateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCell.swift; sourceTree = "<group>"; };
 		814F592F2451F07200F59991 /* DateError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateError.swift; sourceTree = "<group>"; };
-		81721F3A2451D3050066B047 /* Meal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
 		81883CCB2464367C00156FED /* WeightTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightTests.swift; sourceTree = "<group>"; };
 		8191C62B2458510600C8AAF3 /* CalendarViewController+Charts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CalendarViewController+Charts.swift"; sourceTree = "<group>"; };
 		8191C62D24585E3600C8AAF3 /* DateHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHeader.swift; sourceTree = "<group>"; };
@@ -148,6 +147,7 @@
 		D77126DE2459AAA900EFFEEC /* RegisterMealView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterMealView.xib; sourceTree = "<group>"; };
 		D77126E02459AABE00EFFEEC /* RegisterMealView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterMealView.swift; sourceTree = "<group>"; };
 		D7720E492465A149004BC3DA /* AddDatedMealViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDatedMealViewController.swift; sourceTree = "<group>"; };
+		D77A5C1F246AFDEC0018E3A5 /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 		D7AADD7F24643BD100033287 /* MealHistoryHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealHistoryHeader.swift; sourceTree = "<group>"; };
 		D7AADD8124643C6F00033287 /* MealHistoryHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MealHistoryHeader.xib; sourceTree = "<group>"; };
 		D7B2C2FA243E0A520071561C /* LineChartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineChartTableViewCell.swift; sourceTree = "<group>"; };
@@ -212,6 +212,7 @@
 			children = (
 				8105189B24507BB600F8A86E /* Date.swift */,
 				814F592F2451F07200F59991 /* DateError.swift */,
+				D77A5C1F246AFDEC0018E3A5 /* String+.swift */,
 			);
 			path = DefaultTypesExtensions;
 			sourceTree = "<group>";
@@ -252,13 +253,13 @@
 		81568ADF243B74F600734FCA /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				8DCA3A4A24699AB4009125B4 /* AddNoteViewController.swift */,
 				81AA0BD72456FE6D00E78D58 /* Calendar */,
 				C407E91F243CC20500DA8490 /* Profile */,
 				C44D146D243655BA0094497A /* ViewController.swift */,
 				8DF1318A24506B8A004C2CC7 /* MealViewController.swift */,
 				D7FC5D452462E68C00FB5B81 /* MealHistoryViewController.swift */,
 				D7720E492465A149004BC3DA /* AddDatedMealViewController.swift */,
+				8DCA3A4A24699AB4009125B4 /* AddNoteViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -282,7 +283,6 @@
 		81721F3C2451D4450066B047 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				81721F3A2451D3050066B047 /* Meal.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -792,13 +792,13 @@
 			files = (
 				81AA0BD92456FE7B00E78D58 /* CalendarViewController.swift in Sources */,
 				8D11BFFB245249AD0062D163 /* MealRateButton.swift in Sources */,
+				D77A5C20246AFDEC0018E3A5 /* String+.swift in Sources */,
 				814F59302451F07200F59991 /* DateError.swift in Sources */,
 				8D11BFFD24524FF70062D163 /* RoundedView.swift in Sources */,
 				C4CC1B21246080ED0048B0B7 /* PlotGraphicClass.swift in Sources */,
 				D7FA5D9F24585455001B08AA /* RatingView.swift in Sources */,
 				81959012243E2873001A6DB9 /* DataHandler.swift in Sources */,
 				C44D146E243655BA0094497A /* ViewController.swift in Sources */,
-				81721F3B2451D3050066B047 /* Meal.swift in Sources */,
 				8191C62E24585E3600C8AAF3 /* DateHeader.swift in Sources */,
 				8191C62C2458510600C8AAF3 /* CalendarViewController+Charts.swift in Sources */,
 				C407E923243CFD9800DA8490 /* EditDataViewController.swift in Sources */,

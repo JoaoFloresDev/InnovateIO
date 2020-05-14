@@ -9,16 +9,30 @@
 import UIKit
 
 protocol RegisterMealViewDelegate {
-    func saveMeal(quality: Int, hour: Int, minute: Int)
+    func saveMeal(quality: Int, hour: Int, minute: Int, note: String?)
+    func goToNote(note: String?)
     func presentAlert(_ alert: UIAlertController)
+    func dismissVCIfApplicable()
 }
 
 class RegisterMealView: UIView {
     @IBOutlet var contentView: RoundedView!
     @IBOutlet weak var thisMealRatingView: RatingView!
     @IBOutlet weak var datePicker: UIDatePicker!
+    @IBOutlet weak var noteTableView: UITableView!
+    @IBOutlet weak var finishButton: RoundedButton!
     
     var delegate: RegisterMealViewDelegate?
+    var note: String? {
+        didSet {
+            if let note = note, note.isEmptyOrWhitespace() == false {
+                noteTableView.isHidden = false
+                noteTableView.reloadData()
+            } else {
+                noteTableView.isHidden = true
+            }
+        }
+    }
     var selectedDate: Date = Date()
     
     override init(frame: CGRect) {
@@ -38,19 +52,34 @@ class RegisterMealView: UIView {
         addSubview(contentView)
         contentView.frame = self.bounds
         contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+        
+        setTableView()
     }
     
     func setup(delegate: RegisterMealViewDelegate) {
         self.delegate = delegate
         thisMealRatingView.setup()
+        thisMealRatingView.delegate = self
         setupDatePicker()
+    }
+    
+    func setTableView() {
+        noteTableView.delegate = self
+        noteTableView.dataSource = self
+        noteTableView.register(UINib(resource: R.nib.mealHistoryTableViewCell),
+                               forCellReuseIdentifier: R.reuseIdentifier.mealHistoryTableViewCell.identifier)
     }
     
     func set(meal: Meal) {
         thisMealRatingView.setInitiallySelectedRating(Rating(rawValue: Int(meal.quality)))
         
         let (year, month, day, hour, minute) = (Int(meal.year), Int(meal.month), Int(meal.day), Int(meal.hour), Int(meal.minute))
-        datePicker.date = Date.fromComponents(year: year, month: month, day: day, hour: hour, minute: minute) ?? Date()
+        let receivedDate = Date.fromComponents(year: year, month: month, day: day, hour: hour, minute: minute) ?? Date()
+        datePicker.date = receivedDate
+        selectedDate = receivedDate
+        note = meal.note
+        
+        finishButton.setTitle("Confirmar", for: .normal)
     }
     
     fileprivate func setupDatePicker() {
@@ -60,8 +89,19 @@ class RegisterMealView: UIView {
         datePicker.setValue(UIColor.black, forKeyPath: "textColor")
     }
     
+    fileprivate func reset() {
+        self.datePicker.date = Date()
+        self.thisMealRatingView.setInitiallySelectedRating(nil)
+        self.note = nil
+    }
+    
     @IBAction func datePickerChanged(_ sender: UIDatePicker) {
         selectedDate = sender.date
+        noteTableView.reloadData()
+    }
+    
+    @IBAction func addNoteTapped(_ sender: Any) {
+        delegate?.goToNote(note: note)
     }
     
     @IBAction func addButtonTapped(_ sender: Any) {
@@ -77,13 +117,13 @@ class RegisterMealView: UIView {
             print(selectedDate)
             let (_, _, _, hour, minute, _) = try selectedDate.getAllInformations()
             
-            delegate?.saveMeal(quality: thisMealRate.rawValue, hour: hour, minute: minute)
+            delegate?.saveMeal(quality: thisMealRate.rawValue, hour: hour, minute: minute, note: note)
             
             let alert = UIAlertController(title: "Salvo!", message: "Sua refeição foi registrada.", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
                 alert.dismiss(animated: true)
-                self.datePicker.date = Date()
-                self.thisMealRatingView.setInitiallySelectedRating(nil)
+                self.delegate?.dismissVCIfApplicable()
+                self.reset()
             }))
             delegate?.presentAlert(alert)
         } catch {
@@ -95,5 +135,27 @@ class RegisterMealView: UIView {
             }))
             delegate?.presentAlert(alert)
         }
+    }
+}
+
+extension RegisterMealView: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.mealHistoryTableViewCell.identifier) as? MealHistoryTableViewCell else { return UITableViewCell() }
+        
+        let (_, _, _, hour, minute, _) = try! selectedDate.getAllInformations()
+        
+        cell.commonSetup(rating: thisMealRatingView.selectedRating, note: note, hour: hour, minute: minute)
+        
+        return cell
+    }
+}
+
+extension RegisterMealView: RatingViewDelegate {
+    func selectedRatingDidChange(to rating: Rating?) {
+        noteTableView.reloadData()
     }
 }

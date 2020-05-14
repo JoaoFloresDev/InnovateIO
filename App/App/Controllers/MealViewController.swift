@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import os.log
 
 class MealViewController: UIViewController {
     @IBOutlet weak var registerMealView: RegisterMealView!
@@ -14,10 +15,11 @@ class MealViewController: UIViewController {
     
     var dataHandler: DataHandler?
     var dailyDiary: DailyDiary?
-	
-	@IBAction func AddNoteTapped(_ sender: Any) {
-		segueToNote()
-	}
+    var mealNote: String? {
+        didSet {
+            didSetMealNote()
+        }
+    }
 	
 	override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,7 +27,7 @@ class MealViewController: UIViewController {
         do {
             dataHandler = try DataHandler.getShared()
         } catch {
-            print("Couldn't get shared DataHandler.")
+            os_log("Couldn't get shared DataHandler.")
         }
         
         fetchDailyData()
@@ -45,20 +47,13 @@ class MealViewController: UIViewController {
                                               didPracticeExercise: dailyDiary.didPracticeExercise,
                                               didEatFruit: dailyDiary.didEatFruit)
         } catch {
-            print("Couldn't update daily diary.")
+            os_log("Couldn't update daily diary.")
         }
     }
-	
-	func segueToNote(){
-		self.performSegue(withIdentifier: "toNoteModal", sender: nil)
-	}
-	
-	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-		guard let dest = segue.destination as? AddNoteViewController else{
-			return
-		}
-		
-	}
+    
+    func didSetMealNote() {
+        registerMealView.note = mealNote
+    }
     
     func fetchDailyData() {
         do {
@@ -70,7 +65,7 @@ class MealViewController: UIViewController {
             }
             dailyHabitsView.setInitialDailyDiary(dailyDiary)
         } catch {
-            print("There's still no daily data for today or something went wrong when trying to fetch.")
+            os_log("There's still no daily data for today or something went wrong when trying to fetch.")
             createEmptyDailyData()
         }
     }
@@ -83,28 +78,52 @@ class MealViewController: UIViewController {
             dailyDiary = try dataHandler?.loadDailyDiary(year: year, month: month, day: day)
             dailyHabitsView.setInitialDailyDiary(dailyDiary)
         } catch {
-            print("Couldn't create new empty daily diary data.")
+            os_log("Couldn't create new empty daily diary data.")
+        }
+    }
+    
+    // MARK: PREPARE FOR SEGUE
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == R.segue.mealViewController.toNoteModal.identifier
+        {
+            let vc = segue.destination as? AddNoteViewController
+            vc?.delegate = self
+            vc?.note = mealNote
         }
     }
 }
-
+// MARK: - REGISTER MEAL VIEW DELEGATE
 extension MealViewController: RegisterMealViewDelegate {
-    func saveMeal(quality: Int, hour: Int, minute: Int) {
+    func dismissVCIfApplicable() {
+        // Do nothing.
+    }
+    
+    func saveMeal(quality: Int, hour: Int, minute: Int, note: String?) {
         do {
-            try dataHandler?.createMeal(quality: quality, hour: hour, minute: minute)
+            try dataHandler?.createMeal(quality: quality, hour: hour, minute: minute, note: note)
         } catch {
-            print("Couldn't create new meal.")
+            os_log("Couldn't create new meal.")
         }
+    }
+    
+    func goToNote(note: String?) {
+        performSegue(withIdentifier: R.segue.mealViewController.toNoteModal.identifier, sender: nil)
     }
     
     func presentAlert(_ alert: UIAlertController) {
         self.present(alert, animated: true)
     }
 }
-
+// MARK: - DAILY HABITS VIEW DELEGATE
 extension MealViewController: DailyHabitsViewDelegate {
     func dailyDiaryDidUpdate(_ diary: DailyDiary) {
         self.dailyDiary = diary
         updateDailyData()
+    }
+}
+// MARK: - ADD NOTE VC DELEGATE
+extension MealViewController: AddNoteVCDelegate {
+    func didFinishEditingNote(_ note: String?) {
+        mealNote = note
     }
 }

@@ -8,13 +8,22 @@
 
 import UIKit
 
+protocol AddNoteVCDelegate {
+    func didFinishEditingNote(_ note: String?)
+}
+
 class AddNoteViewController: UIViewController {
 
 	@IBOutlet var textField: UITextField!
+    
+    var delegate: AddNoteVCDelegate?
+    var note: String?
+    
 	override func viewDidLoad() {
         super.viewDidLoad()
 
 		textField.delegate = self
+        textField.text = note
     }
 	
 	@IBAction func NoteDescriptionEnded(_ sender: Any) {
@@ -26,15 +35,12 @@ class AddNoteViewController: UIViewController {
 	}
 	
 	@IBAction func saveTapped(_ sender: Any) {
-		
-		#warning("salvar nota")
-		
-		
+        delegate?.didFinishEditingNote(textField.text)
 		self.dismiss(animated: true, completion: nil)
 	}
 }
 
-extension AddNoteViewController:UITextFieldDelegate{
+extension AddNoteViewController: UITextFieldDelegate {
 	func textFieldShouldReturn(_ textField: UITextField) -> Bool {
 		textField.resignFirstResponder()
 		return true
