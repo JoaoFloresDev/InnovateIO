@@ -89,8 +89,25 @@ struct R: Rswift.Validatable {
   }
 
   #if os(iOS) || os(tvOS)
-  /// This `R.segue` struct is generated, and contains static references to 3 view controllers.
+  /// This `R.segue` struct is generated, and contains static references to 4 view controllers.
   struct segue {
+    /// This struct is generated for `CalendarViewController`, and contains static references to 1 segues.
+    struct calendarViewController {
+      /// Segue identifier `toMealHistory`.
+      static let toMealHistory: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, CalendarViewController, MealHistoryViewController> = Rswift.StoryboardSegueIdentifier(identifier: "toMealHistory")
+
+      #if os(iOS) || os(tvOS)
+      /// Optionally returns a typed version of segue `toMealHistory`.
+      /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
+      /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
+      static func toMealHistory(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, CalendarViewController, MealHistoryViewController>? {
+        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.calendarViewController.toMealHistory, segue: segue)
+      }
+      #endif
+
+      fileprivate init() {}
+    }
+
     /// This struct is generated for `MealHistoryViewController`, and contains static references to 1 segues.
     struct mealHistoryViewController {
       /// Segue identifier `toRegisterMeal`.
@@ -643,7 +660,6 @@ struct _R: Rswift.Validatable {
     static func validate() throws {
       try _DailyHabitsTableViewCell.validate()
       try _MealHistoryHeader.validate()
-      try _RegisterMealView.validate()
     }
 
     struct _DailyHabitsTableViewCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType, Rswift.Validatable {
@@ -733,18 +749,12 @@ struct _R: Rswift.Validatable {
       fileprivate init() {}
     }
 
-    struct _RegisterMealView: Rswift.NibResourceType, Rswift.Validatable {
+    struct _RegisterMealView: Rswift.NibResourceType {
       let bundle = R.hostingBundle
       let name = "RegisterMealView"
 
       func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> RoundedView? {
         return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? RoundedView
-      }
-
-      static func validate() throws {
-        if UIKit.UIImage(named: "plus", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'plus' is used in nib 'RegisterMealView', but couldn't be loaded.") }
-        if #available(iOS 11.0, tvOS 11.0, *) {
-        }
       }
 
       fileprivate init() {}
@@ -811,7 +821,7 @@ struct _R: Rswift.Validatable {
 
     #if os(iOS) || os(tvOS)
     struct mealHistory: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
-      typealias InitialController = UIKit.UINavigationController
+      typealias InitialController = MealHistoryViewController
 
       let bundle = R.hostingBundle
       let name = "MealHistory"
@@ -829,9 +839,14 @@ struct _R: Rswift.Validatable {
     struct meals: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
       typealias InitialController = UIKit.UINavigationController
 
+      let addNoteViewController = StoryboardViewControllerResource<AddNoteViewController>(identifier: "AddNoteViewController")
       let bundle = R.hostingBundle
       let mealNavigationViewController = StoryboardViewControllerResource<UIKit.UINavigationController>(identifier: "MealNavigationViewController")
       let name = "Meals"
+
+      func addNoteViewController(_: Void = ()) -> AddNoteViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: addNoteViewController)
+      }
 
       func mealNavigationViewController(_: Void = ()) -> UIKit.UINavigationController? {
         return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: mealNavigationViewController)
@@ -842,6 +857,7 @@ struct _R: Rswift.Validatable {
         if UIKit.UIImage(named: "plus.app.fill", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'plus.app.fill' is used in storyboard 'Meals', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
+        if _R.storyboard.meals().addNoteViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'addNoteViewController' could not be loaded from storyboard 'Meals' as 'AddNoteViewController'.") }
         if _R.storyboard.meals().mealNavigationViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'mealNavigationViewController' could not be loaded from storyboard 'Meals' as 'UIKit.UINavigationController'.") }
       }
 

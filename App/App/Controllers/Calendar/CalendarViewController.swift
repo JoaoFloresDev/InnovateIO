@@ -50,6 +50,7 @@ class CalendarViewController: UIViewController {
         
         // If the tab bar selected item has changed into this View Controller...
         // We reload the calendar!
+
         self.calendarView.reloadData()
     }
 
@@ -93,6 +94,7 @@ extension CalendarViewController: JTACMonthViewDataSource {
     /// - Returns: Returns the amount of months that can be seen.
     func configureCalendar(_ calendar: JTACMonthView) -> ConfigurationParameters {  
         let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "pt_BR")
         formatter.dateFormat = "yyyy MM dd"
         let startDate = formatter.date(from: "2018 01 01")!
         let endDate = Date()
@@ -127,7 +129,7 @@ extension CalendarViewController: JTACMonthViewDelegate {
         }
         
         cell.dateLabel.text = cellState.text
-        cell.dateLabel.backgroundColor = .none
+        cell.circle.backgroundColor = .none
         
         // Colorizing the cells
         if cellState.dateBelongsTo == .thisMonth {
@@ -180,6 +182,7 @@ extension CalendarViewController: JTACMonthViewDelegate {
     /// - Returns: A reusable view for the header or in another words the configured view for the header
     func calendar(_ calendar: JTACMonthView, headerViewForDateRange range: (start: Date, end: Date), at indexPath: IndexPath) -> JTACMonthReusableView {
         
+        self.formatter.locale = Locale(identifier: "pt_BR")
         self.formatter.dateFormat = "MMM YYYY"
         
         let header = calendar.dequeueReusableJTAppleSupplementaryView(withReuseIdentifier: "DateHeader", for: indexPath) as! DateHeader
