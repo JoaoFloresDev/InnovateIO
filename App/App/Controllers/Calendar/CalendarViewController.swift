@@ -50,6 +50,7 @@ class CalendarViewController: UIViewController {
         
         // If the tab bar selected item has changed into this View Controller...
         // We reload the calendar!
+
         self.calendarView.reloadData()
     }
 
@@ -128,7 +129,7 @@ extension CalendarViewController: JTACMonthViewDelegate {
         }
         
         cell.dateLabel.text = cellState.text
-        cell.dateLabel.backgroundColor = .none
+        cell.circle.backgroundColor = .none
         
         // Colorizing the cells
         if cellState.dateBelongsTo == .thisMonth {
