@@ -144,55 +144,6 @@ extension Date {
     
     
     
-    /// Converts a certain month from Int type to a String type
-    /// - Parameter value: The month in number format (Integer)
-    /// - Returns: The 3 initials from the Month as String
-    static func convertMonthFromIntToString(value: Int) -> String {
-        
-        var converted: String = "Jan"
-        
-        switch (value) {
-        case 2:
-            converted = "Fev"
-            break
-        case 3:
-            converted = "Mar"
-            break
-        case 4:
-            converted = "Abr"
-            break
-        case 5:
-            converted = "Mai"
-            break
-        case 6:
-            converted = "Jun"
-            break
-        case 7:
-            converted = "Jul"
-            break
-        case 8:
-            converted = "Ago"
-            break
-        case 9:
-            converted = "Set"
-            break
-        case 10:
-            converted = "Out"
-            break
-        case 11:
-            converted = "Nov"
-            break
-        case 12:
-            converted = "Dez"
-            break
-        default:
-            break
-        }
-        
-        return converted
-        
-    }
-    
     static func fromComponents(year: Int, month: Int, day: Int, hour: Int, minute: Int) -> Date? {
         // Specify date components
         var dateComponents = DateComponents()

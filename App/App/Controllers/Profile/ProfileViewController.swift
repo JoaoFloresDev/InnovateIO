@@ -115,7 +115,10 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
                 let (year, month, day, _, _, _) = try day.getAllInformations()
                 
                 // Converting month number into text
-                let monthString: String = Date.convertMonthFromIntToString(value: month)
+                let dateFormatter = DateFormatter()
+                dateFormatter.locale = Locale(identifier: "pt_BR")
+                dateFormatter.setLocalizedDateFormatFromTemplate("MMM")
+                let monthString = dateFormatter.string(from: Date())
                 
                 dates.add("\(day)\n\(monthString)")
                 
