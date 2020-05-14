@@ -9,7 +9,7 @@
 import UIKit
 import QuartzCore
 import Photos
-
+import os.log
 
 /// Profile screen:
 /// - graphics weight and good habits
@@ -24,6 +24,8 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
     var timerGoalsAnimation: Timer!
     var headerViewHeightConstraint: NSLayoutConstraint!
     var gradientView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+    
+    private var dataHandler: DataHandler?
     
     //    MARK: - IBOutlet
     
@@ -71,6 +73,13 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
         
         super.viewDidLoad()
         
+        do {
+            self.dataHandler = try DataHandler.getShared()
+        }
+        catch {
+            os_log("[ERROR] The App wasn't fully initialized yet for managing data!")
+        }
+        
         setupStyleViews()
         setupDataProfile()
         setUpdateDataProfileNotification()
@@ -94,24 +103,61 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
     //    MARK: - Graphics
     func setupGraphic() {
         
-        
-        let dates: NSMutableArray = ["13\nJan", "13\nFev", "13\nMar", "13\nAbr", "13\nMai","13\nJun", "13\nJul", "13\nAgo", "13\nSet", "13\nOut", "13\nNov", "13\nDez"]
-        
-        var numbersArray = [[Int32]]()
-        
-        PlotGraphicClass().setLayoutLegends(views: [boxWaterLegend, boxFruitsLegend, boxExerciceLegend])
-        
-        PlotGraphicClass().plotGraphicHorizontalBars (view: meatsGraphicBarsView, greenPercent: 0.5, yellowPercent: 0.3 )
-        
-        //  Populate with aleatory values
-        numbersArray = PlotGraphicClass().generateValues(numLines: 1, datesCount: dates.count)
-        
-        PlotGraphicClass().plotGraphicLine(graphicVIew: weightGraphicLineView, colorLinesArray: [UIColor.black], datesX: dates, numbersArray: numbersArray, topNumber: 120, bottomNumber: 30)
-        
-        //  Populate with aleatory values
-        numbersArray = PlotGraphicClass().generateValues(numLines: 3, datesCount: dates.count)
-        
-        PlotGraphicClass().plotGraphicLine(graphicVIew: habitsGraphicLineView, colorLinesArray: [UIColor.blue, UIColor.purple, UIColor.pink()], datesX: dates, numbersArray: numbersArray, topNumber: 100, bottomNumber: 0)
+        do {
+            // Getting the current days of week
+            let dates: NSMutableArray = []
+            var weights: [Int32] = []
+            let daysOfWeek = Date().getAllDaysForWeek()
+            
+            for day in daysOfWeek {
+                
+                // Getting the current day of the week
+                let (year, month, day, _, _, _) = try day.getAllInformations()
+                
+                // Converting month number into text
+                let dateFormatter = DateFormatter()
+                dateFormatter.locale = Locale(identifier: "pt_BR")
+                dateFormatter.setLocalizedDateFormatFromTemplate("MMM")
+                let monthString = dateFormatter.string(from: Date())
+                
+                dates.add("\(day)\n\(monthString)")
+                
+                // Getting the weight for that day
+                var weight: Int32 = 0
+                
+                do {
+                    let entity = try self.dataHandler?.loadWeight(year: year, month: month, day: day)
+                    
+                    if entity != nil {
+                        weight = Int32(entity!.value)
+                    }
+                }
+                catch {}
+                
+                weights.append(weight)
+            }
+            
+            
+            // Getting the current values for the charts
+            var numbersArray = [[Int32]]()
+            
+            PlotGraphicClass().setLayoutLegends(views: [boxWaterLegend, boxFruitsLegend, boxExerciceLegend])
+            
+            PlotGraphicClass().plotGraphicHorizontalBars (view: meatsGraphicBarsView, greenPercent: 0.5, yellowPercent: 0.3 )
+            
+            // Populating with the weights marked on this current week
+            numbersArray = [weights]
+            
+            PlotGraphicClass().plotGraphicLine(graphicVIew: weightGraphicLineView, colorLinesArray: [UIColor.black], datesX: dates, numbersArray: numbersArray, topNumber: 120, bottomNumber: 0)
+            
+            //  Populate with aleatory values
+            numbersArray = PlotGraphicClass().generateValues(numLines: 3, datesCount: dates.count)
+            
+            PlotGraphicClass().plotGraphicLine(graphicVIew: habitsGraphicLineView, colorLinesArray: [UIColor.blue, UIColor.purple, UIColor.pink()], datesX: dates, numbersArray: numbersArray, topNumber: 100, bottomNumber: 0)
+        }
+        catch {
+            os_log("[ERROR] Couldn't communicate with the operating system's internal calendar/time system!")
+        }
     }
     
     //    MARK: - Take Profile Image
