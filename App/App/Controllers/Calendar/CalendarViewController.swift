@@ -127,7 +127,7 @@ extension CalendarViewController: JTACMonthViewDelegate {
 		}
 		
 		cell.dateLabel.text = cellState.text
-		cell.dateLabel.backgroundColor = .none
+        cell.circle.backgroundColor = .none
 		
 		// Colorizing the cells
 		if cellState.dateBelongsTo == .thisMonth {
