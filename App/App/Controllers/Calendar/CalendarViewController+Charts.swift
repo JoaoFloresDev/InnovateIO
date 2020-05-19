@@ -18,14 +18,13 @@ extension CalendarViewController: UICollectionViewDelegate, UICollectionViewData
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PerformanceChart", for: indexPath) as! PerformanceChartCollectionViewCell
 		
-		cell.initTimeDots()
-		cell.getMealsForWeek()
-        
+		cell.makeBlankTimeDots()
         return cell
-        
     }
-    
-    
-    
-    
+	
+	func updateChart(day:Int, hours:[Int]){
+		let cell = chartCollectionView.cellForItem(at: IndexPath(item: day, section: 0)) as! PerformanceChartCollectionViewCell
+			
+		cell.configureDotsForDay(day: day, mealTime: hours)
+	}
 }
