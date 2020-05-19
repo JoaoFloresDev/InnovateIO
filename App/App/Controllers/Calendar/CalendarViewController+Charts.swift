@@ -22,12 +22,9 @@ extension CalendarViewController: UICollectionViewDelegate, UICollectionViewData
         return cell
     }
 	
-	func updateChart(week:[Date]){
-		//7 days in a week
-		for day in 0..<week.count{
-			let cell = chartCollectionView.cellForItem(at: IndexPath(item: day, section: 0)) as! PerformanceChartCollectionViewCell
+	func updateChart(day:Int, hours:[Int]){
+		let cell = chartCollectionView.cellForItem(at: IndexPath(item: day, section: 0)) as! PerformanceChartCollectionViewCell
 			
-			cell.configureDotsForDay(day: day, mealTime: [4])
-		}
+		cell.configureDotsForDay(day: day, mealTime: hours)
 	}
 }
