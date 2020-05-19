@@ -164,8 +164,10 @@ struct R: Rswift.Validatable {
   #endif
 
   #if os(iOS) || os(tvOS)
-  /// This `R.storyboard` struct is generated, and contains static references to 6 storyboards.
+  /// This `R.storyboard` struct is generated, and contains static references to 7 storyboards.
   struct storyboard {
+    /// Storyboard `Calendar`.
+    static let calendar = _R.storyboard.calendar()
     /// Storyboard `LaunchScreen`.
     static let launchScreen = _R.storyboard.launchScreen()
     /// Storyboard `Main`.
@@ -178,6 +180,13 @@ struct R: Rswift.Validatable {
     static let profile = _R.storyboard.profile()
     /// Storyboard `Settings`.
     static let settings = _R.storyboard.settings()
+
+    #if os(iOS) || os(tvOS)
+    /// `UIStoryboard(name: "Calendar", bundle: ...)`
+    static func calendar(_: Void = ()) -> UIKit.UIStoryboard {
+      return UIKit.UIStoryboard(resource: R.storyboard.calendar)
+    }
+    #endif
 
     #if os(iOS) || os(tvOS)
     /// `UIStoryboard(name: "LaunchScreen", bundle: ...)`
@@ -768,6 +777,9 @@ struct _R: Rswift.Validatable {
   struct storyboard: Rswift.Validatable {
     static func validate() throws {
       #if os(iOS) || os(tvOS)
+      try calendar.validate()
+      #endif
+      #if os(iOS) || os(tvOS)
       try launchScreen.validate()
       #endif
       #if os(iOS) || os(tvOS)
@@ -786,6 +798,31 @@ struct _R: Rswift.Validatable {
       try settings.validate()
       #endif
     }
+
+    #if os(iOS) || os(tvOS)
+    struct calendar: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
+      typealias InitialController = UIKit.UINavigationController
+
+      let bundle = R.hostingBundle
+      let calendarStoryboard = StoryboardViewControllerResource<CalendarViewController>(identifier: "Calendar Storyboard")
+      let name = "Calendar"
+
+      func calendarStoryboard(_: Void = ()) -> CalendarViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: calendarStoryboard)
+      }
+
+      static func validate() throws {
+        if UIKit.UIImage(named: "book", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'book' is used in storyboard 'Calendar', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "book.fill", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'book.fill' is used in storyboard 'Calendar', but couldn't be loaded.") }
+        if #available(iOS 11.0, tvOS 11.0, *) {
+          if UIKit.UIColor(named: "rateRedColor", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'rateRedColor' is used in storyboard 'Calendar', but couldn't be loaded.") }
+        }
+        if _R.storyboard.calendar().calendarStoryboard() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'calendarStoryboard' could not be loaded from storyboard 'Calendar' as 'CalendarViewController'.") }
+      }
+
+      fileprivate init() {}
+    }
+    #endif
 
     #if os(iOS) || os(tvOS)
     struct launchScreen: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
