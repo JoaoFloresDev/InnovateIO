@@ -35,6 +35,10 @@ class EditDataViewController: ViewController, UIPickerViewDelegate, UIPickerView
         saveNewData()
         self.dismiss(animated: true, completion: nil)
         updateDataProfile()
+        
+        if let presenter = self.presentingViewController?.children[0] as? ProfileViewController {
+            presenter.setupGraphic()
+        }
     }
     
     /// Closes the view.
