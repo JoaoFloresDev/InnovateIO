@@ -1,32 +1,66 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1Yr-zO-dDl">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dRs-vJ-m6y">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Configurações-->
+        <!--Ajustes-->
         <scene sceneID="hNP-CF-WXx">
             <objects>
-                <viewController id="1Yr-zO-dDl" sceneMemberID="viewController">
+                <viewController id="1Yr-zO-dDl" customClass="SettingsViewController" customModule="My_Way" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="WRj-mW-hnF">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="0Kp-GT-zk1">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="calibratedRGB"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="0Kp-GT-zk1" firstAttribute="leading" secondItem="s8B-Ef-aXb" secondAttribute="leading" id="GIB-ve-EKL"/>
+                            <constraint firstItem="s8B-Ef-aXb" firstAttribute="bottom" secondItem="0Kp-GT-zk1" secondAttribute="bottom" id="PV1-oW-tcQ"/>
+                            <constraint firstItem="0Kp-GT-zk1" firstAttribute="top" secondItem="s8B-Ef-aXb" secondAttribute="top" id="XUY-tY-49h"/>
+                            <constraint firstItem="s8B-Ef-aXb" firstAttribute="trailing" secondItem="0Kp-GT-zk1" secondAttribute="trailing" id="ccf-F9-ZKy"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="s8B-Ef-aXb"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Configurações" image="ellipsis.circle" catalog="system" selectedImage="ellipsis.circle.fill" id="7Tp-gK-JSa"/>
+                    <navigationItem key="navigationItem" title="Ajustes" id="qXd-0k-J3f"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="optionsTableView" destination="0Kp-GT-zk1" id="mMN-qF-Ste"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8a8-GM-4Lo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="230" y="119"/>
+            <point key="canvasLocation" x="1139.1304347826087" y="118.52678571428571"/>
+        </scene>
+        <!--Configurações-->
+        <scene sceneID="Lbo-jI-BbC">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dRs-vJ-m6y" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Configurações" image="ellipsis.circle" catalog="system" selectedImage="ellipsis.circle.fill" id="7Tp-gK-JSa"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="YV5-AO-bae">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="1Yr-zO-dDl" kind="relationship" relationship="rootViewController" id="jcA-vd-XTM"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cCB-zl-FV7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="228.98550724637684" y="118.52678571428571"/>
         </scene>
     </scenes>
     <resources>
-        <image name="ellipsis.circle" catalog="system" width="64" height="60"/>
-        <image name="ellipsis.circle.fill" catalog="system" width="64" height="60"/>
+        <image name="ellipsis.circle" catalog="system" width="128" height="121"/>
+        <image name="ellipsis.circle.fill" catalog="system" width="128" height="121"/>
     </resources>
 </document>
