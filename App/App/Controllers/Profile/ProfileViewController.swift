@@ -113,15 +113,17 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
     func setupGraphic() {
         
         do {
+            
+            let plotter = try PlotGraphicClass()
+            
             // Getting the current days of week
             let dates: NSMutableArray = []
-            var weights: [Int32] = []
             let daysOfWeek = Date().getAllDaysForWeek()
             
             for day in daysOfWeek {
                 
                 // Getting the current day of the week
-                let (year, month, day, _, _, _) = try day.getAllInformations()
+                let (_, _, day, _, _, _) = try day.getAllInformations()
                 
                 // Converting month number into text
                 let dateFormatter = DateFormatter()
@@ -130,91 +132,27 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
                 let monthString = dateFormatter.string(from: Date())
                 
                 dates.add("\(day)\n\(monthString)")
-                
-                // Getting the weight for that day
-                var weight: Int32 = 0
-                
-                do {
-                    let entity = try self.dataHandler?.loadWeight(year: year, month: month, day: day)
-                    
-                    if entity != nil {
-                        weight = Int32(entity!.value)
-                    }
-                }
-                catch {}
-                
-                weights.append(weight)
+
             }
             
-            
-            // Getting the current values for the charts
+            // Starting to populate and draw the charts...
             var numbersArray = [[Int32]]()
             
-            PlotGraphicClass().setLayoutLegends(views: [boxWaterLegend, boxFruitsLegend, boxExerciceLegend])
-            
-            PlotGraphicClass().plotGraphicHorizontalBars (view: meatsGraphicBarsView, greenPercent: 0.5, yellowPercent: 0.3 )
+            plotter.setLayoutLegends(views: [boxWaterLegend, boxFruitsLegend, boxExerciceLegend])
+            plotter.plotGraphicHorizontalBars (view: meatsGraphicBarsView, greenPercent: 0.5, yellowPercent: 0.3 )
             
             // Populating with the weights marked on this current week
-            numbersArray = [weights]
+            numbersArray = try plotter.loadWeights()
             
-            PlotGraphicClass().plotGraphicLine(graphicVIew: weightGraphicLineView, colorLinesArray: [UIColor.black], datesX: dates, numbersArray: numbersArray, topNumber: 120, bottomNumber: 0)
+            plotter.plotGraphicLine(graphicVIew: weightGraphicLineView, colorLinesArray: [UIColor.black], datesX: dates, numbersArray: numbersArray, topNumber: 120, bottomNumber: 0)
             
-            //  Populate with aleatory values
-            numbersArray = [[], [], []]
+            //  Populating the habits with core data values
+            numbersArray = try plotter.loadHabits()
 
-            
-            
-            for _ in 0 ..< 3 {
-                
-                for day in daysOfWeek {
-                    
-                    // Getting the current day of the week
-                    let (year, month, day, _, _, _) = try day.getAllInformations()
-
-                    // Getting the value for that day according to each category
-                    var waterConvertedValue: Int32 = 0
-                    var fruitConvertedValue: Int32 = 0
-                    var sportConvertedValue: Int32 = 0
-                    
-                    do {
-                        let entity = try self.dataHandler?.loadDailyDiary(year: year, month: month, day: day)
-                        
-                        if entity != nil {
-                            
-                            
-                            if entity!.didDrinkWater {
-                                waterConvertedValue = 1
-                            }
-                            
-                            if entity!.didEatFruit {
-                                fruitConvertedValue = 1
-                            }
-                            
-                            if entity!.didEatFruit {
-                                sportConvertedValue = 1
-                            }
-                            
-                        }
-                    }
-                    catch {}
-                    
-                    numbersArray[0].append(waterConvertedValue)
-                    numbersArray[1].append(fruitConvertedValue)
-                    numbersArray[2].append(sportConvertedValue)
-                    
-                }
-            }
-            
-            
-            
-            
-            
-            
-            
-            PlotGraphicClass().plotGraphicLine(graphicVIew: habitsGraphicLineView, colorLinesArray: [UIColor.blue, UIColor.purple, UIColor.pink()], datesX: dates, numbersArray: numbersArray, topNumber: 1, bottomNumber: 0)
+            plotter.plotGraphicLine(graphicVIew: habitsGraphicLineView, colorLinesArray: [UIColor.blue, UIColor.purple, UIColor.pink()], datesX: dates, numbersArray: numbersArray, topNumber: 1, bottomNumber: 0)
         }
         catch {
-            os_log("[ERROR] Couldn't communicate with the operating system's internal calendar/time system!")
+            os_log("[ERROR] Couldn't communicate with the operating system's internal calendar/time system or memory is too low!")
         }
     }
     
