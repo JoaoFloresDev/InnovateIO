@@ -59,6 +59,7 @@
 		D7B2C2FC243E0A520071561C /* LineChartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B2C2FA243E0A520071561C /* LineChartTableViewCell.swift */; };
 		D7B2C2FD243E0A520071561C /* LineChartTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D7B2C2FB243E0A520071561C /* LineChartTableViewCell.xib */; };
 		D7B2C301243E17D90071561C /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B2C300243E17D90071561C /* R.generated.swift */; };
+		D7CABB2E24740DA1000DA684 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7CABB2D24740DA1000DA684 /* SettingsViewController.swift */; };
 		D7FA5D9F24585455001B08AA /* RatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7FA5D9E24585455001B08AA /* RatingView.swift */; };
 		D7FA5DA124585481001B08AA /* RatingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D7FA5DA024585481001B08AA /* RatingView.xib */; };
 		D7FA5DA3245858A7001B08AA /* Rating.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7FA5DA2245858A7001B08AA /* Rating.swift */; };
@@ -153,6 +154,7 @@
 		D7B2C2FA243E0A520071561C /* LineChartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineChartTableViewCell.swift; sourceTree = "<group>"; };
 		D7B2C2FB243E0A520071561C /* LineChartTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LineChartTableViewCell.xib; sourceTree = "<group>"; };
 		D7B2C300243E17D90071561C /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
+		D7CABB2D24740DA1000DA684 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		D7FA5D9E24585455001B08AA /* RatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingView.swift; sourceTree = "<group>"; };
 		D7FA5DA024585481001B08AA /* RatingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RatingView.xib; sourceTree = "<group>"; };
 		D7FA5DA2245858A7001B08AA /* Rating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rating.swift; sourceTree = "<group>"; };
@@ -260,6 +262,7 @@
 				D7FC5D452462E68C00FB5B81 /* MealHistoryViewController.swift */,
 				D7720E492465A149004BC3DA /* AddDatedMealViewController.swift */,
 				8DCA3A4A24699AB4009125B4 /* AddNoteViewController.swift */,
+				D7CABB2D24740DA1000DA684 /* SettingsViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -812,6 +815,7 @@
 				D7FA5DA3245858A7001B08AA /* Rating.swift in Sources */,
 				8DCA3A4B24699AB4009125B4 /* AddNoteViewController.swift in Sources */,
 				81F5FCF624642F560030D12F /* DataHandler+Weight.swift in Sources */,
+				D7CABB2E24740DA1000DA684 /* SettingsViewController.swift in Sources */,
 				8D679A822464BEB600C7C53E /* PerformanceChartCollectionViewCell.swift in Sources */,
 				D71DF4232461995700DDA7BE /* MealHistoryTableViewCell.swift in Sources */,
 				8105189C24507BB600F8A86E /* Date.swift in Sources */,
