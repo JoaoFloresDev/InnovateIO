@@ -160,9 +160,58 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
             PlotGraphicClass().plotGraphicLine(graphicVIew: weightGraphicLineView, colorLinesArray: [UIColor.black], datesX: dates, numbersArray: numbersArray, topNumber: 120, bottomNumber: 0)
             
             //  Populate with aleatory values
-            numbersArray = PlotGraphicClass().generateValues(numLines: 3, datesCount: dates.count)
+            numbersArray = [[], [], []]
+
             
-            PlotGraphicClass().plotGraphicLine(graphicVIew: habitsGraphicLineView, colorLinesArray: [UIColor.blue, UIColor.purple, UIColor.pink()], datesX: dates, numbersArray: numbersArray, topNumber: 100, bottomNumber: 0)
+            
+            for _ in 0 ..< 3 {
+                
+                for day in daysOfWeek {
+                    
+                    // Getting the current day of the week
+                    let (year, month, day, _, _, _) = try day.getAllInformations()
+
+                    // Getting the value for that day according to each category
+                    var waterConvertedValue: Int32 = 0
+                    var fruitConvertedValue: Int32 = 0
+                    var sportConvertedValue: Int32 = 0
+                    
+                    do {
+                        let entity = try self.dataHandler?.loadDailyDiary(year: year, month: month, day: day)
+                        
+                        if entity != nil {
+                            
+                            
+                            if entity!.didDrinkWater {
+                                waterConvertedValue = 1
+                            }
+                            
+                            if entity!.didEatFruit {
+                                fruitConvertedValue = 1
+                            }
+                            
+                            if entity!.didEatFruit {
+                                sportConvertedValue = 1
+                            }
+                            
+                        }
+                    }
+                    catch {}
+                    
+                    numbersArray[0].append(waterConvertedValue)
+                    numbersArray[1].append(fruitConvertedValue)
+                    numbersArray[2].append(sportConvertedValue)
+                    
+                }
+            }
+            
+            
+            
+            
+            
+            
+            
+            PlotGraphicClass().plotGraphicLine(graphicVIew: habitsGraphicLineView, colorLinesArray: [UIColor.blue, UIColor.purple, UIColor.pink()], datesX: dates, numbersArray: numbersArray, topNumber: 1, bottomNumber: 0)
         }
         catch {
             os_log("[ERROR] Couldn't communicate with the operating system's internal calendar/time system!")
