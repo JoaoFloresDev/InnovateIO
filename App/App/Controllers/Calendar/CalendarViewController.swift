@@ -262,3 +262,12 @@ extension CalendarViewController: JTACMonthViewDelegate {
 		return MonthSize(defaultSize: 80)
 	}
 }
+
+struct MealDay{
+	var index:Int
+	var hours:[Int]
+	var qualities:[Int]
+}
+struct Week {
+	var days:[MealDay]
+}
