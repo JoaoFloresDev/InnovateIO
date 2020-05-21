@@ -22,9 +22,9 @@ extension CalendarViewController: UICollectionViewDelegate, UICollectionViewData
         return cell
     }
 	
-	func updateChart(day:Int, hours:[Int]){
+	func updateChart(day:Int, hours:[Int], qualities:[Int]){
 		let cell = chartCollectionView.cellForItem(at: IndexPath(item: day, section: 0)) as! PerformanceChartCollectionViewCell
 			
-		cell.configureDotsForDay(day: day, mealTime: hours)
+		cell.configureDotsForDay(day: day, mealTime: hours, quality: qualities)
 	}
 }

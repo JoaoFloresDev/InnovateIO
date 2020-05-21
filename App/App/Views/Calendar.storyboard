@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01H-JE-uRe">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01H-JE-uRe">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -9,623 +9,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Calendar-->
-        <scene sceneID="p0i-wh-FGM">
-            <objects>
-                <viewController storyboardIdentifier="Calendar Storyboard" id="kUW-Y7-4uP" userLabel="Calendar" customClass="CalendarViewController" customModule="My_Way" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="9tv-K3-8FI">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="V5a-NO-0Sa" customClass="JTACMonthView" customModule="JTAppleCalendar">
-                                <rect key="frame" x="0.0" y="88" width="375" height="0.0"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="320" id="ePh-af-m4B"/>
-                                </constraints>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="ThY-bm-e2M">
-                                    <size key="itemSize" width="85" height="85"/>
-                                    <size key="headerReferenceSize" width="50" height="55"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="dateCell" id="cZ8-EK-K7a" customClass="DateCell" customModule="My_Way" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="55" width="85" height="83.5"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="79P-Vk-JFd">
-                                            <rect key="frame" x="0.0" y="0.0" width="85" height="83.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lrH-0x-4mR" customClass="RoundedView" customModule="My_Way" customModuleProvider="target">
-                                                    <rect key="frame" x="10.666666666666664" y="5" width="63.999999999999993" height="73.666666666666671"/>
-                                                    <subviews>
-                                                        <label verifyAmbiguity="off" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="dateHere" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zMj-fV-tKg" userLabel="Date Label">
-                                                            <rect key="frame" x="-3.6666666666666643" y="26.666666666666671" width="71" height="20.333333333333329"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                    </subviews>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="64" id="9DO-I2-5nZ"/>
-                                                        <constraint firstAttribute="height" constant="60" id="MX0-67-4LL"/>
-                                                        <constraint firstItem="zMj-fV-tKg" firstAttribute="centerX" secondItem="lrH-0x-4mR" secondAttribute="centerX" id="haj-fS-nx5"/>
-                                                        <constraint firstItem="zMj-fV-tKg" firstAttribute="centerY" secondItem="lrH-0x-4mR" secondAttribute="centerY" id="x9K-ba-6Fm"/>
-                                                    </constraints>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                            <real key="value" value="16"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                    </userDefinedRuntimeAttributes>
-                                                </view>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="lrH-0x-4mR" secondAttribute="trailing" constant="10.5" id="6sd-Ea-80u"/>
-                                                <constraint firstItem="lrH-0x-4mR" firstAttribute="centerX" secondItem="79P-Vk-JFd" secondAttribute="centerX" id="DUS-aM-xQh"/>
-                                                <constraint firstItem="lrH-0x-4mR" firstAttribute="top" secondItem="79P-Vk-JFd" secondAttribute="top" constant="5" id="atk-b3-ZwP"/>
-                                                <constraint firstItem="lrH-0x-4mR" firstAttribute="centerY" secondItem="79P-Vk-JFd" secondAttribute="centerY" id="b4V-3h-nyK"/>
-                                                <constraint firstItem="lrH-0x-4mR" firstAttribute="leading" secondItem="79P-Vk-JFd" secondAttribute="leading" constant="10.5" id="kdr-zm-b03"/>
-                                            </constraints>
-                                        </collectionViewCellContentView>
-                                        <size key="customSize" width="85" height="83.5"/>
-                                        <connections>
-                                            <outlet property="circle" destination="lrH-0x-4mR" id="1cf-Vh-Jjg"/>
-                                            <outlet property="dateLabel" destination="zMj-fV-tKg" id="Vkb-Mh-S2b"/>
-                                        </connections>
-                                    </collectionViewCell>
-                                </cells>
-                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="DateHeader" id="YBB-xV-VEJ" customClass="DateHeader" customModule="My_Way" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="55"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MonthLabel" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qhm-4O-xo9">
-                                            <rect key="frame" x="0.0" y="2" width="375" height="20.333333333333332"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <stackView opaque="NO" contentMode="scaleAspectFit" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="L9l-rt-9f6">
-                                            <rect key="frame" x="0.0" y="34.666666666666664" width="375" height="20.333333333333336"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="D" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Nb-G4-pad">
-                                                    <rect key="frame" x="0.0" y="0.0" width="53.666666666666664" height="20.333333333333332"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="S" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7vJ-Ve-3Jf">
-                                                    <rect key="frame" x="53.666666666666657" y="0.0" width="53.333333333333343" height="20.333333333333332"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="T" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5fV-Ut-Wud">
-                                                    <rect key="frame" x="107.00000000000001" y="0.0" width="53.666666666666671" height="20.333333333333332"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Q" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aKx-eB-jPq">
-                                                    <rect key="frame" x="160.66666666666666" y="0.0" width="53.666666666666657" height="20.333333333333332"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Q" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4ot-oj-t2r">
-                                                    <rect key="frame" x="214.33333333333334" y="0.0" width="53.666666666666657" height="20.333333333333332"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="S" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wDa-lz-F4Q">
-                                                    <rect key="frame" x="268" y="0.0" width="53.333333333333314" height="20.333333333333332"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="S" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vg4-24-vGa">
-                                                    <rect key="frame" x="321.33333333333331" y="0.0" width="53.666666666666686" height="20.333333333333332"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </stackView>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstItem="Qhm-4O-xo9" firstAttribute="centerX" secondItem="YBB-xV-VEJ" secondAttribute="centerX" id="AE8-Ww-LeO"/>
-                                        <constraint firstItem="Qhm-4O-xo9" firstAttribute="width" secondItem="YBB-xV-VEJ" secondAttribute="width" id="AJn-d6-syX"/>
-                                        <constraint firstAttribute="trailing" secondItem="L9l-rt-9f6" secondAttribute="trailing" id="BWL-sD-JQi"/>
-                                        <constraint firstItem="L9l-rt-9f6" firstAttribute="leading" secondItem="YBB-xV-VEJ" secondAttribute="leading" id="NUd-hV-r0M"/>
-                                        <constraint firstAttribute="bottom" secondItem="L9l-rt-9f6" secondAttribute="bottom" id="gPu-84-Gvu"/>
-                                        <constraint firstItem="Qhm-4O-xo9" firstAttribute="top" secondItem="YBB-xV-VEJ" secondAttribute="top" constant="2" id="sUk-DK-Ksp"/>
-                                    </constraints>
-                                    <connections>
-                                        <outlet property="monthTitle" destination="Qhm-4O-xo9" id="cx6-na-an5"/>
-                                    </connections>
-                                </collectionReusableView>
-                            </collectionView>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="1cQ-7Q-pON" customClass="PerformanceChart" customModule="My_Way" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="340" width="320" height="179"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="ZHq-Uy-gRD">
-                                    <size key="itemSize" width="85" height="330"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="PerformanceChart" id="nbs-lt-Su6" customClass="PerformanceChartCollectionViewCell" customModule="My_Way">
-                                        <rect key="frame" x="0.0" y="0.0" width="85" height="330"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="ksf-IZ-SGS">
-                                            <rect key="frame" x="0.0" y="0.0" width="85" height="330"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G42-Zj-xaP" userLabel="Line View">
-                                                    <rect key="frame" x="39.666666666666664" y="0.0" width="5.6666666666666643" height="330"/>
-                                                    <color key="backgroundColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                </view>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="SJ7-u8-g6q">
-                                                    <rect key="frame" x="0.0" y="0.0" width="85" height="330"/>
-                                                    <subviews>
-                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I00-iF-J0M" userLabel="0" customClass="RoundedView" customModule="My_Way" customModuleProvider="target">
-                                                            <rect key="frame" x="37.666666666666664" y="0.0" width="10" height="10"/>
-                                                            <color key="backgroundColor" name="rateRedColor"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="width" secondItem="I00-iF-J0M" secondAttribute="height" id="SpG-L1-4hY"/>
-                                                                <constraint firstAttribute="width" constant="10" id="f4B-UF-Etz"/>
-                                                            </constraints>
-                                                            <userDefinedRuntimeAttributes>
-                                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                    <real key="value" value="5"/>
-                                                                </userDefinedRuntimeAttribute>
-                                                            </userDefinedRuntimeAttributes>
-                                                        </view>
-                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GzK-sO-Vsl" userLabel="1" customClass="RoundedView" customModule="My_Way" customModuleProvider="target">
-                                                            <rect key="frame" x="37.666666666666664" y="14" width="10" height="10"/>
-                                                            <color key="backgroundColor" name="rateRedColor"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="width" secondItem="GzK-sO-Vsl" secondAttribute="height" id="Igp-o7-EQp"/>
-                                                                <constraint firstAttribute="width" constant="10" id="iw5-Gv-bH2"/>
-                                                            </constraints>
-                                                            <userDefinedRuntimeAttributes>
-                                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                    <real key="value" value="5"/>
-                                                                </userDefinedRuntimeAttribute>
-                                                            </userDefinedRuntimeAttributes>
-                                                        </view>
-                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L7k-9k-dem" userLabel="2" customClass="RoundedView" customModule="My_Way" customModuleProvider="target">
-                                                            <rect key="frame" x="37.666666666666664" y="27.666666666666671" width="10" height="10"/>
-                                                            <color key="backgroundColor" name="rateRedColor"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="width" constant="10" id="S3N-zl-njZ"/>
-                                                                <constraint firstAttribute="width" secondItem="L7k-9k-dem" secondAttribute="height" id="r5w-JQ-Om4"/>
-                                                            </constraints>
-                                                            <userDefinedRuntimeAttributes>
-                                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                    <real key="value" value="5"/>
-                                                                </userDefinedRuntimeAttribute>
-                                                            </userDefinedRuntimeAttributes>
-                                                        </view>
-                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JVe-89-chy" userLabel="3" customClass="RoundedView" customModule="My_Way" customModuleProvider="target">
-                                                            <rect key="frame" x="37.666666666666664" y="41.666666666666664" width="10" height="10"/>
-                                                            <color key="backgroundColor" name="rateRedColor"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="width" constant="10" id="kZH-gz-LYO"/>
-                                                                <constraint firstAttribute="width" secondItem="JVe-89-chy" secondAttribute="height" id="mNe-Q6-Jc9"/>
-                                                            </constraints>
-                                                            <userDefinedRuntimeAttributes>
-                                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                    <real key="value" value="5"/>
-                                                                </userDefinedRuntimeAttribute>
-                                                            </userDefinedRuntimeAttributes>
-                                                        </view>
-                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AdU-XX-QLt" userLabel="4" customClass="RoundedView" customModule="My_Way" customModuleProvider="target">
-                                                            <rect key="frame" x="37.666666666666664" y="55.666666666666664" width="10" height="9.9999999999999929"/>
-                                                            <color key="backgroundColor" name="rateRedColor"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="width" secondItem="AdU-XX-QLt" secondAttribute="height" id="fNE-Ie-YrY"/>
-                                                                <constraint firstAttribute="width" constant="10" id="qlH-2a-Q41"/>
-                                                            </constraints>
-                                                            <userDefinedRuntimeAttributes>
-                                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                    <real key="value" value="5"/>
-                                                                </userDefinedRuntimeAttribute>
-                                                            </userDefinedRuntimeAttributes>
-                                                        </view>
-                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fUz-2p-RR7" userLabel="5" customClass="RoundedView" customModule="My_Way" customModuleProvider="target">
-                                                            <rect key="frame" x="37.666666666666664" y="69.666666666666671" width="10" height="10"/>
-                                                            <color key="backgroundColor" name="rateRedColor"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="width" secondItem="fUz-2p-RR7" secondAttribute="height" id="QhS-lZ-4Tn"/>
-                                                                <constraint firstAttribute="width" constant="10" id="pko-Os-piJ"/>
-                                                            </constraints>
-                                                            <userDefinedRuntimeAttributes>
-                                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                    <real key="value" value="5"/>
-                                                                </userDefinedRuntimeAttribute>
-                                                            </userDefinedRuntimeAttributes>
-                                                        </view>
-                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PdD-pv-sNs" userLabel="6" customClass="RoundedView" customModule="My_Way" customModuleProvider="target">
-                                                            <rect key="frame" x="37.666666666666664" y="83.333333333333329" width="10" height="10"/>
-                                                            <color key="backgroundColor" name="rateRedColor"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="width" constant="10" id="2AF-Ld-Yj4"/>
-                                                                <constraint firstAttribute="width" secondItem="PdD-pv-sNs" secondAttribute="height" id="vBd-da-Cwp"/>
-                                                            </constraints>
-                                                            <userDefinedRuntimeAttributes>
-                                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                    <real key="value" value="5"/>
-                                                                </userDefinedRuntimeAttribute>
-                                                            </userDefinedRuntimeAttributes>
-                                                        </view>
-                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nbe-nk-hcA" userLabel="7" customClass="RoundedView" customModule="My_Way" customModuleProvider="target">
-                                                            <rect key="frame" x="37.666666666666664" y="97.333333333333329" width="10" height="10"/>
-                                                            <color key="backgroundColor" name="rateRedColor"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="width" secondItem="Nbe-nk-hcA" secondAttribute="height" id="5ea-ti-QYV"/>
-                                                                <constraint firstAttribute="width" constant="10" id="9Nj-O1-7w4"/>
-                                                            </constraints>
-                                                            <userDefinedRuntimeAttributes>
-                                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                    <real key="value" value="5"/>
-                                                                </userDefinedRuntimeAttribute>
-                                                            </userDefinedRuntimeAttributes>
-                                                        </view>
-                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lkp-uT-SNy" userLabel="8" customClass="RoundedView" customModule="My_Way" customModuleProvider="target">
-                                                            <rect key="frame" x="37.666666666666664" y="111.33333333333333" width="10" height="10"/>
-                                                            <color key="backgroundColor" name="rateRedColor"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="width" constant="10" id="Eql-Yf-G8K"/>
-                                                                <constraint firstAttribute="width" secondItem="Lkp-uT-SNy" secondAttribute="height" id="nGY-mp-doX"/>
-                                                            </constraints>
-                                                            <userDefinedRuntimeAttributes>
-                                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                    <real key="value" value="5"/>
-                                                                </userDefinedRuntimeAttribute>
-                                                            </userDefinedRuntimeAttributes>
-                                                        </view>
-                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j8P-zT-ons" userLabel="9" customClass="RoundedView" customModule="My_Way" customModuleProvider="target">
-                                                            <rect key="frame" x="37.666666666666664" y="125.33333333333331" width="10" height="10"/>
-                                                            <color key="backgroundColor" name="rateRedColor"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="width" constant="10" id="2bK-3b-8dF"/>
-                                                                <constraint firstAttribute="width" secondItem="j8P-zT-ons" secondAttribute="height" id="RDR-YF-Ik2"/>
-                                                            </constraints>
-                                                            <userDefinedRuntimeAttributes>
-                                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                    <real key="value" value="5"/>
-                                                                </userDefinedRuntimeAttribute>
-                                                            </userDefinedRuntimeAttributes>
-                                                        </view>
-                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cwc-kW-oau" userLabel="10" customClass="RoundedView" customModule="My_Way" customModuleProvider="target">
-                                                            <rect key="frame" x="37.666666666666664" y="139" width="10" height="10"/>
-                                                            <color key="backgroundColor" name="rateRedColor"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="width" secondItem="Cwc-kW-oau" secondAttribute="height" id="ALj-tR-vkx"/>
-                                                                <constraint firstAttribute="width" constant="10" id="Tca-Hi-6N9"/>
-                                                            </constraints>
-                                                            <userDefinedRuntimeAttributes>
-                                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                    <real key="value" value="5"/>
-                                                                </userDefinedRuntimeAttribute>
-                                                            </userDefinedRuntimeAttributes>
-                                                        </view>
-                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0z1-Uc-cai" userLabel="11" customClass="RoundedView" customModule="My_Way" customModuleProvider="target">
-                                                            <rect key="frame" x="37.666666666666664" y="153" width="10" height="10"/>
-                                                            <color key="backgroundColor" name="rateRedColor"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="width" constant="10" id="t4B-1A-WCp"/>
-                                                                <constraint firstAttribute="width" secondItem="0z1-Uc-cai" secondAttribute="height" id="zaT-8S-NFy"/>
-                                                            </constraints>
-                                                            <userDefinedRuntimeAttributes>
-                                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                    <real key="value" value="5"/>
-                                                                </userDefinedRuntimeAttribute>
-                                                            </userDefinedRuntimeAttributes>
-                                                        </view>
-                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F87-NL-l5B" userLabel="12" customClass="RoundedView" customModule="My_Way" customModuleProvider="target">
-                                                            <rect key="frame" x="37.666666666666664" y="167" width="10" height="10"/>
-                                                            <color key="backgroundColor" name="rateRedColor"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="width" constant="10" id="68H-Lm-OaV"/>
-                                                                <constraint firstAttribute="width" secondItem="F87-NL-l5B" secondAttribute="height" id="iKm-BH-Ubh"/>
-                                                            </constraints>
-                                                            <userDefinedRuntimeAttributes>
-                                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                    <real key="value" value="5"/>
-                                                                </userDefinedRuntimeAttribute>
-                                                            </userDefinedRuntimeAttributes>
-                                                        </view>
-                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qO5-a0-xT7" userLabel="13" customClass="RoundedView" customModule="My_Way" customModuleProvider="target">
-                                                            <rect key="frame" x="37.666666666666664" y="181" width="10" height="10"/>
-                                                            <color key="backgroundColor" name="rateRedColor"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="width" constant="10" id="1Jr-IK-5BE"/>
-                                                                <constraint firstAttribute="width" secondItem="qO5-a0-xT7" secondAttribute="height" id="gKM-n5-1gC"/>
-                                                            </constraints>
-                                                            <userDefinedRuntimeAttributes>
-                                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                    <real key="value" value="5"/>
-                                                                </userDefinedRuntimeAttribute>
-                                                            </userDefinedRuntimeAttributes>
-                                                        </view>
-                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fW0-MD-pbp" userLabel="14" customClass="RoundedView" customModule="My_Way" customModuleProvider="target">
-                                                            <rect key="frame" x="37.666666666666664" y="194.66666666666666" width="10" height="10"/>
-                                                            <color key="backgroundColor" name="rateRedColor"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="width" secondItem="fW0-MD-pbp" secondAttribute="height" id="AO7-87-ByQ"/>
-                                                                <constraint firstAttribute="width" constant="10" id="AUW-vh-ODs"/>
-                                                            </constraints>
-                                                            <userDefinedRuntimeAttributes>
-                                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                    <real key="value" value="5"/>
-                                                                </userDefinedRuntimeAttribute>
-                                                            </userDefinedRuntimeAttributes>
-                                                        </view>
-                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BSW-8f-NVl" userLabel="15" customClass="RoundedView" customModule="My_Way" customModuleProvider="target">
-                                                            <rect key="frame" x="37.666666666666664" y="208.66666666666666" width="10" height="10"/>
-                                                            <color key="backgroundColor" name="rateRedColor"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="width" constant="10" id="I0d-zN-38w"/>
-                                                                <constraint firstAttribute="width" secondItem="BSW-8f-NVl" secondAttribute="height" id="vET-Eh-ibu"/>
-                                                            </constraints>
-                                                            <userDefinedRuntimeAttributes>
-                                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                    <real key="value" value="5"/>
-                                                                </userDefinedRuntimeAttribute>
-                                                            </userDefinedRuntimeAttributes>
-                                                        </view>
-                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LBd-xi-AxI" userLabel="16" customClass="RoundedView" customModule="My_Way" customModuleProvider="target">
-                                                            <rect key="frame" x="37.666666666666664" y="222.66666666666666" width="10" height="10"/>
-                                                            <color key="backgroundColor" name="rateRedColor"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="width" secondItem="LBd-xi-AxI" secondAttribute="height" id="3dj-5j-M2t"/>
-                                                                <constraint firstAttribute="width" constant="10" id="PVC-qL-gt2"/>
-                                                            </constraints>
-                                                            <userDefinedRuntimeAttributes>
-                                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                    <real key="value" value="5"/>
-                                                                </userDefinedRuntimeAttribute>
-                                                            </userDefinedRuntimeAttributes>
-                                                        </view>
-                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W2z-Iw-6iW" userLabel="17" customClass="RoundedView" customModule="My_Way" customModuleProvider="target">
-                                                            <rect key="frame" x="37.666666666666664" y="236.66666666666666" width="10" height="10"/>
-                                                            <color key="backgroundColor" name="rateRedColor"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="width" secondItem="W2z-Iw-6iW" secondAttribute="height" id="Ofg-B3-WgA"/>
-                                                                <constraint firstAttribute="width" constant="10" id="TPV-1R-WKD"/>
-                                                            </constraints>
-                                                            <userDefinedRuntimeAttributes>
-                                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                    <real key="value" value="5"/>
-                                                                </userDefinedRuntimeAttribute>
-                                                            </userDefinedRuntimeAttributes>
-                                                        </view>
-                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ThU-06-4Ao" userLabel="18" customClass="RoundedView" customModule="My_Way" customModuleProvider="target">
-                                                            <rect key="frame" x="37.666666666666664" y="250.33333333333334" width="10" height="10.000000000000028"/>
-                                                            <color key="backgroundColor" name="rateRedColor"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="width" secondItem="ThU-06-4Ao" secondAttribute="height" id="EIh-Q2-pN5"/>
-                                                                <constraint firstAttribute="width" constant="10" id="ZQ3-gu-Z7I"/>
-                                                            </constraints>
-                                                            <userDefinedRuntimeAttributes>
-                                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                    <real key="value" value="5"/>
-                                                                </userDefinedRuntimeAttribute>
-                                                            </userDefinedRuntimeAttributes>
-                                                        </view>
-                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PaS-Qf-fPs" userLabel="19" customClass="RoundedView" customModule="My_Way" customModuleProvider="target">
-                                                            <rect key="frame" x="37.666666666666664" y="264.33333333333331" width="10" height="10"/>
-                                                            <color key="backgroundColor" name="rateRedColor"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="width" constant="10" id="YTc-pC-jzG"/>
-                                                                <constraint firstAttribute="width" secondItem="PaS-Qf-fPs" secondAttribute="height" id="yZD-FZ-ZJt"/>
-                                                            </constraints>
-                                                            <userDefinedRuntimeAttributes>
-                                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                    <real key="value" value="5"/>
-                                                                </userDefinedRuntimeAttribute>
-                                                            </userDefinedRuntimeAttributes>
-                                                        </view>
-                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wf8-RH-arZ" userLabel="20" customClass="RoundedView" customModule="My_Way" customModuleProvider="target">
-                                                            <rect key="frame" x="37.666666666666664" y="278.33333333333331" width="10" height="10"/>
-                                                            <color key="backgroundColor" name="rateRedColor"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="width" constant="10" id="Wxa-ty-gzs"/>
-                                                                <constraint firstAttribute="width" secondItem="wf8-RH-arZ" secondAttribute="height" id="pMM-pm-yen"/>
-                                                            </constraints>
-                                                            <userDefinedRuntimeAttributes>
-                                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                    <real key="value" value="5"/>
-                                                                </userDefinedRuntimeAttribute>
-                                                            </userDefinedRuntimeAttributes>
-                                                        </view>
-                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RyN-YN-BZM" userLabel="21" customClass="RoundedView" customModule="My_Way" customModuleProvider="target">
-                                                            <rect key="frame" x="37.666666666666664" y="292.33333333333331" width="10" height="10"/>
-                                                            <color key="backgroundColor" name="rateRedColor"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="width" secondItem="RyN-YN-BZM" secondAttribute="height" id="P5S-dX-ykY"/>
-                                                                <constraint firstAttribute="width" constant="10" id="TF5-xW-kDo"/>
-                                                            </constraints>
-                                                            <userDefinedRuntimeAttributes>
-                                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                    <real key="value" value="5"/>
-                                                                </userDefinedRuntimeAttribute>
-                                                            </userDefinedRuntimeAttributes>
-                                                        </view>
-                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zV5-yh-fTe" userLabel="22" customClass="RoundedView" customModule="My_Way" customModuleProvider="target">
-                                                            <rect key="frame" x="37.666666666666664" y="306" width="10" height="10"/>
-                                                            <color key="backgroundColor" name="rateRedColor"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="width" constant="10" id="IWZ-vp-CeJ"/>
-                                                                <constraint firstAttribute="width" secondItem="zV5-yh-fTe" secondAttribute="height" id="NX6-L3-aCN"/>
-                                                            </constraints>
-                                                            <userDefinedRuntimeAttributes>
-                                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                    <real key="value" value="5"/>
-                                                                </userDefinedRuntimeAttribute>
-                                                            </userDefinedRuntimeAttributes>
-                                                        </view>
-                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ckm-UU-Pdc" userLabel="23" customClass="RoundedView" customModule="My_Way" customModuleProvider="target">
-                                                            <rect key="frame" x="37.666666666666664" y="320" width="10" height="10"/>
-                                                            <color key="backgroundColor" name="rateRedColor"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="width" secondItem="ckm-UU-Pdc" secondAttribute="height" id="Dir-r3-5US"/>
-                                                                <constraint firstAttribute="width" constant="10" id="uUc-Oc-Uft"/>
-                                                            </constraints>
-                                                            <userDefinedRuntimeAttributes>
-                                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                    <real key="value" value="5"/>
-                                                                </userDefinedRuntimeAttribute>
-                                                            </userDefinedRuntimeAttributes>
-                                                        </view>
-                                                    </subviews>
-                                                    <constraints>
-                                                        <constraint firstItem="PdD-pv-sNs" firstAttribute="width" secondItem="PdD-pv-sNs" secondAttribute="height" id="0IB-OI-cft"/>
-                                                        <constraint firstItem="ckm-UU-Pdc" firstAttribute="width" secondItem="ckm-UU-Pdc" secondAttribute="height" id="4NZ-IU-413"/>
-                                                        <constraint firstItem="BSW-8f-NVl" firstAttribute="width" secondItem="BSW-8f-NVl" secondAttribute="height" id="5kk-XZ-5d3"/>
-                                                        <constraint firstItem="LBd-xi-AxI" firstAttribute="width" secondItem="LBd-xi-AxI" secondAttribute="height" id="6EF-EB-yJT"/>
-                                                        <constraint firstItem="PdD-pv-sNs" firstAttribute="width" secondItem="PdD-pv-sNs" secondAttribute="height" id="6Pf-3x-Gio"/>
-                                                        <constraint firstItem="j8P-zT-ons" firstAttribute="width" secondItem="j8P-zT-ons" secondAttribute="height" id="76o-GX-qkD"/>
-                                                        <constraint firstItem="ThU-06-4Ao" firstAttribute="width" secondItem="ThU-06-4Ao" secondAttribute="height" id="95J-fZ-tgC"/>
-                                                        <constraint firstItem="W2z-Iw-6iW" firstAttribute="width" secondItem="W2z-Iw-6iW" secondAttribute="height" id="Ahg-2d-gTb"/>
-                                                        <constraint firstItem="0z1-Uc-cai" firstAttribute="width" secondItem="0z1-Uc-cai" secondAttribute="height" id="Bv3-QW-d7C"/>
-                                                        <constraint firstItem="zV5-yh-fTe" firstAttribute="width" secondItem="zV5-yh-fTe" secondAttribute="height" id="E0r-Gb-8FP"/>
-                                                        <constraint firstItem="wf8-RH-arZ" firstAttribute="width" secondItem="wf8-RH-arZ" secondAttribute="height" id="Fiw-It-GrX"/>
-                                                        <constraint firstItem="ThU-06-4Ao" firstAttribute="width" secondItem="ThU-06-4Ao" secondAttribute="height" id="GAs-hO-Y9I"/>
-                                                        <constraint firstItem="fUz-2p-RR7" firstAttribute="width" secondItem="fUz-2p-RR7" secondAttribute="height" id="GEe-cp-puA"/>
-                                                        <constraint firstItem="fW0-MD-pbp" firstAttribute="width" secondItem="fW0-MD-pbp" secondAttribute="height" id="HC0-SE-HWY"/>
-                                                        <constraint firstItem="Nbe-nk-hcA" firstAttribute="width" secondItem="Nbe-nk-hcA" secondAttribute="height" id="Hns-Z4-IXs"/>
-                                                        <constraint firstItem="BSW-8f-NVl" firstAttribute="width" secondItem="BSW-8f-NVl" secondAttribute="height" id="Jlk-Hv-2QE"/>
-                                                        <constraint firstItem="LBd-xi-AxI" firstAttribute="width" secondItem="LBd-xi-AxI" secondAttribute="height" id="JoS-DB-fTb"/>
-                                                        <constraint firstItem="Cwc-kW-oau" firstAttribute="width" secondItem="Cwc-kW-oau" secondAttribute="height" id="L7a-hF-UM8"/>
-                                                        <constraint firstItem="ThU-06-4Ao" firstAttribute="width" secondItem="ThU-06-4Ao" secondAttribute="height" id="NJ6-ax-5oo"/>
-                                                        <constraint firstItem="JVe-89-chy" firstAttribute="width" secondItem="JVe-89-chy" secondAttribute="height" id="Nqc-wc-LqA"/>
-                                                        <constraint firstItem="zV5-yh-fTe" firstAttribute="width" secondItem="zV5-yh-fTe" secondAttribute="height" id="Pbs-ro-mKc"/>
-                                                        <constraint firstItem="qO5-a0-xT7" firstAttribute="width" secondItem="qO5-a0-xT7" secondAttribute="height" id="Rev-1x-jjI"/>
-                                                        <constraint firstItem="0z1-Uc-cai" firstAttribute="width" secondItem="0z1-Uc-cai" secondAttribute="height" id="ScH-2e-8iW"/>
-                                                        <constraint firstItem="RyN-YN-BZM" firstAttribute="width" secondItem="RyN-YN-BZM" secondAttribute="height" id="Sdh-7V-5Z1"/>
-                                                        <constraint firstItem="wf8-RH-arZ" firstAttribute="width" secondItem="wf8-RH-arZ" secondAttribute="height" id="Skf-it-c08"/>
-                                                        <constraint firstItem="RyN-YN-BZM" firstAttribute="width" secondItem="RyN-YN-BZM" secondAttribute="height" id="WeR-IY-vCt"/>
-                                                        <constraint firstItem="BSW-8f-NVl" firstAttribute="width" secondItem="BSW-8f-NVl" secondAttribute="height" id="Wek-ar-v9A"/>
-                                                        <constraint firstItem="PaS-Qf-fPs" firstAttribute="width" secondItem="PaS-Qf-fPs" secondAttribute="height" id="Y7P-Rk-1Uh"/>
-                                                        <constraint firstItem="F87-NL-l5B" firstAttribute="width" secondItem="F87-NL-l5B" secondAttribute="height" id="Zbq-C0-8xr"/>
-                                                        <constraint firstItem="Lkp-uT-SNy" firstAttribute="width" secondItem="Lkp-uT-SNy" secondAttribute="height" id="Zzu-8I-7OC"/>
-                                                        <constraint firstItem="zV5-yh-fTe" firstAttribute="width" secondItem="zV5-yh-fTe" secondAttribute="height" id="b9C-F3-4eh"/>
-                                                        <constraint firstItem="qO5-a0-xT7" firstAttribute="width" secondItem="qO5-a0-xT7" secondAttribute="height" id="e7Y-9d-1Rc"/>
-                                                        <constraint firstItem="F87-NL-l5B" firstAttribute="width" secondItem="F87-NL-l5B" secondAttribute="height" id="ecS-OO-E6J"/>
-                                                        <constraint firstItem="ckm-UU-Pdc" firstAttribute="width" secondItem="ckm-UU-Pdc" secondAttribute="height" id="fRc-9Z-QdA"/>
-                                                        <constraint firstItem="fW0-MD-pbp" firstAttribute="width" secondItem="fW0-MD-pbp" secondAttribute="height" id="gAU-IS-bu5"/>
-                                                        <constraint firstItem="PaS-Qf-fPs" firstAttribute="width" secondItem="PaS-Qf-fPs" secondAttribute="height" id="hGq-la-aZw"/>
-                                                        <constraint firstItem="AdU-XX-QLt" firstAttribute="width" secondItem="AdU-XX-QLt" secondAttribute="height" id="jNT-Or-M4H"/>
-                                                        <constraint firstItem="PaS-Qf-fPs" firstAttribute="width" secondItem="PaS-Qf-fPs" secondAttribute="height" id="lKN-6o-90Z"/>
-                                                        <constraint firstItem="Nbe-nk-hcA" firstAttribute="width" secondItem="Nbe-nk-hcA" secondAttribute="height" id="o5V-8W-1ey"/>
-                                                        <constraint firstItem="L7k-9k-dem" firstAttribute="width" secondItem="L7k-9k-dem" secondAttribute="height" id="q1g-fk-uo1"/>
-                                                        <constraint firstItem="ckm-UU-Pdc" firstAttribute="width" secondItem="ckm-UU-Pdc" secondAttribute="height" id="qCC-bE-XkG"/>
-                                                        <constraint firstItem="fW0-MD-pbp" firstAttribute="width" secondItem="fW0-MD-pbp" secondAttribute="height" id="qFb-yX-aXX"/>
-                                                        <constraint firstItem="RyN-YN-BZM" firstAttribute="width" secondItem="RyN-YN-BZM" secondAttribute="height" id="s5Q-74-8rd"/>
-                                                        <constraint firstItem="wf8-RH-arZ" firstAttribute="width" secondItem="wf8-RH-arZ" secondAttribute="height" id="tHo-HR-Lwe"/>
-                                                        <constraint firstItem="W2z-Iw-6iW" firstAttribute="width" secondItem="W2z-Iw-6iW" secondAttribute="height" id="w7y-OM-SfG"/>
-                                                        <constraint firstItem="zV5-yh-fTe" firstAttribute="width" secondItem="zV5-yh-fTe" secondAttribute="height" id="wRw-Ar-xPH"/>
-                                                        <constraint firstItem="ckm-UU-Pdc" firstAttribute="width" secondItem="ckm-UU-Pdc" secondAttribute="height" id="ynG-qa-s4i"/>
-                                                        <constraint firstItem="Cwc-kW-oau" firstAttribute="width" secondItem="Cwc-kW-oau" secondAttribute="height" id="yom-uF-7Ym"/>
-                                                    </constraints>
-                                                </stackView>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="SJ7-u8-g6q" firstAttribute="height" secondItem="ksf-IZ-SGS" secondAttribute="height" id="4uM-fV-Vc4"/>
-                                                <constraint firstItem="SJ7-u8-g6q" firstAttribute="centerX" secondItem="ksf-IZ-SGS" secondAttribute="centerX" id="M1T-QT-9c7"/>
-                                                <constraint firstItem="G42-Zj-xaP" firstAttribute="height" secondItem="ksf-IZ-SGS" secondAttribute="height" id="NwN-FQ-dXz"/>
-                                                <constraint firstItem="G42-Zj-xaP" firstAttribute="centerX" secondItem="ksf-IZ-SGS" secondAttribute="centerX" id="TBS-La-IkI"/>
-                                                <constraint firstItem="SJ7-u8-g6q" firstAttribute="width" secondItem="ksf-IZ-SGS" secondAttribute="width" id="fRY-NG-6JZ"/>
-                                                <constraint firstItem="SJ7-u8-g6q" firstAttribute="centerY" secondItem="ksf-IZ-SGS" secondAttribute="centerY" id="gUp-ri-VYL"/>
-                                                <constraint firstItem="G42-Zj-xaP" firstAttribute="width" secondItem="ksf-IZ-SGS" secondAttribute="width" multiplier="0.07" id="iqL-rQ-QNr"/>
-                                                <constraint firstItem="G42-Zj-xaP" firstAttribute="centerY" secondItem="ksf-IZ-SGS" secondAttribute="centerY" id="qxd-jA-X2G"/>
-                                            </constraints>
-                                        </collectionViewCellContentView>
-                                        <size key="customSize" width="85" height="330"/>
-                                        <connections>
-                                            <outletCollection property="timeDots" destination="I00-iF-J0M" collectionClass="NSMutableArray" id="bc3-sx-3tM"/>
-                                            <outletCollection property="timeDots" destination="GzK-sO-Vsl" collectionClass="NSMutableArray" id="7Tf-gs-fKv"/>
-                                            <outletCollection property="timeDots" destination="L7k-9k-dem" collectionClass="NSMutableArray" id="z8S-Gc-N09"/>
-                                            <outletCollection property="timeDots" destination="JVe-89-chy" collectionClass="NSMutableArray" id="WZE-6C-gPH"/>
-                                            <outletCollection property="timeDots" destination="AdU-XX-QLt" collectionClass="NSMutableArray" id="vte-vL-UBO"/>
-                                            <outletCollection property="timeDots" destination="fUz-2p-RR7" collectionClass="NSMutableArray" id="lzz-7P-I0G"/>
-                                            <outletCollection property="timeDots" destination="PdD-pv-sNs" collectionClass="NSMutableArray" id="sNa-aJ-LSx"/>
-                                            <outletCollection property="timeDots" destination="Nbe-nk-hcA" collectionClass="NSMutableArray" id="q3e-LQ-FWm"/>
-                                            <outletCollection property="timeDots" destination="Lkp-uT-SNy" collectionClass="NSMutableArray" id="8SH-C3-8rV"/>
-                                            <outletCollection property="timeDots" destination="j8P-zT-ons" collectionClass="NSMutableArray" id="nfO-yK-RoQ"/>
-                                            <outletCollection property="timeDots" destination="Cwc-kW-oau" collectionClass="NSMutableArray" id="Giz-gm-54c"/>
-                                            <outletCollection property="timeDots" destination="0z1-Uc-cai" collectionClass="NSMutableArray" id="xH6-NP-SZc"/>
-                                            <outletCollection property="timeDots" destination="F87-NL-l5B" collectionClass="NSMutableArray" id="tev-q7-wRM"/>
-                                            <outletCollection property="timeDots" destination="qO5-a0-xT7" collectionClass="NSMutableArray" id="TQA-Xe-fM0"/>
-                                            <outletCollection property="timeDots" destination="fW0-MD-pbp" collectionClass="NSMutableArray" id="07Z-r8-0eE"/>
-                                            <outletCollection property="timeDots" destination="BSW-8f-NVl" collectionClass="NSMutableArray" id="Odg-iQ-6Eb"/>
-                                            <outletCollection property="timeDots" destination="LBd-xi-AxI" collectionClass="NSMutableArray" id="u8a-GL-rlC"/>
-                                            <outletCollection property="timeDots" destination="W2z-Iw-6iW" collectionClass="NSMutableArray" id="azN-tV-ndI"/>
-                                            <outletCollection property="timeDots" destination="ThU-06-4Ao" collectionClass="NSMutableArray" id="qch-f7-eA5"/>
-                                            <outletCollection property="timeDots" destination="PaS-Qf-fPs" collectionClass="NSMutableArray" id="2Wv-a0-Dd8"/>
-                                            <outletCollection property="timeDots" destination="wf8-RH-arZ" collectionClass="NSMutableArray" id="IL9-ng-EZR"/>
-                                            <outletCollection property="timeDots" destination="RyN-YN-BZM" collectionClass="NSMutableArray" id="buu-nj-kNz"/>
-                                            <outletCollection property="timeDots" destination="zV5-yh-fTe" collectionClass="NSMutableArray" id="FOZ-0B-E8b"/>
-                                            <outletCollection property="timeDots" destination="ckm-UU-Pdc" collectionClass="NSMutableArray" id="YSx-BY-mZm"/>
-                                        </connections>
-                                    </collectionViewCell>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="sKC-1e-w1j">
-                                        <rect key="frame" x="117.66666666666667" y="0.0" width="85" height="330"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="5vp-tQ-dlD">
-                                            <rect key="frame" x="0.0" y="0.0" width="85" height="330"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </collectionViewCellContentView>
-                                    </collectionViewCell>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="U7l-8x-VOR">
-                                        <rect key="frame" x="235" y="0.0" width="85" height="330"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="9v7-LP-W3r">
-                                            <rect key="frame" x="0.0" y="0.0" width="85" height="330"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </collectionViewCellContentView>
-                                    </collectionViewCell>
-                                </cells>
-                            </collectionView>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1SX-Wr-djt">
-                                <rect key="frame" x="271" y="78" width="88" height="30"/>
-                                <state key="normal" title="Ver Detalhes"/>
-                                <connections>
-                                    <action selector="tappedSeeHistoryButton:" destination="kUW-Y7-4uP" eventType="touchUpInside" id="mgf-j5-ECw"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <constraints>
-                            <constraint firstItem="1cQ-7Q-pON" firstAttribute="top" secondItem="V5a-NO-0Sa" secondAttribute="bottom" constant="20" id="3AM-54-ShZ"/>
-                            <constraint firstItem="V5a-NO-0Sa" firstAttribute="top" secondItem="Lcb-ir-xcC" secondAttribute="top" id="3Gq-uo-FRJ"/>
-                            <constraint firstItem="V5a-NO-0Sa" firstAttribute="leading" secondItem="Lcb-ir-xcC" secondAttribute="leading" id="9nk-V1-DWF"/>
-                            <constraint firstItem="Lcb-ir-xcC" firstAttribute="bottom" secondItem="1cQ-7Q-pON" secondAttribute="bottom" id="E7Q-r7-XO9"/>
-                            <constraint firstItem="Lcb-ir-xcC" firstAttribute="trailing" secondItem="1SX-Wr-djt" secondAttribute="trailing" constant="16" id="I0e-kh-5AN"/>
-                            <constraint firstItem="V5a-NO-0Sa" firstAttribute="trailing" secondItem="Lcb-ir-xcC" secondAttribute="trailing" id="Vup-PI-jDj"/>
-                            <constraint firstItem="1cQ-7Q-pON" firstAttribute="top" secondItem="1SX-Wr-djt" secondAttribute="bottom" id="nSl-QD-wef"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="Lcb-ir-xcC"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="y27-XE-4Se"/>
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <connections>
-                        <outlet property="calendarView" destination="V5a-NO-0Sa" id="4rA-Yh-UvZ"/>
-                        <outlet property="chartCollectionView" destination="1cQ-7Q-pON" id="oxh-rj-eVR"/>
-                        <outlet property="seeHistoryButton" destination="1SX-Wr-djt" id="nm5-Wd-ZB5"/>
-                        <segue destination="GLe-4G-xk0" kind="show" identifier="toMealHistory" id="bKh-YG-gwS"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="HHa-rb-Q1e" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1226.25" y="118.30985915492958"/>
-        </scene>
         <!--MealHistory-->
         <scene sceneID="3HN-dE-HhW">
             <objects>
@@ -640,21 +23,623 @@
         <scene sceneID="B67-Ux-pH7">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="01H-JE-uRe" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Histórico" image="calendar" catalog="system" id="5eY-7G-URN"/>
+                    <tabBarItem key="tabBarItem" title="Histórico" image="book" catalog="system" selectedImage="book.fill" id="Q5D-cT-KHw"/>
                     <toolbarItems/>
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="pJa-NB-36A">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="kUW-Y7-4uP" kind="relationship" relationship="rootViewController" id="lGP-Al-aYG"/>
+                        <segue destination="4Ky-5T-8up" kind="relationship" relationship="rootViewController" id="Wyi-kT-l0b"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xc4-Mf-pqe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="228.75" y="118.30985915492958"/>
+        </scene>
+        <!--Calendar-->
+        <scene sceneID="SDB-hN-fZb">
+            <objects>
+                <viewController storyboardIdentifier="Calendar Storyboard" id="4Ky-5T-8up" userLabel="Calendar" customClass="CalendarViewController" customModule="My_Way" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8C2-FQ-9sp">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="vbv-dQ-IqE" customClass="JTACMonthView" customModule="JTAppleCalendar">
+                                <rect key="frame" x="0.0" y="88" width="375" height="320"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="320" id="xcs-xj-Fvn"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="Y7q-y6-KeG">
+                                    <size key="itemSize" width="85" height="84"/>
+                                    <size key="headerReferenceSize" width="50" height="95"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="dateCell" id="T5i-AC-fjD" customClass="DateCell" customModule="My_Way" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="95" width="85" height="83.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="JXy-hH-RKX">
+                                            <rect key="frame" x="0.0" y="0.0" width="85" height="83.5"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ex9-Ps-RnU" customClass="RoundedView" customModule="My_Way" customModuleProvider="target">
+                                                    <rect key="frame" x="10.666666666666664" y="5" width="63.999999999999993" height="74.333333333333329"/>
+                                                    <subviews>
+                                                        <label verifyAmbiguity="off" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="dateHere" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DZ1-r5-ybQ" userLabel="Date Label">
+                                                            <rect key="frame" x="-3.6666666666666643" y="27" width="71" height="20.333333333333329"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="60" id="Mwn-w1-nec"/>
+                                                        <constraint firstItem="DZ1-r5-ybQ" firstAttribute="centerX" secondItem="ex9-Ps-RnU" secondAttribute="centerX" id="W4E-y9-Ci2"/>
+                                                        <constraint firstAttribute="width" constant="64" id="YXm-7Q-0O8"/>
+                                                        <constraint firstItem="DZ1-r5-ybQ" firstAttribute="centerY" secondItem="ex9-Ps-RnU" secondAttribute="centerY" id="i0e-gf-dbr"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                            <real key="value" value="16"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="ex9-Ps-RnU" firstAttribute="centerX" secondItem="JXy-hH-RKX" secondAttribute="centerX" id="4SU-gI-xjr"/>
+                                                <constraint firstItem="ex9-Ps-RnU" firstAttribute="top" secondItem="JXy-hH-RKX" secondAttribute="top" constant="5" id="794-0Y-Qxj"/>
+                                                <constraint firstItem="ex9-Ps-RnU" firstAttribute="centerY" secondItem="JXy-hH-RKX" secondAttribute="centerY" id="hDg-cL-bUT"/>
+                                                <constraint firstItem="ex9-Ps-RnU" firstAttribute="leading" secondItem="JXy-hH-RKX" secondAttribute="leading" constant="10.5" id="jQl-5b-hHF"/>
+                                                <constraint firstAttribute="trailing" secondItem="ex9-Ps-RnU" secondAttribute="trailing" constant="10.5" id="kLC-Ic-TsO"/>
+                                                <constraint firstAttribute="bottom" secondItem="ex9-Ps-RnU" secondAttribute="bottom" constant="4.5" id="zx9-7p-vcE"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="85" height="83.5"/>
+                                        <connections>
+                                            <outlet property="circle" destination="ex9-Ps-RnU" id="OzG-pc-YDa"/>
+                                            <outlet property="dateLabel" destination="DZ1-r5-ybQ" id="k8m-2r-Vyd"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="DateHeader" id="hmD-ZK-nor" customClass="DateHeader" customModule="My_Way" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="95"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MonthLabel" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="exF-5Z-iv8">
+                                            <rect key="frame" x="142.33333333333334" y="14.666666666666666" width="90.666666666666657" height="20.333333333333336"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <stackView opaque="NO" contentMode="scaleAspectFit" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Myl-Zj-DYG">
+                                            <rect key="frame" x="0.0" y="43.333333333333343" width="375" height="51.666666666666657"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="D" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xgd-fG-r46">
+                                                    <rect key="frame" x="0.0" y="15.666666666666663" width="53.666666666666664" height="20.333333333333329"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="S" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c70-WF-crL">
+                                                    <rect key="frame" x="53.666666666666657" y="15.666666666666663" width="53.333333333333343" height="20.333333333333329"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="T" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WeC-6U-Uud">
+                                                    <rect key="frame" x="107.00000000000001" y="15.666666666666663" width="53.666666666666671" height="20.333333333333329"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Q" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3df-KW-AYI">
+                                                    <rect key="frame" x="160.66666666666666" y="15.666666666666663" width="53.666666666666657" height="20.333333333333329"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Q" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x0c-S1-Slh">
+                                                    <rect key="frame" x="214.33333333333334" y="15.666666666666663" width="53.666666666666657" height="20.333333333333329"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="S" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MQD-0X-UHh">
+                                                    <rect key="frame" x="268" y="15.666666666666663" width="53.333333333333314" height="20.333333333333329"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="S" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4EU-jy-fdF">
+                                                    <rect key="frame" x="321.33333333333331" y="15.666666666666663" width="53.666666666666686" height="20.333333333333329"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="Myl-Zj-DYG" firstAttribute="top" secondItem="exF-5Z-iv8" secondAttribute="bottom" constant="8.5" id="Ey6-SD-cg0"/>
+                                        <constraint firstItem="Myl-Zj-DYG" firstAttribute="leading" secondItem="hmD-ZK-nor" secondAttribute="leading" id="Kv0-rB-i0r"/>
+                                        <constraint firstItem="exF-5Z-iv8" firstAttribute="top" secondItem="hmD-ZK-nor" secondAttribute="topMargin" constant="6.5" id="N3H-UE-CMy"/>
+                                        <constraint firstItem="exF-5Z-iv8" firstAttribute="centerX" secondItem="hmD-ZK-nor" secondAttribute="centerX" id="SlY-cg-r9H"/>
+                                        <constraint firstItem="Myl-Zj-DYG" firstAttribute="top" secondItem="exF-5Z-iv8" secondAttribute="bottom" constant="8.5" id="YPk-1U-NRx"/>
+                                        <constraint firstAttribute="trailing" secondItem="Myl-Zj-DYG" secondAttribute="trailing" id="jly-Th-AE5"/>
+                                        <constraint firstAttribute="bottom" secondItem="Myl-Zj-DYG" secondAttribute="bottom" id="r6o-Kv-7Vk"/>
+                                    </constraints>
+                                    <connections>
+                                        <outlet property="monthTitle" destination="exF-5Z-iv8" id="4Fr-wV-Kdf"/>
+                                    </connections>
+                                </collectionReusableView>
+                            </collectionView>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="6zP-Pp-k6J" customClass="PerformanceChart">
+                                <rect key="frame" x="0.0" y="445" width="375" height="284"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="PRf-ZQ-lgO">
+                                    <size key="itemSize" width="40" height="280"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PerformanceChart" id="PTe-28-dvS" customClass="PerformanceChartCollectionViewCell" customModule="My_Way">
+                                        <rect key="frame" x="0.0" y="0.0" width="40" height="280"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="6g4-XG-eRc">
+                                            <rect key="frame" x="0.0" y="0.0" width="40" height="280"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="unS-Ab-Sf1" userLabel="Line View">
+                                                    <rect key="frame" x="18.666666666666668" y="0.0" width="2.6666666666666679" height="280"/>
+                                                    <color key="backgroundColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                </view>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="N60-AV-qcp">
+                                                    <rect key="frame" x="0.0" y="0.0" width="40" height="280"/>
+                                                    <subviews>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5OB-mb-quG" userLabel="0" customClass="RoundedView" customModule="My_Way" customModuleProvider="target">
+                                                            <rect key="frame" x="15" y="0.0" width="10" height="10"/>
+                                                            <color key="backgroundColor" name="rateRedColor"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="10" id="UA0-vF-Pa3"/>
+                                                                <constraint firstAttribute="width" secondItem="5OB-mb-quG" secondAttribute="height" id="rHM-SI-UQa"/>
+                                                            </constraints>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                    <real key="value" value="5"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
+                                                        </view>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bti-fE-QF2" userLabel="1" customClass="RoundedView" customModule="My_Way" customModuleProvider="target">
+                                                            <rect key="frame" x="15" y="11.666666666666664" width="10" height="10"/>
+                                                            <color key="backgroundColor" name="rateRedColor"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" secondItem="Bti-fE-QF2" secondAttribute="height" id="7PS-q3-gQO"/>
+                                                                <constraint firstAttribute="width" constant="10" id="AeF-Zn-axJ"/>
+                                                            </constraints>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                    <real key="value" value="5"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
+                                                        </view>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ECU-Xt-WKK" userLabel="2" customClass="RoundedView" customModule="My_Way" customModuleProvider="target">
+                                                            <rect key="frame" x="15" y="23.333333333333332" width="10" height="9.9999999999999964"/>
+                                                            <color key="backgroundColor" name="rateRedColor"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="10" id="5wd-fw-wbx"/>
+                                                                <constraint firstAttribute="width" secondItem="ECU-Xt-WKK" secondAttribute="height" id="sUd-vg-7zk"/>
+                                                            </constraints>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                    <real key="value" value="5"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
+                                                        </view>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LvK-Qo-puV" userLabel="3" customClass="RoundedView" customModule="My_Way" customModuleProvider="target">
+                                                            <rect key="frame" x="15" y="35.333333333333336" width="10" height="10"/>
+                                                            <color key="backgroundColor" name="rateRedColor"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" secondItem="LvK-Qo-puV" secondAttribute="height" id="GIa-BZ-meb"/>
+                                                                <constraint firstAttribute="width" constant="10" id="Pgp-CM-sed"/>
+                                                            </constraints>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                    <real key="value" value="5"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
+                                                        </view>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wub-F3-Jqe" userLabel="4" customClass="RoundedView" customModule="My_Way" customModuleProvider="target">
+                                                            <rect key="frame" x="15" y="47" width="10" height="10"/>
+                                                            <color key="backgroundColor" name="rateRedColor"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="10" id="qkI-zK-cTp"/>
+                                                                <constraint firstAttribute="width" secondItem="wub-F3-Jqe" secondAttribute="height" id="tIk-gh-TsP"/>
+                                                            </constraints>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                    <real key="value" value="5"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
+                                                        </view>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DIn-RC-dqq" userLabel="5" customClass="RoundedView" customModule="My_Way" customModuleProvider="target">
+                                                            <rect key="frame" x="15" y="58.666666666666664" width="10" height="9.9999999999999929"/>
+                                                            <color key="backgroundColor" name="rateRedColor"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" secondItem="DIn-RC-dqq" secondAttribute="height" id="9d5-wO-KdR"/>
+                                                                <constraint firstAttribute="width" constant="10" id="pVe-uT-088"/>
+                                                            </constraints>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                    <real key="value" value="5"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
+                                                        </view>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sBV-EB-D2D" userLabel="6" customClass="RoundedView" customModule="My_Way" customModuleProvider="target">
+                                                            <rect key="frame" x="15" y="70.333333333333329" width="10" height="10"/>
+                                                            <color key="backgroundColor" name="rateRedColor"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="10" id="Lo7-n2-Zml"/>
+                                                                <constraint firstAttribute="width" secondItem="sBV-EB-D2D" secondAttribute="height" id="yL9-zG-el2"/>
+                                                            </constraints>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                    <real key="value" value="5"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
+                                                        </view>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0cf-yX-Pvc" userLabel="7" customClass="RoundedView" customModule="My_Way" customModuleProvider="target">
+                                                            <rect key="frame" x="15" y="82.333333333333329" width="10" height="10"/>
+                                                            <color key="backgroundColor" name="rateRedColor"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="10" id="GPD-of-jgd"/>
+                                                                <constraint firstAttribute="width" secondItem="0cf-yX-Pvc" secondAttribute="height" id="tAl-as-4KG"/>
+                                                            </constraints>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                    <real key="value" value="5"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
+                                                        </view>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y6I-1y-CbO" userLabel="8" customClass="RoundedView" customModule="My_Way" customModuleProvider="target">
+                                                            <rect key="frame" x="15" y="94" width="10" height="10"/>
+                                                            <color key="backgroundColor" name="rateRedColor"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="10" id="LMq-Yb-DKw"/>
+                                                                <constraint firstAttribute="width" secondItem="y6I-1y-CbO" secondAttribute="height" id="hvF-lC-Rvd"/>
+                                                            </constraints>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                    <real key="value" value="5"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
+                                                        </view>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g3e-Pe-AVj" userLabel="9" customClass="RoundedView" customModule="My_Way" customModuleProvider="target">
+                                                            <rect key="frame" x="15" y="105.66666666666667" width="10" height="10"/>
+                                                            <color key="backgroundColor" name="rateRedColor"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" secondItem="g3e-Pe-AVj" secondAttribute="height" id="Noh-7O-dGD"/>
+                                                                <constraint firstAttribute="width" constant="10" id="zeb-bX-7Jg"/>
+                                                            </constraints>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                    <real key="value" value="5"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
+                                                        </view>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UJc-RM-JuJ" userLabel="10" customClass="RoundedView" customModule="My_Way" customModuleProvider="target">
+                                                            <rect key="frame" x="15" y="117.33333333333333" width="10" height="10"/>
+                                                            <color key="backgroundColor" name="rateRedColor"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" secondItem="UJc-RM-JuJ" secondAttribute="height" id="dwV-m0-EhI"/>
+                                                                <constraint firstAttribute="width" constant="10" id="u8r-DI-x00"/>
+                                                            </constraints>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                    <real key="value" value="5"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
+                                                        </view>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="khk-Ba-nZJ" userLabel="11" customClass="RoundedView" customModule="My_Way" customModuleProvider="target">
+                                                            <rect key="frame" x="15" y="129" width="10" height="10"/>
+                                                            <color key="backgroundColor" name="rateRedColor"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" secondItem="khk-Ba-nZJ" secondAttribute="height" id="GnD-ZQ-Xls"/>
+                                                                <constraint firstAttribute="width" constant="10" id="fvb-w3-2Sk"/>
+                                                            </constraints>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                    <real key="value" value="5"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
+                                                        </view>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w7Y-l2-6e2" userLabel="12" customClass="RoundedView" customModule="My_Way" customModuleProvider="target">
+                                                            <rect key="frame" x="15" y="141" width="10" height="10"/>
+                                                            <color key="backgroundColor" name="rateRedColor"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" secondItem="w7Y-l2-6e2" secondAttribute="height" id="Zkl-GV-8Ih"/>
+                                                                <constraint firstAttribute="width" constant="10" id="bjb-wJ-WhT"/>
+                                                            </constraints>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                    <real key="value" value="5"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
+                                                        </view>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZKU-3y-H2v" userLabel="13" customClass="RoundedView" customModule="My_Way" customModuleProvider="target">
+                                                            <rect key="frame" x="15" y="152.66666666666666" width="10" height="10"/>
+                                                            <color key="backgroundColor" name="rateRedColor"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="10" id="ovk-4s-mlQ"/>
+                                                                <constraint firstAttribute="width" secondItem="ZKU-3y-H2v" secondAttribute="height" id="y7u-Dm-1dU"/>
+                                                            </constraints>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                    <real key="value" value="5"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
+                                                        </view>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EHA-rk-jLP" userLabel="14" customClass="RoundedView" customModule="My_Way" customModuleProvider="target">
+                                                            <rect key="frame" x="15" y="164.33333333333334" width="10" height="10"/>
+                                                            <color key="backgroundColor" name="rateRedColor"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" secondItem="EHA-rk-jLP" secondAttribute="height" id="iBr-hS-Aei"/>
+                                                                <constraint firstAttribute="width" constant="10" id="pVt-ch-LJD"/>
+                                                            </constraints>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                    <real key="value" value="5"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
+                                                        </view>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="05g-VY-oK3" userLabel="15" customClass="RoundedView" customModule="My_Way" customModuleProvider="target">
+                                                            <rect key="frame" x="15" y="176" width="10" height="10"/>
+                                                            <color key="backgroundColor" name="rateRedColor"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="10" id="APg-Z8-UNY"/>
+                                                                <constraint firstAttribute="width" secondItem="05g-VY-oK3" secondAttribute="height" id="gaw-I6-Uwb"/>
+                                                            </constraints>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                    <real key="value" value="5"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
+                                                        </view>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dzn-IB-Gwu" userLabel="16" customClass="RoundedView" customModule="My_Way" customModuleProvider="target">
+                                                            <rect key="frame" x="15" y="187.66666666666666" width="10" height="10"/>
+                                                            <color key="backgroundColor" name="rateRedColor"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="10" id="3bo-md-leu"/>
+                                                                <constraint firstAttribute="width" secondItem="Dzn-IB-Gwu" secondAttribute="height" id="zTK-yE-dss"/>
+                                                            </constraints>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                    <real key="value" value="5"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
+                                                        </view>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w3e-RS-54o" userLabel="17" customClass="RoundedView" customModule="My_Way" customModuleProvider="target">
+                                                            <rect key="frame" x="15" y="199.66666666666666" width="10" height="10"/>
+                                                            <color key="backgroundColor" name="rateRedColor"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" secondItem="w3e-RS-54o" secondAttribute="height" id="Uzu-9W-H87"/>
+                                                                <constraint firstAttribute="width" constant="10" id="jAC-Tg-GJW"/>
+                                                            </constraints>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                    <real key="value" value="5"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
+                                                        </view>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3OG-ZE-Ccs" userLabel="18" customClass="RoundedView" customModule="My_Way" customModuleProvider="target">
+                                                            <rect key="frame" x="15" y="211.33333333333334" width="10" height="10"/>
+                                                            <color key="backgroundColor" name="rateRedColor"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="10" id="OaG-2i-MvT"/>
+                                                                <constraint firstAttribute="width" secondItem="3OG-ZE-Ccs" secondAttribute="height" id="u56-wQ-22T"/>
+                                                            </constraints>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                    <real key="value" value="5"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
+                                                        </view>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Y0-PV-Kkp" userLabel="19" customClass="RoundedView" customModule="My_Way" customModuleProvider="target">
+                                                            <rect key="frame" x="15" y="223" width="10" height="10"/>
+                                                            <color key="backgroundColor" name="rateRedColor"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="10" id="39A-4Z-S8c"/>
+                                                                <constraint firstAttribute="width" secondItem="0Y0-PV-Kkp" secondAttribute="height" id="GOX-f7-Txe"/>
+                                                            </constraints>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                    <real key="value" value="5"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
+                                                        </view>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vsf-7m-L2V" userLabel="20" customClass="RoundedView" customModule="My_Way" customModuleProvider="target">
+                                                            <rect key="frame" x="15" y="234.66666666666666" width="10" height="10"/>
+                                                            <color key="backgroundColor" name="rateRedColor"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="10" id="RuZ-7v-KDF"/>
+                                                                <constraint firstAttribute="width" secondItem="vsf-7m-L2V" secondAttribute="height" id="Sqc-b8-1RX"/>
+                                                            </constraints>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                    <real key="value" value="5"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
+                                                        </view>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gVQ-PU-JYz" userLabel="21" customClass="RoundedView" customModule="My_Way" customModuleProvider="target">
+                                                            <rect key="frame" x="15" y="246.66666666666666" width="10" height="9.9999999999999716"/>
+                                                            <color key="backgroundColor" name="rateRedColor"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="10" id="VW2-kv-yLM"/>
+                                                                <constraint firstAttribute="width" secondItem="gVQ-PU-JYz" secondAttribute="height" id="lVq-9p-rq2"/>
+                                                            </constraints>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                    <real key="value" value="5"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
+                                                        </view>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="09F-f0-V9z" userLabel="22" customClass="RoundedView" customModule="My_Way" customModuleProvider="target">
+                                                            <rect key="frame" x="15" y="258.33333333333331" width="10" height="10"/>
+                                                            <color key="backgroundColor" name="rateRedColor"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="10" id="NI6-nc-sWb"/>
+                                                                <constraint firstAttribute="width" secondItem="09F-f0-V9z" secondAttribute="height" id="ZNg-vM-eao"/>
+                                                            </constraints>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                    <real key="value" value="5"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
+                                                        </view>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="smE-5L-Wuv" userLabel="23" customClass="RoundedView" customModule="My_Way" customModuleProvider="target">
+                                                            <rect key="frame" x="15" y="270" width="10" height="10"/>
+                                                            <color key="backgroundColor" name="rateRedColor"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="10" id="L5l-01-Oi7"/>
+                                                                <constraint firstAttribute="width" secondItem="smE-5L-Wuv" secondAttribute="height" id="iuN-QU-rJA"/>
+                                                            </constraints>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                    <real key="value" value="5"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
+                                                        </view>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="w7Y-l2-6e2" firstAttribute="width" secondItem="w7Y-l2-6e2" secondAttribute="height" id="0gs-Af-3UY"/>
+                                                        <constraint firstItem="LvK-Qo-puV" firstAttribute="width" secondItem="LvK-Qo-puV" secondAttribute="height" id="0tg-PP-Tze"/>
+                                                        <constraint firstItem="vsf-7m-L2V" firstAttribute="width" secondItem="vsf-7m-L2V" secondAttribute="height" id="1Pn-oY-H1q"/>
+                                                        <constraint firstItem="w7Y-l2-6e2" firstAttribute="width" secondItem="w7Y-l2-6e2" secondAttribute="height" id="1pT-rF-Mwv"/>
+                                                        <constraint firstItem="gVQ-PU-JYz" firstAttribute="width" secondItem="gVQ-PU-JYz" secondAttribute="height" id="1xf-xc-Q56"/>
+                                                        <constraint firstItem="09F-f0-V9z" firstAttribute="width" secondItem="09F-f0-V9z" secondAttribute="height" id="474-eq-1lI"/>
+                                                        <constraint firstItem="Dzn-IB-Gwu" firstAttribute="width" secondItem="Dzn-IB-Gwu" secondAttribute="height" id="6xG-lb-JQ0"/>
+                                                        <constraint firstItem="wub-F3-Jqe" firstAttribute="width" secondItem="wub-F3-Jqe" secondAttribute="height" id="7d0-jj-3Ha"/>
+                                                        <constraint firstItem="Dzn-IB-Gwu" firstAttribute="width" secondItem="Dzn-IB-Gwu" secondAttribute="height" id="DB5-Ta-itp"/>
+                                                        <constraint firstItem="09F-f0-V9z" firstAttribute="width" secondItem="09F-f0-V9z" secondAttribute="height" id="FJG-N9-cb4"/>
+                                                        <constraint firstItem="05g-VY-oK3" firstAttribute="width" secondItem="05g-VY-oK3" secondAttribute="height" id="FcH-8f-SGd"/>
+                                                        <constraint firstItem="w3e-RS-54o" firstAttribute="width" secondItem="w3e-RS-54o" secondAttribute="height" id="Imp-dm-noI"/>
+                                                        <constraint firstItem="khk-Ba-nZJ" firstAttribute="width" secondItem="khk-Ba-nZJ" secondAttribute="height" id="LFF-H2-C1q"/>
+                                                        <constraint firstItem="0Y0-PV-Kkp" firstAttribute="width" secondItem="0Y0-PV-Kkp" secondAttribute="height" id="LMj-bh-yZC"/>
+                                                        <constraint firstItem="UJc-RM-JuJ" firstAttribute="width" secondItem="UJc-RM-JuJ" secondAttribute="height" id="NHY-67-DrR"/>
+                                                        <constraint firstItem="0Y0-PV-Kkp" firstAttribute="width" secondItem="0Y0-PV-Kkp" secondAttribute="height" id="NT0-Nc-Ece"/>
+                                                        <constraint firstItem="sBV-EB-D2D" firstAttribute="width" secondItem="sBV-EB-D2D" secondAttribute="height" id="Og5-bX-HX5"/>
+                                                        <constraint firstItem="ECU-Xt-WKK" firstAttribute="width" secondItem="ECU-Xt-WKK" secondAttribute="height" id="PP4-wT-1V3"/>
+                                                        <constraint firstItem="3OG-ZE-Ccs" firstAttribute="width" secondItem="3OG-ZE-Ccs" secondAttribute="height" id="SBK-5O-ByK"/>
+                                                        <constraint firstItem="smE-5L-Wuv" firstAttribute="width" secondItem="smE-5L-Wuv" secondAttribute="height" id="STF-O7-ika"/>
+                                                        <constraint firstItem="05g-VY-oK3" firstAttribute="width" secondItem="05g-VY-oK3" secondAttribute="height" id="Stm-Ry-ckS"/>
+                                                        <constraint firstItem="0cf-yX-Pvc" firstAttribute="width" secondItem="0cf-yX-Pvc" secondAttribute="height" id="UM7-d9-RVy"/>
+                                                        <constraint firstItem="EHA-rk-jLP" firstAttribute="width" secondItem="EHA-rk-jLP" secondAttribute="height" id="Vib-Sp-d7E"/>
+                                                        <constraint firstItem="vsf-7m-L2V" firstAttribute="width" secondItem="vsf-7m-L2V" secondAttribute="height" id="VtT-Xu-jsW"/>
+                                                        <constraint firstItem="sBV-EB-D2D" firstAttribute="width" secondItem="sBV-EB-D2D" secondAttribute="height" id="Ys4-Hc-Swv"/>
+                                                        <constraint firstItem="09F-f0-V9z" firstAttribute="width" secondItem="09F-f0-V9z" secondAttribute="height" id="aGA-07-z25"/>
+                                                        <constraint firstItem="vsf-7m-L2V" firstAttribute="width" secondItem="vsf-7m-L2V" secondAttribute="height" id="aXt-fQ-dh8"/>
+                                                        <constraint firstItem="y6I-1y-CbO" firstAttribute="width" secondItem="y6I-1y-CbO" secondAttribute="height" id="bNR-oa-0gC"/>
+                                                        <constraint firstItem="05g-VY-oK3" firstAttribute="width" secondItem="05g-VY-oK3" secondAttribute="height" id="cC3-in-3Bv"/>
+                                                        <constraint firstItem="khk-Ba-nZJ" firstAttribute="width" secondItem="khk-Ba-nZJ" secondAttribute="height" id="hSg-so-CX6"/>
+                                                        <constraint firstItem="gVQ-PU-JYz" firstAttribute="width" secondItem="gVQ-PU-JYz" secondAttribute="height" id="hsG-nC-dDN"/>
+                                                        <constraint firstItem="EHA-rk-jLP" firstAttribute="width" secondItem="EHA-rk-jLP" secondAttribute="height" id="hsh-Lj-nTa"/>
+                                                        <constraint firstItem="3OG-ZE-Ccs" firstAttribute="width" secondItem="3OG-ZE-Ccs" secondAttribute="height" id="jMs-Ev-e20"/>
+                                                        <constraint firstItem="09F-f0-V9z" firstAttribute="width" secondItem="09F-f0-V9z" secondAttribute="height" id="jrb-jM-jLh"/>
+                                                        <constraint firstItem="smE-5L-Wuv" firstAttribute="width" secondItem="smE-5L-Wuv" secondAttribute="height" id="kAa-gq-bu6"/>
+                                                        <constraint firstItem="smE-5L-Wuv" firstAttribute="width" secondItem="smE-5L-Wuv" secondAttribute="height" id="lFn-xJ-KaT"/>
+                                                        <constraint firstItem="EHA-rk-jLP" firstAttribute="width" secondItem="EHA-rk-jLP" secondAttribute="height" id="lIS-to-r2d"/>
+                                                        <constraint firstItem="w3e-RS-54o" firstAttribute="width" secondItem="w3e-RS-54o" secondAttribute="height" id="oYv-3C-TfM"/>
+                                                        <constraint firstItem="ZKU-3y-H2v" firstAttribute="width" secondItem="ZKU-3y-H2v" secondAttribute="height" id="p86-9L-V7N"/>
+                                                        <constraint firstItem="gVQ-PU-JYz" firstAttribute="width" secondItem="gVQ-PU-JYz" secondAttribute="height" id="pqh-nT-Fpe"/>
+                                                        <constraint firstItem="UJc-RM-JuJ" firstAttribute="width" secondItem="UJc-RM-JuJ" secondAttribute="height" id="rRX-yl-dwi"/>
+                                                        <constraint firstItem="ZKU-3y-H2v" firstAttribute="width" secondItem="ZKU-3y-H2v" secondAttribute="height" id="rxO-uU-Hdt"/>
+                                                        <constraint firstItem="DIn-RC-dqq" firstAttribute="width" secondItem="DIn-RC-dqq" secondAttribute="height" id="sGT-cc-6Dr"/>
+                                                        <constraint firstItem="g3e-Pe-AVj" firstAttribute="width" secondItem="g3e-Pe-AVj" secondAttribute="height" id="t03-lT-oSc"/>
+                                                        <constraint firstItem="0cf-yX-Pvc" firstAttribute="width" secondItem="0cf-yX-Pvc" secondAttribute="height" id="vVK-B3-XPQ"/>
+                                                        <constraint firstItem="smE-5L-Wuv" firstAttribute="width" secondItem="smE-5L-Wuv" secondAttribute="height" id="x0d-cM-j1O"/>
+                                                        <constraint firstItem="3OG-ZE-Ccs" firstAttribute="width" secondItem="3OG-ZE-Ccs" secondAttribute="height" id="y3J-az-90x"/>
+                                                        <constraint firstItem="0Y0-PV-Kkp" firstAttribute="width" secondItem="0Y0-PV-Kkp" secondAttribute="height" id="yme-BN-e1A"/>
+                                                    </constraints>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="N60-AV-qcp" firstAttribute="width" secondItem="6g4-XG-eRc" secondAttribute="width" id="1QN-7Y-rRf"/>
+                                                <constraint firstItem="unS-Ab-Sf1" firstAttribute="height" secondItem="6g4-XG-eRc" secondAttribute="height" id="FSM-F1-YdX"/>
+                                                <constraint firstItem="unS-Ab-Sf1" firstAttribute="centerX" secondItem="6g4-XG-eRc" secondAttribute="centerX" id="J1w-93-OVN"/>
+                                                <constraint firstItem="N60-AV-qcp" firstAttribute="height" secondItem="6g4-XG-eRc" secondAttribute="height" id="g2t-HQ-qlw"/>
+                                                <constraint firstItem="N60-AV-qcp" firstAttribute="centerX" secondItem="6g4-XG-eRc" secondAttribute="centerX" id="ktI-zM-DpB"/>
+                                                <constraint firstItem="unS-Ab-Sf1" firstAttribute="centerY" secondItem="6g4-XG-eRc" secondAttribute="centerY" id="lRv-RR-aHN"/>
+                                                <constraint firstItem="unS-Ab-Sf1" firstAttribute="width" secondItem="6g4-XG-eRc" secondAttribute="width" multiplier="0.07" id="q4E-q2-GWf"/>
+                                                <constraint firstItem="N60-AV-qcp" firstAttribute="centerY" secondItem="6g4-XG-eRc" secondAttribute="centerY" id="vrW-eL-Gy3"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <connections>
+                                            <outletCollection property="timeDots" destination="5OB-mb-quG" collectionClass="NSMutableArray" id="IpT-dD-zJf"/>
+                                            <outletCollection property="timeDots" destination="Bti-fE-QF2" collectionClass="NSMutableArray" id="sfa-lt-fwo"/>
+                                            <outletCollection property="timeDots" destination="ECU-Xt-WKK" collectionClass="NSMutableArray" id="kl6-hl-7zl"/>
+                                            <outletCollection property="timeDots" destination="LvK-Qo-puV" collectionClass="NSMutableArray" id="wwR-WE-z6L"/>
+                                            <outletCollection property="timeDots" destination="wub-F3-Jqe" collectionClass="NSMutableArray" id="haM-35-v3j"/>
+                                            <outletCollection property="timeDots" destination="DIn-RC-dqq" collectionClass="NSMutableArray" id="WUZ-zx-yhM"/>
+                                            <outletCollection property="timeDots" destination="sBV-EB-D2D" collectionClass="NSMutableArray" id="JVZ-rr-x3e"/>
+                                            <outletCollection property="timeDots" destination="0cf-yX-Pvc" collectionClass="NSMutableArray" id="Jmb-3B-GQC"/>
+                                            <outletCollection property="timeDots" destination="y6I-1y-CbO" collectionClass="NSMutableArray" id="qhd-Q8-9TM"/>
+                                            <outletCollection property="timeDots" destination="g3e-Pe-AVj" collectionClass="NSMutableArray" id="kOm-oB-yXc"/>
+                                            <outletCollection property="timeDots" destination="UJc-RM-JuJ" collectionClass="NSMutableArray" id="g1Y-If-bEc"/>
+                                            <outletCollection property="timeDots" destination="khk-Ba-nZJ" collectionClass="NSMutableArray" id="LiT-PJ-IbT"/>
+                                            <outletCollection property="timeDots" destination="w7Y-l2-6e2" collectionClass="NSMutableArray" id="Oh5-gg-DXN"/>
+                                            <outletCollection property="timeDots" destination="ZKU-3y-H2v" collectionClass="NSMutableArray" id="wqT-UI-GZn"/>
+                                            <outletCollection property="timeDots" destination="EHA-rk-jLP" collectionClass="NSMutableArray" id="1Eo-5u-SfD"/>
+                                            <outletCollection property="timeDots" destination="05g-VY-oK3" collectionClass="NSMutableArray" id="ETq-lt-Rm5"/>
+                                            <outletCollection property="timeDots" destination="Dzn-IB-Gwu" collectionClass="NSMutableArray" id="2eC-hL-aSb"/>
+                                            <outletCollection property="timeDots" destination="w3e-RS-54o" collectionClass="NSMutableArray" id="WIS-M3-B4c"/>
+                                            <outletCollection property="timeDots" destination="3OG-ZE-Ccs" collectionClass="NSMutableArray" id="j4Y-yQ-pw4"/>
+                                            <outletCollection property="timeDots" destination="0Y0-PV-Kkp" collectionClass="NSMutableArray" id="cgn-MH-Oay"/>
+                                            <outletCollection property="timeDots" destination="vsf-7m-L2V" collectionClass="NSMutableArray" id="KVe-JH-vXY"/>
+                                            <outletCollection property="timeDots" destination="gVQ-PU-JYz" collectionClass="NSMutableArray" id="fuL-yK-Nhv"/>
+                                            <outletCollection property="timeDots" destination="09F-f0-V9z" collectionClass="NSMutableArray" id="I31-4y-PfU"/>
+                                            <outletCollection property="timeDots" destination="smE-5L-Wuv" collectionClass="NSMutableArray" id="rBk-NL-86l"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kr8-7C-s5A">
+                                <rect key="frame" x="284" y="410" width="86" height="30"/>
+                                <state key="normal" title="Ver detalhes"/>
+                                <connections>
+                                    <segue destination="GLe-4G-xk0" kind="show" identifier="toMealHistory" id="FUD-0V-zgY"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Kr8-7C-s5A" firstAttribute="top" secondItem="vbv-dQ-IqE" secondAttribute="bottom" constant="2" id="1oa-xo-4aB"/>
+                            <constraint firstItem="EuH-jM-Qtn" firstAttribute="trailing" secondItem="Kr8-7C-s5A" secondAttribute="trailing" constant="5" id="6gv-sm-hyy"/>
+                            <constraint firstItem="6zP-Pp-k6J" firstAttribute="top" secondItem="Kr8-7C-s5A" secondAttribute="bottom" constant="5" id="C8q-Dh-R6n"/>
+                            <constraint firstItem="6zP-Pp-k6J" firstAttribute="leading" secondItem="EuH-jM-Qtn" secondAttribute="leading" id="TNf-yz-hOm"/>
+                            <constraint firstItem="EuH-jM-Qtn" firstAttribute="trailing" secondItem="6zP-Pp-k6J" secondAttribute="trailing" id="ZVu-Qd-tSD"/>
+                            <constraint firstItem="EuH-jM-Qtn" firstAttribute="bottom" secondItem="6zP-Pp-k6J" secondAttribute="bottom" id="aNl-1m-YFs"/>
+                            <constraint firstItem="vbv-dQ-IqE" firstAttribute="leading" secondItem="EuH-jM-Qtn" secondAttribute="leading" id="mA3-wu-GZg"/>
+                            <constraint firstItem="vbv-dQ-IqE" firstAttribute="trailing" secondItem="EuH-jM-Qtn" secondAttribute="trailing" id="oWk-u3-qPK"/>
+                            <constraint firstItem="vbv-dQ-IqE" firstAttribute="top" secondItem="EuH-jM-Qtn" secondAttribute="top" id="zsI-ZY-LCT"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="EuH-jM-Qtn"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Histórico" image="book" catalog="system" selectedImage="book.fill" id="XAk-g9-zgU"/>
+                    <navigationItem key="navigationItem" title="Histórico" id="o3y-2P-9tx"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="calendarView" destination="vbv-dQ-IqE" id="jeq-J5-33Q"/>
+                        <outlet property="chartCollectionView" destination="6zP-Pp-k6J" id="Edg-Hs-4If"/>
+                        <outlet property="seeHistoryButton" destination="Kr8-7C-s5A" id="crx-YH-gMp"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QqY-nX-pZ9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1217" y="117"/>
         </scene>
     </scenes>
     <resources>
