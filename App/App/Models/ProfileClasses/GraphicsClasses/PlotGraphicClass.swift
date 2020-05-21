@@ -26,7 +26,6 @@ class PlotGraphicClass {
         }
     }
     
-    
     func plotGraphicLine(graphicVIew: UIView, colorLinesArray: [UIColor], datesX: NSMutableArray, numbersArray: [[Int32]], topNumber: Int, bottomNumber: Int) {
         
         var itemArray: [AnyHashable] = []
@@ -50,7 +49,7 @@ class PlotGraphicClass {
         let lineChart = XLineChart(frame: CGRect(x: 0, y: 0, width: widthGraphic, height: heightGraphic), dataItemArray: NSMutableArray(array: itemArray), dataDiscribeArray: datesX, topNumber: topNumberGraphic, bottomNumber: bottomNumberGraphic, graphMode: XLineGraphMode.MutiLineGraph, chartConfiguration: configuration)
         
         
-        if let views = lineChart?.subviews {
+        if let views = lineChart?.subviews {2
             for viewScroll in views {
                 if viewScroll is UIScrollView {
                     if let scroll = viewScroll as? UIScrollView {

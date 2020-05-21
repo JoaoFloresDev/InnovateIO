@@ -138,9 +138,8 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
             // Starting to populate and draw the charts...
             var numbersArray = [[Int32]]()
             
-            PlotGraphicClass().plotGraphicHorizontalBars (view: meatsGraphicBarsView, greenPercent: 0.5, yellowPercent: 0.3 )
+            plotter.plotGraphicHorizontalBars (view: meatsGraphicBarsView, greenPercent: 0.5, yellowPercent: 0.3 )
             
-            plotter.setLayoutLegends(views: [boxWaterLegend, boxFruitsLegend, boxExerciceLegend])
             plotter.plotGraphicHorizontalBars (view: meatsGraphicBarsView, greenPercent: 0.5, yellowPercent: 0.3 )
             
             // Populating with the weights marked on this current week
@@ -149,10 +148,12 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
             plotter.plotGraphicLine(graphicVIew: weightGraphicLineView, colorLinesArray: [UIColor.black], datesX: dates, numbersArray: numbersArray, topNumber: 120, bottomNumber: 0)
             
             let colorWater = UIColor(named: "habitsWaterColor")!
+            let colorFruits = UIColor(named: "habitsFruitsColor")!
+            let colorExercice = UIColor(named: "habitsExerciceColor")!
             //  Populating the habits with core data values
             numbersArray = try plotter.loadHabits()
 
-            plotter.plotGraphicLine(graphicVIew: habitsGraphicLineView, colorLinesArray: [UIColor.blue, UIColor.purple, UIColor.pink()], datesX: dates, numbersArray: numbersArray, topNumber: 1, bottomNumber: 0)
+            plotter.plotGraphicLine(graphicVIew: habitsGraphicLineView, colorLinesArray: [colorWater, colorFruits, colorExercice], datesX: dates, numbersArray: numbersArray, topNumber: 1, bottomNumber: 0)
         }
         catch {
             os_log("[ERROR] Couldn't communicate with the operating system's internal calendar/time system or memory is too low!")
