@@ -113,15 +113,17 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
     func setupGraphic() {
         
         do {
+            
+            let plotter = try PlotGraphicClass()
+            
             // Getting the current days of week
             let dates: NSMutableArray = []
-            var weights: [Int32] = []
             let daysOfWeek = Date().getAllDaysForWeek()
             
             for day in daysOfWeek {
                 
                 // Getting the current day of the week
-                let (year, month, day, _, _, _) = try day.getAllInformations()
+                let (_, _, day, _, _, _) = try day.getAllInformations()
                 
                 // Converting month number into text
                 let dateFormatter = DateFormatter()
@@ -130,45 +132,30 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
                 let monthString = dateFormatter.string(from: Date())
                 
                 dates.add("\(day)\n\(monthString)")
-                
-                // Getting the weight for that day
-                var weight: Int32 = 0
-                
-                do {
-                    let entity = try self.dataHandler?.loadWeight(year: year, month: month, day: day)
-                    
-                    if entity != nil {
-                        weight = Int32(entity!.value)
-                    }
-                }
-                catch {}
-                
-                weights.append(weight)
+
             }
             
-            
-            // Getting the current values for the charts
+            // Starting to populate and draw the charts...
             var numbersArray = [[Int32]]()
             
             PlotGraphicClass().plotGraphicHorizontalBars (view: meatsGraphicBarsView, greenPercent: 0.5, yellowPercent: 0.3 )
             
+            plotter.setLayoutLegends(views: [boxWaterLegend, boxFruitsLegend, boxExerciceLegend])
+            plotter.plotGraphicHorizontalBars (view: meatsGraphicBarsView, greenPercent: 0.5, yellowPercent: 0.3 )
+            
             // Populating with the weights marked on this current week
-            numbersArray = [weights]
+            numbersArray = try plotter.loadWeights()
             
-            PlotGraphicClass().plotGraphicLine(graphicVIew: weightGraphicLineView, colorLinesArray: [UIColor.black], datesX: dates, numbersArray: numbersArray, topNumber: 120, bottomNumber: 0)
+            plotter.plotGraphicLine(graphicVIew: weightGraphicLineView, colorLinesArray: [UIColor.black], datesX: dates, numbersArray: numbersArray, topNumber: 120, bottomNumber: 0)
             
-            //  Populate with aleatory values
-            numbersArray = PlotGraphicClass().generateValues(numLines: 3, datesCount: dates.count)
-            
-            let colorExercices = UIColor(named: "habitsExerciceColor")!
-            let colorFruits = UIColor(named: "habitsFruitsColor")!
             let colorWater = UIColor(named: "habitsWaterColor")!
-            let colorLinesArray = [colorExercices, colorFruits, colorWater]
-            
-            PlotGraphicClass().plotGraphicLine(graphicVIew: habitsGraphicLineView, colorLinesArray: colorLinesArray, datesX: dates, numbersArray: numbersArray, topNumber: 100, bottomNumber: 0)
+            //  Populating the habits with core data values
+            numbersArray = try plotter.loadHabits()
+
+            plotter.plotGraphicLine(graphicVIew: habitsGraphicLineView, colorLinesArray: [UIColor.blue, UIColor.purple, UIColor.pink()], datesX: dates, numbersArray: numbersArray, topNumber: 1, bottomNumber: 0)
         }
         catch {
-            os_log("[ERROR] Couldn't communicate with the operating system's internal calendar/time system!")
+            os_log("[ERROR] Couldn't communicate with the operating system's internal calendar/time system or memory is too low!")
         }
     }
     
