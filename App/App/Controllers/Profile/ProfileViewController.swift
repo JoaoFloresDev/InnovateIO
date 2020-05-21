@@ -48,10 +48,6 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
     @IBOutlet weak var habitsGraphicLineView: UIView!
     @IBOutlet weak var meatsGraphicBarsView: UIView!
     
-    @IBOutlet weak var boxWaterLegend: UIView!
-    @IBOutlet weak var boxFruitsLegend: UIView!
-    @IBOutlet weak var boxExerciceLegend: UIView!
-    
     //    MARK: - Variables
     var imagePicker: UIImagePickerController!
     
@@ -76,12 +72,16 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
         setupStyleViews()
         setupDataProfile()
         setUpdateDataProfileNotification()
-        setupGraphic()
+        
         for constraints in headerView.constraints {
             if(constraints.identifier == "headerView") {
                 headerViewHeightConstraint = constraints
             }
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        setupGraphic()
     }
     
     func setUpdateDataProfileNotification() {
@@ -150,8 +150,6 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
             // Getting the current values for the charts
             var numbersArray = [[Int32]]()
             
-            PlotGraphicClass().setLayoutLegends(views: [boxWaterLegend, boxFruitsLegend, boxExerciceLegend])
-            
             PlotGraphicClass().plotGraphicHorizontalBars (view: meatsGraphicBarsView, greenPercent: 0.5, yellowPercent: 0.3 )
             
             // Populating with the weights marked on this current week
@@ -162,7 +160,12 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
             //  Populate with aleatory values
             numbersArray = PlotGraphicClass().generateValues(numLines: 3, datesCount: dates.count)
             
-            PlotGraphicClass().plotGraphicLine(graphicVIew: habitsGraphicLineView, colorLinesArray: [UIColor.blue, UIColor.purple, UIColor.pink()], datesX: dates, numbersArray: numbersArray, topNumber: 100, bottomNumber: 0)
+            let colorExercices = UIColor(named: "habitsExerciceColor")!
+            let colorFruits = UIColor(named: "habitsFruitsColor")!
+            let colorWater = UIColor(named: "habitsWaterColor")!
+            let colorLinesArray = [colorExercices, colorFruits, colorWater]
+            
+            PlotGraphicClass().plotGraphicLine(graphicVIew: habitsGraphicLineView, colorLinesArray: colorLinesArray, datesX: dates, numbersArray: numbersArray, topNumber: 100, bottomNumber: 0)
         }
         catch {
             os_log("[ERROR] Couldn't communicate with the operating system's internal calendar/time system!")
