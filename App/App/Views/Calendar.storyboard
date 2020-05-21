@@ -607,6 +607,14 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kr8-7C-s5A">
+                                <rect key="frame" x="313" y="416" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <segue destination="GLe-4G-xk0" kind="show" identifier="toMealHistory" id="FUD-0V-zgY"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -625,7 +633,8 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="calendarView" destination="vbv-dQ-IqE" id="jeq-J5-33Q"/>
-                        <outlet property="collectionView" destination="6zP-Pp-k6J" id="Bmz-Jv-M8g"/>
+                        <outlet property="chartCollectionView" destination="6zP-Pp-k6J" id="Edg-Hs-4If"/>
+                        <outlet property="seeHistoryButton" destination="Kr8-7C-s5A" id="crx-YH-gMp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QqY-nX-pZ9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

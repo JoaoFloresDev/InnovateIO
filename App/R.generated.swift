@@ -89,8 +89,25 @@ struct R: Rswift.Validatable {
   }
 
   #if os(iOS) || os(tvOS)
-  /// This `R.segue` struct is generated, and contains static references to 3 view controllers.
+  /// This `R.segue` struct is generated, and contains static references to 4 view controllers.
   struct segue {
+    /// This struct is generated for `CalendarViewController`, and contains static references to 1 segues.
+    struct calendarViewController {
+      /// Segue identifier `toMealHistory`.
+      static let toMealHistory: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, CalendarViewController, MealHistoryViewController> = Rswift.StoryboardSegueIdentifier(identifier: "toMealHistory")
+
+      #if os(iOS) || os(tvOS)
+      /// Optionally returns a typed version of segue `toMealHistory`.
+      /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
+      /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
+      static func toMealHistory(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, CalendarViewController, MealHistoryViewController>? {
+        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.calendarViewController.toMealHistory, segue: segue)
+      }
+      #endif
+
+      fileprivate init() {}
+    }
+
     /// This struct is generated for `MealHistoryViewController`, and contains static references to 1 segues.
     struct mealHistoryViewController {
       /// Segue identifier `toRegisterMeal`.
