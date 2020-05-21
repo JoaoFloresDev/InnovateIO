@@ -49,7 +49,7 @@ class PlotGraphicClass {
         let lineChart = XLineChart(frame: CGRect(x: 0, y: 0, width: widthGraphic, height: heightGraphic), dataItemArray: NSMutableArray(array: itemArray), dataDiscribeArray: datesX, topNumber: topNumberGraphic, bottomNumber: bottomNumberGraphic, graphMode: XLineGraphMode.MutiLineGraph, chartConfiguration: configuration)
         
         
-        if let views = lineChart?.subviews {2
+        if let views = lineChart?.subviews {
             for viewScroll in views {
                 if viewScroll is UIScrollView {
                     if let scroll = viewScroll as? UIScrollView {
