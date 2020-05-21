@@ -110,7 +110,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MonthLabel" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="exF-5Z-iv8">
-                                            <rect key="frame" x="161.66666666666666" y="14.666666666666666" width="52" height="20.333333333333336"/>
+                                            <rect key="frame" x="142.33333333333334" y="14.666666666666666" width="90.666666666666657" height="20.333333333333336"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -167,10 +167,9 @@
                                         <constraint firstItem="Myl-Zj-DYG" firstAttribute="top" secondItem="exF-5Z-iv8" secondAttribute="bottom" constant="8.5" id="Ey6-SD-cg0"/>
                                         <constraint firstItem="Myl-Zj-DYG" firstAttribute="leading" secondItem="hmD-ZK-nor" secondAttribute="leading" id="Kv0-rB-i0r"/>
                                         <constraint firstItem="exF-5Z-iv8" firstAttribute="top" secondItem="hmD-ZK-nor" secondAttribute="topMargin" constant="6.5" id="N3H-UE-CMy"/>
+                                        <constraint firstItem="exF-5Z-iv8" firstAttribute="centerX" secondItem="hmD-ZK-nor" secondAttribute="centerX" id="SlY-cg-r9H"/>
                                         <constraint firstItem="Myl-Zj-DYG" firstAttribute="top" secondItem="exF-5Z-iv8" secondAttribute="bottom" constant="8.5" id="YPk-1U-NRx"/>
-                                        <constraint firstItem="exF-5Z-iv8" firstAttribute="leading" secondItem="hmD-ZK-nor" secondAttribute="leadingMargin" constant="153.5" id="jEy-LC-wVB"/>
                                         <constraint firstAttribute="trailing" secondItem="Myl-Zj-DYG" secondAttribute="trailing" id="jly-Th-AE5"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="exF-5Z-iv8" secondAttribute="trailing" constant="153.5" id="ook-hp-z8j"/>
                                         <constraint firstAttribute="bottom" secondItem="Myl-Zj-DYG" secondAttribute="bottom" id="r6o-Kv-7Vk"/>
                                     </constraints>
                                     <connections>
@@ -199,7 +198,7 @@
                                                     <rect key="frame" x="18.666666666666668" y="0.0" width="2.6666666666666679" height="280"/>
                                                     <color key="backgroundColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 </view>
-                                                <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" distribution="equalCentering" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="N60-AV-qcp">
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="N60-AV-qcp">
                                                     <rect key="frame" x="0.0" y="0.0" width="40" height="280"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5OB-mb-quG" userLabel="0" customClass="RoundedView" customModule="My_Way" customModuleProvider="target">
@@ -630,7 +629,7 @@
                         <viewLayoutGuide key="safeArea" id="EuH-jM-Qtn"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Histórico" image="book" catalog="system" selectedImage="book.fill" id="XAk-g9-zgU"/>
-                    <navigationItem key="navigationItem" id="o3y-2P-9tx"/>
+                    <navigationItem key="navigationItem" title="Histórico" id="o3y-2P-9tx"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="calendarView" destination="vbv-dQ-IqE" id="jeq-J5-33Q"/>

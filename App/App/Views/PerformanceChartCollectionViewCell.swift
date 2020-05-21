@@ -20,8 +20,21 @@ class PerformanceChartCollectionViewCell: UICollectionViewCell {
 		}
 	}
 	
-	func configureDotsForDay(day:Int, mealTime:[Int]){
+	func configureDotsForDay(day:Int, mealTime:[Int], quality:[Int]){
 		makeBlankTimeDots()
+		
+		for i in quality{
+			switch i {
+				case -1:
+					timeDots[i].backgroundColor = UIColor.init(named: "rateRedColor")!
+				case 0:
+					timeDots[i].backgroundColor = UIColor.init(named: "rateYellowColor")!
+				case 1:
+					timeDots[i].backgroundColor = UIColor.init(named: "rateGreenColor")!
+				default:
+					break
+			}
+		}
 		for i in mealTime{
 			timeDots[i].activate()
 		}
