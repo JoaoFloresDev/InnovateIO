@@ -39,12 +39,13 @@
             </objects>
             <point key="canvasLocation" x="1139.1304347826087" y="118.52678571428571"/>
         </scene>
-        <!--Configurações-->
+        <!--Mais-->
         <scene sceneID="Lbo-jI-BbC">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dRs-vJ-m6y" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Configurações" image="ellipsis.circle" catalog="system" selectedImage="ellipsis.circle.fill" id="7Tp-gK-JSa"/>
+                    <tabBarItem key="tabBarItem" title="Mais" image="ellipsis" catalog="system" id="6oj-I4-aTr"/>
                     <toolbarItems/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="YV5-AO-bae">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -60,7 +61,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="ellipsis.circle" catalog="system" width="128" height="121"/>
-        <image name="ellipsis.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="ellipsis" catalog="system" width="128" height="37"/>
     </resources>
 </document>
