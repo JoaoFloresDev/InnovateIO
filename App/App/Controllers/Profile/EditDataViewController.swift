@@ -75,6 +75,19 @@ class EditDataViewController: ViewController, UIPickerViewDelegate, UIPickerView
                                         object: nil, userInfo: nil)
     }
     
+    //    MARK: - Conversion
+    func convertWeightStringToFloat() -> Float {
+        let valueArray = self.weightTextField.text!.split(separator: ",")
+        let integer = Float(valueArray[0])
+        var convertedValue = integer ?? 0
+        
+        if let decimal = Float(valueArray[1]) {
+            convertedValue = convertedValue + decimal/100
+        }
+        
+        return convertedValue
+    }
+    
     //    MARK: - UserDefaults
     
     /// Setups the initial state of the components on the view.
@@ -98,13 +111,8 @@ class EditDataViewController: ViewController, UIPickerViewDelegate, UIPickerView
         defaults.set (weightTextField.text, forKey: "Weight")
         
         if self.weightTextField.text != nil && !self.weightTextField.text!.isEmpty {
-            let valueArray = self.weightTextField.text!.split(separator: ",")
-            let integer = Float(valueArray[0])
-            var convertedValue = integer ?? 0
             
-            if let decimal = Float(valueArray[1]) {
-                convertedValue = convertedValue + decimal/100
-            }
+            let convertedValue = convertWeightStringToFloat ()
             
             do {
                 try self.dataHandler?.createWeight(value: convertedValue, date: nil)
@@ -120,6 +128,11 @@ class EditDataViewController: ViewController, UIPickerViewDelegate, UIPickerView
             }
         }
         
+    }
+    
+    //    MARK: - Keyboard
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
     }
     
     //    MARK: - Style
@@ -142,9 +155,23 @@ class EditDataViewController: ViewController, UIPickerViewDelegate, UIPickerView
             i = i + 1
         }
         
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
         
         view.addGestureRecognizer(tap)
+
+        selectInitialRowPickerView(thePicker)
+    }
+    
+    fileprivate func selectInitialRowPickerView(_ thePicker: UIPickerView) {
+        if self.weightTextField.text != nil && !self.weightTextField.text!.isEmpty {
+            let valueArray = self.weightTextField.text!.split(separator: ",")
+            if let integer = Float(valueArray[0]) {
+                thePicker.selectRow(Int(integer - 30), inComponent: 0, animated: true)
+            }
+            if let decimal = Float(valueArray[1]) {
+                thePicker.selectRow(Int(decimal/10), inComponent: 2, animated: true)
+            }
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -193,6 +220,6 @@ class EditDataViewController: ViewController, UIPickerViewDelegate, UIPickerView
     }
     
     func pickerView(_ pickerView: UIPickerView, widthForComponent component: Int) -> CGFloat {
-        return 40.0
+        return 50.0
     }
 }

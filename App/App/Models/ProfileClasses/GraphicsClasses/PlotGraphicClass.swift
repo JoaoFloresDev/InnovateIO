@@ -26,12 +26,11 @@ class PlotGraphicClass {
         }
     }
     
-    
     func plotGraphicLine(graphicVIew: UIView, colorLinesArray: [UIColor], datesX: NSMutableArray, numbersArray: [[Int32]], topNumber: Int, bottomNumber: Int) {
         
         var itemArray: [AnyHashable] = []
         
-//      Create lines lines
+//      Create lines
         for i in 0..<numbersArray.count {
             let item = XLineChartItem(dataNumber: NSMutableArray(array: numbersArray[i]), color: colorLinesArray[i])
             itemArray.append(item!)
@@ -40,6 +39,7 @@ class PlotGraphicClass {
 //      Plot graphic
         let configuration = XNormalLineChartConfiguration()
         configuration.lineMode = XLineMode.CurveLine
+        configuration.isShowShadow = false
         
         let widthGraphic = graphicVIew.frame.width
         let heightGraphic = graphicVIew.frame.height
@@ -68,12 +68,13 @@ class PlotGraphicClass {
     func plotGraphicHorizontalBars (view: UIView, greenPercent: Float, yellowPercent: Float) {
         
         let greenView = UIView(frame: CGRect(x: 0, y: 0, width: Int(Float(view.frame.width) * greenPercent), height: Int(view.frame.height)))
-        greenView.backgroundColor = UIColor.green
         
         let yellowView = UIView(frame: CGRect(x: Int(Float(view.frame.width) * greenPercent), y: 0, width: Int(Float(view.frame.width) * yellowPercent), height: Int(view.frame.height)))
-        yellowView.backgroundColor = UIColor.yellow
         
-        view.backgroundColor = UIColor.red
+        yellowView.backgroundColor = UIColor(named: "rateYellowColor")
+        view.backgroundColor = UIColor(named: "rateRedColor")
+        greenView.backgroundColor = UIColor(named: "rateGreenColor")
+        
         view.addSubview(greenView)
         view.addSubview(yellowView)
         
