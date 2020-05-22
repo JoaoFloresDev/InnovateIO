@@ -631,11 +631,6 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
                                 <items>
                                     <navigationItem title="Title" id="UUS-kG-p9l">
-                                        <barButtonItem key="leftBarButtonItem" title="Editar" id="v2r-hy-eeo">
-                                            <connections>
-                                                <action selector="showEdit:" destination="J9C-Gw-IsF" id="qiP-KF-5Tl"/>
-                                            </connections>
-                                        </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" title="Fechar" id="TQN-Lz-W8E">
                                             <connections>
                                                 <action selector="closeView:" destination="J9C-Gw-IsF" id="Liv-dX-qWO"/>

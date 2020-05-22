@@ -10,17 +10,29 @@ import UIKit
 import os.log
 
 class DetailsViewController: UIViewController, UITableViewDelegate,  UITableViewDataSource {
-    
+    var weightDates = [String]()
+    var weightValues = [Int32]()
+
 //    MARK: - IBOutlet
     @IBOutlet weak var detailsTableview: UITableView!
-    
     @IBOutlet weak var detaisNavigation: UINavigationItem!
     
     //    MARK: - IBOutlet
-    @IBAction func showEdit(_ sender: Any) {
+    @IBAction func showEdit(_ sender: UIButton) {
+        if(detailsTableview.isEditing == true)
+        {
+            detailsTableview.isEditing = false
+            sender.titleLabel?.text = "Done"
+        }
+        else
+        {
+            detailsTableview.isEditing = true
+            self.navigationItem.rightBarButtonItem?.title = "Edit"
+        }
     }
     
     @IBAction func closeView(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
     }
     
 //    MARK: - Variables
@@ -29,17 +41,29 @@ class DetailsViewController: UIViewController, UITableViewDelegate,  UITableView
 //    MARK: - LifeCicle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        setupGraphic()
         setupTableView()
         detaisNavigation.title = titleDetails
-        
-        setupGraphic()
+        detaisNavigation.leftBarButtonItem = editButtonItem
+        detaisNavigation.leftBarButtonItem?.title = "Editar"
+    }
+    
+    override func setEditing(_ editing: Bool, animated: Bool) {
+        // Takes care of toggling the button's title.
+        super.setEditing(editing, animated: true)
+        if(editing) {
+            detaisNavigation.leftBarButtonItem?.title = "Concluir"
+        }
+        else {
+            detaisNavigation.leftBarButtonItem?.title = "Editar"
+        }
+        // Toggle table view editing.
+        detailsTableview.setEditing(editing, animated: true)
     }
     
     func setupGraphic() {
         
         do {
-            
             let plotter = try PlotGraphicClass()
             
             // Getting the current days of week
@@ -65,19 +89,15 @@ class DetailsViewController: UIViewController, UITableViewDelegate,  UITableView
             // Populating with the weights marked on this current week
             numbersArray = try plotter.loadWeights()
             
-            print("--------loadWeights------")
-            print(numbersArray[0])
-            print(dates)
-            
-            var datesArray = [Any]()
+            var datesArray = [String]()
             for x in 0...(dates.count - 1) {
                 let aString = dates[x]
                 let newString = (aString as AnyObject).replacingOccurrences(of: "\n", with: "/")
                 datesArray.append(newString)
             }
-            print(datesArray)
-            print(datesArray[0])
-            print("------------------------")
+            
+            weightDates = datesArray
+            weightValues = numbersArray[0]
         }
         catch {
             os_log("[ERROR] Couldn't communicate with the operating system's internal calendar/time system or memory is too low!")
@@ -92,17 +112,18 @@ class DetailsViewController: UIViewController, UITableViewDelegate,  UITableView
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return weightValues.count
     }
     
     func tableView (_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 80
+        return 60
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = detailsTableview.dequeueReusableCell(withIdentifier: "cellId", for: indexPath) as! ThirtyDayCell
-        
         cell.backgroundColor = UIColor(named: "BackgrondColor")
+        cell.valueLabel.text = String(weightValues[indexPath[1]])
+        cell.dateLabel.text = weightDates[indexPath[1]]
         return cell
     }
 }
@@ -117,7 +138,7 @@ class ThirtyDayCell: UITableViewCell {
     
     func setupView() {
         addSubview(cellView)
-        cellView.addSubview(weightLabel)
+        cellView.addSubview(valueLabel)
         cellView.addSubview(dateLabel)
         self.selectionStyle = .none
         
@@ -128,15 +149,15 @@ class ThirtyDayCell: UITableViewCell {
             cellView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
         ])
         
-        weightLabel.heightAnchor.constraint(equalToConstant: 200).isActive = true
-        weightLabel.widthAnchor.constraint(equalToConstant: 200).isActive = true
-        weightLabel.centerYAnchor.constraint(equalTo: cellView.centerYAnchor).isActive = true
-        weightLabel.leftAnchor.constraint(equalTo: cellView.leftAnchor, constant: 20).isActive = true
+        valueLabel.heightAnchor.constraint(equalToConstant: 200).isActive = true
+        valueLabel.widthAnchor.constraint(equalToConstant: 200).isActive = true
+        valueLabel.centerYAnchor.constraint(equalTo: cellView.centerYAnchor).isActive = true
+        valueLabel.leftAnchor.constraint(equalTo: cellView.leftAnchor, constant: 30).isActive = true
         
         dateLabel.heightAnchor.constraint(equalToConstant: 200).isActive = true
         dateLabel.widthAnchor.constraint(equalToConstant: 200).isActive = true
         dateLabel.centerYAnchor.constraint(equalTo: cellView.centerYAnchor).isActive = true
-        dateLabel.rightAnchor.constraint(equalTo: cellView.rightAnchor, constant: 100).isActive = true
+        dateLabel.rightAnchor.constraint(equalTo: cellView.rightAnchor, constant: 120).isActive = true
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -151,9 +172,9 @@ class ThirtyDayCell: UITableViewCell {
         return view
     }()
     
-    let weightLabel: UILabel = {
+    let valueLabel: UILabel = {
         let label = UILabel()
-        label.text = "Day 1"
+        label.text = "Value"
         label.textColor = UIColor(named: "PrimaryTextColor")
         label.font = UIFont.boldSystemFont(ofSize: 22)
         label.translatesAutoresizingMaskIntoConstraints = false
