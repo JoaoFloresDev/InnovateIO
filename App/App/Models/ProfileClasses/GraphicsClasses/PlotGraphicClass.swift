@@ -107,6 +107,9 @@ class PlotGraphicClass {
     
     
     
+    /// Loads the habits values as a tuple containing respectively green percentage and yellow percentage (the red is not necessary) to plot into some chart.
+    /// - Throws: Couldn't communicate with the operating system's internal calendar/time system.
+    /// - Returns: A tuple containing the percentage respectively for green and yellow (the red is not necessary).
     func loadHabitsAsPercentage() throws -> (Float, Float) {
         
         let daysOfWeek = Date().getAllDaysForWeek()
