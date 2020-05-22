@@ -30,7 +30,7 @@ class PerformanceChartCollectionViewCell: UICollectionViewCell {
 				case 0:
 					timeDots[i].backgroundColor = UIColor.init(named: "rateYellowColor")!
 				case 1:
-					timeDots[i].backgroundColor = UIColor.init(named: "rateGreenColor")!
+ 					timeDots[i].backgroundColor = UIColor.init(named: "rateGreenColor")!
 				default:
 					break
 			}
