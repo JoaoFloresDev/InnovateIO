@@ -48,6 +48,9 @@
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                         <state key="normal" title="Detalhes"/>
+                                                        <connections>
+                                                            <segue destination="J9C-Gw-IsF" kind="show" id="oYH-RC-CBF"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" name="CellColor"/>
@@ -615,6 +618,58 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wu3-rj-bQL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1025" y="119"/>
+        </scene>
+        <!--Details View Controller-->
+        <scene sceneID="Z2d-rw-fY7">
+            <objects>
+                <viewController id="J9C-Gw-IsF" customClass="DetailsViewController" customModule="My_Way" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="OKW-du-F7b">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VPF-LR-o0p">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                                <items>
+                                    <navigationItem title="Title" id="UUS-kG-p9l">
+                                        <barButtonItem key="leftBarButtonItem" title="Editar" id="v2r-hy-eeo">
+                                            <connections>
+                                                <action selector="showEdit:" destination="J9C-Gw-IsF" id="qiP-KF-5Tl"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="Fechar" id="TQN-Lz-W8E">
+                                            <connections>
+                                                <action selector="closeView:" destination="J9C-Gw-IsF" id="Liv-dX-qWO"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ZZg-jt-0sP">
+                                <rect key="frame" x="0.0" y="56" width="414" height="752"/>
+                                <color key="backgroundColor" name="BackgrondColor"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" name="BackgrondColor"/>
+                        <constraints>
+                            <constraint firstItem="VPF-LR-o0p" firstAttribute="trailing" secondItem="hPO-95-fMe" secondAttribute="trailing" id="6i9-rQ-Pwm"/>
+                            <constraint firstItem="VPF-LR-o0p" firstAttribute="leading" secondItem="hPO-95-fMe" secondAttribute="leading" id="M8I-2S-8G9"/>
+                            <constraint firstItem="hPO-95-fMe" firstAttribute="trailing" secondItem="ZZg-jt-0sP" secondAttribute="trailing" id="SsN-el-RMK"/>
+                            <constraint firstItem="ZZg-jt-0sP" firstAttribute="leading" secondItem="hPO-95-fMe" secondAttribute="leading" id="Tea-88-sD7"/>
+                            <constraint firstItem="VPF-LR-o0p" firstAttribute="top" secondItem="hPO-95-fMe" secondAttribute="top" id="sOu-2m-tsI"/>
+                            <constraint firstItem="hPO-95-fMe" firstAttribute="bottom" secondItem="ZZg-jt-0sP" secondAttribute="bottom" id="yye-Te-qtE"/>
+                            <constraint firstItem="ZZg-jt-0sP" firstAttribute="top" secondItem="VPF-LR-o0p" secondAttribute="bottom" id="z7J-Ni-9LY"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="hPO-95-fMe"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="M8s-fw-w5e"/>
+                    <connections>
+                        <outlet property="detailsTableview" destination="ZZg-jt-0sP" id="enL-15-QQS"/>
+                        <outlet property="detaisNavigation" destination="UUS-kG-p9l" id="DYb-Qx-nG3"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pOI-nJ-6VR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1790" y="119"/>
         </scene>
     </scenes>
     <resources>

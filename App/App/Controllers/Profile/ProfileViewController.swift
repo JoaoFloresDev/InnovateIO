@@ -138,12 +138,9 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
             // Starting to populate and draw the charts...
             var numbersArray = [[Int32]]()
             
+            plotter.plotGraphicHorizontalBars (view: meatsGraphicBarsView, greenPercent: 0.5, yellowPercent: 0.3 )
             
-            // Populating the habits on the horizontal chart bar
-            let (greenPercentage, yellowPercentage) = try plotter.loadHabitsAsPercentage()
-            plotter.plotGraphicHorizontalBars (view: meatsGraphicBarsView, greenPercent: greenPercentage, yellowPercent: yellowPercentage )
-            
-            
+            plotter.plotGraphicHorizontalBars (view: meatsGraphicBarsView, greenPercent: 0.5, yellowPercent: 0.3 )
             
             // Populating with the weights marked on this current week
             numbersArray = try plotter.loadWeights()
@@ -153,9 +150,6 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
             let colorWater = UIColor(named: "habitsWaterColor")!
             let colorFruits = UIColor(named: "habitsFruitsColor")!
             let colorExercice = UIColor(named: "habitsExerciceColor")!
-            
-            
-            
             //  Populating the habits with core data values
             numbersArray = try plotter.loadHabits()
 
