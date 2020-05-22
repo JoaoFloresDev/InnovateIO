@@ -152,7 +152,7 @@ class PlotGraphicClass {
         }
         
         
-        // Calculating the return value (a.k.a the percentage for green and yellow sections)
+        // Calculating the percentage based on amount of days in a week
         greenPercentage = Float(amountOfGreen) / 7.0
         yellowPercentage = Float(amountOfYellow) / 7.0
 
