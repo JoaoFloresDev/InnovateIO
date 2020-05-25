@@ -45,7 +45,8 @@
 		C44D14A3243658680094497A /* Meals.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C44D14A2243658680094497A /* Meals.storyboard */; };
 		C451C01E2458668C00C9A9F0 /* StyleClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C451C01D2458668C00C9A9F0 /* StyleClass.swift */; };
 		C451C0202458669900C9A9F0 /* ProfileDataMenagerClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C451C01F2458669900C9A9F0 /* ProfileDataMenagerClass.swift */; };
-		C456486D2476B78E008C0CE6 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C456486C2476B78E008C0CE6 /* DetailsViewController.swift */; };
+		C456486D2476B78E008C0CE6 /* DetailsWeightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C456486C2476B78E008C0CE6 /* DetailsWeightViewController.swift */; };
+		C49D2C37247A2C140007D174 /* DetaisHabitsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49D2C36247A2C140007D174 /* DetaisHabitsViewController.swift */; };
 		C4CC1B21246080ED0048B0B7 /* PlotGraphicClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CC1B1F246080ED0048B0B7 /* PlotGraphicClass.swift */; };
 		D71DF4232461995700DDA7BE /* MealHistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71DF4212461995700DDA7BE /* MealHistoryTableViewCell.swift */; };
 		D71DF4242461995700DDA7BE /* MealHistoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D71DF4222461995700DDA7BE /* MealHistoryTableViewCell.xib */; };
@@ -139,7 +140,8 @@
 		C44D14A2243658680094497A /* Meals.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Meals.storyboard; sourceTree = "<group>"; };
 		C451C01D2458668C00C9A9F0 /* StyleClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleClass.swift; sourceTree = "<group>"; };
 		C451C01F2458669900C9A9F0 /* ProfileDataMenagerClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDataMenagerClass.swift; sourceTree = "<group>"; };
-		C456486C2476B78E008C0CE6 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		C456486C2476B78E008C0CE6 /* DetailsWeightViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsWeightViewController.swift; sourceTree = "<group>"; };
+		C49D2C36247A2C140007D174 /* DetaisHabitsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetaisHabitsViewController.swift; sourceTree = "<group>"; };
 		C4CC1B1F246080ED0048B0B7 /* PlotGraphicClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlotGraphicClass.swift; sourceTree = "<group>"; };
 		D71DF4212461995700DDA7BE /* MealHistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealHistoryTableViewCell.swift; sourceTree = "<group>"; };
 		D71DF4222461995700DDA7BE /* MealHistoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MealHistoryTableViewCell.xib; sourceTree = "<group>"; };
@@ -333,7 +335,8 @@
 			children = (
 				C407E920243CC23800DA8490 /* ProfileViewController.swift */,
 				C407E922243CFD9800DA8490 /* EditDataViewController.swift */,
-				C456486C2476B78E008C0CE6 /* DetailsViewController.swift */,
+				C49D2C36247A2C140007D174 /* DetaisHabitsViewController.swift */,
+				C456486C2476B78E008C0CE6 /* DetailsWeightViewController.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -760,7 +763,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$SRCROOT/R.generated.swift",
+				$SRCROOT/R.generated.swift,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -796,7 +799,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				81AA0BD92456FE7B00E78D58 /* CalendarViewController.swift in Sources */,
-				C456486D2476B78E008C0CE6 /* DetailsViewController.swift in Sources */,
+				C456486D2476B78E008C0CE6 /* DetailsWeightViewController.swift in Sources */,
 				8D11BFFB245249AD0062D163 /* MealRateButton.swift in Sources */,
 				D77A5C20246AFDEC0018E3A5 /* String+.swift in Sources */,
 				814F59302451F07200F59991 /* DateError.swift in Sources */,
@@ -805,6 +808,7 @@
 				D7FA5D9F24585455001B08AA /* RatingView.swift in Sources */,
 				81959012243E2873001A6DB9 /* DataHandler.swift in Sources */,
 				C44D146E243655BA0094497A /* ViewController.swift in Sources */,
+				C49D2C37247A2C140007D174 /* DetaisHabitsViewController.swift in Sources */,
 				8191C62E24585E3600C8AAF3 /* DateHeader.swift in Sources */,
 				8191C62C2458510600C8AAF3 /* CalendarViewController+Charts.swift in Sources */,
 				C407E923243CFD9800DA8490 /* EditDataViewController.swift in Sources */,
