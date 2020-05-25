@@ -112,71 +112,80 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
     //    MARK: - Graphics
     func setupGraphic() {
         
-        
-        print("-------------------")
-        let date1 = Date()
-        let formatter = DateFormatter()
-        
-        formatter.dateFormat = "YY"
-        let year = Int(formatter.string(from: date1))!
-        
-        formatter.dateFormat = "MM"
-        let month = Int(formatter.string(from: date1))!
-        
-        let dateComponents = DateComponents(year: year, month: month)
-        let calendar = Calendar.current
-        let date = calendar.date(from: dateComponents)!
-
-        let range = calendar.range(of: .day, in: .month, for: date)!
-        let numDays = range.count
-        print(year, month, numDays)
-        print("-------------------")
-        
         do {
-            
             let plotter = try PlotGraphicClass()
             plotter.plotGraphicHorizontalBars (view: meatsGraphicBarsView, greenPercent: 0.5, yellowPercent: 0.3 )
             
             plotter.plotGraphicHorizontalBars (view: meatsGraphicBarsView, greenPercent: 0.5, yellowPercent: 0.3 )
             
+            let months = DateManager().getMonths()
+            
             // Getting the current days of week
             let dates: NSMutableArray = []
-            
-            for day in 1...range.count {
-                dates.add("\(day)\n\(month)")
+            for month in months {
+                let dateComponents = DateComponents(year: month[1], month: month[0])
+                let calendar = Calendar.current
+                let date = calendar.date(from: dateComponents)!
+                let range = calendar.range(of: .day, in: .month, for: date)!
+                var numDays = range.count
+                var firstDayMonth = 1
+                if(month[0] == months[2][0]) {
+                    let date = Date()
+                    let format = DateFormatter()
+                    format.dateFormat = "dd"
+                    numDays = Int(format.string(from: date))!
+                }
+                else if(month[0] == months[0][0]) {
+                    let date = Date()
+                    let format = DateFormatter()
+                    format.dateFormat = "dd"
+                    firstDayMonth = Int(format.string(from: date))!
+                }
+                for day in firstDayMonth...numDays {
+                    dates.add("\(day)\n\(month[0])")
+                }
             }
             
             // Starting to populate and draw the charts...
             var numbersArray: [[Int32]] = [[]]
-            
-            for day in 1...range.count {
-                // Getting the weight for that day
-                var weight: Int32 = 0
-                
-                do {
-                    let entity = try self.dataHandler?.loadWeight(year: year, month: month, day: day)
-                    
-                    if entity != nil {
-                        weight = Int32(entity!.value)
-                    }
+            for month in months {
+                let dateComponents = DateComponents(year: month[1], month: month[0])
+                let calendar = Calendar.current
+                let date = calendar.date(from: dateComponents)!
+                let range = calendar.range(of: .day, in: .month, for: date)!
+                var numDays = range.count
+                var firstDayMonth = 1
+                if(month[0] == months[2][0]) {
+                    let date = Date()
+                    let format = DateFormatter()
+                    format.dateFormat = "dd"
+                    numDays = Int(format.string(from: date))!
                 }
-                catch {}
-                
-                numbersArray[0].append(weight)
+                else if(month[0] == months[0][0]) {
+                    let date = Date()
+                    let format = DateFormatter()
+                    format.dateFormat = "dd"
+                    firstDayMonth = Int(format.string(from: date))!
+                }
+                for day in firstDayMonth...numDays {
+                    // Getting the weight for that day
+                    var weight: Int32 = 0
+                    
+                    do {
+                        print(month[1], month[0], day)
+                        let entity = try self.dataHandler?.loadWeight(year: month[1], month: month[0], day: day)
+                        
+                        if entity != nil {
+                            weight = Int32(entity!.value)
+                        }
+                    }
+                    catch {}
+                    
+                    numbersArray[0].append(weight)
+                }
             }
             
-            // Populating with the weights marked on this current week
-            numbersArray = try plotter.loadWeights()
-            
             plotter.plotGraphicLine(graphicVIew: weightGraphicLineView, colorLinesArray: [UIColor.black], datesX: dates, numbersArray: numbersArray, topNumber: 120, bottomNumber: 0)
-            
-            let colorWater = UIColor(named: "habitsWaterColor")!
-            let colorFruits = UIColor(named: "habitsFruitsColor")!
-            let colorExercice = UIColor(named: "habitsExerciceColor")!
-            //  Populating the habits with core data values
-            numbersArray = try plotter.loadHabits()
-
-            plotter.plotGraphicLine(graphicVIew: habitsGraphicLineView, colorLinesArray: [colorWater, colorFruits, colorExercice], datesX: dates, numbersArray: numbersArray, topNumber: 1, bottomNumber: 0)
         }
         catch {
             os_log("[ERROR] Couldn't communicate with the operating system's internal calendar/time system or memory is too low!")
@@ -217,7 +226,10 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
             
             // Populating with the weights marked on this current week
             numbersArray = try plotter.loadWeights()
-            
+            print("-------------------")
+            print(dates)
+            print(numbersArray)
+            print("-------------------")
             plotter.plotGraphicLine(graphicVIew: weightGraphicLineView, colorLinesArray: [UIColor.black], datesX: dates, numbersArray: numbersArray, topNumber: 120, bottomNumber: 0)
             
             let colorWater = UIColor(named: "habitsWaterColor")!

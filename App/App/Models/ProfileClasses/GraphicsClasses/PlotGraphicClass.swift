@@ -40,6 +40,7 @@ class PlotGraphicClass {
         let configuration = XNormalLineChartConfiguration()
         configuration.lineMode = XLineMode.CurveLine
         configuration.isShowShadow = false
+        configuration.isEnableNumberAnimation = false
         
         let widthGraphic = graphicVIew.frame.width
         let heightGraphic = graphicVIew.frame.height
@@ -47,7 +48,6 @@ class PlotGraphicClass {
         let bottomNumberGraphic = NSNumber(value: bottomNumber)
         
         let lineChart = XLineChart(frame: CGRect(x: 0, y: 0, width: widthGraphic, height: heightGraphic), dataItemArray: NSMutableArray(array: itemArray), dataDiscribeArray: datesX, topNumber: topNumberGraphic, bottomNumber: bottomNumberGraphic, graphMode: XLineGraphMode.MutiLineGraph, chartConfiguration: configuration)
-        
         
         if let views = lineChart?.subviews {
             for viewScroll in views {
