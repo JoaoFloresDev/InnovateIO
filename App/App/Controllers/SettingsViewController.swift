@@ -7,12 +7,17 @@
 //
 
 import UIKit
+import os.log
 
 class SettingsViewController: UIViewController {
 
     @IBOutlet weak var optionsTableView: UITableView!
     
+    let notificationService = NotificationService()
+    
     var dataSource: [SettingsHeaders] = []
+    
+    /// This property dictates if notification switch is on/off, as well as if should show/hide notification settings cell.
     var isNotificationEnabled: Bool = false {
         didSet {
             notificationEnabledDidChange()
@@ -22,8 +27,23 @@ class SettingsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        isNotificationEnabled = false // TODO: precisa ser recuperado do user defaults através do Notification Service
         setupTableView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        notificationService.notificationCenter.getNotificationSettings { (settings) in
+            switch settings.authorizationStatus {
+            case .authorized:
+                self.isNotificationEnabled = self.notificationService.isNotificationEnabled
+            default:
+                DispatchQueue.main.async {
+                    self.isNotificationEnabled = false
+                    self.optionsTableView.reloadData()
+                }
+            }
+        }
     }
     // MARK: - Methods
     func setupTableView() {
@@ -33,13 +53,39 @@ class SettingsViewController: UIViewController {
     
     fileprivate func notificationEnabledDidChange() {
         dataSource = [.tools(isNotificationEnabled), .tutorials, .about]
-        if isNotificationEnabled {
-            optionsTableView.insertRows(at: [IndexPath(row: 2, section: 0)], with: .automatic)
-        } else {
-            optionsTableView.deleteRows(at: [IndexPath(row: 2, section: 0)], with: .automatic)
+        
+        DispatchQueue.main.async {
+            if self.isNotificationEnabled {
+                // This if clause make sure we are not inserting the cell if it already exists.
+                if self.optionsTableView.numberOfRows(inSection: 0) < 3 {
+                    self.optionsTableView.insertRows(at: [IndexPath(row: 2, section: 0)], with: .automatic)
+                }
+            } else {
+                // This if clause avoid crashes if table view hasn't inserted the row we want to delete here.
+                if self.optionsTableView.cellForRow(at: IndexPath(row: 2, section: 0)) != nil {
+                    self.optionsTableView.deleteRows(at: [IndexPath(row: 2, section: 0)], with: .automatic)
+                }
+            }
         }
         
-        // TODO: precisa chamar o Notification Service para salvar a mudança no user defaults.
+        notificationService.setIsEnabled(isNotificationEnabled)
+    }
+    
+    func alertToSettings() -> UIAlertController {
+        let alertController = UIAlertController(title: "Alerta", message: "Para ativar as notificações, vá às configurações do seu celular.", preferredStyle: .alert)
+        let settingsAction = UIAlertAction(title: "Configurações", style: .default) { (_) -> Void in
+            guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else {
+                return
+            }
+            if UIApplication.shared.canOpenURL(settingsUrl) {
+                UIApplication.shared.open(settingsUrl, completionHandler: { (success) in })
+             }
+        }
+        let cancelAction = UIAlertAction(title: "Cancelar", style: .default, handler: nil)
+        alertController.addAction(settingsAction)
+        alertController.addAction(cancelAction)
+        
+        return alertController
     }
     
     // MARK: - Prepare for segue
@@ -62,8 +108,29 @@ class SettingsViewController: UIViewController {
         }
     }
     
+    // MARK: - Actions
     @objc func notificationSwitchChanged(_ sender: UISwitch) {
-        isNotificationEnabled = sender.isOn
+        self.notificationService.notificationCenter.getNotificationSettings(completionHandler: { (settings) in
+            if settings.authorizationStatus == .notDetermined {
+                self.isNotificationEnabled = false
+                DispatchQueue.main.async {
+                    self.optionsTableView.reloadData()
+                    let alert = self.alertToSettings()
+                    self.present(alert, animated: true, completion: nil)
+                }
+            } else if settings.authorizationStatus == .denied {
+                self.isNotificationEnabled = false
+                DispatchQueue.main.async {
+                    self.optionsTableView.reloadData()
+                    let alert = self.alertToSettings()
+                    self.present(alert, animated: true, completion: nil)
+                }
+            } else if settings.authorizationStatus == .authorized {
+                DispatchQueue.main.async {
+                    self.isNotificationEnabled = sender.isOn
+                }
+            }
+        })
     }
 }
 // MARK: - Table View delegate and data source
