@@ -227,12 +227,7 @@ extension CalendarViewController: JTACMonthViewDelegate {
 		
 		for i in 0..<selectedWeek.count{
 			do {
-				
-				print("i = \(i)")
-				print("wee.count = \(selectedWeek.count)")
-				print("date = \(selectedWeek[i].description)")
-				print("selectedWeek = \(selectedWeek)")
-				
+
 				// Getting the current date...
 				let (year, month, day, _, _, _) = try selectedWeek[i].getAllInformations()
 				
