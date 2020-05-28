@@ -24,6 +24,7 @@ extension CalendarViewController: UICollectionViewDelegate, UICollectionViewData
 	
 	func updateChart(day:Int, hours:[Int], qualities:[Int]){
 		let cell = chartCollectionView.cellForItem(at: IndexPath(item: day, section: 0)) as! PerformanceChartCollectionViewCell
+		
 			
 		cell.configureDotsForDay(day: day, mealTime: hours, quality: qualities)
 	}
