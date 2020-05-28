@@ -230,7 +230,7 @@ extension CalendarViewController: JTACMonthViewDelegate {
 				
 				print("i = \(i)")
 				print("wee.count = \(selectedWeek.count)")
-				print("date = \(date.description)")
+				print("date = \(selectedWeek[i].description)")
 				print("selectedWeek = \(selectedWeek)")
 				
 				// Getting the current date...
