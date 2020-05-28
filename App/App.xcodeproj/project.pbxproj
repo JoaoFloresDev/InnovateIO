@@ -51,6 +51,10 @@
 		C49D2C37247A2C140007D174 /* DetaisHabitsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49D2C36247A2C140007D174 /* DetaisHabitsViewController.swift */; };
 		C49D2C39247BA6280007D174 /* DateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49D2C38247BA6280007D174 /* DateManager.swift */; };
 		C4CC1B21246080ED0048B0B7 /* PlotGraphicClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CC1B1F246080ED0048B0B7 /* PlotGraphicClass.swift */; };
+		D715CB2D2481506F00995CDD /* GroupedHabitsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D715CB292481506F00995CDD /* GroupedHabitsView.xib */; };
+		D715CB2E2481506F00995CDD /* SingleHabitView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D715CB2A2481506F00995CDD /* SingleHabitView.xib */; };
+		D715CB2F2481506F00995CDD /* SingleHabitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D715CB2B2481506F00995CDD /* SingleHabitView.swift */; };
+		D715CB302481506F00995CDD /* GroupedHabitsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D715CB2C2481506F00995CDD /* GroupedHabitsView.swift */; };
 		D71DF4232461995700DDA7BE /* MealHistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71DF4212461995700DDA7BE /* MealHistoryTableViewCell.swift */; };
 		D71DF4242461995700DDA7BE /* MealHistoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D71DF4222461995700DDA7BE /* MealHistoryTableViewCell.xib */; };
 		D73311B3245318760080767E /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73311B2245318760080767E /* NotificationService.swift */; };
@@ -70,8 +74,6 @@
 		D7FA5DA624588369001B08AA /* DailyHabitsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D7FA5DA524588369001B08AA /* DailyHabitsView.xib */; };
 		D7FA5DA824588530001B08AA /* DailyHabitsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7FA5DA724588530001B08AA /* DailyHabitsView.swift */; };
 		D7FA5DAA245888D4001B08AA /* DailyHabits.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7FA5DA9245888D4001B08AA /* DailyHabits.swift */; };
-		D7FA5DAD24588A00001B08AA /* DailyHabitsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7FA5DAB24588A00001B08AA /* DailyHabitsTableViewCell.swift */; };
-		D7FA5DAE24588A00001B08AA /* DailyHabitsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D7FA5DAC24588A00001B08AA /* DailyHabitsTableViewCell.xib */; };
 		D7FC5D442462E51A00FB5B81 /* MealHistory.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7FC5D432462E51A00FB5B81 /* MealHistory.storyboard */; };
 		D7FC5D462462E68C00FB5B81 /* MealHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7FC5D452462E68C00FB5B81 /* MealHistoryViewController.swift */; };
 /* End PBXBuildFile section */
@@ -150,7 +152,11 @@
 		C49D2C36247A2C140007D174 /* DetaisHabitsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetaisHabitsViewController.swift; sourceTree = "<group>"; };
 		C49D2C38247BA6280007D174 /* DateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateManager.swift; sourceTree = "<group>"; };
 		C4CC1B1F246080ED0048B0B7 /* PlotGraphicClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlotGraphicClass.swift; sourceTree = "<group>"; };
+		D715CB292481506F00995CDD /* GroupedHabitsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GroupedHabitsView.xib; sourceTree = "<group>"; };
 		CA58F6F96C75CA96E197C78D /* Pods-App-AppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-App-AppUITests.release.xcconfig"; path = "Target Support Files/Pods-App-AppUITests/Pods-App-AppUITests.release.xcconfig"; sourceTree = "<group>"; };
+		D715CB2A2481506F00995CDD /* SingleHabitView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SingleHabitView.xib; sourceTree = "<group>"; };
+		D715CB2B2481506F00995CDD /* SingleHabitView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleHabitView.swift; sourceTree = "<group>"; };
+		D715CB2C2481506F00995CDD /* GroupedHabitsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupedHabitsView.swift; sourceTree = "<group>"; };
 		D71DF4212461995700DDA7BE /* MealHistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealHistoryTableViewCell.swift; sourceTree = "<group>"; };
 		D71DF4222461995700DDA7BE /* MealHistoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MealHistoryTableViewCell.xib; sourceTree = "<group>"; };
 		D73311B2245318760080767E /* NotificationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
@@ -170,8 +176,6 @@
 		D7FA5DA524588369001B08AA /* DailyHabitsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DailyHabitsView.xib; sourceTree = "<group>"; };
 		D7FA5DA724588530001B08AA /* DailyHabitsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyHabitsView.swift; sourceTree = "<group>"; };
 		D7FA5DA9245888D4001B08AA /* DailyHabits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyHabits.swift; sourceTree = "<group>"; };
-		D7FA5DAB24588A00001B08AA /* DailyHabitsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyHabitsTableViewCell.swift; sourceTree = "<group>"; };
-		D7FA5DAC24588A00001B08AA /* DailyHabitsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DailyHabitsTableViewCell.xib; sourceTree = "<group>"; };
 		D7FC5D432462E51A00FB5B81 /* MealHistory.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MealHistory.storyboard; sourceTree = "<group>"; };
 		D7FC5D452462E68C00FB5B81 /* MealHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealHistoryViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -492,10 +496,12 @@
 		D7FA5DA424588351001B08AA /* Daily Habits View */ = {
 			isa = PBXGroup;
 			children = (
+				D715CB2C2481506F00995CDD /* GroupedHabitsView.swift */,
+				D715CB292481506F00995CDD /* GroupedHabitsView.xib */,
+				D715CB2B2481506F00995CDD /* SingleHabitView.swift */,
+				D715CB2A2481506F00995CDD /* SingleHabitView.xib */,
 				D7FA5DA724588530001B08AA /* DailyHabitsView.swift */,
 				D7FA5DA524588369001B08AA /* DailyHabitsView.xib */,
-				D7FA5DAB24588A00001B08AA /* DailyHabitsTableViewCell.swift */,
-				D7FA5DAC24588A00001B08AA /* DailyHabitsTableViewCell.xib */,
 			);
 			path = "Daily Habits View";
 			sourceTree = "<group>";
@@ -617,16 +623,17 @@
 				C44D1479243655BC0094497A /* LaunchScreen.storyboard in Resources */,
 				C44D1476243655BC0094497A /* Assets.xcassets in Resources */,
 				D77126DF2459AAAA00EFFEEC /* RegisterMealView.xib in Resources */,
+				D715CB2D2481506F00995CDD /* GroupedHabitsView.xib in Resources */,
 				C44D14A3243658680094497A /* Meals.storyboard in Resources */,
 				C44D149D243657BC0094497A /* Profile.storyboard in Resources */,
 				C44D14A1243657FF0094497A /* Settings.storyboard in Resources */,
+				D715CB2E2481506F00995CDD /* SingleHabitView.xib in Resources */,
 				C44D1471243655BA0094497A /* Main.storyboard in Resources */,
 				C44D149F243657E70094497A /* Calendar.storyboard in Resources */,
 				D7FC5D442462E51A00FB5B81 /* MealHistory.storyboard in Resources */,
 				D71DF4242461995700DDA7BE /* MealHistoryTableViewCell.xib in Resources */,
 				D7FA5DA624588369001B08AA /* DailyHabitsView.xib in Resources */,
 				D7FA5DA124585481001B08AA /* RatingView.xib in Resources */,
-				D7FA5DAE24588A00001B08AA /* DailyHabitsTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -823,6 +830,7 @@
 				8191C62C2458510600C8AAF3 /* CalendarViewController+Charts.swift in Sources */,
 				C407E923243CFD9800DA8490 /* EditDataViewController.swift in Sources */,
 				D73311B3245318760080767E /* NotificationService.swift in Sources */,
+				D715CB2F2481506F00995CDD /* SingleHabitView.swift in Sources */,
 				810518992450746A00F8A86E /* DataHandler+DailyDiary.swift in Sources */,
 				D7B2C301243E17D90071561C /* R.generated.swift in Sources */,
 				D7AADD8024643BD100033287 /* MealHistoryHeader.swift in Sources */,
@@ -833,6 +841,7 @@
 				D7FA5DA3245858A7001B08AA /* Rating.swift in Sources */,
 				8DCA3A4B24699AB4009125B4 /* AddNoteViewController.swift in Sources */,
 				81F5FCF624642F560030D12F /* DataHandler+Weight.swift in Sources */,
+				D715CB302481506F00995CDD /* GroupedHabitsView.swift in Sources */,
 				D7CABB2E24740DA1000DA684 /* SettingsViewController.swift in Sources */,
 				8D679A822464BEB600C7C53E /* PerformanceChartCollectionViewCell.swift in Sources */,
 				D71DF4232461995700DDA7BE /* MealHistoryTableViewCell.swift in Sources */,
@@ -848,7 +857,6 @@
 				D7FA5DA824588530001B08AA /* DailyHabitsView.swift in Sources */,
 				81959015243E28CF001A6DB9 /* Model.xcdatamodeld in Sources */,
 				D7720E4A2465A149004BC3DA /* AddDatedMealViewController.swift in Sources */,
-				D7FA5DAD24588A00001B08AA /* DailyHabitsTableViewCell.swift in Sources */,
 				812B30F2243CBF80002F1AFF /* PersistenceError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

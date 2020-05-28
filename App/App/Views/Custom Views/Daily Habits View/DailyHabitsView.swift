@@ -13,25 +13,17 @@ protocol DailyHabitsViewDelegate {
 }
 
 class DailyHabitsView: UIView {
-    
     @IBOutlet var contentView: UIView!
-    @IBOutlet weak var dailyHabitsTableView: UITableView!
     @IBOutlet weak var todayRatingView: RatingView!
+    @IBOutlet weak var groupedHabitsView: GroupedHabitsView!
     
     private var delegate: DailyHabitsViewDelegate?
-    private let orderedHabits: [DailyHabits] = [.drinkWater, .fruit, .exercise]
     private var dailyHabits : [DailyHabits : Bool] = [.exercise : false, .fruit : false, .drinkWater : false]
     private var dailyDiary: DailyDiary?
     
-    private var selectedRating: Rating? {
-        set {
-            todayRatingView.selectedRating = newValue
-        }
-        get {
-            return todayRatingView.selectedRating
-        }
-    }
+    private var selectedRating: Rating?
     
+    // MARK: - Init
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -49,19 +41,13 @@ class DailyHabitsView: UIView {
         addSubview(contentView)
         contentView.frame = self.bounds
         contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-        
-        setupTableView()
     }
     
-    private func setupTableView() {
-        dailyHabitsTableView.delegate = self
-        dailyHabitsTableView.dataSource = self
-        dailyHabitsTableView.register(UINib(resource: R.nib.dailyHabitsTableViewCell), forCellReuseIdentifier: R.reuseIdentifier.dailyHabitsTableViewCell.identifier)
-    }
-    
+    //MARK: - Methods
     func setup(delegate: DailyHabitsViewDelegate) {
         self.delegate = delegate
         todayRatingView.setup(delegate: self)
+        groupedHabitsView.setup(delegate: self)
     }
     
     func setInitialDailyDiary(_ diary: DailyDiary?) {
@@ -75,10 +61,10 @@ class DailyHabitsView: UIView {
         dailyHabits[.drinkWater] = dailyDiary.didDrinkWater
         dailyHabits[.exercise] = dailyDiary.didPracticeExercise
         dailyHabits[.fruit] = dailyDiary.didEatFruit
+        groupedHabitsView.initallySetHabits(dailyHabits: dailyHabits)
+        
         let initialRating = Rating(rawValue: Int(dailyDiary.quality)) ?? .average
         todayRatingView.setInitiallySelectedRating(initialRating)
-        
-        dailyHabitsTableView.reloadData()
     }
     
     private func updatedDailyDiary() {
@@ -102,51 +88,19 @@ class DailyHabitsView: UIView {
     }
 }
 
-extension DailyHabitsView: UITableViewDataSource, UITableViewDelegate {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return orderedHabits.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.dailyHabitsTableViewCell.identifier) as? DailyHabitsTableViewCell else { return UITableViewCell() }
-        
-        let habit = orderedHabits[indexPath.row]
-        
-        cell.setup(title: habit.title, icon: habit.icon)
-        
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-
-        let habit = orderedHabits[indexPath.row]
-        let isSelected = dailyHabits[habit]
-        if isSelected ?? false {
-            tableView.selectRow(at: indexPath, animated: true, scrollPosition: .none)
-        } else {
-            tableView.deselectRow(at: indexPath, animated: true)
-        }
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        didSelectHabit(true, indexPath)
-    }
-    
-    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-        didSelectHabit(false, indexPath)
-    }
-    
-    fileprivate func didSelectHabit(_ selected: Bool, _ indexPath: IndexPath) {
-        let habit = orderedHabits[indexPath.row]
-        dailyHabits[habit] = selected
-        updatedHabit(habit)
-    }
-}
-
+// MARK: - Rating View Delegate
 extension DailyHabitsView: RatingViewDelegate {
     func selectedRatingDidChange(to rating: Rating?) {
         guard let diary = dailyDiary, let rating = rating else { return }
         diary.quality = Int32(rating.rawValue)
         updatedDailyDiary()
+    }
+}
+
+// MARK: - Grouped Habits Delegate
+extension DailyHabitsView: GroupedHabitsDelegate {
+    func dailyHabitDidChange(habit: DailyHabits, value: Bool) {
+        self.dailyHabits[habit] = value
+        updatedHabit(habit)
     }
 }

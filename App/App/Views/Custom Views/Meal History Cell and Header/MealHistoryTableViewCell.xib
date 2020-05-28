@@ -17,20 +17,20 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GOz-Gy-Oku" customClass="RoundedView" customModule="My_Way" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="8" width="320" height="72"/>
+                        <rect key="frame" x="0.0" y="8" width="320" height="70"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="das-3i-PQt">
-                                <rect key="frame" x="8" y="6" width="304" height="51"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" alignment="bottom" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="das-3i-PQt">
+                                <rect key="frame" x="8" y="6" width="304" height="45"/>
                                 <subviews>
                                     <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="RRm-2e-FPc">
-                                        <rect key="frame" x="-56" y="0.0" width="56" height="51"/>
+                                        <rect key="frame" x="-45" y="0.0" width="45" height="45"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="56" id="Fsz-Fg-yWP"/>
-                                            <constraint firstAttribute="height" constant="51" id="OwL-v9-QSR"/>
+                                            <constraint firstAttribute="width" constant="45" id="Fsz-Fg-yWP"/>
+                                            <constraint firstAttribute="height" constant="45" id="OwL-v9-QSR"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hcM-do-GKV">
-                                        <rect key="frame" x="0.0" y="11" width="254" height="29"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="254" height="45"/>
                                         <string key="text">5 folhas e alface e 2 filés de frango
 Estava motivado com a dieta</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -38,27 +38,38 @@ Estava motivado com a dieta</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="09h00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FEI-RG-Qai">
-                                        <rect key="frame" x="264" y="18.5" width="40" height="14.5"/>
+                                        <rect key="frame" x="264" y="30.5" width="40" height="14.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="40" id="76K-Aw-799"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="textColor" red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="RRm-2e-FPc" firstAttribute="top" secondItem="das-3i-PQt" secondAttribute="top" id="Kft-ok-9bX"/>
+                                    <constraint firstItem="hcM-do-GKV" firstAttribute="centerY" secondItem="das-3i-PQt" secondAttribute="centerY" id="YJl-f5-05F"/>
+                                    <constraint firstAttribute="bottom" secondItem="FEI-RG-Qai" secondAttribute="bottom" id="gZs-cN-Gpj"/>
                                     <constraint firstAttribute="bottom" secondItem="RRm-2e-FPc" secondAttribute="bottom" id="jIZ-97-X5x"/>
-                                    <constraint firstAttribute="height" constant="51" id="sCc-W9-guo"/>
                                 </constraints>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mhp-FW-Gge">
-                                <rect key="frame" x="0.0" y="57" width="320" height="15"/>
+                                <rect key="frame" x="0.0" y="51" width="320" height="19"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W4l-Nk-EPG">
+                                        <rect key="frame" x="139.5" y="0.0" width="41.5" height="19.5"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="15" id="wcB-Ag-aBK"/>
+                                    <constraint firstItem="W4l-Nk-EPG" firstAttribute="centerX" secondItem="Mhp-FW-Gge" secondAttribute="centerX" id="L9e-JD-rOd"/>
+                                    <constraint firstItem="W4l-Nk-EPG" firstAttribute="centerY" secondItem="Mhp-FW-Gge" secondAttribute="centerY" id="Rbz-Kb-h6Z"/>
+                                    <constraint firstAttribute="height" constant="19" id="wcB-Ag-aBK"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -85,13 +96,13 @@ Estava motivado com a dieta</string>
                         </userDefinedRuntimeAttributes>
                     </view>
                     <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J2h-ly-xh7" customClass="RoundedView" customModule="My_Way" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="8" width="320" height="72"/>
+                        <rect key="frame" x="0.0" y="8" width="320" height="70"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Jj8-4U-ZkZ">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="72"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="70"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Não há refeições para este dia." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hHH-WU-IbN">
-                                        <rect key="frame" x="0.0" y="26" width="320" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="25" width="320" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -151,6 +162,7 @@ Estava motivado com a dieta</string>
                 <outlet property="mealRoundedView" destination="GOz-Gy-Oku" id="mf3-Eq-avM"/>
                 <outlet property="noMealView" destination="J2h-ly-xh7" id="cHq-gL-sh2"/>
                 <outlet property="noteLabel" destination="hcM-do-GKV" id="2md-y4-2rr"/>
+                <outlet property="ratingLabel" destination="W4l-Nk-EPG" id="guK-JM-6u9"/>
                 <outlet property="timeLabel" destination="FEI-RG-Qai" id="8ZK-gl-33t"/>
             </connections>
             <point key="canvasLocation" x="137.68115942028987" y="78.348214285714278"/>

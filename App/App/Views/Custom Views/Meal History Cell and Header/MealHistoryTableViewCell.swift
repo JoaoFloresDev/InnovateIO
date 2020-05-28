@@ -15,6 +15,7 @@ class MealHistoryTableViewCell: UITableViewCell {
     @IBOutlet weak var noteLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var colorView: UIView!
+    @IBOutlet weak var ratingLabel: UILabel!
     @IBOutlet weak var noMealView: UIView!
     
     override func awakeFromNib() {
@@ -44,6 +45,7 @@ class MealHistoryTableViewCell: UITableViewCell {
     
     func commonSetup(rating: Rating?, note: String? = nil, image: UIImage? = nil, hour: Int, minute: Int) {
         colorView.backgroundColor = rating?.color ?? .white
+        ratingLabel.text = rating?.title ?? ""
         
         noteLabel.text = note == nil ? rating?.defaultNoteForMeal : note
         
@@ -52,5 +54,9 @@ class MealHistoryTableViewCell: UITableViewCell {
              //        mealImage.image = image
         
         timeLabel.text = String(format: "%02d", hour) + "h" + String(format: "%02d", minute)
+    }
+    
+    func setMealViewBorder(to value: CGFloat) {
+        mealRoundedView.borderWidth = value
     }
 }
