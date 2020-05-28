@@ -222,14 +222,12 @@ extension CalendarViewController: JTACMonthViewDelegate {
 	}
 	
 	func calendar(_ calendar: JTACMonthView, didSelectDate date: Date, cell: JTACDayCell?, cellState: CellState, indexPath: IndexPath) {
-		
-		var graphData = [(Int, [Int])]()//(day, [mealHour]) Tuple
-		
+				
 		selectedWeek = date.getAllDaysForWeek()
 		
 		for i in 0..<selectedWeek.count{
 			do {
-				
+
 				// Getting the current date...
 				let (year, month, day, _, _, _) = try selectedWeek[i].getAllInformations()
 				
@@ -240,9 +238,16 @@ extension CalendarViewController: JTACMonthViewDelegate {
 					
 					//load meal information
 					let meals = try! dataHandler?.loadMeals(year: year, month: month, day: day)
-					updateChart(day: i, hours: (meals?.map({ (meal) -> Int in
+					
+					let hours = meals?.map({ (meal) -> Int in
 						Int(meal.hour)
-					}))!)
+					})
+					
+					let qualities = meals?.map({ (meal) -> Int in
+						Int(meal.quality)
+					})
+					
+					updateChart(day: i, hours: hours!, qualities: qualities!)
 				}else{//day=nil
 					
 				}
@@ -256,4 +261,13 @@ extension CalendarViewController: JTACMonthViewDelegate {
 	func calendarSizeForMonths(_ calendar: JTACMonthView?) -> MonthSize? {
 		return MonthSize(defaultSize: 80)
 	}
+}
+
+struct MealDay{
+	var index:Int
+	var hours:[Int]
+	var qualities:[Int]
+}
+struct Week {
+	var days:[MealDay]
 }
