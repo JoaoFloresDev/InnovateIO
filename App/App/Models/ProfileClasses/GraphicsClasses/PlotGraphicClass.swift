@@ -83,7 +83,6 @@ class PlotGraphicClass {
     
 //    dataLoads
     
-    
     /// Loads the weights values as a lists of list with type of integer (32 bits) to plot into some chart.
     /// - Throws: Couldn't communicate with the operating system's internal calendar/time system.
     /// - Returns: A list of list with the values for the habits. The index 0 represents the Weights values.
@@ -171,6 +170,134 @@ class PlotGraphicClass {
         }
 
         return numbersArray
+    }
+    
+    func getWeightsValues(_ months: [[Int]]) -> [[Int32]]{
+        var numbersArray: [[Int32]] = [[]]
+        for month in months {
+            let dateComponents = DateComponents(year: month[1], month: month[0])
+            let calendar = Calendar.current
+            let date = calendar.date(from: dateComponents)!
+            let range = calendar.range(of: .day, in: .month, for: date)!
+            var numDays = range.count
+            var firstDayMonth = 1
+            if(month[0] == months[2][0]) {
+                let date = Date()
+                let format = DateFormatter()
+                format.dateFormat = "dd"
+                numDays = Int(format.string(from: date))!
+            }
+            else if(month[0] == months[0][0]) {
+                let date = Date()
+                let format = DateFormatter()
+                format.dateFormat = "dd"
+                firstDayMonth = Int(format.string(from: date))!
+            }
+            for day in firstDayMonth...numDays {
+                // Getting the weight for that day
+                var weight: Int32 = 0
+                
+                do {
+                    print(month[1], month[0], day)
+                    let entity = try self.dataHandler?.loadWeight(year: month[1], month: month[0], day: day)
+                    
+                    if entity != nil {
+                        weight = Int32(entity!.value)
+                    }
+                }
+                catch {}
+                
+                numbersArray[0].append(weight)
+            }
+        }
+        return numbersArray
+    }
+    
+    func getHabitsValues(_ months: [[Int]]) -> [[Int32]]{
+        var numbersArray: [[Int32]] = [[], [], []]
+        for month in months {
+            let dateComponents = DateComponents(year: month[1], month: month[0])
+            let calendar = Calendar.current
+            let date = calendar.date(from: dateComponents)!
+            let range = calendar.range(of: .day, in: .month, for: date)!
+            var numDays = range.count
+            var firstDayMonth = 1
+            if(month[0] == months[2][0]) {
+                let date = Date()
+                let format = DateFormatter()
+                format.dateFormat = "dd"
+                numDays = Int(format.string(from: date))!
+            }
+            else if(month[0] == months[0][0]) {
+                let date = Date()
+                let format = DateFormatter()
+                format.dateFormat = "dd"
+                firstDayMonth = Int(format.string(from: date))!
+            }
+            for day in firstDayMonth...numDays {
+                // Getting the weight for that day
+                var waterConvertedValue: Int32 = 0
+                var fruitConvertedValue: Int32 = 0
+                var sportConvertedValue: Int32 = 0
+
+                do {
+                    let entity = try self.dataHandler?.loadDailyDiary(year: month[1], month: month[0], day: day)
+
+                    if entity != nil {
+
+
+                        if entity!.didDrinkWater {
+                            waterConvertedValue = 1
+                        }
+
+                        if entity!.didEatFruit {
+                            fruitConvertedValue = 1
+                        }
+
+                        if entity!.didPracticeExercise {
+                            sportConvertedValue = 1
+                        }
+
+                    }
+                }
+                catch {
+                    os_log("[WARNING] No entry value for habits chart plotting was found!")
+                }
+
+                numbersArray[0].append(waterConvertedValue)
+                numbersArray[1].append(fruitConvertedValue)
+                numbersArray[2].append(sportConvertedValue)
+            }
+        }
+        return numbersArray
+    }
+    
+    func getDates(_ months: [[Int]]) -> NSMutableArray {
+        let dates: NSMutableArray = []
+        for month in months {
+            let dateComponents = DateComponents(year: month[1], month: month[0])
+            let calendar = Calendar.current
+            let date = calendar.date(from: dateComponents)!
+            let range = calendar.range(of: .day, in: .month, for: date)!
+            var numDays = range.count
+            var firstDayMonth = 1
+            if(month[0] == months[2][0]) {
+                let date = Date()
+                let format = DateFormatter()
+                format.dateFormat = "dd"
+                numDays = Int(format.string(from: date))!
+            }
+            else if(month[0] == months[0][0]) {
+                let date = Date()
+                let format = DateFormatter()
+                format.dateFormat = "dd"
+                firstDayMonth = Int(format.string(from: date))!
+            }
+            for day in firstDayMonth...numDays {
+                dates.add("\(day)\n\(month[0])")
+            }
+        }
+        return dates
     }
 }
 

@@ -90,26 +90,13 @@ class DetailsWeightViewController: UIViewController, UITableViewDelegate,  UITab
         do {
             let plotter = try PlotGraphicClass()
             
-            // Getting the current days of week
-            let dates: NSMutableArray = []
-            let daysOfWeek = Date().getAllDaysForWeek()
+            let months = DateManager().getMonths()
             
-            for day in daysOfWeek {
-                // Getting the current day of the week
-                let (_, _, day, _, _, _) = try day.getAllInformations()
-                
-                // Converting month number into text
-                let dateFormatter = DateFormatter()
-                dateFormatter.locale = Locale(identifier: "pt_BR")
-                dateFormatter.setLocalizedDateFormatFromTemplate("MMM")
-                let monthString = dateFormatter.string(from: Date())
-                
-                dates.add("\(day)\n\(monthString)")
-            }
+            // Getting the current days last two months
+            let dates: NSMutableArray = plotter.getDates(months)
             
-            var numbersArray = [[Int32]]()
-            
-            numbersArray = try plotter.loadWeights()
+            // Starting to populate and draw the charts...
+            let numbersArray: [[Int32]] = plotter.getWeightsValues(months)
             
             var datesArray = [String]()
             for x in 0...(dates.count - 1) {
@@ -117,7 +104,6 @@ class DetailsWeightViewController: UIViewController, UITableViewDelegate,  UITab
                 let newString = (aString as AnyObject).replacingOccurrences(of: "\n", with: "/")
                 datesArray.append(newString)
             }
-            
             weightDates = datesArray
             weightValues = numbersArray[0]
         }
