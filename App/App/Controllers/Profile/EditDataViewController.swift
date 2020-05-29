@@ -5,7 +5,7 @@
 //  Created by Joao Flores on 07/04/20.
 //  Copyright © 2020 Joao Flores. All rights reserved.
 //
-
+  
 import UIKit
 import os.log
 import NumericPicker
@@ -138,6 +138,18 @@ class EditDataViewController: ViewController, UIPickerViewDelegate, UIPickerView
     //    MARK: - Style
     func setupStyle() {
         plainingTextView.layer.cornerRadius = 10
+        
+        plainingTextView.layer.borderWidth = 1.0
+        plainingTextView.layer.borderColor = UIColorFromRGB(rgbValue: 0xCDCDCD).cgColor
+    }
+    
+    func UIColorFromRGB(rgbValue: UInt) -> UIColor {
+        return UIColor(
+            red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
+            green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
+            blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
+            alpha: CGFloat(1.0)
+        )
     }
     
     //    MARK: - Picker View

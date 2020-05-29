@@ -383,6 +383,23 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
+  /// This `R.entitlements` struct is generated, and contains static references to 3 properties.
+  struct entitlements {
+    static let apsEnvironment = infoPlistString(path: [], key: "aps-environment") ?? "development"
+
+    struct comAppleDeveloperIcloudContainerIdentifiers {
+      fileprivate init() {}
+    }
+
+    struct comAppleDeveloperIcloudServices {
+      static let cloudKit = infoPlistString(path: ["com.apple.developer.icloud-services"], key: "CloudKit") ?? "CloudKit"
+
+      fileprivate init() {}
+    }
+
+    fileprivate init() {}
+  }
+
   /// This `R.image` struct is generated, and contains static references to 5 images.
   struct image {
     /// Image `ExerciseIcon`.
@@ -569,7 +586,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.reuseIdentifier` struct is generated, and contains static references to 6 reuse identifiers.
+  /// This `R.reuseIdentifier` struct is generated, and contains static references to 7 reuse identifiers.
   struct reuseIdentifier {
     /// Reuse identifier `DailyHabitsTableViewCell`.
     static let dailyHabitsTableViewCell: Rswift.ReuseIdentifier<DailyHabitsTableViewCell> = Rswift.ReuseIdentifier(identifier: "DailyHabitsTableViewCell")
@@ -581,6 +598,8 @@ struct R: Rswift.Validatable {
     static let mealHistoryTableViewCell: Rswift.ReuseIdentifier<MealHistoryTableViewCell> = Rswift.ReuseIdentifier(identifier: "MealHistoryTableViewCell")
     /// Reuse identifier `PerformanceChart`.
     static let performanceChart: Rswift.ReuseIdentifier<My_Way.PerformanceChartCollectionViewCell> = Rswift.ReuseIdentifier(identifier: "PerformanceChart")
+    /// Reuse identifier `cellId`.
+    static let cellId: Rswift.ReuseIdentifier<UIKit.UITableViewCell> = Rswift.ReuseIdentifier(identifier: "cellId")
     /// Reuse identifier `dateCell`.
     static let dateCell: Rswift.ReuseIdentifier<DateCell> = Rswift.ReuseIdentifier(identifier: "dateCell")
 
@@ -868,6 +887,7 @@ struct _R: Rswift.Validatable {
           if UIKit.UIColor(named: "CellColor", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'CellColor' is used in storyboard 'Profile', but couldn't be loaded.") }
           if UIKit.UIColor(named: "PrimaryTextColor", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'PrimaryTextColor' is used in storyboard 'Profile', but couldn't be loaded.") }
           if UIKit.UIColor(named: "SecundaryTextColor", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'SecundaryTextColor' is used in storyboard 'Profile', but couldn't be loaded.") }
+          if UIKit.UIColor(named: "rateGreenColor", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'rateGreenColor' is used in storyboard 'Profile', but couldn't be loaded.") }
         }
       }
 

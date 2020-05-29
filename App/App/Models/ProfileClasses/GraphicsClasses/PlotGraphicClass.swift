@@ -39,7 +39,8 @@ class PlotGraphicClass {
 //      Plot graphic
         let configuration = XNormalLineChartConfiguration()
         configuration.lineMode = XLineMode.CurveLine
-        configuration.isShowShadow = false
+        configuration.isShowShadow = true
+        configuration.isEnableNumberAnimation = false
         
         let widthGraphic = graphicVIew.frame.width
         let heightGraphic = graphicVIew.frame.height
@@ -47,7 +48,6 @@ class PlotGraphicClass {
         let bottomNumberGraphic = NSNumber(value: bottomNumber)
         
         let lineChart = XLineChart(frame: CGRect(x: 0, y: 0, width: widthGraphic, height: heightGraphic), dataItemArray: NSMutableArray(array: itemArray), dataDiscribeArray: datesX, topNumber: topNumberGraphic, bottomNumber: bottomNumberGraphic, graphMode: XLineGraphMode.MutiLineGraph, chartConfiguration: configuration)
-        
         
         if let views = lineChart?.subviews {
             for viewScroll in views {
@@ -81,86 +81,7 @@ class PlotGraphicClass {
         StyleClass().cropBounds(viewlayer: view.layer, cornerRadius: Float(view.frame.height/2))
     }
     
-    func setLayoutLegends(views: [UIView]) {
-        for view in views {
-            StyleClass().cropBounds(viewlayer: view.layer, cornerRadius: Float(view.frame.width/2))
-        }
-    }
-    
-    func generateValues(numLines: Int, datesCount: Int) -> [[Int32]] {
-        
-        var numbersArray = [[Int32]]()
-        
-        for _ in 0..<numLines {
-            var numberArray = [Int32]()
-            
-            for _ in 0..<datesCount {
-                let num: Int = Int.random(in: 32 ..< 90)
-                let number = Int32(num)
-                numberArray.append(number)
-            }
-            numbersArray.append(numberArray)
-        }
-        
-        return numbersArray
-    }
-    
-    
-    
-    /// Loads the habits values as a tuple containing respectively green percentage and yellow percentage (the red is not necessary) to plot into some chart.
-    /// - Throws: Couldn't communicate with the operating system's internal calendar/time system.
-    /// - Returns: A tuple containing the percentage respectively for green and yellow (the red is not necessary).
-    func loadHabitsAsPercentage() throws -> (Float, Float) {
-        
-        let daysOfWeek = Date().getAllDaysForWeek()
-        
-        var greenPercentage: Float = 0.0
-        var yellowPercentage: Float = 0.0
-        var amountOfGreen: Int = 0
-        var amountOfYellow: Int = 0
-        
-        // Counting the amount of each color per day
-        for day in daysOfWeek {
-
-            do {
-                // Getting the current day of the week
-                let (year, month, day, _, _, _) = try day.getAllInformations()
-
-                do {
-                    let entity = try self.dataHandler?.loadDailyDiary(year: year, month: month, day: day)
-
-                    if entity != nil {
-
-
-                        if entity!.quality == 1 {
-                            amountOfGreen += 1
-                        }
-                        else if entity!.quality == 0 {
-                            amountOfYellow += 1
-                        }
-
-                    }
-                }
-                catch {
-                    os_log("[WARNING] No entry value for habits chart plotting was found!")
-                }
-                
-            }
-            catch {
-                throw error
-            }
-        }
-        
-        
-        // Calculating the percentage based on amount of days in a week
-        greenPercentage = Float(amountOfGreen) / 7.0
-        yellowPercentage = Float(amountOfYellow) / 7.0
-
-        return (greenPercentage, yellowPercentage)
-        
-    }
-    
-    
+//    dataLoads
     
     /// Loads the weights values as a lists of list with type of integer (32 bits) to plot into some chart.
     /// - Throws: Couldn't communicate with the operating system's internal calendar/time system.
@@ -249,6 +170,134 @@ class PlotGraphicClass {
         }
 
         return numbersArray
+    }
+    
+    func getWeightsValues(_ months: [[Int]]) -> [[Int32]]{
+        var numbersArray: [[Int32]] = [[]]
+        for month in months {
+            let dateComponents = DateComponents(year: month[1], month: month[0])
+            let calendar = Calendar.current
+            let date = calendar.date(from: dateComponents)!
+            let range = calendar.range(of: .day, in: .month, for: date)!
+            var numDays = range.count
+            var firstDayMonth = 1
+            if(month[0] == months[2][0]) {
+                let date = Date()
+                let format = DateFormatter()
+                format.dateFormat = "dd"
+                numDays = Int(format.string(from: date))!
+            }
+            else if(month[0] == months[0][0]) {
+                let date = Date()
+                let format = DateFormatter()
+                format.dateFormat = "dd"
+                firstDayMonth = Int(format.string(from: date))!
+            }
+            for day in firstDayMonth...numDays {
+                // Getting the weight for that day
+                var weight: Int32 = 0
+                
+                do {
+                    print(month[1], month[0], day)
+                    let entity = try self.dataHandler?.loadWeight(year: month[1], month: month[0], day: day)
+                    
+                    if entity != nil {
+                        weight = Int32(entity!.value)
+                    }
+                }
+                catch {}
+                
+                numbersArray[0].append(weight)
+            }
+        }
+        return numbersArray
+    }
+    
+    func getHabitsValues(_ months: [[Int]]) -> [[Int32]]{
+        var numbersArray: [[Int32]] = [[], [], []]
+        for month in months {
+            let dateComponents = DateComponents(year: month[1], month: month[0])
+            let calendar = Calendar.current
+            let date = calendar.date(from: dateComponents)!
+            let range = calendar.range(of: .day, in: .month, for: date)!
+            var numDays = range.count
+            var firstDayMonth = 1
+            if(month[0] == months[2][0]) {
+                let date = Date()
+                let format = DateFormatter()
+                format.dateFormat = "dd"
+                numDays = Int(format.string(from: date))!
+            }
+            else if(month[0] == months[0][0]) {
+                let date = Date()
+                let format = DateFormatter()
+                format.dateFormat = "dd"
+                firstDayMonth = Int(format.string(from: date))!
+            }
+            for day in firstDayMonth...numDays {
+                // Getting the weight for that day
+                var waterConvertedValue: Int32 = 0
+                var fruitConvertedValue: Int32 = 0
+                var sportConvertedValue: Int32 = 0
+
+                do {
+                    let entity = try self.dataHandler?.loadDailyDiary(year: month[1], month: month[0], day: day)
+
+                    if entity != nil {
+
+
+                        if entity!.didDrinkWater {
+                            waterConvertedValue = 1
+                        }
+
+                        if entity!.didEatFruit {
+                            fruitConvertedValue = 1
+                        }
+
+                        if entity!.didPracticeExercise {
+                            sportConvertedValue = 1
+                        }
+
+                    }
+                }
+                catch {
+                    os_log("[WARNING] No entry value for habits chart plotting was found!")
+                }
+
+                numbersArray[0].append(waterConvertedValue)
+                numbersArray[1].append(fruitConvertedValue)
+                numbersArray[2].append(sportConvertedValue)
+            }
+        }
+        return numbersArray
+    }
+    
+    func getDates(_ months: [[Int]]) -> NSMutableArray {
+        let dates: NSMutableArray = []
+        for month in months {
+            let dateComponents = DateComponents(year: month[1], month: month[0])
+            let calendar = Calendar.current
+            let date = calendar.date(from: dateComponents)!
+            let range = calendar.range(of: .day, in: .month, for: date)!
+            var numDays = range.count
+            var firstDayMonth = 1
+            if(month[0] == months[2][0]) {
+                let date = Date()
+                let format = DateFormatter()
+                format.dateFormat = "dd"
+                numDays = Int(format.string(from: date))!
+            }
+            else if(month[0] == months[0][0]) {
+                let date = Date()
+                let format = DateFormatter()
+                format.dateFormat = "dd"
+                firstDayMonth = Int(format.string(from: date))!
+            }
+            for day in firstDayMonth...numDays {
+                dates.add("\(day)\n\(month[0])")
+            }
+        }
+        return dates
     }
 }
 

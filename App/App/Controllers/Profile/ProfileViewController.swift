@@ -113,40 +113,17 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
     func setupGraphic() {
         
         do {
-            
             let plotter = try PlotGraphicClass()
             
-            // Getting the current days of week
-            let dates: NSMutableArray = []
-            let daysOfWeek = Date().getAllDaysForWeek()
+            plotter.plotGraphicHorizontalBars (view: meatsGraphicBarsView, greenPercent: 0.5, yellowPercent: 0.3 )
             
-            for day in daysOfWeek {
-                
-                // Getting the current day of the week
-                let (_, _, day, _, _, _) = try day.getAllInformations()
-                
-                // Converting month number into text
-                let dateFormatter = DateFormatter()
-                dateFormatter.locale = Locale(identifier: "pt_BR")
-                dateFormatter.setLocalizedDateFormatFromTemplate("MMM")
-                let monthString = dateFormatter.string(from: Date())
-                
-                dates.add("\(day)\n\(monthString)")
-
-            }
+            let months = DateManager().getMonths()
+            
+            // Getting the current days last two months
+            let dates: NSMutableArray = plotter.getDates(months)
             
             // Starting to populate and draw the charts...
-            var numbersArray = [[Int32]]()
-            
-            
-            // Populating the habits on the horizontal chart bar
-            let (greenPercentage, yellowPercentage) = try plotter.loadHabitsAsPercentage()
-            plotter.plotGraphicHorizontalBars (view: meatsGraphicBarsView, greenPercent: greenPercentage, yellowPercent: yellowPercentage )
-            
-            
-            
-            // Populating with the weights marked on this current week
-            numbersArray = try plotter.loadWeights()
+            var numbersArray: [[Int32]] = plotter.getWeightsValues(months)
             
             plotter.plotGraphicLine(graphicVIew: weightGraphicLineView, colorLinesArray: [UIColor.black], datesX: dates, numbersArray: numbersArray, topNumber: 120, bottomNumber: 0)
             
@@ -154,10 +131,8 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
             let colorFruits = UIColor(named: "habitsFruitsColor")!
             let colorExercice = UIColor(named: "habitsExerciceColor")!
             
-            
-            
             //  Populating the habits with core data values
-            numbersArray = try plotter.loadHabits()
+            numbersArray = plotter.getHabitsValues(months)
 
             plotter.plotGraphicLine(graphicVIew: habitsGraphicLineView, colorLinesArray: [colorWater, colorFruits, colorExercice], datesX: dates, numbersArray: numbersArray, topNumber: 1, bottomNumber: 0)
         }
@@ -165,7 +140,6 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
             os_log("[ERROR] Couldn't communicate with the operating system's internal calendar/time system or memory is too low!")
         }
     }
-    
     //    MARK: - Take Profile Image
     func openGalery() {
         
@@ -275,3 +249,5 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
           animateGoals()
       }
 }
+
+// MARK: - DATE
