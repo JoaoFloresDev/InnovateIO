@@ -65,46 +65,6 @@ class PlotGraphicClass {
         graphicVIew.addSubview(lineChart!)
     }
     
-    func plotGraphicLineAsQualitative(graphicVIew: UIView, colorLinesArray: [UIColor], datesX: NSMutableArray, numbersArray: [[Int32]], topNumber: Int, bottomNumber: Int) {
-        
-        var itemArray: [AnyHashable] = []
-        
-        //      Create lines
-        for i in 0..<numbersArray.count {
-            let item = XLineChartItem(dataNumber: NSMutableArray(array: numbersArray[i]), color: colorLinesArray[i])
-            itemArray.append(item!)
-        }
-        
-        //      Plot graphic
-        let configuration = XNormalLineChartConfiguration()
-        configuration.lineMode = XLineMode.CurveLine
-        configuration.isShowShadow = false
-        
-        let widthGraphic = graphicVIew.frame.width
-        let heightGraphic = graphicVIew.frame.height
-        let topNumberGraphic = NSNumber(value: topNumber)
-        let bottomNumberGraphic = NSNumber(value: bottomNumber)
-        
-        let lineChart = XLineChart(frame: CGRect(x: 0, y: 0, width: widthGraphic, height: heightGraphic), dataItemArray: NSMutableArray(array: itemArray), dataDiscribeArray: datesX, topNumber: topNumberGraphic, bottomNumber: bottomNumberGraphic, graphMode: XLineGraphMode.MutiLineGraph, chartConfiguration: configuration)
-        
-        
-        if let views = lineChart?.subviews {
-            for viewScroll in views {
-                if viewScroll is UIScrollView {
-                    if let scroll = viewScroll as? UIScrollView {
-                        print(scroll)
-                        scrollView = scroll
-                        let newOffset = CGPoint(x: scrollView.contentSize.width - graphicVIew.frame.width + 40, y: 0)
-                        scrollView.setContentOffset(newOffset, animated: true)
-                    }
-                }
-            }
-        }
-        
-        graphicVIew.addSubview(lineChart!)
-    }
-    
-    
     func plotGraphicHorizontalBars (view: UIView, greenPercent: Float, yellowPercent: Float) {
         
         let greenView = UIView(frame: CGRect(x: 0, y: 0, width: Int(Float(view.frame.width) * greenPercent), height: Int(view.frame.height)))
