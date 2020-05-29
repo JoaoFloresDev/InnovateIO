@@ -34,8 +34,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Setting up the notification service...
         notificationService.notificationCenter.delegate = self
         notificationService.requestPermissions()
-        notificationService.sendNotification(type: .addMeal)
-        notificationService.sendNotification(type: .update)
         
         return true
     }
