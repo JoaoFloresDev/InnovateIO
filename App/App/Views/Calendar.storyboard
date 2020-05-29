@@ -249,35 +249,33 @@
                                                     </label>
                                                 </subviews>
                                                 <constraints>
+                                                    <constraint firstItem="Rux-Um-bfg" firstAttribute="height" secondItem="q0I-YO-AWA" secondAttribute="height" id="Bdy-35-u5q"/>
                                                     <constraint firstAttribute="width" constant="301" id="OJh-mF-1yo"/>
                                                 </constraints>
                                             </stackView>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="6zP-Pp-k6J" customClass="PerformanceChart">
-                                                <rect key="frame" x="44" y="65.333333333333314" width="301" height="280"/>
+                                                <rect key="frame" x="44" y="65.333333333333286" width="301" height="391.66666666666674"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="280" id="soV-PD-Kj9"/>
-                                                </constraints>
-                                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="PRf-ZQ-lgO">
-                                                    <size key="itemSize" width="43" height="280"/>
+                                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="PRf-ZQ-lgO">
+                                                    <size key="itemSize" width="43" height="360"/>
                                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                 </collectionViewFlowLayout>
                                                 <cells>
                                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PerformanceChart" id="PTe-28-dvS" customClass="PerformanceChartCollectionViewCell" customModule="My_Way">
-                                                        <rect key="frame" x="0.0" y="0.0" width="43" height="280"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="43" height="360"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="6g4-XG-eRc">
-                                                            <rect key="frame" x="0.0" y="0.0" width="43" height="280"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="43" height="360"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <subviews>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="unS-Ab-Sf1" userLabel="Line View">
-                                                                    <rect key="frame" x="20" y="0.0" width="3" height="280"/>
+                                                                    <rect key="frame" x="20" y="0.0" width="3" height="360"/>
                                                                     <color key="backgroundColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                                                 </view>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="N60-AV-qcp">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="43" height="280"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="43" height="360"/>
                                                                     <subviews>
                                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5OB-mb-quG" userLabel="0" customClass="RoundedView" customModule="My_Way" customModuleProvider="target">
                                                                             <rect key="frame" x="16.666666666666668" y="0.0" width="10" height="10"/>
@@ -293,7 +291,7 @@
                                                                             </userDefinedRuntimeAttributes>
                                                                         </view>
                                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bti-fE-QF2" userLabel="1" customClass="RoundedView" customModule="My_Way" customModuleProvider="target">
-                                                                            <rect key="frame" x="16.666666666666668" y="11.666666666666664" width="10" height="10"/>
+                                                                            <rect key="frame" x="16.666666666666668" y="15.333333333333336" width="10" height="10"/>
                                                                             <color key="backgroundColor" name="rateRedColor"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" secondItem="Bti-fE-QF2" secondAttribute="height" id="7PS-q3-gQO"/>
@@ -306,7 +304,7 @@
                                                                             </userDefinedRuntimeAttributes>
                                                                         </view>
                                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ECU-Xt-WKK" userLabel="2" customClass="RoundedView" customModule="My_Way" customModuleProvider="target">
-                                                                            <rect key="frame" x="16.666666666666668" y="23.333333333333332" width="10" height="9.9999999999999964"/>
+                                                                            <rect key="frame" x="16.666666666666668" y="30.333333333333329" width="10" height="10"/>
                                                                             <color key="backgroundColor" name="rateRedColor"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" constant="10" id="5wd-fw-wbx"/>
@@ -319,7 +317,7 @@
                                                                             </userDefinedRuntimeAttributes>
                                                                         </view>
                                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LvK-Qo-puV" userLabel="3" customClass="RoundedView" customModule="My_Way" customModuleProvider="target">
-                                                                            <rect key="frame" x="16.666666666666668" y="35.333333333333336" width="10" height="10"/>
+                                                                            <rect key="frame" x="16.666666666666668" y="45.666666666666664" width="10" height="10"/>
                                                                             <color key="backgroundColor" name="rateRedColor"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" secondItem="LvK-Qo-puV" secondAttribute="height" id="GIa-BZ-meb"/>
@@ -332,7 +330,7 @@
                                                                             </userDefinedRuntimeAttributes>
                                                                         </view>
                                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wub-F3-Jqe" userLabel="4" customClass="RoundedView" customModule="My_Way" customModuleProvider="target">
-                                                                            <rect key="frame" x="16.666666666666668" y="47" width="10" height="10"/>
+                                                                            <rect key="frame" x="16.666666666666668" y="61" width="10" height="10"/>
                                                                             <color key="backgroundColor" name="rateRedColor"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" constant="10" id="qkI-zK-cTp"/>
@@ -345,7 +343,7 @@
                                                                             </userDefinedRuntimeAttributes>
                                                                         </view>
                                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DIn-RC-dqq" userLabel="5" customClass="RoundedView" customModule="My_Way" customModuleProvider="target">
-                                                                            <rect key="frame" x="16.666666666666668" y="58.666666666666664" width="10" height="9.9999999999999929"/>
+                                                                            <rect key="frame" x="16.666666666666668" y="76" width="10" height="10"/>
                                                                             <color key="backgroundColor" name="rateRedColor"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" secondItem="DIn-RC-dqq" secondAttribute="height" id="9d5-wO-KdR"/>
@@ -358,7 +356,7 @@
                                                                             </userDefinedRuntimeAttributes>
                                                                         </view>
                                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sBV-EB-D2D" userLabel="6" customClass="RoundedView" customModule="My_Way" customModuleProvider="target">
-                                                                            <rect key="frame" x="16.666666666666668" y="70.333333333333329" width="10" height="10"/>
+                                                                            <rect key="frame" x="16.666666666666668" y="91.333333333333329" width="10" height="10"/>
                                                                             <color key="backgroundColor" name="rateRedColor"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" constant="10" id="Lo7-n2-Zml"/>
@@ -371,7 +369,7 @@
                                                                             </userDefinedRuntimeAttributes>
                                                                         </view>
                                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0cf-yX-Pvc" userLabel="7" customClass="RoundedView" customModule="My_Way" customModuleProvider="target">
-                                                                            <rect key="frame" x="16.666666666666668" y="82.333333333333329" width="10" height="10"/>
+                                                                            <rect key="frame" x="16.666666666666668" y="106.66666666666667" width="10" height="10"/>
                                                                             <color key="backgroundColor" name="rateRedColor"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" constant="10" id="GPD-of-jgd"/>
@@ -384,7 +382,7 @@
                                                                             </userDefinedRuntimeAttributes>
                                                                         </view>
                                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y6I-1y-CbO" userLabel="8" customClass="RoundedView" customModule="My_Way" customModuleProvider="target">
-                                                                            <rect key="frame" x="16.666666666666668" y="94" width="10" height="10"/>
+                                                                            <rect key="frame" x="16.666666666666668" y="121.66666666666667" width="10" height="10.000000000000014"/>
                                                                             <color key="backgroundColor" name="rateRedColor"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" constant="10" id="LMq-Yb-DKw"/>
@@ -397,7 +395,7 @@
                                                                             </userDefinedRuntimeAttributes>
                                                                         </view>
                                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g3e-Pe-AVj" userLabel="9" customClass="RoundedView" customModule="My_Way" customModuleProvider="target">
-                                                                            <rect key="frame" x="16.666666666666668" y="105.66666666666667" width="10" height="10"/>
+                                                                            <rect key="frame" x="16.666666666666668" y="137" width="10" height="10"/>
                                                                             <color key="backgroundColor" name="rateRedColor"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" secondItem="g3e-Pe-AVj" secondAttribute="height" id="Noh-7O-dGD"/>
@@ -410,7 +408,7 @@
                                                                             </userDefinedRuntimeAttributes>
                                                                         </view>
                                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UJc-RM-JuJ" userLabel="10" customClass="RoundedView" customModule="My_Way" customModuleProvider="target">
-                                                                            <rect key="frame" x="16.666666666666668" y="117.33333333333333" width="10" height="10"/>
+                                                                            <rect key="frame" x="16.666666666666668" y="152.33333333333334" width="10" height="10"/>
                                                                             <color key="backgroundColor" name="rateRedColor"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" secondItem="UJc-RM-JuJ" secondAttribute="height" id="dwV-m0-EhI"/>
@@ -423,7 +421,7 @@
                                                                             </userDefinedRuntimeAttributes>
                                                                         </view>
                                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="khk-Ba-nZJ" userLabel="11" customClass="RoundedView" customModule="My_Way" customModuleProvider="target">
-                                                                            <rect key="frame" x="16.666666666666668" y="129" width="10" height="10"/>
+                                                                            <rect key="frame" x="16.666666666666668" y="167.33333333333334" width="10" height="10"/>
                                                                             <color key="backgroundColor" name="rateRedColor"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" secondItem="khk-Ba-nZJ" secondAttribute="height" id="GnD-ZQ-Xls"/>
@@ -436,7 +434,7 @@
                                                                             </userDefinedRuntimeAttributes>
                                                                         </view>
                                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w7Y-l2-6e2" userLabel="12" customClass="RoundedView" customModule="My_Way" customModuleProvider="target">
-                                                                            <rect key="frame" x="16.666666666666668" y="141" width="10" height="10"/>
+                                                                            <rect key="frame" x="16.666666666666668" y="182.66666666666666" width="10" height="10"/>
                                                                             <color key="backgroundColor" name="rateRedColor"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" secondItem="w7Y-l2-6e2" secondAttribute="height" id="Zkl-GV-8Ih"/>
@@ -449,7 +447,7 @@
                                                                             </userDefinedRuntimeAttributes>
                                                                         </view>
                                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZKU-3y-H2v" userLabel="13" customClass="RoundedView" customModule="My_Way" customModuleProvider="target">
-                                                                            <rect key="frame" x="16.666666666666668" y="152.66666666666666" width="10" height="10"/>
+                                                                            <rect key="frame" x="16.666666666666668" y="197.66666666666666" width="10" height="10"/>
                                                                             <color key="backgroundColor" name="rateRedColor"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" constant="10" id="ovk-4s-mlQ"/>
@@ -462,7 +460,7 @@
                                                                             </userDefinedRuntimeAttributes>
                                                                         </view>
                                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EHA-rk-jLP" userLabel="14" customClass="RoundedView" customModule="My_Way" customModuleProvider="target">
-                                                                            <rect key="frame" x="16.666666666666668" y="164.33333333333334" width="10" height="10"/>
+                                                                            <rect key="frame" x="16.666666666666668" y="213" width="10" height="10"/>
                                                                             <color key="backgroundColor" name="rateRedColor"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" secondItem="EHA-rk-jLP" secondAttribute="height" id="iBr-hS-Aei"/>
@@ -475,7 +473,7 @@
                                                                             </userDefinedRuntimeAttributes>
                                                                         </view>
                                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="05g-VY-oK3" userLabel="15" customClass="RoundedView" customModule="My_Way" customModuleProvider="target">
-                                                                            <rect key="frame" x="16.666666666666668" y="176" width="10" height="10"/>
+                                                                            <rect key="frame" x="16.666666666666668" y="228.33333333333334" width="10" height="10"/>
                                                                             <color key="backgroundColor" name="rateRedColor"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" constant="10" id="APg-Z8-UNY"/>
@@ -488,7 +486,7 @@
                                                                             </userDefinedRuntimeAttributes>
                                                                         </view>
                                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dzn-IB-Gwu" userLabel="16" customClass="RoundedView" customModule="My_Way" customModuleProvider="target">
-                                                                            <rect key="frame" x="16.666666666666668" y="187.66666666666666" width="10" height="10"/>
+                                                                            <rect key="frame" x="16.666666666666668" y="243.33333333333334" width="10" height="10"/>
                                                                             <color key="backgroundColor" name="rateRedColor"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" constant="10" id="3bo-md-leu"/>
@@ -501,7 +499,7 @@
                                                                             </userDefinedRuntimeAttributes>
                                                                         </view>
                                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w3e-RS-54o" userLabel="17" customClass="RoundedView" customModule="My_Way" customModuleProvider="target">
-                                                                            <rect key="frame" x="16.666666666666668" y="199.66666666666666" width="10" height="10"/>
+                                                                            <rect key="frame" x="16.666666666666668" y="258.66666666666669" width="10" height="10"/>
                                                                             <color key="backgroundColor" name="rateRedColor"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" secondItem="w3e-RS-54o" secondAttribute="height" id="Uzu-9W-H87"/>
@@ -514,7 +512,7 @@
                                                                             </userDefinedRuntimeAttributes>
                                                                         </view>
                                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3OG-ZE-Ccs" userLabel="18" customClass="RoundedView" customModule="My_Way" customModuleProvider="target">
-                                                                            <rect key="frame" x="16.666666666666668" y="211.33333333333334" width="10" height="10"/>
+                                                                            <rect key="frame" x="16.666666666666668" y="274" width="10" height="10"/>
                                                                             <color key="backgroundColor" name="rateRedColor"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" constant="10" id="OaG-2i-MvT"/>
@@ -527,7 +525,7 @@
                                                                             </userDefinedRuntimeAttributes>
                                                                         </view>
                                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Y0-PV-Kkp" userLabel="19" customClass="RoundedView" customModule="My_Way" customModuleProvider="target">
-                                                                            <rect key="frame" x="16.666666666666668" y="223" width="10" height="10"/>
+                                                                            <rect key="frame" x="16.666666666666668" y="289" width="10" height="10"/>
                                                                             <color key="backgroundColor" name="rateRedColor"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" constant="10" id="39A-4Z-S8c"/>
@@ -540,7 +538,7 @@
                                                                             </userDefinedRuntimeAttributes>
                                                                         </view>
                                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vsf-7m-L2V" userLabel="20" customClass="RoundedView" customModule="My_Way" customModuleProvider="target">
-                                                                            <rect key="frame" x="16.666666666666668" y="234.66666666666666" width="10" height="10"/>
+                                                                            <rect key="frame" x="16.666666666666668" y="304.33333333333331" width="10" height="10"/>
                                                                             <color key="backgroundColor" name="rateRedColor"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" constant="10" id="RuZ-7v-KDF"/>
@@ -553,7 +551,7 @@
                                                                             </userDefinedRuntimeAttributes>
                                                                         </view>
                                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gVQ-PU-JYz" userLabel="21" customClass="RoundedView" customModule="My_Way" customModuleProvider="target">
-                                                                            <rect key="frame" x="16.666666666666668" y="246.66666666666666" width="10" height="9.9999999999999716"/>
+                                                                            <rect key="frame" x="16.666666666666668" y="319.66666666666669" width="10" height="10"/>
                                                                             <color key="backgroundColor" name="rateRedColor"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" constant="10" id="VW2-kv-yLM"/>
@@ -566,7 +564,7 @@
                                                                             </userDefinedRuntimeAttributes>
                                                                         </view>
                                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="09F-f0-V9z" userLabel="22" customClass="RoundedView" customModule="My_Way" customModuleProvider="target">
-                                                                            <rect key="frame" x="16.666666666666668" y="258.33333333333331" width="10" height="10"/>
+                                                                            <rect key="frame" x="16.666666666666668" y="334.66666666666669" width="10" height="10"/>
                                                                             <color key="backgroundColor" name="rateRedColor"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" constant="10" id="NI6-nc-sWb"/>
@@ -579,7 +577,7 @@
                                                                             </userDefinedRuntimeAttributes>
                                                                         </view>
                                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="smE-5L-Wuv" userLabel="23" customClass="RoundedView" customModule="My_Way" customModuleProvider="target">
-                                                                            <rect key="frame" x="16.666666666666668" y="270" width="10" height="10"/>
+                                                                            <rect key="frame" x="16.666666666666668" y="350" width="10" height="10"/>
                                                                             <color key="backgroundColor" name="rateRedColor"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" constant="10" id="L5l-01-Oi7"/>
@@ -685,40 +683,40 @@
                                                 </cells>
                                             </collectionView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="WOg-y2-bt9" userLabel="Hour Labels Stack View">
-                                                <rect key="frame" x="0.0" y="65.333333333333314" width="44" height="280"/>
+                                                <rect key="frame" x="0.0" y="65.333333333333314" width="44" height="371.66666666666669"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZE3-UM-SH3">
-                                                        <rect key="frame" x="0.0" y="0.0" width="44" height="40"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="44" height="55.333333333333336"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1jV-lz-jbv">
-                                                        <rect key="frame" x="0.0" y="48" width="44" height="40"/>
+                                                        <rect key="frame" x="0.0" y="63.333333333333371" width="44" height="55.333333333333343"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xMQ-qB-K8v">
-                                                        <rect key="frame" x="0.0" y="96" width="44" height="40"/>
+                                                        <rect key="frame" x="0.0" y="126.66666666666667" width="44" height="55.333333333333329"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MOu-26-TFs">
-                                                        <rect key="frame" x="0.0" y="144.00000000000006" width="44" height="40"/>
+                                                        <rect key="frame" x="0.0" y="190.00000000000006" width="44" height="55"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tIq-xl-chn">
-                                                        <rect key="frame" x="0.0" y="192.00000000000006" width="44" height="40"/>
+                                                        <rect key="frame" x="0.0" y="253.00000000000009" width="44" height="55.333333333333343"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qYN-XQ-GBB">
-                                                        <rect key="frame" x="0.0" y="240.00000000000006" width="44" height="40"/>
+                                                        <rect key="frame" x="0.0" y="316.33333333333331" width="44" height="55.333333333333314"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -731,7 +729,8 @@
                                             <constraint firstAttribute="trailing" secondItem="6zP-Pp-k6J" secondAttribute="trailing" id="26n-S9-2ao"/>
                                             <constraint firstItem="q0I-YO-AWA" firstAttribute="leading" secondItem="6zP-Pp-k6J" secondAttribute="leading" id="BBG-62-PHK"/>
                                             <constraint firstItem="q0I-YO-AWA" firstAttribute="trailing" secondItem="6zP-Pp-k6J" secondAttribute="trailing" id="IvN-W9-trQ"/>
-                                            <constraint firstItem="WOg-y2-bt9" firstAttribute="bottom" secondItem="6zP-Pp-k6J" secondAttribute="bottom" id="N7p-Gr-zLY"/>
+                                            <constraint firstAttribute="bottom" secondItem="6zP-Pp-k6J" secondAttribute="bottom" id="JiT-hR-SRp"/>
+                                            <constraint firstItem="WOg-y2-bt9" firstAttribute="bottom" secondItem="6zP-Pp-k6J" secondAttribute="bottom" constant="-20" id="N7p-Gr-zLY"/>
                                             <constraint firstAttribute="height" constant="457" id="SKA-mK-e0k"/>
                                             <constraint firstAttribute="trailing" secondItem="n5I-Il-DCE" secondAttribute="trailing" id="SaY-cn-Ar4"/>
                                             <constraint firstItem="q0I-YO-AWA" firstAttribute="top" secondItem="n5I-Il-DCE" secondAttribute="bottom" constant="10" id="Wpq-yX-ske"/>
