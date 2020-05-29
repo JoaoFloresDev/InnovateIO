@@ -159,7 +159,7 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
             //  Populating the habits with core data values
             numbersArray = try plotter.loadHabits()
 
-            plotter.plotGraphicLine(graphicVIew: habitsGraphicLineView, colorLinesArray: [colorWater, colorFruits, colorExercice], datesX: dates, numbersArray: numbersArray, topNumber: 1, bottomNumber: 0)
+            plotter.plotGraphicLine(graphicVIew: habitsGraphicLineView, colorLinesArray: [colorWater, colorFruits, colorExercice], datesX: dates, numbersArray: numbersArray, topNumber: 100, bottomNumber: 0)
         }
         catch {
             os_log("[ERROR] Couldn't communicate with the operating system's internal calendar/time system or memory is too low!")
