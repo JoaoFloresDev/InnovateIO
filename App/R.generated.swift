@@ -383,6 +383,23 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
+  /// This `R.entitlements` struct is generated, and contains static references to 3 properties.
+  struct entitlements {
+    static let apsEnvironment = infoPlistString(path: [], key: "aps-environment") ?? "development"
+
+    struct comAppleDeveloperIcloudContainerIdentifiers {
+      fileprivate init() {}
+    }
+
+    struct comAppleDeveloperIcloudServices {
+      static let cloudKit = infoPlistString(path: ["com.apple.developer.icloud-services"], key: "CloudKit") ?? "CloudKit"
+
+      fileprivate init() {}
+    }
+
+    fileprivate init() {}
+  }
+
   /// This `R.image` struct is generated, and contains static references to 5 images.
   struct image {
     /// Image `ExerciseIcon`.

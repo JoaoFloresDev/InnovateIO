@@ -47,6 +47,7 @@
 		C451C01E2458668C00C9A9F0 /* StyleClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C451C01D2458668C00C9A9F0 /* StyleClass.swift */; };
 		C451C0202458669900C9A9F0 /* ProfileDataMenagerClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C451C01F2458669900C9A9F0 /* ProfileDataMenagerClass.swift */; };
 		C456486D2476B78E008C0CE6 /* DetailsWeightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C456486C2476B78E008C0CE6 /* DetailsWeightViewController.swift */; };
+		C48716E524813C3A002F025B /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C48716E424813C3A002F025B /* CloudKit.framework */; };
 		C49D2C37247A2C140007D174 /* DetaisHabitsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49D2C36247A2C140007D174 /* DetaisHabitsViewController.swift */; };
 		C49D2C39247BA6280007D174 /* DateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49D2C38247BA6280007D174 /* DateManager.swift */; };
 		C4CC1B21246080ED0048B0B7 /* PlotGraphicClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CC1B1F246080ED0048B0B7 /* PlotGraphicClass.swift */; };
@@ -144,6 +145,8 @@
 		C451C01D2458668C00C9A9F0 /* StyleClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleClass.swift; sourceTree = "<group>"; };
 		C451C01F2458669900C9A9F0 /* ProfileDataMenagerClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDataMenagerClass.swift; sourceTree = "<group>"; };
 		C456486C2476B78E008C0CE6 /* DetailsWeightViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsWeightViewController.swift; sourceTree = "<group>"; };
+		C48716E324813C1F002F025B /* My Way.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "My Way.entitlements"; sourceTree = "<group>"; };
+		C48716E424813C3A002F025B /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		C49D2C36247A2C140007D174 /* DetaisHabitsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetaisHabitsViewController.swift; sourceTree = "<group>"; };
 		C49D2C38247BA6280007D174 /* DateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateManager.swift; sourceTree = "<group>"; };
 		C4CC1B1F246080ED0048B0B7 /* PlotGraphicClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlotGraphicClass.swift; sourceTree = "<group>"; };
@@ -178,6 +181,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C48716E524813C3A002F025B /* CloudKit.framework in Frameworks */,
 				812B30EC243CB03A002F1AFF /* CoreData.framework in Frameworks */,
 				83F16235DA3971C2D9C9E183 /* Pods_App.framework in Frameworks */,
 			);
@@ -205,6 +209,7 @@
 		49777CFFC338AC2FD2899B60 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C48716E424813C3A002F025B /* CloudKit.framework */,
 				5D9DD82629526393868E1285 /* Pods_App.framework */,
 				8560F8CCFC66A6175C70F408 /* Pods_App_AppUITests.framework */,
 				4EEF1BEFD23001D58D0FC6AC /* Pods_AppTests.framework */,
@@ -369,6 +374,7 @@
 		C44D1468243655BA0094497A /* App */ = {
 			isa = PBXGroup;
 			children = (
+				C48716E324813C1F002F025B /* My Way.entitlements */,
 				812B30E2243C9835002F1AFF /* iOS */,
 				81568AE0243B74FD00734FCA /* Views */,
 				81568ADF243B74F600734FCA /* Controllers */,
@@ -749,7 +755,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$SRCROOT/R.generated.swift",
+				$SRCROOT/R.generated.swift,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1019,6 +1025,7 @@
 			baseConfigurationReference = 2488050801B08D8A2972BD48 /* Pods-App.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "App/My Way.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = NZC6LC8NWM;
 				INFOPLIST_FILE = App/Info.plist;
@@ -1038,6 +1045,7 @@
 			baseConfigurationReference = A5D81F553004BB3CD15DF926 /* Pods-App.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "App/My Way.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = NZC6LC8NWM;
 				INFOPLIST_FILE = App/Info.plist;
