@@ -110,6 +110,77 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
     }
     
     //    MARK: - Graphics
+    func getDates(_ months: [[Int]]) -> NSMutableArray {
+        let dates: NSMutableArray = []
+        for month in months {
+            let dateComponents = DateComponents(year: month[1], month: month[0])
+            let calendar = Calendar.current
+            let date = calendar.date(from: dateComponents)!
+            let range = calendar.range(of: .day, in: .month, for: date)!
+            var numDays = range.count
+            var firstDayMonth = 1
+            if(month[0] == months[2][0]) {
+                let date = Date()
+                let format = DateFormatter()
+                format.dateFormat = "dd"
+                numDays = Int(format.string(from: date))!
+            }
+            else if(month[0] == months[0][0]) {
+                let date = Date()
+                let format = DateFormatter()
+                format.dateFormat = "dd"
+                firstDayMonth = Int(format.string(from: date))!
+            }
+            for day in firstDayMonth...numDays {
+                dates.add("\(day)\n\(month[0])")
+            }
+        }
+        return dates
+    }
+    
+    
+    
+    func getWeightsValues(_ months: [[Int]]) -> [[Int32]]{
+        var numbersArray: [[Int32]] = [[]]
+        for month in months {
+            let dateComponents = DateComponents(year: month[1], month: month[0])
+            let calendar = Calendar.current
+            let date = calendar.date(from: dateComponents)!
+            let range = calendar.range(of: .day, in: .month, for: date)!
+            var numDays = range.count
+            var firstDayMonth = 1
+            if(month[0] == months[2][0]) {
+                let date = Date()
+                let format = DateFormatter()
+                format.dateFormat = "dd"
+                numDays = Int(format.string(from: date))!
+            }
+            else if(month[0] == months[0][0]) {
+                let date = Date()
+                let format = DateFormatter()
+                format.dateFormat = "dd"
+                firstDayMonth = Int(format.string(from: date))!
+            }
+            for day in firstDayMonth...numDays {
+                // Getting the weight for that day
+                var weight: Int32 = 0
+                
+                do {
+                    print(month[1], month[0], day)
+                    let entity = try self.dataHandler?.loadWeight(year: month[1], month: month[0], day: day)
+                    
+                    if entity != nil {
+                        weight = Int32(entity!.value)
+                    }
+                }
+                catch {}
+                
+                numbersArray[0].append(weight)
+            }
+        }
+        return numbersArray
+    }
+    
     func setupGraphic() {
         
         do {
@@ -121,69 +192,10 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
             let months = DateManager().getMonths()
             
             // Getting the current days of week
-            let dates: NSMutableArray = []
-            for month in months {
-                let dateComponents = DateComponents(year: month[1], month: month[0])
-                let calendar = Calendar.current
-                let date = calendar.date(from: dateComponents)!
-                let range = calendar.range(of: .day, in: .month, for: date)!
-                var numDays = range.count
-                var firstDayMonth = 1
-                if(month[0] == months[2][0]) {
-                    let date = Date()
-                    let format = DateFormatter()
-                    format.dateFormat = "dd"
-                    numDays = Int(format.string(from: date))!
-                }
-                else if(month[0] == months[0][0]) {
-                    let date = Date()
-                    let format = DateFormatter()
-                    format.dateFormat = "dd"
-                    firstDayMonth = Int(format.string(from: date))!
-                }
-                for day in firstDayMonth...numDays {
-                    dates.add("\(day)\n\(month[0])")
-                }
-            }
+            let dates: NSMutableArray = getDates(months)
             
             // Starting to populate and draw the charts...
-            var numbersArray: [[Int32]] = [[]]
-            for month in months {
-                let dateComponents = DateComponents(year: month[1], month: month[0])
-                let calendar = Calendar.current
-                let date = calendar.date(from: dateComponents)!
-                let range = calendar.range(of: .day, in: .month, for: date)!
-                var numDays = range.count
-                var firstDayMonth = 1
-                if(month[0] == months[2][0]) {
-                    let date = Date()
-                    let format = DateFormatter()
-                    format.dateFormat = "dd"
-                    numDays = Int(format.string(from: date))!
-                }
-                else if(month[0] == months[0][0]) {
-                    let date = Date()
-                    let format = DateFormatter()
-                    format.dateFormat = "dd"
-                    firstDayMonth = Int(format.string(from: date))!
-                }
-                for day in firstDayMonth...numDays {
-                    // Getting the weight for that day
-                    var weight: Int32 = 0
-                    
-                    do {
-                        print(month[1], month[0], day)
-                        let entity = try self.dataHandler?.loadWeight(year: month[1], month: month[0], day: day)
-                        
-                        if entity != nil {
-                            weight = Int32(entity!.value)
-                        }
-                    }
-                    catch {}
-                    
-                    numbersArray[0].append(weight)
-                }
-            }
+            let numbersArray: [[Int32]] = getWeightsValues(months)
             
             plotter.plotGraphicLine(graphicVIew: weightGraphicLineView, colorLinesArray: [UIColor.black], datesX: dates, numbersArray: numbersArray, topNumber: 120, bottomNumber: 0)
         }

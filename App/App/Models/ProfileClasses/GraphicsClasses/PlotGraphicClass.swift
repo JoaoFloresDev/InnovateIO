@@ -39,7 +39,7 @@ class PlotGraphicClass {
 //      Plot graphic
         let configuration = XNormalLineChartConfiguration()
         configuration.lineMode = XLineMode.CurveLine
-        configuration.isShowShadow = false
+        configuration.isShowShadow = true
         configuration.isEnableNumberAnimation = false
         
         let widthGraphic = graphicVIew.frame.width
@@ -81,30 +81,7 @@ class PlotGraphicClass {
         StyleClass().cropBounds(viewlayer: view.layer, cornerRadius: Float(view.frame.height/2))
     }
     
-    func setLayoutLegends(views: [UIView]) {
-        for view in views {
-            StyleClass().cropBounds(viewlayer: view.layer, cornerRadius: Float(view.frame.width/2))
-        }
-    }
-    
-    func generateValues(numLines: Int, datesCount: Int) -> [[Int32]] {
-        
-        var numbersArray = [[Int32]]()
-        
-        for _ in 0..<numLines {
-            var numberArray = [Int32]()
-            
-            for _ in 0..<datesCount {
-                let num: Int = Int.random(in: 32 ..< 90)
-                let number = Int32(num)
-                numberArray.append(number)
-            }
-            numbersArray.append(numberArray)
-        }
-        
-        return numbersArray
-    }
-    
+//    dataLoads
     
     
     /// Loads the weights values as a lists of list with type of integer (32 bits) to plot into some chart.
