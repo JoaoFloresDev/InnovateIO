@@ -117,7 +117,7 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
             
             plotter.plotGraphicHorizontalBars (view: meatsGraphicBarsView, greenPercent: 0.5, yellowPercent: 0.3 )
             
-            let months = DateManager().getMonths()
+            let months = plotter.getMonths()
             
             // Getting the current days last two months
             let dates: NSMutableArray = plotter.getDates(months)

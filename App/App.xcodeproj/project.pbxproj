@@ -49,7 +49,6 @@
 		C456486D2476B78E008C0CE6 /* DetailsWeightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C456486C2476B78E008C0CE6 /* DetailsWeightViewController.swift */; };
 		C48716E524813C3A002F025B /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C48716E424813C3A002F025B /* CloudKit.framework */; };
 		C49D2C37247A2C140007D174 /* DetaisHabitsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49D2C36247A2C140007D174 /* DetaisHabitsViewController.swift */; };
-		C49D2C39247BA6280007D174 /* DateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49D2C38247BA6280007D174 /* DateManager.swift */; };
 		C4CC1B21246080ED0048B0B7 /* PlotGraphicClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CC1B1F246080ED0048B0B7 /* PlotGraphicClass.swift */; };
 		D71DF4232461995700DDA7BE /* MealHistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71DF4212461995700DDA7BE /* MealHistoryTableViewCell.swift */; };
 		D71DF4242461995700DDA7BE /* MealHistoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D71DF4222461995700DDA7BE /* MealHistoryTableViewCell.xib */; };
@@ -147,7 +146,6 @@
 		C48716E324813C1F002F025B /* My Way.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "My Way.entitlements"; sourceTree = "<group>"; };
 		C48716E424813C3A002F025B /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		C49D2C36247A2C140007D174 /* DetaisHabitsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetaisHabitsViewController.swift; sourceTree = "<group>"; };
-		C49D2C38247BA6280007D174 /* DateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateManager.swift; sourceTree = "<group>"; };
 		C4CC1B1F246080ED0048B0B7 /* PlotGraphicClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlotGraphicClass.swift; sourceTree = "<group>"; };
 		D3D6CC7F03AC204808B5C5A3 /* Pods_AppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D71DF4212461995700DDA7BE /* MealHistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealHistoryTableViewCell.swift; sourceTree = "<group>"; };
@@ -415,7 +413,6 @@
 				C4CC1B19246080BE0048B0B7 /* GraphicsClasses */,
 				C451C01D2458668C00C9A9F0 /* StyleClass.swift */,
 				C451C01F2458669900C9A9F0 /* ProfileDataMenagerClass.swift */,
-				C49D2C38247BA6280007D174 /* DateManager.swift */,
 			);
 			path = ProfileClasses;
 			sourceTree = "<group>";
@@ -777,7 +774,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$SRCROOT/R.generated.swift",
+				$SRCROOT/R.generated.swift,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -808,7 +805,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				81AA0BD92456FE7B00E78D58 /* CalendarViewController.swift in Sources */,
-				C49D2C39247BA6280007D174 /* DateManager.swift in Sources */,
 				C456486D2476B78E008C0CE6 /* DetailsWeightViewController.swift in Sources */,
 				8D11BFFB245249AD0062D163 /* MealRateButton.swift in Sources */,
 				D77A5C20246AFDEC0018E3A5 /* String+.swift in Sources */,
