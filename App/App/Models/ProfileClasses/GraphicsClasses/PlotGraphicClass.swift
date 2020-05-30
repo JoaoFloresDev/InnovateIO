@@ -71,9 +71,9 @@ class PlotGraphicClass {
         
         let yellowView = UIView(frame: CGRect(x: Int(Float(view.frame.width) * greenPercent), y: 0, width: Int(Float(view.frame.width) * yellowPercent), height: Int(view.frame.height)))
         
-        yellowView.backgroundColor = UIColor(named: "rateYellowColor")
-        view.backgroundColor = UIColor(named: "rateRedColor")
-        greenView.backgroundColor = UIColor(named: "rateGreenColor")
+        yellowView.backgroundColor = R.color.mediumColor()
+        view.backgroundColor = R.color.badColor()
+        greenView.backgroundColor = R.color.goodColor()
         
         view.addSubview(greenView)
         view.addSubview(yellowView)

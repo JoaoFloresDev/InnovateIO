@@ -8,10 +8,10 @@
 
 import UIKit
 
-enum DailyHabits {
-    case drinkWater
-    case exercise
-    case fruit
+enum DailyHabits: String {
+    case drinkWater = "drinkWater"
+    case exercise = "exercise"
+    case fruit = "fruit"
     
     var title: String {
         switch self {
@@ -26,6 +26,14 @@ enum DailyHabits {
         case .drinkWater:   return R.image.water()
         case .exercise:     return R.image.exerciseIcon()
         case .fruit:        return R.image.fruits()
+        }
+    }
+    
+    var color: UIColor? {
+        switch self {
+        case .drinkWater:   return R.color.habitsWaterColor()
+        case .exercise:     return R.color.habitsExerciceColor()
+        case .fruit:        return R.color.habitsFruitsColor()
         }
     }
 }

@@ -20,35 +20,26 @@ class MealRateButton: UIButton {
     var rating: Rating = Rating.good
     var isTheSelectedButton: Bool = false {
         didSet {
-            border()
+            setSelected()
         }
     }
     
     func setupButton() {
-        setColor()
         setTitle()
-        setShadow()
+        setBorder()
     }
     
     private func setTitle() {
         self.setTitle(rating.title, for: .normal)
-        self.titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: .medium)
     }
     
-    private func setColor() {
-        self.backgroundColor = rating.color
+    private func setBorder() {
+        self.layer.borderWidth = 2
+        self.layer.borderColor = rating.color?.cgColor
     }
     
-    private func setShadow() {
-        self.layer.masksToBounds = false
-        self.layer.shadowColor = UIColor.black.cgColor
-        self.layer.shadowOffset = CGSize(width: 0.0, height: 3.0)
-        self.layer.shadowRadius = 3
-        self.layer.shadowOpacity = 0.5
-    }
-    
-    private func border() {
-        self.layer.borderWidth = isTheSelectedButton ? 2 : 0.1
-        self.layer.borderColor = isTheSelectedButton ? UIColor.black.cgColor : UIColor.gray.cgColor
+    private func setSelected() {
+        self.backgroundColor = isTheSelectedButton ? rating.color : .clear
+        self.setTitleColor(isTheSelectedButton ? .white : rating.color, for: .normal)
     }
 }
