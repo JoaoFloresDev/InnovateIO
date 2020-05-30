@@ -117,7 +117,7 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
             
             plotter.plotGraphicHorizontalBars (view: meatsGraphicBarsView, greenPercent: 0.5, yellowPercent: 0.3 )
             
-            let months = DateManager().getMonths()
+            let months = plotter.getMonths()
             
             // Getting the current days last two months
             let dates: NSMutableArray = plotter.getDates(months)
@@ -127,9 +127,9 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
             
             plotter.plotGraphicLine(graphicVIew: weightGraphicLineView, colorLinesArray: [UIColor.black], datesX: dates, numbersArray: numbersArray, topNumber: 120, bottomNumber: 0)
             
-            let colorWater = UIColor(named: "habitsWaterColor")!
-            let colorFruits = UIColor(named: "habitsFruitsColor")!
-            let colorExercice = UIColor(named: "habitsExerciceColor")!
+            let colorWater = R.color.habitsWaterColor()!
+            let colorFruits = R.color.habitsFruitsColor()!
+            let colorExercice = R.color.habitsExerciceColor()!
             
             //  Populating the habits with core data values
             numbersArray = plotter.getHabitsValues(months)

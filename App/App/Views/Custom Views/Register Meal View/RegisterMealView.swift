@@ -149,6 +149,7 @@ extension RegisterMealView: UITableViewDelegate, UITableViewDataSource {
         let (_, _, _, hour, minute, _) = try! selectedDate.getAllInformations()
         
         cell.commonSetup(rating: thisMealRatingView.selectedRating, note: note, hour: hour, minute: minute)
+        cell.setMealViewBorder(to: 0.3)
         
         return cell
     }

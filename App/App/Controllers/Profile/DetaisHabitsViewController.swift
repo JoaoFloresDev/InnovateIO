@@ -96,7 +96,7 @@ class DetaisHabitsViewController: UIViewController, UITableViewDelegate,  UITabl
         do {
             let plotter = try PlotGraphicClass()
             
-            let months = DateManager().getMonths()
+            let months = plotter.getMonths()
             
             // Getting the current days last two months
             let dates: NSMutableArray = plotter.getDates(months)
