@@ -108,7 +108,7 @@ class DetailsWeightViewController: UIViewController, UITableViewDelegate,  UITab
             let months = plotter.getMonths()
             
             // Getting the current days last two months
-            let dates: NSMutableArray = plotter.getDates(months)
+            let dates: NSMutableArray = plotter.getFullDates(months)
             
             // Starting to populate and draw the charts...
             let numbersArray: [[Float]] = plotter.getWeightsValuesInt(months)
@@ -116,8 +116,7 @@ class DetailsWeightViewController: UIViewController, UITableViewDelegate,  UITab
             var datesArray = [String]()
             for x in 0...(dates.count - 1) {
                 let aString = dates[x]
-                let newString = (aString as AnyObject).replacingOccurrences(of: "\n", with: "/")
-                datesArray.append(newString)
+                datesArray.append(aString as! String)
             }
             weightDates = datesArray
             weightValues = numbersArray[0]
@@ -199,12 +198,12 @@ class DetailsWeightViewController: UIViewController, UITableViewDelegate,  UITab
 
         do {
             let dataHandler = try DataHandler.getShared()
+
+            let fullName    = weightDateLabel.text!
+            let fullNameArr = fullName.components(separatedBy: "/")
             let formatter = DateFormatter()
             formatter.dateFormat = "yyyy/MM/dd"
-            let someDateTime = formatter.date(from: "2020/05/10")
-//            dateComponents.year = 1980
-//            dateComponents.month = 7
-//            dateComponents.day = 11
+            let someDateTime = formatter.date(from: fullNameArr[2]+"/"+fullNameArr[1]+"/"+fullNameArr[0])
             try dataHandler.createWeight(value: convertWeightStringToFloat(), date: someDateTime)
         }
         catch DateError.calendarNotFound {

@@ -234,7 +234,7 @@ struct R: Rswift.Validatable {
   }
   #endif
 
-  /// This `R.color` struct is generated, and contains static references to 13 colors.
+  /// This `R.color` struct is generated, and contains static references to 10 colors.
   struct color {
     /// Color `BackgrondColor`.
     static let backgrondColor = Rswift.ColorResource(bundle: R.hostingBundle, name: "BackgrondColor")
@@ -256,12 +256,6 @@ struct R: Rswift.Validatable {
     static let habitsFruitsColor = Rswift.ColorResource(bundle: R.hostingBundle, name: "habitsFruitsColor")
     /// Color `habitsWaterColor`.
     static let habitsWaterColor = Rswift.ColorResource(bundle: R.hostingBundle, name: "habitsWaterColor")
-    /// Color `rateGreenColor`.
-    static let rateGreenColor = Rswift.ColorResource(bundle: R.hostingBundle, name: "rateGreenColor")
-    /// Color `rateRedColor`.
-    static let rateRedColor = Rswift.ColorResource(bundle: R.hostingBundle, name: "rateRedColor")
-    /// Color `rateYellowColor`.
-    static let rateYellowColor = Rswift.ColorResource(bundle: R.hostingBundle, name: "rateYellowColor")
 
     #if os(iOS) || os(tvOS)
     /// `UIColor(named: "BackgrondColor", bundle: ..., traitCollection: ...)`
@@ -350,33 +344,6 @@ struct R: Rswift.Validatable {
     @available(iOS 11.0, *)
     static func habitsWaterColor(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
       return UIKit.UIColor(resource: R.color.habitsWaterColor, compatibleWith: traitCollection)
-    }
-    #endif
-
-    #if os(iOS) || os(tvOS)
-    /// `UIColor(named: "rateGreenColor", bundle: ..., traitCollection: ...)`
-    @available(tvOS 11.0, *)
-    @available(iOS 11.0, *)
-    static func rateGreenColor(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
-      return UIKit.UIColor(resource: R.color.rateGreenColor, compatibleWith: traitCollection)
-    }
-    #endif
-
-    #if os(iOS) || os(tvOS)
-    /// `UIColor(named: "rateRedColor", bundle: ..., traitCollection: ...)`
-    @available(tvOS 11.0, *)
-    @available(iOS 11.0, *)
-    static func rateRedColor(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
-      return UIKit.UIColor(resource: R.color.rateRedColor, compatibleWith: traitCollection)
-    }
-    #endif
-
-    #if os(iOS) || os(tvOS)
-    /// `UIColor(named: "rateYellowColor", bundle: ..., traitCollection: ...)`
-    @available(tvOS 11.0, *)
-    @available(iOS 11.0, *)
-    static func rateYellowColor(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
-      return UIKit.UIColor(resource: R.color.rateYellowColor, compatibleWith: traitCollection)
     }
     #endif
 
@@ -482,12 +449,12 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.nib` struct is generated, and contains static references to 7 nibs.
+  /// This `R.nib` struct is generated, and contains static references to 8 nibs.
   struct nib {
-    /// Nib `DailyHabitsTableViewCell`.
-    static let dailyHabitsTableViewCell = _R.nib._DailyHabitsTableViewCell()
     /// Nib `DailyHabitsView`.
     static let dailyHabitsView = _R.nib._DailyHabitsView()
+    /// Nib `GroupedHabitsView`.
+    static let groupedHabitsView = _R.nib._GroupedHabitsView()
     /// Nib `LineChartTableViewCell`.
     static let lineChartTableViewCell = _R.nib._LineChartTableViewCell()
     /// Nib `MealHistoryHeader`.
@@ -498,20 +465,22 @@ struct R: Rswift.Validatable {
     static let ratingView = _R.nib._RatingView()
     /// Nib `RegisterMealView`.
     static let registerMealView = _R.nib._RegisterMealView()
-
-    #if os(iOS) || os(tvOS)
-    /// `UINib(name: "DailyHabitsTableViewCell", in: bundle)`
-    @available(*, deprecated, message: "Use UINib(resource: R.nib.dailyHabitsTableViewCell) instead")
-    static func dailyHabitsTableViewCell(_: Void = ()) -> UIKit.UINib {
-      return UIKit.UINib(resource: R.nib.dailyHabitsTableViewCell)
-    }
-    #endif
+    /// Nib `SingleHabitView`.
+    static let singleHabitView = _R.nib._SingleHabitView()
 
     #if os(iOS) || os(tvOS)
     /// `UINib(name: "DailyHabitsView", in: bundle)`
     @available(*, deprecated, message: "Use UINib(resource: R.nib.dailyHabitsView) instead")
     static func dailyHabitsView(_: Void = ()) -> UIKit.UINib {
       return UIKit.UINib(resource: R.nib.dailyHabitsView)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UINib(name: "GroupedHabitsView", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.groupedHabitsView) instead")
+    static func groupedHabitsView(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.groupedHabitsView)
     }
     #endif
 
@@ -555,12 +524,20 @@ struct R: Rswift.Validatable {
     }
     #endif
 
-    static func dailyHabitsTableViewCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> DailyHabitsTableViewCell? {
-      return R.nib.dailyHabitsTableViewCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? DailyHabitsTableViewCell
+    #if os(iOS) || os(tvOS)
+    /// `UINib(name: "SingleHabitView", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.singleHabitView) instead")
+    static func singleHabitView(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.singleHabitView)
     }
+    #endif
 
     static func dailyHabitsView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
       return R.nib.dailyHabitsView.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+    }
+
+    static func groupedHabitsView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+      return R.nib.groupedHabitsView.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
     }
 
     static func lineChartTableViewCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> LineChartTableViewCell? {
@@ -583,13 +560,15 @@ struct R: Rswift.Validatable {
       return R.nib.registerMealView.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? RoundedView
     }
 
+    static func singleHabitView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+      return R.nib.singleHabitView.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+    }
+
     fileprivate init() {}
   }
 
-  /// This `R.reuseIdentifier` struct is generated, and contains static references to 7 reuse identifiers.
+  /// This `R.reuseIdentifier` struct is generated, and contains static references to 6 reuse identifiers.
   struct reuseIdentifier {
-    /// Reuse identifier `DailyHabitsTableViewCell`.
-    static let dailyHabitsTableViewCell: Rswift.ReuseIdentifier<DailyHabitsTableViewCell> = Rswift.ReuseIdentifier(identifier: "DailyHabitsTableViewCell")
     /// Reuse identifier `DateHeader`.
     static let dateHeader: Rswift.ReuseIdentifier<DateHeader> = Rswift.ReuseIdentifier(identifier: "DateHeader")
     /// Reuse identifier `LineChartTableViewCell`.
@@ -632,33 +611,24 @@ struct _R: Rswift.Validatable {
   #if os(iOS) || os(tvOS)
   struct nib: Rswift.Validatable {
     static func validate() throws {
-      try _DailyHabitsTableViewCell.validate()
       try _MealHistoryHeader.validate()
-    }
-
-    struct _DailyHabitsTableViewCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType, Rswift.Validatable {
-      typealias ReusableType = DailyHabitsTableViewCell
-
-      let bundle = R.hostingBundle
-      let identifier = "DailyHabitsTableViewCell"
-      let name = "DailyHabitsTableViewCell"
-
-      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> DailyHabitsTableViewCell? {
-        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? DailyHabitsTableViewCell
-      }
-
-      static func validate() throws {
-        if UIKit.UIImage(named: "checkmark", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'checkmark' is used in nib 'DailyHabitsTableViewCell', but couldn't be loaded.") }
-        if #available(iOS 11.0, tvOS 11.0, *) {
-        }
-      }
-
-      fileprivate init() {}
+      try _RegisterMealView.validate()
     }
 
     struct _DailyHabitsView: Rswift.NibResourceType {
       let bundle = R.hostingBundle
       let name = "DailyHabitsView"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+      }
+
+      fileprivate init() {}
+    }
+
+    struct _GroupedHabitsView: Rswift.NibResourceType {
+      let bundle = R.hostingBundle
+      let name = "GroupedHabitsView"
 
       func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
         return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
@@ -723,12 +693,30 @@ struct _R: Rswift.Validatable {
       fileprivate init() {}
     }
 
-    struct _RegisterMealView: Rswift.NibResourceType {
+    struct _RegisterMealView: Rswift.NibResourceType, Rswift.Validatable {
       let bundle = R.hostingBundle
       let name = "RegisterMealView"
 
       func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> RoundedView? {
         return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? RoundedView
+      }
+
+      static func validate() throws {
+        if UIKit.UIImage(named: "info.circle", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'info.circle' is used in nib 'RegisterMealView', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "square.and.pencil", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'square.and.pencil' is used in nib 'RegisterMealView', but couldn't be loaded.") }
+        if #available(iOS 11.0, tvOS 11.0, *) {
+        }
+      }
+
+      fileprivate init() {}
+    }
+
+    struct _SingleHabitView: Rswift.NibResourceType {
+      let bundle = R.hostingBundle
+      let name = "SingleHabitView"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
       }
 
       fileprivate init() {}

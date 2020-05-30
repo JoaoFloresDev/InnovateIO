@@ -248,6 +248,34 @@ class PlotGraphicClass {
         return dates
     }
     
+    func getFullDates(_ months: [[Int]]) -> NSMutableArray {
+        let dates: NSMutableArray = []
+        for month in months {
+            let dateComponents = DateComponents(year: month[1], month: month[0])
+            let calendar = Calendar.current
+            let date = calendar.date(from: dateComponents)!
+            let range = calendar.range(of: .day, in: .month, for: date)!
+            var numDays = range.count
+            var firstDayMonth = 1
+            if(month[0] == months[2][0]) {
+                let date = Date()
+                let format = DateFormatter()
+                format.dateFormat = "dd"
+                numDays = Int(format.string(from: date))!
+            }
+            else if(month[0] == months[0][0]) {
+                let date = Date()
+                let format = DateFormatter()
+                format.dateFormat = "dd"
+                firstDayMonth = Int(format.string(from: date))!
+            }
+            for day in firstDayMonth...numDays {
+                dates.add("\(day)" + "/" + "\(month[0])" + "/" + "\(month[1])")
+            }
+        }
+        return dates
+    }
+    
     func getMonths() -> [[Int]]{
         let date1 = Date()
         let formatter = DateFormatter()
