@@ -17,7 +17,8 @@ class DetailsWeightViewController: UIViewController, UITableViewDelegate,  UITab
     let timeAnimation = 0.5
     let cornerRadiusViews: CGFloat = 10
     let tagLabelValueWeigh = 1000
-//    let tagLabelValueWeigh = 1000
+    let tagLabelDateWeigh = 1001
+    let tagViewInsertWeigh = 100
     
     //    MARK: - Variables
     let integerPickerData = (30...120).map { String($0) }
@@ -72,31 +73,32 @@ class DetailsWeightViewController: UIViewController, UITableViewDelegate,  UITab
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = detailsTableview.dequeueReusableCell(withIdentifier: "cellId", for: indexPath)
-        setupCells(cell, indexPath)
         
-        return cell
+        return cellCreator(indexPath: indexPath)
     }
     
-    func setupCells(_ cell: UITableViewCell, _ indexPath: IndexPath) {
-        let valueLabel = cell.viewWithTag(tagLabelValueWeigh) as! UILabel
-        valueLabel.text = String(weightValues[weightValues.count - 1 - indexPath[1]]) + "0 Kg"
+    func cellCreator(indexPath: IndexPath) -> UITableViewCell {
         
-        let dateLabel = cell.viewWithTag(1001) as! UILabel
+        let cell = detailsTableview.dequeueReusableCell(withIdentifier: "cellId", for: indexPath)
+        
+        let valueLabel = cell.viewWithTag(tagLabelValueWeigh) as! UILabel
+        let stringValue = String(weightValues[weightValues.count - 1 - indexPath[1]])   + "0 Kg"
+        
+        valueLabel.text = stringValue.replacingOccurrences(of: ".", with: ",")
+        
+        let dateLabel = cell.viewWithTag(tagLabelDateWeigh) as! UILabel
         dateLabel.text = weightDates[weightDates.count - 1  - indexPath[1]]
         
-        let cellViewWithe = cell.viewWithTag(100)!
-        cellViewWithe.layer.cornerRadius = 10
+        let cellViewWithe = cell.viewWithTag(tagViewInsertWeigh)!
+        cellViewWithe.layer.cornerRadius = cornerRadiusViews
+        
+        return cell
     }
     
     // Delete Item
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            weightDates.remove(at: indexPath.row)
-            weightValues.remove(at: indexPath.row)
-            detailsTableview.beginUpdates()
-            detailsTableview.deleteRows(at: [indexPath], with: .automatic)
-            detailsTableview.endUpdates()
+            deletWeight(indexPath)
         }
     }
     
@@ -126,7 +128,39 @@ class DetailsWeightViewController: UIViewController, UITableViewDelegate,  UITab
         }
     }
     
-//    MARK: - Insert Weight Methods
+    func insertNewWeight() {
+        do {
+            let dataHandler = try DataHandler.getShared()
+            
+            let fullName    = weightDateLabel.text!
+            let fullNameArr = fullName.components(separatedBy: "/")
+            let formatter = DateFormatter()
+            formatter.dateFormat = "yyyy/MM/dd"
+            let someDateTime = formatter.date(from: fullNameArr[2]+"/"+fullNameArr[1]+"/"+fullNameArr[0])
+            print(convertWeightStringToFloat(), "-----")
+            print(someDateTime)
+            try dataHandler.createWeight(value: convertWeightStringToFloat(), date: someDateTime)
+        }
+        catch DateError.calendarNotFound {
+            os_log("[ERROR] Couldn't get the iOS calendar system!")
+        }
+        catch PersistenceError.cantSave {
+            os_log("[ERROR] Couldn't save into local storage due to low memory!")
+        }
+        catch {
+            os_log("[ERROR] Unknown error occurred while registering the weight inside local storage!")
+        }
+    }
+    
+    func deletWeight(_ indexPath: IndexPath) {
+        weightDates.remove(at: indexPath.row)
+        weightValues.remove(at: indexPath.row)
+        detailsTableview.beginUpdates()
+        detailsTableview.deleteRows(at: [indexPath], with: .automatic)
+        detailsTableview.endUpdates()
+    }
+    
+//    MARK: - UI Insert Weight
     func showCellInsert() {
         let filteredConstraints = viewInsertWeight.constraints.filter { $0.identifier == constraintViewInsertIdentifier }
         if let yourConstraint = filteredConstraints.first {
@@ -139,7 +173,7 @@ class DetailsWeightViewController: UIViewController, UITableViewDelegate,  UITab
     }
     
     func hideCellInsertWeight() {
-        let filteredConstraints = viewInsertWeight.constraints.filter { $0.identifier == "Height" }
+        let filteredConstraints = viewInsertWeight.constraints.filter { $0.identifier == constraintViewInsertIdentifier }
         if let yourConstraint = filteredConstraints.first {
             UIView.animate(withDuration: 0.5) {
                 yourConstraint.constant = 0
@@ -149,73 +183,31 @@ class DetailsWeightViewController: UIViewController, UITableViewDelegate,  UITab
     }
     
     //    MARK: - Picker View
-    fileprivate func setupPickerView() {
-        let thePicker = UIPickerView()
-        thePicker.delegate = self
+    func setupPickerView() {
+        let pickerInsertWeight = UIPickerView()
+        pickerInsertWeight.delegate = self
         weightTextField.delegate = self
-        weightTextField.inputView = thePicker
-        
-        var i = 0
-        for value in decimalPickerData2 {
-            decimalPickerData2[i] = String((Int(value)!) * 10)
-            if(decimalPickerData2[i] == "0") {
-                decimalPickerData2[i] = "00"
-            }
-            i = i + 1
-        }
+        weightTextField.inputView = pickerInsertWeight
+        adjustPickerData()
         
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
-        
         view.addGestureRecognizer(tap)
-        selectInitialRowPickerView(thePicker)
+        
+        selectInitialRowPickerView(pickerInsertWeight)
         hideCellInsertWeight()
         cellViewInsertWeight.layer.cornerRadius = cornerRadiusViews
+        
+        weightDateLabel.text = weightDates.last
+        weightTextField.text = integerPickerData[0] + "," + decimalPickerData2[0] + " Kg"
     }
     
     @objc func cancelDatePicker() {
-        print("cancel")
         dismissKeyboard()
-        
-        let filteredConstraints = viewInsertWeight.constraints.filter { $0.identifier == "Height" }
-        if let yourConstraint = filteredConstraints.first {
-            UIView.animate(withDuration: 0.5) {
-                yourConstraint.constant = 0
-                self.view.layoutIfNeeded()
-            }
-        }
     }
     
     @objc func doneDatePicker() {
         dismissKeyboard()
-        
-        let filteredConstraints = viewInsertWeight.constraints.filter { $0.identifier == "Height" }
-        if let yourConstraint = filteredConstraints.first {
-            UIView.animate(withDuration: 0.5) {
-                yourConstraint.constant = 0
-                self.view.layoutIfNeeded()
-            }
-        }
-
-        do {
-            let dataHandler = try DataHandler.getShared()
-
-            let fullName    = weightDateLabel.text!
-            let fullNameArr = fullName.components(separatedBy: "/")
-            let formatter = DateFormatter()
-            formatter.dateFormat = "yyyy/MM/dd"
-            let someDateTime = formatter.date(from: fullNameArr[2]+"/"+fullNameArr[1]+"/"+fullNameArr[0])
-            try dataHandler.createWeight(value: convertWeightStringToFloat(), date: someDateTime)
-        }
-        catch DateError.calendarNotFound {
-            os_log("[ERROR] Couldn't get the iOS calendar system!")
-        }
-        catch PersistenceError.cantSave {
-            os_log("[ERROR] Couldn't save into local storage due to low memory!")
-        }
-        catch {
-            os_log("[ERROR] Unknown error occurred while registering the weight inside local storage!")
-        }
-        
+        insertNewWeight()
         loadData()
         detailsTableview.reloadData()
     }
@@ -233,8 +225,10 @@ class DetailsWeightViewController: UIViewController, UITableViewDelegate,  UITab
         return toolbar
     }
     
-    func selectInitialRowPickerView(_ thePicker: UIPickerView) {
-        thePicker.selectRow(Int(weightDates.count - 1), inComponent: 3, animated: true)
+    func selectInitialRowPickerView(_ pickerData: UIPickerView) {
+        pickerData.selectRow(Int(weightDates.count - 1), inComponent: 3, animated: true)
+        pickerData.selectRow(0, inComponent: 0, animated: true)
+        pickerData.selectRow(0, inComponent: 2, animated: true)
     }
     
     override func didReceiveMemoryWarning() {
@@ -260,12 +254,6 @@ class DetailsWeightViewController: UIViewController, UITableViewDelegate,  UITab
             sizeValue = weightDates.count
         }
         return sizeValue
-    }
-    
-    var dateFormatter: DateFormatter {
-        let formatter = DateFormatter()
-        formatter.dateStyle = .short
-        return formatter
     }
     
     func pickerView( _ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
@@ -317,20 +305,40 @@ class DetailsWeightViewController: UIViewController, UITableViewDelegate,  UITab
     
     @objc func dismissKeyboard() {
         view.endEditing(true)
+        hideCellInsertWeight()
+    }
+    
+    var dateFormatter: DateFormatter {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .short
+        return formatter
+    }
+    
+    func adjustPickerData() {
+        var i = 0
+        for value in decimalPickerData2 {
+            decimalPickerData2[i] = String((Int(value)!) * 10)
+            if(decimalPickerData2[i] == "0") {
+                decimalPickerData2[i] = "00"
+            }
+            i = i + 1
+        }
     }
     
     // MARK: - CONVERTIONS
     func convertWeightStringToFloat() -> Float {
         let valueArray = self.weightTextField.text!.split(separator: ",")
+        
         var convertedValue: Float = 0
         if let integer = Float(valueArray[0]) {
             convertedValue = integer
         }
         
-        if let decimal = Float(valueArray[1]) {
+        let decimalString = valueArray[1]
+        let decimalStringReplace = decimalString.replacingOccurrences(of: " Kg", with: "")
+        if let decimal = Float(decimalStringReplace) {
             convertedValue = convertedValue + decimal/100
         }
-        
         return convertedValue
     }
 }
