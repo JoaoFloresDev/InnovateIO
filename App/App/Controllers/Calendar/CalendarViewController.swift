@@ -88,15 +88,25 @@ class CalendarViewController: UIViewController {
 extension CalendarViewController: JTACMonthViewDataSource {
 	
 	
-	/// Sets the length / amount of months for the calendar view.
+	/// Sets the initial configuration for the calendar view.
 	/// - Parameter calendar: The calendar view.
-	/// - Returns: Returns the amount of months that can be seen.
+	/// - Returns: Returns the configuration for the calendar
 	func configureCalendar(_ calendar: JTACMonthView) -> ConfigurationParameters {
 		let formatter = DateFormatter()
 		formatter.dateFormat = "yyyy MM dd"
 		let startDate = formatter.date(from: "2018 01 01")!
 		let endDate = Date()
-		return ConfigurationParameters(startDate: startDate, endDate: endDate)
+        let generateInDates: InDateCellGeneration = .forAllMonths
+        let generateOutDates: OutDateCellGeneration = .tillEndOfGrid
+        
+        return ConfigurationParameters(startDate: startDate,
+                                       endDate: endDate,
+                                       numberOfRows: 6,
+                                       calendar: Calendar.current,
+                                       generateInDates: generateInDates,
+                                       generateOutDates: generateOutDates,
+                                       firstDayOfWeek: .monday,
+                                       hasStrictBoundaries: nil)
 	}
 }
 
