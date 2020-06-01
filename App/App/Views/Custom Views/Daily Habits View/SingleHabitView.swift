@@ -23,7 +23,7 @@ class SingleHabitView: UIView {
     private var habit: DailyHabits = .drinkWater
     var isSelected: Bool = false {
         didSet {
-            selectionBarView.backgroundColor = isSelected ? habit.color : .lightGray
+            selectionBarView.backgroundColor = isSelected ? habit.color : .clear
             iconView.tintColor = isSelected ? habit.color : .lightGray
         }
     }
@@ -53,7 +53,7 @@ class SingleHabitView: UIView {
         self.delegate = delegate
         
         self.habit = habit
-        selectionBarView.backgroundColor = isSelected ? habit.color : .lightGray
+        selectionBarView.backgroundColor = isSelected ? habit.color : .clear
         iconView.tintColor = isSelected ? habit.color : .lightGray
         
         selectionBarView.cornerRadius = selectionBarView.bounds.height / 2
