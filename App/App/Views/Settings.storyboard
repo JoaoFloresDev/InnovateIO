@@ -33,6 +33,7 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="optionsTableView" destination="0Kp-GT-zk1" id="mMN-qF-Ste"/>
+                        <segue destination="eaF-bL-eQW" kind="show" identifier="toNotificationSettings" id="E4v-Kb-dtE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8a8-GM-4Lo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -58,6 +59,37 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cCB-zl-FV7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="228.98550724637684" y="118.52678571428571"/>
+        </scene>
+        <!--Horários de notificações-->
+        <scene sceneID="g4X-dH-mOB">
+            <objects>
+                <viewController id="eaF-bL-eQW" customClass="NotificationSettingsViewController" customModule="My_Way" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="UvM-9a-Ra3">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Hbh-6f-GBk">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="EUD-IG-77M" firstAttribute="trailing" secondItem="Hbh-6f-GBk" secondAttribute="trailing" id="6Yq-h1-FHG"/>
+                            <constraint firstItem="EUD-IG-77M" firstAttribute="bottom" secondItem="Hbh-6f-GBk" secondAttribute="bottom" id="Hln-nM-8W3"/>
+                            <constraint firstItem="Hbh-6f-GBk" firstAttribute="top" secondItem="EUD-IG-77M" secondAttribute="top" id="M0R-T5-ax5"/>
+                            <constraint firstItem="Hbh-6f-GBk" firstAttribute="leading" secondItem="EUD-IG-77M" secondAttribute="leading" id="xdg-du-bgP"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="EUD-IG-77M"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Horários de notificações" id="mhn-ly-rbJ"/>
+                    <connections>
+                        <outlet property="notificationsTableView" destination="Hbh-6f-GBk" id="61V-kV-dS8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lwn-Lu-AN2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2664" y="119"/>
         </scene>
     </scenes>
     <resources>
