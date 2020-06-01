@@ -28,4 +28,10 @@ extension CalendarViewController: UICollectionViewDelegate, UICollectionViewData
 			
 		cell.configureDotsForDay(mealTime: hours, quality: qualities)
 	}
+	
+	func emptyGraphLine(day:Int){
+		let cell = chartCollectionView.cellForItem(at: IndexPath(item: day, section: 0)) as! PerformanceChartCollectionViewCell
+		cell.makeBlankTimeDots()
+		
+	}
 }

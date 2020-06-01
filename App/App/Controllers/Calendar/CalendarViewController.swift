@@ -263,6 +263,7 @@ extension CalendarViewController: JTACMonthViewDelegate {
 					//load meal information
 					let meals = try! dataHandler?.loadMeals(year: year, month: month, day: day)
 					
+					
 					let hours = meals?.map({ (meal) -> Int in
 						Int(meal.hour)
 					})
@@ -278,8 +279,11 @@ extension CalendarViewController: JTACMonthViewDelegate {
 					
 				}
 				
-			}catch {
+			}catch {//no info for day
 				os_log("[APP] No entry was found!")
+				DispatchQueue.main.async {
+					self.emptyGraphLine(day: i)
+				}
 			}
 		}//for i in selected week
 	}
@@ -291,7 +295,7 @@ extension CalendarViewController: JTACMonthViewDelegate {
 	func setupWeekLabel(firstDay:Int?, lastDay:Int?){
 		guard firstDay != nil, lastDay != nil else {return}
 		weekDayMealsLabel.isHidden=false
-		weekDayMealsLabel.text = "Refeições:dia \(firstDay!) a \(lastDay!)"
+		weekDayMealsLabel.text = "Refeições: dia \(firstDay!) a \(lastDay!)"
 	}
 }
 
