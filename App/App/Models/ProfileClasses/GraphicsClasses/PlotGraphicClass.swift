@@ -155,15 +155,15 @@ class PlotGraphicClass {
 
 
                         if entity!.didDrinkWater {
-                            waterConvertedValue = 1
+                            waterConvertedValue = 97
                         }
 
                         if entity!.didEatFruit {
-                            fruitConvertedValue = 1
+                            fruitConvertedValue = 97
                         }
 
                         if entity!.didPracticeExercise {
-                            sportConvertedValue = 1
+                            sportConvertedValue = 97
                         }
 
                     }

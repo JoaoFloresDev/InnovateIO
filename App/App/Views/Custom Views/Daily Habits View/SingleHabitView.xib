@@ -34,7 +34,7 @@
                 </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gqu-fN-BBH" customClass="RoundedView" customModule="My_Way" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="68" width="60" height="5"/>
-                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="60" id="bSt-iz-9pS"/>
                         <constraint firstAttribute="height" constant="5" id="nWJ-4M-PWA"/>
