@@ -28,24 +28,9 @@ class SettingsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.isNotificationEnabled = self.notificationService.isNotificationEnabled
+
         setupTableView()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        notificationService.notificationCenter.getNotificationSettings { [weak self] (settings) in
-            guard let self = self else { return }
-            switch settings.authorizationStatus {
-            case .authorized:
-                self.isNotificationEnabled = self.notificationService.isNotificationEnabled
-            default:
-                DispatchQueue.main.async {
-                    self.isNotificationEnabled = false
-                    self.optionsTableView.reloadData()
-                }
-            }
-        }
     }
 
 // MARK: - Methods
@@ -157,6 +142,8 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
             switchView.setOn(isNotificationEnabled, animated: false)
             switchView.addTarget(self, action: #selector(self.notificationSwitchChanged(_:)), for: .valueChanged)
             cell.accessoryView = switchView
+            
+            cell.selectionStyle = .none
         }
         
         return cell
