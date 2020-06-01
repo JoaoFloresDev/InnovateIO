@@ -206,6 +206,7 @@
                                                         </connections>
                                                     </button>
                                                 </subviews>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleAspectFit" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="q0I-YO-AWA" userLabel="WeekLabelStack View">
                                                 <rect key="frame" x="44" y="40" width="301" height="20.333333333333329"/>
@@ -260,7 +261,7 @@
                                             </stackView>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="6zP-Pp-k6J" customClass="PerformanceChart">
                                                 <rect key="frame" x="44" y="65.333333333333286" width="301" height="391.66666666666674"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="PRf-ZQ-lgO">
                                                     <size key="itemSize" width="43" height="360"/>
                                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -748,7 +749,7 @@
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                <integer key="value" value="0"/>
+                                                <integer key="value" value="10"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
@@ -784,6 +785,7 @@
                         <outlet property="calendarView" destination="vbv-dQ-IqE" id="jeq-J5-33Q"/>
                         <outlet property="chartCollectionView" destination="6zP-Pp-k6J" id="Edg-Hs-4If"/>
                         <outlet property="seeHistoryButton" destination="Kr8-7C-s5A" id="crx-YH-gMp"/>
+                        <outlet property="weekDayMealsLabel" destination="PRp-af-eJd" id="hBu-YN-5mK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QqY-nX-pZ9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
