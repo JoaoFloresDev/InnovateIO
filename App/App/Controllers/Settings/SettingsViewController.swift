@@ -23,7 +23,8 @@ class SettingsViewController: UIViewController {
             notificationEnabledDidChange()
         }
     }
-    // MARK: - Lifecycle
+    
+// MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -46,7 +47,8 @@ class SettingsViewController: UIViewController {
             }
         }
     }
-    // MARK: - Methods
+
+// MARK: - Methods
     func setupTableView() {
         optionsTableView.delegate = self
         optionsTableView.dataSource = self
@@ -89,7 +91,7 @@ class SettingsViewController: UIViewController {
         return alertController
     }
     
-    // MARK: - Prepare for segue
+// MARK: - Prepare for segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         //TODO: implementar as segues para cada tipo de célula, quando necessário.
         
@@ -107,7 +109,7 @@ class SettingsViewController: UIViewController {
         }
     }
     
-    // MARK: - Actions
+// MARK: - Actions
     @objc func notificationSwitchChanged(_ sender: UISwitch) {
         self.notificationService.notificationCenter.getNotificationSettings(completionHandler: { (settings) in
             if settings.authorizationStatus == .notDetermined {
@@ -132,6 +134,7 @@ class SettingsViewController: UIViewController {
         })
     }
 }
+
 // MARK: - Table View delegate and data source
 extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -175,6 +178,7 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
         return
     }
 }
+
 // MARK: - Enums to serve as data source for settings table view.
 enum SettingsHeaders {
     case tools(Bool)

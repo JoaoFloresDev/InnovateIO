@@ -11,6 +11,8 @@ import UIKit
 import UserNotifications
 import os.log
 
+typealias NotificationInfoTuple = (weekdays: [Int], hour: Int, minute: Int)
+
 class NotificationService {
     let notificationCenter = UNUserNotificationCenter.current()
     
@@ -26,8 +28,6 @@ class NotificationService {
         }
     }
     
-    typealias NotificationInfoTuple = (weekdays: [Int], hour: Int, minute: Int)
-    
     // MARK: - Notifications permissions
     /// Request user's permission to fire notifications.
     func requestPermissions() {
@@ -41,7 +41,7 @@ class NotificationService {
             }
         }
     }
-
+    
     // MARK: - Sending or removing notifications
     
     /// Creates a notification content, its trigger and its request to add to notification center, according to the type of the notification.
@@ -50,14 +50,14 @@ class NotificationService {
         let notificationContent = UNMutableNotificationContent()
         notificationContent.title = "Não se esqueça!"
         notificationContent.body = type.body
-        notificationContent.userInfo = [userInfoTypeKey : type.identifier]
+        notificationContent.userInfo = [userInfoTypeKey : type.rawValue]
         
         var dateComponent = DateComponents()
         
         let (weekdays, hour, minute) = getNotificationSettings(for: type)
         
         for weekday in weekdays {
-            let uniqueIdentifier = type.identifier + String(weekday)
+            let uniqueIdentifier = type.rawValue + String(weekday)
             
             dateComponent.weekday = weekday
             dateComponent.hour = hour
@@ -77,17 +77,17 @@ class NotificationService {
     }
     
     /// Removes all delivered and pending notifications from notification center.
-       private func disableAllNotifications() {
-           notificationCenter.removeAllDeliveredNotifications()
-           notificationCenter.removeAllPendingNotificationRequests()
-       }
+    private func disableAllNotifications() {
+        notificationCenter.removeAllDeliveredNotifications()
+        notificationCenter.removeAllPendingNotificationRequests()
+    }
     
     // MARK: - Saving or getting data to/from User Defaults.
     /// Empties saved values on User Defaults (not sure if necessary/convenient).
     private func clearSpace() {
-        userDefaults.set(nil, forKey: NotificationType.addMealLunch.identifier)
-        userDefaults.set(nil, forKey: NotificationType.addMealDinner.identifier)
-        userDefaults.set(nil, forKey: NotificationType.weaklyUpdate.identifier)
+        userDefaults.set(nil, forKey: NotificationType.addMealLunch.rawValue)
+        userDefaults.set(nil, forKey: NotificationType.addMealDinner.rawValue)
+        userDefaults.set(nil, forKey: NotificationType.weaklyUpdate.rawValue)
     }
     
     /// Saves notification configurations to user defaults.
@@ -101,15 +101,15 @@ class NotificationService {
                                      weaklyNotificationTime: NotificationInfoTuple? = nil) {
         if let lunchNotificationTime = lunchNotificationTime {
             let dict = notificationTupleToDictionary(tuple: lunchNotificationTime)
-            userDefaults.set(dict, forKey: NotificationType.addMealLunch.identifier)
+            userDefaults.set(dict, forKey: NotificationType.addMealLunch.rawValue)
         }
         if let dinnerNotificationTime = dinnerNotificationTime {
             let dict = notificationTupleToDictionary(tuple: dinnerNotificationTime)
-            userDefaults.set(dict, forKey: NotificationType.addMealDinner.identifier)
+            userDefaults.set(dict, forKey: NotificationType.addMealDinner.rawValue)
         }
         if let weaklyNotificationTime = weaklyNotificationTime {
             let dict = notificationTupleToDictionary(tuple: weaklyNotificationTime)
-            userDefaults.set(dict, forKey: NotificationType.weaklyUpdate.identifier)
+            userDefaults.set(dict, forKey: NotificationType.weaklyUpdate.rawValue)
         }
     }
     
@@ -143,7 +143,7 @@ class NotificationService {
     
     /// Will return a tuple containing the set information for the type of notification.
     private func getNotificationSettings(for type: NotificationType) -> NotificationInfoTuple {
-        guard let dict = userDefaults.dictionary(forKey: type.identifier) else {
+        guard let dict = userDefaults.dictionary(forKey: type.rawValue) else {
             return type.defaultConfig
         }
         let tuple = dictToNotificationTuple(dictionary: dict)
@@ -157,18 +157,20 @@ class NotificationService {
     ///   - userInfo: userInfo dictionary associated with notification.
     ///   - rootVC: the root view controller, which is a tab bar controller.
     func handleNavigation(for userInfo: [AnyHashable : Any], rootVC: UITabBarController) {
-        guard let type = userInfo[userInfoTypeKey] as? String else {
+        guard let typeID = userInfo[userInfoTypeKey] as? String else {
             os_log("Couldn't handle user info for notification.")
             return
         }
         
+        guard let type = NotificationType(rawValue: typeID) else { return }
+        
         switch type {
-        case NotificationType.addMealLunch.identifier, NotificationType.addMealDinner.identifier:
+        case NotificationType.addMealLunch, NotificationType.addMealDinner:
             rootVC.selectedViewController = rootVC.viewControllers?.first(where: { (viewController) -> Bool in
                 return viewController.restorationIdentifier == "MealNavigationViewController"
             })
             
-        case NotificationType.weaklyUpdate.identifier:
+        case NotificationType.weaklyUpdate:
             guard let profileVC = rootVC.selectedViewController as? ProfileViewController else { return }
             profileVC.performSegue(withIdentifier: R.segue.profileViewController.toEditData.identifier, sender: nil)
         default: return
@@ -178,41 +180,28 @@ class NotificationService {
 }
 
 // MARK: - Notification Types enum
-extension NotificationService {
-    enum NotificationType {
-        case addMealLunch
-        case addMealDinner
-        case weaklyUpdate
-        
-        var identifier: String {
-            switch self {
-            case .addMealLunch:
-                return "addMealLunch"
-            case .addMealDinner:
-                return "addMealDinner"
-            case .weaklyUpdate:
-                return "weaklyUpdate"
-            }
+enum NotificationType: String {
+    case addMealLunch = "addMealLunch"
+    case addMealDinner = "addMealDinner"
+    case weaklyUpdate = "weaklyUpdate"
+    
+    var body: String {
+        switch self {
+        case .addMealLunch, .addMealDinner:
+            return "Não se esqueça de marcar sua refeição!"
+        case .weaklyUpdate:
+            return "Que tal atualizar seu peso e meta?"
         }
-        
-        var body: String {
-            switch self {
-            case .addMealLunch, .addMealDinner:
-                return "Não se esqueça de marcar sua refeição!"
-            case .weaklyUpdate:
-                return "Que tal atualizar seu peso e meta?"
-            }
-        }
-        
-        var defaultConfig: NotificationInfoTuple {
-            switch self {
-            case .addMealLunch:
-                return ([1,2,3,4,5,6,7], 12, 0)
-            case .addMealDinner:
-                return ([1,2,3,4,5,6,7], 20, 0)
-            case .weaklyUpdate:
-                return ([1], 12, 0)
-            }
+    }
+    
+    var defaultConfig: NotificationInfoTuple {
+        switch self {
+        case .addMealLunch:
+            return ([1,2,3,4,5,6,7], 12, 0)
+        case .addMealDinner:
+            return ([1,2,3,4,5,6,7], 20, 0)
+        case .weaklyUpdate:
+            return ([1], 12, 0)
         }
     }
 }
