@@ -632,7 +632,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ZZg-jt-0sP">
-                                <rect key="frame" x="0.0" y="109" width="414" height="699"/>
+                                <rect key="frame" x="0.0" y="109" width="414" height="733"/>
                                 <color key="backgroundColor" name="BackgrondColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellId" id="y01-74-3SE">
@@ -746,7 +746,7 @@
                             <constraint firstItem="Er6-zK-gEa" firstAttribute="leading" secondItem="hPO-95-fMe" secondAttribute="leading" id="ZvZ-mN-2uN"/>
                             <constraint firstItem="VPF-LR-o0p" firstAttribute="top" secondItem="hPO-95-fMe" secondAttribute="top" id="sOu-2m-tsI"/>
                             <constraint firstItem="ZZg-jt-0sP" firstAttribute="top" secondItem="Er6-zK-gEa" secondAttribute="bottom" id="wAY-2j-ygl"/>
-                            <constraint firstItem="hPO-95-fMe" firstAttribute="bottom" secondItem="ZZg-jt-0sP" secondAttribute="bottom" id="yye-Te-qtE"/>
+                            <constraint firstAttribute="bottom" secondItem="ZZg-jt-0sP" secondAttribute="bottom" id="yye-Te-qtE"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="hPO-95-fMe"/>
                     </view>

@@ -22,7 +22,7 @@ class DetailsWeightViewController: UIViewController, UITableViewDelegate,  UITab
     
     //    MARK: - Variables
     let integerPickerData = (30...120).map { String($0) }
-    var decimalPickerData2 = (0...9).map { String($0) }
+    var decimalPickerData = (0...9).map { String($0) }
     var weightDates = [String]()
     var weightValues = [Float]()
     
@@ -98,7 +98,9 @@ class DetailsWeightViewController: UIViewController, UITableViewDelegate,  UITab
     // Delete Item
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            deletWeight(indexPath)
+            insertNewWeight(value: 00.00, date: convertStringToDate(dateString: weightDates[weightDates.count - 1 - indexPath.row]))
+            loadData()
+            detailsTableview.reloadData()
         }
     }
     
@@ -128,36 +130,37 @@ class DetailsWeightViewController: UIViewController, UITableViewDelegate,  UITab
         }
     }
     
-    func insertNewWeight() {
+    func convertStringToDate(dateString: String) -> Date? {
+        let fullNameArr = dateString.components(separatedBy: "/")
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy/MM/dd"
+        let someDateTime = formatter.date(from: fullNameArr[2]+"/"+fullNameArr[1]+"/"+fullNameArr[0])
+        return someDateTime
+    }
+    
+    func insertNewWeight(value: Float, date: Date?) {
+        print(insertNewWeight, "-------------------------")
+        print(value)
+        print(date)
+        
         do {
             let dataHandler = try DataHandler.getShared()
+            try dataHandler.createWeight(value: value, date: date)
             
-            let fullName    = weightDateLabel.text!
-            let fullNameArr = fullName.components(separatedBy: "/")
-            let formatter = DateFormatter()
-            formatter.dateFormat = "yyyy/MM/dd"
-            let someDateTime = formatter.date(from: fullNameArr[2]+"/"+fullNameArr[1]+"/"+fullNameArr[0])
-            print(convertWeightStringToFloat(), "-----")
-            print(someDateTime)
-            try dataHandler.createWeight(value: convertWeightStringToFloat(), date: someDateTime)
+            alertInsert(success: true)
         }
         catch DateError.calendarNotFound {
             os_log("[ERROR] Couldn't get the iOS calendar system!")
+            alertInsert(success: false)
         }
         catch PersistenceError.cantSave {
             os_log("[ERROR] Couldn't save into local storage due to low memory!")
+            alertInsert(success: false)
         }
         catch {
             os_log("[ERROR] Unknown error occurred while registering the weight inside local storage!")
+            alertInsert(success: false)
         }
-    }
-    
-    func deletWeight(_ indexPath: IndexPath) {
-        weightDates.remove(at: indexPath.row)
-        weightValues.remove(at: indexPath.row)
-        detailsTableview.beginUpdates()
-        detailsTableview.deleteRows(at: [indexPath], with: .automatic)
-        detailsTableview.endUpdates()
     }
     
 //    MARK: - UI Insert Weight
@@ -188,6 +191,7 @@ class DetailsWeightViewController: UIViewController, UITableViewDelegate,  UITab
         pickerInsertWeight.delegate = self
         weightTextField.delegate = self
         weightTextField.inputView = pickerInsertWeight
+        weightTextField.inputAccessoryView = inputAccessoryViewPicker
         adjustPickerData()
         
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
@@ -198,7 +202,7 @@ class DetailsWeightViewController: UIViewController, UITableViewDelegate,  UITab
         cellViewInsertWeight.layer.cornerRadius = cornerRadiusViews
         
         weightDateLabel.text = weightDates.last
-        weightTextField.text = integerPickerData[0] + "," + decimalPickerData2[0] + " Kg"
+        weightTextField.text = integerPickerData[0] + "," + decimalPickerData[0] + " Kg"
     }
     
     @objc func cancelDatePicker() {
@@ -207,16 +211,20 @@ class DetailsWeightViewController: UIViewController, UITableViewDelegate,  UITab
     
     @objc func doneDatePicker() {
         dismissKeyboard()
-        insertNewWeight()
+        insertNewWeight(value: convertWeightStringToFloat(), date: convertStringToDate(dateString: weightDateLabel.text!))
         loadData()
         detailsTableview.reloadData()
     }
     
-    override var inputAccessoryView: UIView? {
-        let toolbar = UIToolbar();
-        toolbar.sizeToFit()
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+        hideCellInsertWeight()
+    }
+    
+    var inputAccessoryViewPicker: UIView? {
         
-        //done button & cancel button
+        let toolbar = UIToolbar()
+        toolbar.sizeToFit()
         let cancelButton = UIBarButtonItem(title: "Cancelar", style: UIBarButtonItem.Style.plain, target: self, action: #selector(self.cancelDatePicker))
         let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
         let doneButton = UIBarButtonItem(title: "Adicionar", style: UIBarButtonItem.Style.done, target: self, action: #selector(self.doneDatePicker))
@@ -241,7 +249,7 @@ class DetailsWeightViewController: UIViewController, UITableViewDelegate,  UITab
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         
-        var sizeValue: Int!
+        var sizeValue: Int = 1
         switch component {
         case 0:
             sizeValue = integerPickerData.count
@@ -249,7 +257,7 @@ class DetailsWeightViewController: UIViewController, UITableViewDelegate,  UITab
             sizeValue = 1
             
         case 2:
-            sizeValue = decimalPickerData2.count
+            sizeValue = decimalPickerData.count
         default:
             sizeValue = weightDates.count
         }
@@ -266,7 +274,7 @@ class DetailsWeightViewController: UIViewController, UITableViewDelegate,  UITab
             dataValue = ","
             
         case 2:
-            dataValue = decimalPickerData2[row]
+            dataValue = decimalPickerData[row]
             
         default:
             dataValue = weightDates[row]
@@ -281,7 +289,7 @@ class DetailsWeightViewController: UIViewController, UITableViewDelegate,  UITab
         let rowDecimal = pickerView.selectedRow(inComponent: 2)
         let rowDate = pickerView.selectedRow(inComponent: 3)
         
-        weightTextField.text = integerPickerData[rowInteger] + "," + decimalPickerData2[rowDecimal] + " Kg"
+        weightTextField.text = integerPickerData[rowInteger] + "," + decimalPickerData[rowDecimal] + " Kg"
         weightDateLabel.text = weightDates[rowDate]
     }
     
@@ -303,11 +311,6 @@ class DetailsWeightViewController: UIViewController, UITableViewDelegate,  UITab
         return sizeValue
     }
     
-    @objc func dismissKeyboard() {
-        view.endEditing(true)
-        hideCellInsertWeight()
-    }
-    
     var dateFormatter: DateFormatter {
         let formatter = DateFormatter()
         formatter.dateStyle = .short
@@ -316,13 +319,26 @@ class DetailsWeightViewController: UIViewController, UITableViewDelegate,  UITab
     
     func adjustPickerData() {
         var i = 0
-        for value in decimalPickerData2 {
-            decimalPickerData2[i] = String((Int(value)!) * 10)
-            if(decimalPickerData2[i] == "0") {
-                decimalPickerData2[i] = "00"
+        for value in decimalPickerData {
+            decimalPickerData[i] = String((Int(value)!) * 10)
+            if(decimalPickerData[i] == "0") {
+                decimalPickerData[i] = "00"
             }
             i = i + 1
         }
+    }
+
+//    MARK: - ALERTS
+    func alertInsert(success: Bool) {
+        var titleAlert = "Peso Inserido"
+        var messageAlert = "Seus dados foram atualizados"
+        if(!success) {
+            titleAlert = "Erro"
+            messageAlert = "Tente novamente"
+        }
+        let alert = UIAlertController(title: titleAlert, message: messageAlert, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default))
+        self.present(alert, animated: true, completion: nil)
     }
     
     // MARK: - CONVERTIONS
