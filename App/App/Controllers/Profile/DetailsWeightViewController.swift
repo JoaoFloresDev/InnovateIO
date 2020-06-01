@@ -25,6 +25,12 @@ class DetailsWeightViewController: UIViewController, UITableViewDelegate,  UITab
     var decimalPickerData = (0...9).map { String($0) }
     var weightDates = [String]()
     var weightValues = [Float]()
+    var dataCells = [DataCell]()
+    
+    struct DataCell {
+        var value: Float
+        var date: String
+    }
     
     //    MARK: - IBOutlet
     @IBOutlet weak var detailsTableview: UITableView!
@@ -69,7 +75,7 @@ class DetailsWeightViewController: UIViewController, UITableViewDelegate,  UITab
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return weightValues.count
+        return dataCells.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -82,12 +88,12 @@ class DetailsWeightViewController: UIViewController, UITableViewDelegate,  UITab
         let cell = detailsTableview.dequeueReusableCell(withIdentifier: "cellId", for: indexPath)
         
         let valueLabel = cell.viewWithTag(tagLabelValueWeigh) as! UILabel
-        let stringValue = String(weightValues[weightValues.count - 1 - indexPath[1]])   + "0 Kg"
+        let stringValue = String(dataCells[dataCells.count - 1 - indexPath[1]].value)   + "0 Kg"
         
         valueLabel.text = stringValue.replacingOccurrences(of: ".", with: ",")
         
         let dateLabel = cell.viewWithTag(tagLabelDateWeigh) as! UILabel
-        dateLabel.text = weightDates[weightDates.count - 1  - indexPath[1]]
+        dateLabel.text = dataCells[dataCells.count - 1  - indexPath[1]].date
         
         let cellViewWithe = cell.viewWithTag(tagViewInsertWeigh)!
         cellViewWithe.layer.cornerRadius = cornerRadiusViews
@@ -98,9 +104,7 @@ class DetailsWeightViewController: UIViewController, UITableViewDelegate,  UITab
     // Delete Item
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            insertNewWeight(value: 00.00, date: convertStringToDate(dateString: weightDates[weightDates.count - 1 - indexPath.row]))
-            loadData()
-            detailsTableview.reloadData()
+            deleteValue(indexPath)
         }
     }
     
@@ -124,6 +128,21 @@ class DetailsWeightViewController: UIViewController, UITableViewDelegate,  UITab
             }
             weightDates = datesArray
             weightValues = numbersArray[0]
+            
+            print("--- weightDates ---")
+            print(weightDates)
+            print("--- weightValues ---")
+            print(weightValues)
+            print("--------------------")
+            
+            dataCells.removeAll()
+            for i in 0...weightValues.count - 1 {
+                if(weightValues[i] != 0) {
+                    let dataCell = DataCell(value: weightValues[i], date: weightDates[i])
+                    dataCells.append(dataCell)
+                }
+            }
+            print(dataCells)
         }
         catch {
             os_log("[ERROR] Couldn't communicate with the operating system's internal calendar/time system or memory is too low!")
@@ -139,10 +158,6 @@ class DetailsWeightViewController: UIViewController, UITableViewDelegate,  UITab
     }
     
     func insertNewWeight(value: Float, date: Date?) {
-        print(insertNewWeight, "-------------------------")
-        print(value)
-        print(date)
-        
         do {
             let dataHandler = try DataHandler.getShared()
             try dataHandler.createWeight(value: value, date: date)
@@ -161,6 +176,12 @@ class DetailsWeightViewController: UIViewController, UITableViewDelegate,  UITab
             os_log("[ERROR] Unknown error occurred while registering the weight inside local storage!")
             alertInsert(success: false)
         }
+    }
+    
+    func deleteValue(_ indexPath: IndexPath) {
+        insertNewWeight(value: 00.00, date: convertStringToDate(dateString: weightDates[weightDates.count - 1 - indexPath.row]))
+        loadData()
+        detailsTableview.reloadData()
     }
     
 //    MARK: - UI Insert Weight
