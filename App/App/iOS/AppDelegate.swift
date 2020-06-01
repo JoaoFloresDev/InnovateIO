@@ -33,7 +33,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Setting up the notification service...
         notificationService.notificationCenter.delegate = self
-        notificationService.requestPermissions()
+        notificationService.notificationCenter.getNotificationSettings { [weak self] (settings) in
+            if settings.authorizationStatus != .authorized {
+                self?.notificationService.requestPermissions()
+            }
+        }
         
         return true
     }

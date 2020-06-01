@@ -33,7 +33,8 @@ class SettingsViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        notificationService.notificationCenter.getNotificationSettings { (settings) in
+        notificationService.notificationCenter.getNotificationSettings { [weak self] (settings) in
+            guard let self = self else { return }
             switch settings.authorizationStatus {
             case .authorized:
                 self.isNotificationEnabled = self.notificationService.isNotificationEnabled
@@ -90,12 +91,10 @@ class SettingsViewController: UIViewController {
     
     // MARK: - Prepare for segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        //TODO: implementar as segues para cada tipo de célula.
+        //TODO: implementar as segues para cada tipo de célula, quando necessário.
         
         switch segue.identifier {
 //        case SettingsCells.shareResults.segueId:
-//
-//        case SettingsCells.notificationSettings.segueId:
 //
 //        case SettingsCells.howToUse.segueId:
 //
@@ -237,6 +236,8 @@ enum SettingsCells {
     // TODO: preencher conforme as segues forem criadas no storyboard (dica: usar o Rswift evita termos que digitar na mão esses ids das segues).
     var segueId: String? {
         switch self {
+        case .notificationSettings:
+            return R.segue.settingsViewController.toNotificationSettings.identifier
         default:
             return nil
         }
