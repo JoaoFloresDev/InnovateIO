@@ -257,7 +257,9 @@ extension CalendarViewController: JTACMonthViewDelegate {
 						Int(meal.quality)
 					})
 					
-					updateChart(day: i, hours: hours!, qualities: qualities!)
+					DispatchQueue.main.async {
+						self.updateChart(day: i, hours: hours!, qualities: qualities!)
+					}
 				}else{//day=nil
 					
 				}

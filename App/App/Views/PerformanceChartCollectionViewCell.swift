@@ -20,18 +20,20 @@ class PerformanceChartCollectionViewCell: UICollectionViewCell {
 		}
 	}
 	
-	func configureDotsForDay(day:Int, mealTime:[Int], quality:[Int]){
+	func configureDotsForDay(mealTime:[Int], quality:[Int]){
 		makeBlankTimeDots()
 		
 		for i in 0..<quality.count{
-			var color:UIColor?
-			switch i {
+			var color = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
+			switch quality[i] {
 				case -1:
-					color = UIColor.init(named: "rateRedColor")!
+					color = R.color.badColor()!
+				break
 				case 0:
-					color = UIColor.init(named: "rateYellowColor")!
+					color = R.color.mediumColor()!
+				break
 				case 1:
- 					color = UIColor.init(named: "rateGreenColor")!
+ 					color = R.color.goodColor()!
 				default:
 					break
 			}
