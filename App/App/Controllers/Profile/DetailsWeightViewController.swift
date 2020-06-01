@@ -129,12 +129,6 @@ class DetailsWeightViewController: UIViewController, UITableViewDelegate,  UITab
             weightDates = datesArray
             weightValues = numbersArray[0]
             
-            print("--- weightDates ---")
-            print(weightDates)
-            print("--- weightValues ---")
-            print(weightValues)
-            print("--------------------")
-            
             dataCells.removeAll()
             for i in 0...weightValues.count - 1 {
                 if(weightValues[i] != 0) {
@@ -179,11 +173,10 @@ class DetailsWeightViewController: UIViewController, UITableViewDelegate,  UITab
     }
     
     func deleteValue(_ indexPath: IndexPath) {
-        insertNewWeight(value: 00.00, date: convertStringToDate(dateString: weightDates[weightDates.count - 1 - indexPath.row]))
+        insertNewWeight(value: 00.00, date: convertStringToDate(dateString: dataCells[dataCells.count - 1 - indexPath.row].date))
         loadData()
         detailsTableview.reloadData()
     }
-    
 //    MARK: - UI Insert Weight
     func showCellInsert() {
         let filteredConstraints = viewInsertWeight.constraints.filter { $0.identifier == constraintViewInsertIdentifier }
