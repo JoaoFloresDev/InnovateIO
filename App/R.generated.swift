@@ -355,6 +355,8 @@ struct R: Rswift.Validatable {
     static let apsEnvironment = infoPlistString(path: [], key: "aps-environment") ?? "development"
 
     struct comAppleDeveloperIcloudContainerIdentifiers {
+      static let iCloudInnovate = infoPlistString(path: ["com.apple.developer.icloud-container-identifiers"], key: "iCloud.Innovate") ?? "iCloud.Innovate"
+
       fileprivate init() {}
     }
 
