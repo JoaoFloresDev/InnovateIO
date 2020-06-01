@@ -51,7 +51,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                                 <subviews>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="vbv-dQ-IqE" customClass="JTACMonthView" customModule="JTAppleCalendar">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="320"/>
+                                        <rect key="frame" x="0.0" y="10" width="375" height="320"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="320" id="xcs-xj-Fvn"/>
@@ -180,9 +180,14 @@
                                                 <outlet property="monthTitle" destination="exF-5Z-iv8" id="4Fr-wV-Kdf"/>
                                             </connections>
                                         </collectionReusableView>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                     </collectionView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vdi-Xb-Vzg" userLabel="Chart View">
-                                        <rect key="frame" x="10" y="330" width="345" height="457"/>
+                                        <rect key="frame" x="10" y="340" width="345" height="457"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="n5I-Il-DCE" userLabel="Meal LabelStack View">
                                                 <rect key="frame" x="0.0" y="0.0" width="345" height="30"/>
@@ -741,15 +746,20 @@
                                             <constraint firstItem="WOg-y2-bt9" firstAttribute="top" secondItem="6zP-Pp-k6J" secondAttribute="top" id="tSm-k3-rij"/>
                                             <constraint firstItem="n5I-Il-DCE" firstAttribute="leading" secondItem="Vdi-Xb-Vzg" secondAttribute="leading" id="zr0-fV-Gr5"/>
                                         </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="0"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                     </view>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="pQz-rW-Hfx" firstAttribute="trailing" secondItem="Vdi-Xb-Vzg" secondAttribute="trailing" constant="20" id="8gX-hK-CZc"/>
                                     <constraint firstItem="vbv-dQ-IqE" firstAttribute="top" secondItem="pQz-rW-Hfx" secondAttribute="top" constant="108" id="BV8-I8-9gz"/>
-                                    <constraint firstItem="vbv-dQ-IqE" firstAttribute="top" secondItem="1ma-yY-0Ii" secondAttribute="top" id="Cuo-pW-H04"/>
+                                    <constraint firstItem="vbv-dQ-IqE" firstAttribute="top" secondItem="1ma-yY-0Ii" secondAttribute="top" constant="10" id="Cuo-pW-H04"/>
                                     <constraint firstItem="Vdi-Xb-Vzg" firstAttribute="top" secondItem="vbv-dQ-IqE" secondAttribute="bottom" constant="10" id="HYH-GT-2xO"/>
                                     <constraint firstItem="Vdi-Xb-Vzg" firstAttribute="leading" secondItem="pQz-rW-Hfx" secondAttribute="leading" constant="10" id="NS4-AK-ntl"/>
-                                    <constraint firstItem="Vdi-Xb-Vzg" firstAttribute="bottom" secondItem="1ma-yY-0Ii" secondAttribute="bottom" id="Z3E-3d-gKL"/>
+                                    <constraint firstItem="Vdi-Xb-Vzg" firstAttribute="bottom" secondItem="1ma-yY-0Ii" secondAttribute="bottom" constant="-10" id="Z3E-3d-gKL"/>
                                     <constraint firstItem="vbv-dQ-IqE" firstAttribute="leading" secondItem="pQz-rW-Hfx" secondAttribute="leading" id="akr-GY-L1J"/>
                                     <constraint firstItem="1ma-yY-0Ii" firstAttribute="width" secondItem="vbv-dQ-IqE" secondAttribute="width" id="qH6-MW-9oI"/>
                                     <constraint firstItem="pQz-rW-Hfx" firstAttribute="trailing" secondItem="vbv-dQ-IqE" secondAttribute="trailing" id="s8L-jH-9M7"/>
@@ -758,7 +768,7 @@
                                 <viewLayoutGuide key="frameLayoutGuide" id="pQz-rW-Hfx"/>
                             </scrollView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="kG7-Sa-dVG" secondAttribute="bottom" id="SKT-xY-Xxc"/>
                             <constraint firstItem="kG7-Sa-dVG" firstAttribute="leading" secondItem="8C2-FQ-9sp" secondAttribute="leading" id="cvn-G8-KhP"/>
