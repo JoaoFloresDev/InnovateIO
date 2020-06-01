@@ -13,7 +13,7 @@ class SettingsViewController: UIViewController {
 
     @IBOutlet weak var optionsTableView: UITableView!
     
-    let notificationService = NotificationService()
+    let notificationService = NotificationService.shared
     
     var dataSource: [SettingsHeaders] = []
     

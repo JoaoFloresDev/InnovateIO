@@ -82,16 +82,66 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="EUD-IG-77M"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Horários de notificações" id="mhn-ly-rbJ">
-                        <barButtonItem key="rightBarButtonItem" title="Editar" id="9Dr-o3-lO4"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Horários de notificações" id="mhn-ly-rbJ"/>
                     <connections>
                         <outlet property="notificationsTableView" destination="Hbh-6f-GBk" id="61V-kV-dS8"/>
+                        <segue destination="mxq-nA-MKN" kind="show" identifier="toNotificationDetails" id="GVr-6N-afv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lwn-Lu-AN2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2664" y="119"/>
+            <point key="canvasLocation" x="2704" y="119"/>
+        </scene>
+        <!--Editar-->
+        <scene sceneID="CNP-XC-FdG">
+            <objects>
+                <viewController id="mxq-nA-MKN" customClass="NotificationDetailsViewController" customModule="My_Way" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="68k-up-rdY">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="10" translatesAutoresizingMaskIntoConstraints="NO" id="KMr-TM-lTn">
+                                <rect key="frame" x="0.0" y="88" width="414" height="216"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="216" id="Qgs-PA-vFf"/>
+                                </constraints>
+                                <locale key="locale" localeIdentifier="pt_BR"/>
+                                <connections>
+                                    <action selector="datePickerChanged:" destination="mxq-nA-MKN" eventType="valueChanged" id="WcD-x0-PPI"/>
+                                </connections>
+                            </datePicker>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="default" allowsMultipleSelection="YES" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cnw-Q6-KtB">
+                                <rect key="frame" x="0.0" y="304" width="414" height="509"/>
+                                <sections/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="cnw-Q6-KtB" firstAttribute="top" secondItem="KMr-TM-lTn" secondAttribute="bottom" id="9kh-Kz-44g"/>
+                            <constraint firstItem="Og9-oq-Ge6" firstAttribute="bottom" secondItem="cnw-Q6-KtB" secondAttribute="bottom" id="CDY-dd-4og"/>
+                            <constraint firstItem="Og9-oq-Ge6" firstAttribute="trailing" secondItem="cnw-Q6-KtB" secondAttribute="trailing" id="KZ5-az-8Zh"/>
+                            <constraint firstItem="cnw-Q6-KtB" firstAttribute="leading" secondItem="Og9-oq-Ge6" secondAttribute="leading" id="NvK-xY-zsE"/>
+                            <constraint firstItem="KMr-TM-lTn" firstAttribute="leading" secondItem="Og9-oq-Ge6" secondAttribute="leading" id="QfQ-qE-U18"/>
+                            <constraint firstItem="KMr-TM-lTn" firstAttribute="trailing" secondItem="Og9-oq-Ge6" secondAttribute="trailing" id="i5z-P9-drL"/>
+                            <constraint firstItem="KMr-TM-lTn" firstAttribute="top" secondItem="Og9-oq-Ge6" secondAttribute="top" id="xT6-qG-v56"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Og9-oq-Ge6"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Editar" id="rPn-Z6-XMB">
+                        <barButtonItem key="rightBarButtonItem" title="Salvar" id="fnh-IO-ccr">
+                            <connections>
+                                <action selector="saveButtonTapped:" destination="mxq-nA-MKN" id="PhR-aa-JPH"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="datePicker" destination="KMr-TM-lTn" id="cDo-2M-hWB"/>
+                        <outlet property="weekdaysTableView" destination="cnw-Q6-KtB" id="Ndf-KH-Z2P"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tPs-2l-BhR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3714" y="119"/>
         </scene>
     </scenes>
     <resources>
