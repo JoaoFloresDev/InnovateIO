@@ -95,7 +95,78 @@ extension DataHandler {
         
     }
     
+    func createDailyDiaryInDate(quality: Int, didDrinkWater: Bool?, didPracticeExercise: Bool?, didEatFruit: Bool?, date: Date) throws {
+        
+        // Loading Core Data's User entity
+        let entity = NSEntityDescription.entity(forEntityName: "DailyDiary", in: self.managedContext)
+        
+        // FIXED: Fixed force wrap by doing this verification and throwing an Exception - PR 11
+        if entity == nil {
+            throw PersistenceError.invalidEntity
+        }
+        
+        let diary = NSManagedObject(entity: entity!, insertInto: self.managedContext)
+        
+        // Getting the current date
+        do {
+            let (year, month, day, _, _, _) = try date.getAllInformations()
+            
+            // Checking for existing previous data
+            do {
+                let _ = try loadDailyDiary(year: year, month: month, day: day)
+                try self.deleteDailyDiary(year: year, month: month, day: day)
+            }
+            catch { }
+            
+            // Clamping the quality variable
+            var clampedQuality = 0
+            
+            if (quality < 0) {
+                clampedQuality = -1
+            }
+            else if (quality > 0) {
+                clampedQuality = 1
+            }
+            
+            // Checking for optional variables
+            var clampedDidDrinkWater = false
+            var clampedDidPracticeExercise = false
+            var clampedDidEatFruit = false
+            
+            if didDrinkWater != nil {
+                clampedDidDrinkWater = didDrinkWater!
+            }
+            
+            if didPracticeExercise != nil {
+                clampedDidPracticeExercise = didPracticeExercise!
+            }
+            
+            if didEatFruit != nil {
+                clampedDidEatFruit = didEatFruit!
+            }
+            
+            // Setting the values into context
+            diary.setValue(clampedQuality, forKey: "quality")
+            diary.setValue(year, forKey: "year")
+            diary.setValue(month, forKey: "month")
+            diary.setValue(day, forKey: "day")
+            diary.setValue(clampedDidDrinkWater, forKey: "didDrinkWater")
+            diary.setValue(clampedDidPracticeExercise, forKey: "didPracticeExercise")
+            diary.setValue(clampedDidEatFruit, forKey: "didEatFruit")
 
+            // Trying to save the new data on local storage
+            do {
+                try self.managedContext.save()
+            }
+            catch {
+                throw PersistenceError.cantSave
+            }
+        }
+        catch {
+            throw DateError.calendarNotFound
+        }
+        
+    }
     
     /// Creates a new Daily Diary with a Meal entity and saves into the local storage.
     /// - Parameters:

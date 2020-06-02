@@ -180,7 +180,64 @@ class PlotGraphicClass {
         return numbersArray
     }
     
-    func getWeightsValuesInt(_ months: [[Int]]) -> [[Float]]{
+    func getHabitsValuesInt(_ months: [[Int]]) -> [[Int]]{
+        var numbersArray: [[Int]] = [[], [], []]
+        for month in months {
+            let dateComponents = DateComponents(year: month[1], month: month[0])
+            let calendar = Calendar.current
+            let date = calendar.date(from: dateComponents)!
+            let range = calendar.range(of: .day, in: .month, for: date)!
+            var numDays = range.count
+            var firstDayMonth = 1
+            if(month[0] == months[2][0]) {
+                let date = Date()
+                let format = DateFormatter()
+                format.dateFormat = "dd"
+                numDays = Int(format.string(from: date))!
+            }
+            else if(month[0] == months[0][0]) {
+                let date = Date()
+                let format = DateFormatter()
+                format.dateFormat = "dd"
+                firstDayMonth = Int(format.string(from: date))!
+            }
+            for day in firstDayMonth...numDays {
+                // Getting the weight for that day
+                var waterConvertedValue: Int = 0
+                var fruitConvertedValue: Int = 0
+                var sportConvertedValue: Int = 0
+
+                do {
+                    let entity = try self.dataHandler?.loadDailyDiary(year: month[1], month: month[0], day: day)
+
+                    if entity != nil {
+
+                        if entity!.didDrinkWater {
+                            waterConvertedValue = 1
+                        }
+
+                        if entity!.didEatFruit {
+                            fruitConvertedValue = 1
+                        }
+
+                        if entity!.didPracticeExercise {
+                            sportConvertedValue = 1
+                        }
+                    }
+                }
+                catch {
+                    os_log("[WARNING] No entry value for habits chart plotting was found!")
+                }
+
+                numbersArray[0].append(waterConvertedValue)
+                numbersArray[1].append(fruitConvertedValue)
+                numbersArray[2].append(sportConvertedValue)
+            }
+        }
+        return numbersArray
+    }
+    
+    func getWeightsValuesFloat(_ months: [[Int]]) -> [[Float]]{
         var numbersArray: [[Float]] = [[]]
         for month in months {
             let dateComponents = DateComponents(year: month[1], month: month[0])
