@@ -19,10 +19,10 @@ extension CalendarViewController: UICollectionViewDelegate, UICollectionViewData
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PerformanceChart", for: indexPath) as! PerformanceChartCollectionViewCell
 		
 		if indexPath.row == 7{
-			cell.separatorLine.isHidden=true
+			cell.separatorLineView.isHidden=true
 		}
 		
-		//cell.makeBlankTimeDots()
+		cell.makeBlankTimeDots()
         return cell
     }
 	
@@ -30,12 +30,11 @@ extension CalendarViewController: UICollectionViewDelegate, UICollectionViewData
 		let cell = chartCollectionView.cellForItem(at: IndexPath(item: day, section: 0)) as! PerformanceChartCollectionViewCell
 		
 		#warning("voltar isso aqui depois")
-		//cell.configureDotsForDay(mealTime: hours, quality: qualities)
+		cell.configureDotsForDay(mealTime: hours, quality: qualities)
 	}
 	
 	func emptyGraphLine(day:Int){
 		let cell = chartCollectionView.cellForItem(at: IndexPath(item: day, section: 0)) as! PerformanceChartCollectionViewCell
-		//cell.makeBlankTimeDots()
-		
+		cell.makeBlankTimeDots()
 	}
 }

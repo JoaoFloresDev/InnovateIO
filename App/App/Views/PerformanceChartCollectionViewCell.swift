@@ -10,6 +10,7 @@ import UIKit
 
 class PerformanceChartCollectionViewCell: UICollectionViewCell {
 
+	@IBOutlet var separatorLineView: UIView!
 	@IBOutlet var timeDots: [RoundedView]!
 	private var dataHandler: DataHandler?
 
