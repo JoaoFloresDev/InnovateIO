@@ -16,31 +16,39 @@ class DetaisHabitsViewController: UIViewController, UITableViewDelegate,  UITabl
     let viewInsertWeightHeight: CGFloat = 53
     let timeAnimation = 0.5
     let cornerRadiusViews: CGFloat = 10
-    let tagLabelValueWeigh = 1000
+    
+    let tagLabelValueWater = 1000
+    let tagLabelValueFruits = 2000
+    let tagLabelValueExercise = 3000
     let tagLabelDateWeigh = 1001
     let tagViewInsertWeigh = 100
     
     //    MARK: - Variables
-    let integerPickerData = (30...120).map { String($0) }
-    var decimalPickerData = (0...9).map { String($0) }
-    var weightDates = [String]()
-    var weightValues = [Float]()
+    let pickerData = ["✗", "✓"]
+    
+    var habitsDates = [String]()
+    var weightValues = [Int]()
     var dataCells = [DataCell]()
     
     struct DataCell {
-        var water: Float
-        var fruits: Float
-        var exercise: Float
+        var water: Int
+        var fruits: Int
+        var exercise: Int
         var date: String
     }
     
     //    MARK: - IBOutlet
     @IBOutlet weak var detailsTableview: UITableView!
     @IBOutlet weak var detaisNavigation: UINavigationItem!
-    @IBOutlet weak var weightTextField: UITextField!
+    
+    @IBOutlet weak var exerciseTextField: UITextField!
+    @IBOutlet weak var waterLabel: UILabel!
+    @IBOutlet weak var fruitsLabel: UILabel!
+    
     @IBOutlet weak var weightDateLabel: UILabel!
-    @IBOutlet weak var viewInsertWeight: UIView!
-    @IBOutlet weak var cellViewInsertWeight: UIView!
+    
+    @IBOutlet weak var viewInsertHabits: UIView!
+    @IBOutlet weak var cellViewInsertHabits: UIView!
     
     //    MARK: - IBOutlet
     @IBAction func closeView(_ sender: Any) {
@@ -89,10 +97,14 @@ class DetaisHabitsViewController: UIViewController, UITableViewDelegate,  UITabl
         
         let cell = detailsTableview.dequeueReusableCell(withIdentifier: "cellId", for: indexPath)
         
-        let valueLabel = cell.viewWithTag(tagLabelValueWeigh) as! UILabel
-        let stringValue = String(dataCells[dataCells.count - 1 - indexPath[1]].exercise)   + "0 Kg"
+        let valueWaterLabel = cell.viewWithTag(tagLabelValueWater) as! UILabel
+        valueWaterLabel.text = pickerData[dataCells[dataCells.count - 1 - indexPath[1]].water]
         
-        valueLabel.text = stringValue.replacingOccurrences(of: ".", with: ",")
+        let valueFruitsLabel = cell.viewWithTag(tagLabelValueFruits) as! UILabel
+        valueFruitsLabel.text = pickerData[dataCells[dataCells.count - 1 - indexPath[1]].fruits]
+        
+        let valueExerciseLabel = cell.viewWithTag(tagLabelValueExercise) as! UILabel
+        valueExerciseLabel.text = pickerData[dataCells[dataCells.count - 1 - indexPath[1]].exercise]
         
         let dateLabel = cell.viewWithTag(tagLabelDateWeigh) as! UILabel
         dateLabel.text = dataCells[dataCells.count - 1  - indexPath[1]].date
@@ -121,24 +133,21 @@ class DetaisHabitsViewController: UIViewController, UITableViewDelegate,  UITabl
             let dates: NSMutableArray = plotter.getFullDates(months)
             
             // Starting to populate and draw the charts...
-            let numbersArray: [[Float]] = plotter.getWeightsValuesInt(months)
+            let numbersArray: [[Int]] = plotter.getHabitsValuesInt(months)
             
             var datesArray = [String]()
             for x in 0...(dates.count - 1) {
                 let aString = dates[x]
                 datesArray.append(aString as! String)
             }
-            weightDates = datesArray
+            habitsDates = datesArray
             weightValues = numbersArray[0]
             
             dataCells.removeAll()
             for i in 0...weightValues.count - 1 {
-                if(weightValues[i] != 0) {
-                    let dataCell = DataCell(water: 1, fruits: 1, exercise: 1, date: weightDates[i])
-                    dataCells.append(dataCell)
-                }
+                let dataCell = DataCell(water: numbersArray[0][i], fruits: numbersArray[1][i], exercise: numbersArray[2][i], date: habitsDates[i])
+                dataCells.append(dataCell)
             }
-            print(dataCells)
         }
         catch {
             os_log("[ERROR] Couldn't communicate with the operating system's internal calendar/time system or memory is too low!")
@@ -153,46 +162,46 @@ class DetaisHabitsViewController: UIViewController, UITableViewDelegate,  UITabl
         return someDateTime
     }
     
-    func insertNewWeight(value: Float, date: Date?) {
+    func insertNewWeight(waterValue: Bool, fruitsValue: Bool, exerciseValue: Bool, date: Date?) {
         do {
             let dataHandler = try DataHandler.getShared()
-            try dataHandler.createWeight(value: value, date: date)
-            
-            alertInsert(success: true)
+            try dataHandler.createDailyDiaryInDate(quality: 1, didDrinkWater: waterValue, didPracticeExercise: exerciseValue, didEatFruit: fruitsValue, date: date!)
+            alertInsert(titleAlert: "Concluido", messageAlert: "Seus dados foram atualizados")
         }
         catch DateError.calendarNotFound {
             os_log("[ERROR] Couldn't get the iOS calendar system!")
-            alertInsert(success: false)
+            alertInsert(titleAlert: "Erro", messageAlert: "Couldn't get the iOS calendar system!")
         }
         catch PersistenceError.cantSave {
             os_log("[ERROR] Couldn't save into local storage due to low memory!")
-            alertInsert(success: false)
+            alertInsert(titleAlert: "Erro", messageAlert: "Couldn't save into local storage due to low memory!")
         }
         catch {
             os_log("[ERROR] Unknown error occurred while registering the weight inside local storage!")
-            alertInsert(success: false)
+            alertInsert(titleAlert: "Erro", messageAlert: "Unknown error occurred while registering the weight inside local storage!")
         }
     }
     
     func deleteValue(_ indexPath: IndexPath) {
-        insertNewWeight(value: 00.00, date: convertStringToDate(dateString: dataCells[dataCells.count - 1 - indexPath.row].date))
+        insertNewWeight(waterValue: false, fruitsValue: false, exerciseValue: false, date: convertStringToDate(dateString: dataCells[dataCells.count - 1 - indexPath.row].date))
         loadData()
         detailsTableview.reloadData()
     }
+    
 //    MARK: - UI Insert Weight
     func showCellInsert() {
-        let filteredConstraints = viewInsertWeight.constraints.filter { $0.identifier == constraintViewInsertIdentifier }
+        let filteredConstraints = viewInsertHabits.constraints.filter { $0.identifier == constraintViewInsertIdentifier }
         if let yourConstraint = filteredConstraints.first {
             UIView.animate(withDuration: timeAnimation) {
                 yourConstraint.constant = self.viewInsertWeightHeight
                 self.view.layoutIfNeeded()
             }
         }
-        weightTextField.becomeFirstResponder()
+        exerciseTextField.becomeFirstResponder()
     }
     
     func hideCellInsertWeight() {
-        let filteredConstraints = viewInsertWeight.constraints.filter { $0.identifier == constraintViewInsertIdentifier }
+        let filteredConstraints = viewInsertHabits.constraints.filter { $0.identifier == constraintViewInsertIdentifier }
         if let yourConstraint = filteredConstraints.first {
             UIView.animate(withDuration: 0.5) {
                 yourConstraint.constant = 0
@@ -205,20 +214,21 @@ class DetaisHabitsViewController: UIViewController, UITableViewDelegate,  UITabl
     func setupPickerView() {
         let pickerInsertWeight = UIPickerView()
         pickerInsertWeight.delegate = self
-        weightTextField.delegate = self
-        weightTextField.inputView = pickerInsertWeight
-        weightTextField.inputAccessoryView = inputAccessoryViewPicker
-        adjustPickerData()
+        exerciseTextField.delegate = self
+        exerciseTextField.inputView = pickerInsertWeight
+        exerciseTextField.inputAccessoryView = inputAccessoryViewPicker
         
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
         view.addGestureRecognizer(tap)
         
         selectInitialRowPickerView(pickerInsertWeight)
         hideCellInsertWeight()
-        cellViewInsertWeight.layer.cornerRadius = cornerRadiusViews
+        cellViewInsertHabits.layer.cornerRadius = cornerRadiusViews
         
-        weightDateLabel.text = weightDates.last
-        weightTextField.text = integerPickerData[0] + "," + decimalPickerData[0] + " Kg"
+        weightDateLabel.text = habitsDates.last
+        exerciseTextField.text = pickerData[1]
+        waterLabel.text = pickerData[1]
+        fruitsLabel.text = pickerData[1]
     }
     
     @objc func cancelDatePicker() {
@@ -227,7 +237,12 @@ class DetaisHabitsViewController: UIViewController, UITableViewDelegate,  UITabl
     
     @objc func doneDatePicker() {
         dismissKeyboard()
-        insertNewWeight(value: convertWeightStringToFloat(), date: convertStringToDate(dateString: weightDateLabel.text!))
+        
+        let exerciseValue = self.exerciseTextField.text! == "✗" ? false : true
+        let waterValue = self.waterLabel.text == "✗" ? false : true
+        let fruitsValue = self.fruitsLabel.text == "✗" ? false : true
+        
+        insertNewWeight(waterValue: waterValue, fruitsValue: fruitsValue, exerciseValue: exerciseValue, date: convertStringToDate(dateString: weightDateLabel.text!))
         loadData()
         detailsTableview.reloadData()
     }
@@ -250,9 +265,10 @@ class DetaisHabitsViewController: UIViewController, UITableViewDelegate,  UITabl
     }
     
     func selectInitialRowPickerView(_ pickerData: UIPickerView) {
-        pickerData.selectRow(Int(weightDates.count - 1), inComponent: 3, animated: true)
-        pickerData.selectRow(0, inComponent: 0, animated: true)
-        pickerData.selectRow(0, inComponent: 2, animated: true)
+        pickerData.selectRow(Int(habitsDates.count - 1), inComponent: 3, animated: true)
+        pickerData.selectRow(1, inComponent: 0, animated: true)
+        pickerData.selectRow(1, inComponent: 1, animated: true)
+        pickerData.selectRow(1, inComponent: 2, animated: true)
     }
     
     override func didReceiveMemoryWarning() {
@@ -267,15 +283,10 @@ class DetaisHabitsViewController: UIViewController, UITableViewDelegate,  UITabl
         
         var sizeValue: Int = 1
         switch component {
-        case 0:
-            sizeValue = integerPickerData.count
-        case 1:
-            sizeValue = 1
-            
-        case 2:
-            sizeValue = decimalPickerData.count
+        case 3:
+            sizeValue = habitsDates.count
         default:
-            sizeValue = weightDates.count
+            sizeValue = pickerData.count
         }
         return sizeValue
     }
@@ -284,16 +295,10 @@ class DetaisHabitsViewController: UIViewController, UITableViewDelegate,  UITabl
         
         var dataValue: String!
         switch component {
-        case 0:
-            dataValue = integerPickerData[row]
-        case 1:
-            dataValue = ","
-            
-        case 2:
-            dataValue = decimalPickerData[row]
-            
+        case 3:
+            dataValue = habitsDates[row]
         default:
-            dataValue = weightDates[row]
+            dataValue = pickerData[row]
         }
         
         return dataValue
@@ -301,28 +306,32 @@ class DetaisHabitsViewController: UIViewController, UITableViewDelegate,  UITabl
     
     func pickerView( _ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
-        let rowInteger = pickerView.selectedRow(inComponent: 0)
-        let rowDecimal = pickerView.selectedRow(inComponent: 2)
+        let rowWater = pickerView.selectedRow(inComponent: 0)
+        let rowFruits = pickerView.selectedRow(inComponent: 1)
+        let rowExercise = pickerView.selectedRow(inComponent: 2)
         let rowDate = pickerView.selectedRow(inComponent: 3)
         
-        weightTextField.text = integerPickerData[rowInteger] + "," + decimalPickerData[rowDecimal] + " Kg"
-        weightDateLabel.text = weightDates[rowDate]
+        exerciseTextField.text = pickerData[rowExercise]
+        waterLabel.text = pickerData[rowWater]
+        fruitsLabel.text = pickerData[rowFruits]
+        
+        weightDateLabel.text = habitsDates[rowDate]
     }
     
     func pickerView(_ pickerView: UIPickerView, widthForComponent component: Int) -> CGFloat {
         var sizeValue: CGFloat!
         switch component {
         case 0:
-            sizeValue = 50.0
+            sizeValue = 60
             
         case 1:
-            sizeValue = 15.0
+            sizeValue = 60
             
         case 2:
-            sizeValue = 50.0
+            sizeValue = 60
             
         default:
-            sizeValue = 200.0
+            sizeValue = 200
         }
         return sizeValue
     }
@@ -332,26 +341,9 @@ class DetaisHabitsViewController: UIViewController, UITableViewDelegate,  UITabl
         formatter.dateStyle = .short
         return formatter
     }
-    
-    func adjustPickerData() {
-        var i = 0
-        for value in decimalPickerData {
-            decimalPickerData[i] = String((Int(value)!) * 10)
-            if(decimalPickerData[i] == "0") {
-                decimalPickerData[i] = "00"
-            }
-            i = i + 1
-        }
-    }
 
 //    MARK: - ALERTS
-    func alertInsert(success: Bool) {
-        var titleAlert = "Peso Inserido"
-        var messageAlert = "Seus dados foram atualizados"
-        if(!success) {
-            titleAlert = "Erro"
-            messageAlert = "Tente novamente"
-        }
+    func alertInsert(titleAlert: String, messageAlert: String) {
         let alert = UIAlertController(title: titleAlert, message: messageAlert, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default))
         self.present(alert, animated: true, completion: nil)
@@ -359,7 +351,7 @@ class DetaisHabitsViewController: UIViewController, UITableViewDelegate,  UITabl
     
     // MARK: - CONVERTIONS
     func convertWeightStringToFloat() -> Float {
-        let valueArray = self.weightTextField.text!.split(separator: ",")
+        let valueArray = self.exerciseTextField.text!.split(separator: ",")
         
         var convertedValue: Float = 0
         if let integer = Float(valueArray[0]) {
@@ -367,7 +359,7 @@ class DetaisHabitsViewController: UIViewController, UITableViewDelegate,  UITabl
         }
         
         let decimalString = valueArray[1]
-        let decimalStringReplace = decimalString.replacingOccurrences(of: " Kg", with: "")
+        let decimalStringReplace = decimalString.replacingOccurrences(of: " %", with: "")
         if let decimal = Float(decimalStringReplace) {
             convertedValue = convertedValue + decimal/100
         }

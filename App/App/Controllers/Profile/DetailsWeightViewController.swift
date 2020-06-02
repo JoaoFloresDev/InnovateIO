@@ -119,7 +119,7 @@ class DetailsWeightViewController: UIViewController, UITableViewDelegate,  UITab
             let dates: NSMutableArray = plotter.getFullDates(months)
             
             // Starting to populate and draw the charts...
-            let numbersArray: [[Float]] = plotter.getWeightsValuesInt(months)
+            let numbersArray: [[Float]] = plotter.getWeightsValuesFloat(months)
             
             var datesArray = [String]()
             for x in 0...(dates.count - 1) {
@@ -344,7 +344,7 @@ class DetailsWeightViewController: UIViewController, UITableViewDelegate,  UITab
 
 //    MARK: - ALERTS
     func alertInsert(success: Bool) {
-        var titleAlert = "Peso Inserido"
+        var titleAlert = "Concluido"
         var messageAlert = "Seus dados foram atualizados"
         if(!success) {
             titleAlert = "Erro"
