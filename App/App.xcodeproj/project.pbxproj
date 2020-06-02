@@ -29,6 +29,8 @@
 		8D11BFFD24524FF70062D163 /* RoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D11BFFC24524FF70062D163 /* RoundedView.swift */; };
 		8D679A822464BEB600C7C53E /* PerformanceChartCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D679A812464BEB600C7C53E /* PerformanceChartCollectionViewCell.swift */; };
 		8DCA3A4B24699AB4009125B4 /* AddNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DCA3A4A24699AB4009125B4 /* AddNoteViewController.swift */; };
+		8DEACA082486F76B00C66415 /* PerformanceChartDotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DEACA062486F76B00C66415 /* PerformanceChartDotView.swift */; };
+		8DEACA092486F76B00C66415 /* PerformanceChartDotView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8DEACA072486F76B00C66415 /* PerformanceChartDotView.xib */; };
 		8DF1318B24506B8A004C2CC7 /* MealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF1318A24506B8A004C2CC7 /* MealViewController.swift */; };
 		C407E921243CC23800DA8490 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C407E920243CC23800DA8490 /* ProfileViewController.swift */; };
 		C407E923243CFD9800DA8490 /* EditDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C407E922243CFD9800DA8490 /* EditDataViewController.swift */; };
@@ -121,6 +123,8 @@
 		8D679A812464BEB600C7C53E /* PerformanceChartCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerformanceChartCollectionViewCell.swift; sourceTree = "<group>"; };
 		8DC5268E67E7F3AB7E1AD412 /* Pods_App_AppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_App_AppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DCA3A4A24699AB4009125B4 /* AddNoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteViewController.swift; sourceTree = "<group>"; };
+		8DEACA062486F76B00C66415 /* PerformanceChartDotView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PerformanceChartDotView.swift; sourceTree = "<group>"; };
+		8DEACA072486F76B00C66415 /* PerformanceChartDotView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PerformanceChartDotView.xib; sourceTree = "<group>"; };
 		8DF1318A24506B8A004C2CC7 /* MealViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealViewController.swift; sourceTree = "<group>"; };
 		C407E920243CC23800DA8490 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		C407E922243CFD9800DA8490 /* EditDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDataViewController.swift; sourceTree = "<group>"; };
@@ -458,6 +462,8 @@
 		D7B2C2F9243E0A080071561C /* Custom Views */ = {
 			isa = PBXGroup;
 			children = (
+				8DEACA062486F76B00C66415 /* PerformanceChartDotView.swift */,
+				8DEACA072486F76B00C66415 /* PerformanceChartDotView.xib */,
 				819920712462D4660015CF60 /* Calendar View */,
 				D71DF4202461992800DDA7BE /* Meal History Cell and Header */,
 				D77126DD2459AA8C00EFFEEC /* Register Meal View */,
@@ -626,6 +632,7 @@
 				C44D1471243655BA0094497A /* Main.storyboard in Resources */,
 				C44D149F243657E70094497A /* Calendar.storyboard in Resources */,
 				D7FC5D442462E51A00FB5B81 /* MealHistory.storyboard in Resources */,
+				8DEACA092486F76B00C66415 /* PerformanceChartDotView.xib in Resources */,
 				D71DF4242461995700DDA7BE /* MealHistoryTableViewCell.xib in Resources */,
 				D7FA5DA624588369001B08AA /* DailyHabitsView.xib in Resources */,
 				D7FA5DA124585481001B08AA /* RatingView.xib in Resources */,
@@ -827,6 +834,7 @@
 				D715CB2F2481506F00995CDD /* SingleHabitView.swift in Sources */,
 				810518992450746A00F8A86E /* DataHandler+DailyDiary.swift in Sources */,
 				D7B2C301243E17D90071561C /* R.generated.swift in Sources */,
+				8DEACA082486F76B00C66415 /* PerformanceChartDotView.swift in Sources */,
 				D7AADD8024643BD100033287 /* MealHistoryHeader.swift in Sources */,
 				C451C01E2458668C00C9A9F0 /* StyleClass.swift in Sources */,
 				810224622451B1AA00CD7BC0 /* DataHandler+Meal.swift in Sources */,
@@ -1029,7 +1037,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "App/My Way.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 43793QF9P9;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = App/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1049,7 +1057,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "App/My Way.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 43793QF9P9;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = App/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

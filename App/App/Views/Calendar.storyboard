@@ -327,9 +327,7 @@
                                                             </constraints>
                                                         </collectionViewCellContentView>
                                                         <connections>
-                                                            <outlet property="separatorLine" destination="unS-Ab-Sf1" id="Huf-Fc-rUh"/>
                                                             <outlet property="separatorLineView" destination="unS-Ab-Sf1" id="2IU-18-PTY"/>
-                                                            <outlet property="stackView" destination="N60-AV-qcp" id="yBH-pQ-aaG"/>
                                                         </connections>
                                                     </collectionViewCell>
                                                 </cells>
