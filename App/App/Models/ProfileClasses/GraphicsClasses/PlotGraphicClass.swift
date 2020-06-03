@@ -156,19 +156,19 @@ class PlotGraphicClass {
                 var frequencyFruits = last21numbersFruits.reduce(0, +)/21
                 var frequencyExercise = last21numbersExercise.reduce(0, +)/21
                 
-                if(frequencyWater == 100) {
+                if(frequencyWater > 97) {
                     frequencyWater = 97
                 }
-                if(frequencyFruits == 100) {
+                if(frequencyFruits > 97) {
                     frequencyFruits = 97
                 }
-                if(frequencyExercise == 100) {
+                if(frequencyExercise > 97) {
                     frequencyExercise = 97
                 }
                 
-                numbersArray[0].append(last21numbersWater.reduce(0, +)/21)
-                numbersArray[1].append(last21numbersFruits.reduce(0, +)/21)
-                numbersArray[2].append(last21numbersExercise.reduce(0, +)/21)
+                numbersArray[0].append(frequencyWater)
+                numbersArray[1].append(frequencyFruits)
+                numbersArray[2].append(frequencyExercise)
             }
         }
         return numbersArray
