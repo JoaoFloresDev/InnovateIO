@@ -578,7 +578,7 @@
                                                                                 </userDefinedRuntimeAttribute>
                                                                             </userDefinedRuntimeAttributes>
                                                                         </view>
-                                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Uz-45-Pcn" userLabel="extra" customClass="RoundedView" customModule="My_Way" customModuleProvider="target">
+                                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Uz-45-Pcn" userLabel="extra" customClass="PerformanceChartDotView" customModule="My_Way" customModuleProvider="target">
                                                                             <rect key="frame" x="16.666666666666668" y="562" width="10" height="10"/>
                                                                             <color key="backgroundColor" name="rateRedColor"/>
                                                                             <constraints>
@@ -629,6 +629,7 @@
                                                         </collectionViewCellContentView>
                                                         <connections>
                                                             <outlet property="separatorLineView" destination="unS-Ab-Sf1" id="2IU-18-PTY"/>
+                                                            <outlet property="stackView" destination="N60-AV-qcp" id="jdu-vv-ugi"/>
                                                         </connections>
                                                     </collectionViewCell>
                                                 </cells>

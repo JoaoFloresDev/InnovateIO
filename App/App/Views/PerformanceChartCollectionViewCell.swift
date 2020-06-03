@@ -11,13 +11,23 @@ import UIKit
 class PerformanceChartCollectionViewCell: UICollectionViewCell {
 
 	@IBOutlet var separatorLineView: UIView!
-	@IBOutlet var timeDots: [PerformanceChartDotView]!
+	
+	@IBOutlet var stackView: UIStackView!
+	
+	var timeDots = [PerformanceChartDotView]()
 	private var dataHandler: DataHandler?
 
 	func makeBlankTimeDots(){
 		//make all dissappear
 		for i in 0..<timeDots.count{
 			timeDots[i].deactivate()
+		}
+	}
+	
+	func setupTimDotsFromStack(){
+		for i in stackView.arrangedSubviews{
+			var dot = i as! PerformanceChartDotView
+			timeDots.append(dot)
 		}
 	}
 	
@@ -45,7 +55,7 @@ class PerformanceChartCollectionViewCell: UICollectionViewCell {
 					break
 			}
 			let hour = mealTime[i]
-			timeDots[hour].backgroundColor = color
+			timeDots[hour].color = color
 			timeDots[hour].qualityText = qualityLabel
 			timeDots[hour].activate()
 		}

@@ -17,6 +17,7 @@ extension CalendarViewController: UICollectionViewDelegate, UICollectionViewData
 			cell.separatorLineView.isHidden=true
 		}
 		
+		cell.setupTimDotsFromStack()//configure once for cell
 		cell.makeBlankTimeDots()
 		return cell
 	}
@@ -32,13 +33,13 @@ extension CalendarViewController: UICollectionViewDelegate, UICollectionViewData
 		let cell = chartCollectionView.cellForItem(at: IndexPath(item: day, section: 0)) as! PerformanceChartCollectionViewCell
 		
 		#warning("voltar isso aqui depois")
-		//cell.configureDotsForDay(mealTime: hours, quality: qualities)
+		cell.configureDotsForDay(mealTime: hours, quality: qualities)
 	}
 	
 	func emptyGraphLine(day:Int){
 		let cell = chartCollectionView.cellForItem(at: IndexPath(item: day, section: 0)) as! PerformanceChartCollectionViewCell
 		#warning("voltar isso aqui depois")
 
-		//cell.makeBlankTimeDots()
+		cell.makeBlankTimeDots()
 	}
 }
