@@ -164,7 +164,7 @@ struct R: Rswift.Validatable {
   #endif
 
   #if os(iOS) || os(tvOS)
-  /// This `R.storyboard` struct is generated, and contains static references to 7 storyboards.
+  /// This `R.storyboard` struct is generated, and contains static references to 8 storyboards.
   struct storyboard {
     /// Storyboard `Calendar`.
     static let calendar = _R.storyboard.calendar()
@@ -180,6 +180,8 @@ struct R: Rswift.Validatable {
     static let profile = _R.storyboard.profile()
     /// Storyboard `Settings`.
     static let settings = _R.storyboard.settings()
+    /// Storyboard `aboutApp`.
+    static let aboutApp = _R.storyboard.aboutApp()
 
     #if os(iOS) || os(tvOS)
     /// `UIStoryboard(name: "Calendar", bundle: ...)`
@@ -227,6 +229,13 @@ struct R: Rswift.Validatable {
     /// `UIStoryboard(name: "Settings", bundle: ...)`
     static func settings(_: Void = ()) -> UIKit.UIStoryboard {
       return UIKit.UIStoryboard(resource: R.storyboard.settings)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIStoryboard(name: "aboutApp", bundle: ...)`
+    static func aboutApp(_: Void = ()) -> UIKit.UIStoryboard {
+      return UIKit.UIStoryboard(resource: R.storyboard.aboutApp)
     }
     #endif
 
@@ -748,7 +757,27 @@ struct _R: Rswift.Validatable {
       #if os(iOS) || os(tvOS)
       try settings.validate()
       #endif
+      #if os(iOS) || os(tvOS)
+      try aboutApp.validate()
+      #endif
     }
+
+    #if os(iOS) || os(tvOS)
+    struct aboutApp: Rswift.StoryboardResourceType, Rswift.Validatable {
+      let bundle = R.hostingBundle
+      let name = "aboutApp"
+
+      static func validate() throws {
+        if #available(iOS 11.0, tvOS 11.0, *) {
+          if UIKit.UIColor(named: "BackgrondColor", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'BackgrondColor' is used in storyboard 'aboutApp', but couldn't be loaded.") }
+          if UIKit.UIColor(named: "CellColor", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'CellColor' is used in storyboard 'aboutApp', but couldn't be loaded.") }
+          if UIKit.UIColor(named: "PrimaryTextColor", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'PrimaryTextColor' is used in storyboard 'aboutApp', but couldn't be loaded.") }
+        }
+      }
+
+      fileprivate init() {}
+    }
+    #endif
 
     #if os(iOS) || os(tvOS)
     struct calendar: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
