@@ -11,7 +11,7 @@ import UIKit
 class PerformanceChartCollectionViewCell: UICollectionViewCell {
 
 	@IBOutlet var separatorLineView: UIView!
-	@IBOutlet var timeDots: [RoundedView]!
+	@IBOutlet var timeDots: [PerformanceChartDotView]!
 	private var dataHandler: DataHandler?
 
 	func makeBlankTimeDots(){
