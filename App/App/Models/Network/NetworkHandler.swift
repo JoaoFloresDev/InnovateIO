@@ -16,27 +16,26 @@ class NetworkHandler {
     private static var shared: NetworkHandler?
     
     // Default properties related to the DAO (DataLoader)
-    private(set) var container: NSPersistentCloudKitContainer
+    //private(set) var container: NSPersistentCloudKitContainer
     
     
 
     private init() throws {
 
-        self.container = NSPersistentCloudKitContainer(name: "Innovate")
+//        self.container = NSPersistentCloudKitContainer(name: "Innovate")
+//
+//        // Getting the store description
+//        guard let description = container.persistentStoreDescriptions.first else {
+//            throw NetworkError.invalidContainer
+//        }
+//
+//        // Initializing the CloudKit schema
+//        let id = "iCloud.Innovate"
+//        let options = NSPersistentCloudKitContainerOptions(containerIdentifier: id)
+//        description.cloudKitContainerOptions = options
+//
         
-        // Getting the store description
-        guard let description = container.persistentStoreDescriptions.first else {
-            throw NetworkError.invalidContainer
-        }
-
-        // Initializing the CloudKit schema
-        let id = "iCloud.Innovate"
-        let options = NSPersistentCloudKitContainerOptions(containerIdentifier: id)
-        description.cloudKitContainerOptions = options
-        
-        
-        #if DEBUG
-            //let record = self.container.record(for: "DailyDiary")
+        //let record = self.container.record(for: "DailyDiary")
         
 
         CKContainer.default().accountStatus { status, error in
@@ -47,7 +46,7 @@ class NetworkHandler {
                 switch status {
                 case .available:
                 // the user is logged in
-                    print("[DEBUG] aqui")
+                    print("[DEBUG] conta logada no iCloud")
                     break
                 case .noAccount:
                 // the user is NOT logged in
@@ -64,8 +63,6 @@ class NetworkHandler {
                 }
             }
         }
-        
-        #endif
         
     }
     
