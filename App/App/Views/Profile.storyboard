@@ -506,15 +506,18 @@
                                 <rect key="frame" x="0.0" y="56" width="414" height="752"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vvk-oR-50E">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="752"/>
                                         <subviews>
                                             <textView clearsContextBeforeDrawing="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" maximumZoomScale="3" bouncesZoom="NO" keyboardDismissMode="interactive" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="Ibg-g8-eZb">
-                                                <rect key="frame" x="20" y="106" width="374" height="686"/>
+                                                <rect key="frame" x="20" y="106" width="374" height="630"/>
                                                 <color key="backgroundColor" name="CellColor"/>
                                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
                                                 <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="YNk-by-jT8" id="KTR-ax-acj"/>
+                                                </connections>
                                             </textView>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="hsj-5L-N4J">
                                                 <rect key="frame" x="20" y="36" width="374" height="34"/>
@@ -567,7 +570,7 @@
                                             <constraint firstItem="hsj-5L-N4J" firstAttribute="top" secondItem="1YF-BE-DDG" secondAttribute="bottom" constant="5" id="aWF-Gl-GyP"/>
                                             <constraint firstAttribute="trailing" secondItem="1YF-BE-DDG" secondAttribute="trailing" constant="20" id="csb-nN-mof"/>
                                             <constraint firstItem="dqk-mZ-TvR" firstAttribute="leading" secondItem="vvk-oR-50E" secondAttribute="leading" constant="20" id="ctG-Wn-RJa"/>
-                                            <constraint firstAttribute="bottom" secondItem="Ibg-g8-eZb" secondAttribute="bottom" constant="16" id="hb5-7D-8gg"/>
+                                            <constraint firstAttribute="bottom" secondItem="Ibg-g8-eZb" secondAttribute="bottom" constant="16" identifier="Bottom" id="hb5-7D-8gg"/>
                                             <constraint firstAttribute="trailing" secondItem="Ibg-g8-eZb" secondAttribute="trailing" constant="20" id="r1W-lt-QD3"/>
                                         </constraints>
                                     </view>
@@ -576,6 +579,7 @@
                                     <constraint firstItem="vvk-oR-50E" firstAttribute="top" secondItem="ZTa-Sf-k0K" secondAttribute="top" id="ASQ-cE-EF7"/>
                                     <constraint firstAttribute="bottom" secondItem="vvk-oR-50E" secondAttribute="bottom" id="WBW-Ad-6x3"/>
                                     <constraint firstItem="vvk-oR-50E" firstAttribute="width" secondItem="ZTa-Sf-k0K" secondAttribute="width" id="amP-8r-oVX"/>
+                                    <constraint firstItem="vvk-oR-50E" firstAttribute="height" secondItem="ZTa-Sf-k0K" secondAttribute="height" id="lgn-jA-HfA"/>
                                     <constraint firstAttribute="trailing" secondItem="vvk-oR-50E" secondAttribute="trailing" id="rKc-d5-UV9"/>
                                     <constraint firstItem="vvk-oR-50E" firstAttribute="leading" secondItem="ZTa-Sf-k0K" secondAttribute="leading" id="uvZ-oi-wsY"/>
                                 </constraints>
@@ -609,7 +613,6 @@
                             <constraint firstItem="b1U-Dh-lhu" firstAttribute="top" secondItem="3jM-bw-owz" secondAttribute="top" id="fYd-xk-v8N"/>
                             <constraint firstItem="3jM-bw-owz" firstAttribute="trailing" secondItem="b1U-Dh-lhu" secondAttribute="trailing" id="faA-Va-a8y"/>
                             <constraint firstItem="3jM-bw-owz" firstAttribute="trailing" secondItem="ZTa-Sf-k0K" secondAttribute="trailing" id="mTM-ES-EyR"/>
-                            <constraint firstItem="vvk-oR-50E" firstAttribute="height" secondItem="3jM-bw-owz" secondAttribute="height" id="nSE-8b-l8V"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="3jM-bw-owz"/>
                     </view>

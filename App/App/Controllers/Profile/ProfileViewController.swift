@@ -138,23 +138,23 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
             
             //set resume habits values
             
-            var percentWater = String(numbersArray[0].popLast()!)
-            var percentFruits = String(numbersArray[1].popLast()!)
-            var percentExercise = String(numbersArray[2].popLast()!)
+            var percentWater = numbersArray[0].popLast()!
+            var percentFruits = numbersArray[1].popLast()!
+            var percentExercise = numbersArray[2].popLast()!
             
-            if(percentWater == "97") {
-                percentWater = "100"
+            if(percentWater >= 97) {
+                percentWater = 100
             }
-            if(percentFruits == "97") {
-                percentFruits = "100"
+            if(percentFruits >= 97) {
+                percentFruits = 100
             }
-            if(percentExercise == "97") {
-                percentExercise = "100"
+            if(percentExercise >= 97) {
+                percentExercise = 100
             }
             
-            waterPercentLabel.text = String(numbersArray[0].popLast()!) + " %"
-            fruitsPercentLabel.text = String(numbersArray[1].popLast()!) + " %"
-            exercicePercentLabel.text = String(numbersArray[2].popLast()!) + " %"
+            waterPercentLabel.text = String(percentWater) + " %"
+            fruitsPercentLabel.text = String(percentFruits) + " %"
+            exercicePercentLabel.text = String(percentExercise) + " %"
         }
         catch {
             os_log("[ERROR] Couldn't communicate with the operating system's internal calendar/time system or memory is too low!")

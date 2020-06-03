@@ -10,7 +10,7 @@ import UIKit
 import os.log
 import NumericPicker
 
-class EditDataViewController: ViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class EditDataViewController: ViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextViewDelegate {
     
     
     //MARK: - Variables
@@ -65,15 +65,41 @@ class EditDataViewController: ViewController, UIPickerViewDelegate, UIPickerView
             os_log("[ERROR] Can't get Data Handler instance, maybe the memory is too low?")
         }
         
+        plainingTextView.delegate = self
+        
         setupTexts()
         setupStyle()
         setupPickerView()
+        
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: UIResponder.keyboardWillHideNotification, object: nil)
+        notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+    }
+    
+    @objc func adjustForKeyboard(notification: Notification) {
+        guard let keyboardValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else { return }
+
+        let keyboardScreenEndFrame = keyboardValue.cgRectValue
+        let keyboardViewEndFrame = view.convert(keyboardScreenEndFrame, from: view.window)
+
+        if notification.name == UIResponder.keyboardWillHideNotification {
+            plainingTextView.contentInset = .zero
+        } else {
+            plainingTextView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardViewEndFrame.height - view.safeAreaInsets.bottom, right: 0)
+        }
+
+        plainingTextView.scrollIndicatorInsets = plainingTextView.contentInset
+
+        let selectedRange = plainingTextView.selectedRange
+        plainingTextView.scrollRangeToVisible(selectedRange)
     }
     
     func updateDataProfile() {
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "updateDataProfile"),
                                         object: nil, userInfo: nil)
     }
+    
+//    var baseConstraint = plainingTextView.constraints.filter { $0.identifier == "Bottom" }
     
     //    MARK: - Conversion
     func convertWeightStringToFloat() -> Float {
@@ -233,4 +259,5 @@ class EditDataViewController: ViewController, UIPickerViewDelegate, UIPickerView
     func pickerView(_ pickerView: UIPickerView, widthForComponent component: Int) -> CGFloat {
         return 50.0
     }
+    
 }
