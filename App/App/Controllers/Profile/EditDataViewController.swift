@@ -33,8 +33,8 @@ class EditDataViewController: ViewController, UIPickerViewDelegate, UIPickerView
     /// - Parameter sender: The tap action.
     @IBAction func saveViewController(_ sender: Any) {
         saveNewData()
-        self.dismiss(animated: true, completion: nil)
         updateDataProfile()
+        self.dismiss(animated: true, completion: nil)
         
         if let presenter = self.presentingViewController?.children[0] as? ProfileViewController {
             presenter.setupGraphic()
@@ -127,7 +127,6 @@ class EditDataViewController: ViewController, UIPickerViewDelegate, UIPickerView
                 os_log("[ERROR] Unknown error occurred while registering the weight inside local storage!")
             }
         }
-        
     }
     
     //    MARK: - Keyboard

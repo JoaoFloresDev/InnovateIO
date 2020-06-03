@@ -28,14 +28,7 @@ class ProfimeDataMenager {
         currentWeightLabel.text = "\(defaults.string(forKey: "Weight") ?? "00") Kg"
     }
     
-    func setupResumeView(exercicePercentLabel: UILabel, fruitsPercentLabel: UILabel,waterPercentLabel: UILabel) {
-        exercicePercentLabel.text = defaults.string(forKey: "exercicePercent") ?? "00 %"
-        fruitsPercentLabel.text = defaults.string(forKey: "fruitsPercent") ?? "00 %"
-        waterPercentLabel.text = defaults.string(forKey: "waterPercent") ?? "00 %"
-    }
-    
 //    MARK: - Profile Image
-    
 //    Load
     func setupImgProfile(profileImg: UIImageView) {
         if let image = getSavedImage(named: "ProfileImg") {
