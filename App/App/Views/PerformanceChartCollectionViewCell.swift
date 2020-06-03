@@ -26,20 +26,27 @@ class PerformanceChartCollectionViewCell: UICollectionViewCell {
 		
 		for i in 0..<quality.count{
 			var color = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
+			var qualityLabel = String()
 			switch quality[i] {
 				case -1:
 					color = R.color.badColor()!
+					qualityLabel = "R"
 				break
 				case 0:
 					color = R.color.mediumColor()!
+					qualityLabel = "M"
+
 				break
 				case 1:
  					color = R.color.goodColor()!
+					qualityLabel = "B"
+
 				default:
 					break
 			}
 			let hour = mealTime[i]
 			timeDots[hour].backgroundColor = color
+			timeDots[hour].qualityText = qualityLabel
 			timeDots[hour].activate()
 		}
 		setNeedsLayout()

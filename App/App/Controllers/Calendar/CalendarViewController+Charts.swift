@@ -17,7 +17,7 @@ extension CalendarViewController: UICollectionViewDelegate, UICollectionViewData
 			cell.separatorLineView.isHidden=true
 		}
 		
-		//cell.makeBlankTimeDots()
+		cell.makeBlankTimeDots()
 		return cell
 	}
 	
