@@ -137,9 +137,11 @@ class DetaisHabitsViewController: UIViewController, UITableViewDelegate,  UITabl
             
             var datesArray = [String]()
             for x in 0...(dates.count - 1) {
+                
                 let aString = dates[x]
                 datesArray.append(aString as! String)
             }
+            
             habitsDates = datesArray
             weightValues = numbersArray[0]
             
@@ -155,10 +157,10 @@ class DetaisHabitsViewController: UIViewController, UITableViewDelegate,  UITabl
     }
     
     func convertStringToDate(dateString: String) -> Date? {
-        let fullNameArr = dateString.components(separatedBy: "/")
+        let fullDateArray = dateString.components(separatedBy: "/")
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy/MM/dd"
-        let someDateTime = formatter.date(from: fullNameArr[2]+"/"+fullNameArr[1]+"/"+fullNameArr[0])
+        let someDateTime = formatter.date(from: fullDateArray[2]+"/"+fullDateArray[1]+"/"+fullDateArray[0])
         return someDateTime
     }
     
@@ -334,12 +336,6 @@ class DetaisHabitsViewController: UIViewController, UITableViewDelegate,  UITabl
             sizeValue = 200
         }
         return sizeValue
-    }
-    
-    var dateFormatter: DateFormatter {
-        let formatter = DateFormatter()
-        formatter.dateStyle = .short
-        return formatter
     }
 
 //    MARK: - ALERTS
