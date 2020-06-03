@@ -120,10 +120,10 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
             let months = plotter.getMonths()
             
             // Getting the current days last two months
-            let dates: NSMutableArray = plotter.getDates(months)
+            let dates: NSMutableArray = plotter.getDatesGraphic(months)
             
             // Starting to populate and draw the charts...
-            var numbersArray: [[Int32]] = plotter.getWeightsValues(months)
+            var numbersArray: [[Int32]] = plotter.getWeightsValuesGraphic(months)
             
             plotter.plotGraphicLine(graphicVIew: weightGraphicLineView, colorLinesArray: [UIColor.black], datesX: dates, numbersArray: numbersArray, topNumber: 120, bottomNumber: 0)
             
@@ -132,7 +132,7 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
             let colorExercice = R.color.habitsExerciceColor()!
             
             //  Populating the habits with core data values
-            numbersArray = plotter.getHabitsValues(months)
+            numbersArray = plotter.getHabitsValuesGraphic(months)
 
             plotter.plotGraphicLine(graphicVIew: habitsGraphicLineView, colorLinesArray: [colorWater, colorFruits, colorExercice], datesX: dates, numbersArray: numbersArray, topNumber: 100, bottomNumber: 0)
         }

@@ -21,7 +21,7 @@ class DetailsWeightViewController: UIViewController, UITableViewDelegate,  UITab
     let tagViewInsertWeigh = 100
     
     //    MARK: - Variables
-    let integerPickerData = (30...120).map { String($0) }
+    let integerPickerData = (30...150).map { String($0) }
     var decimalPickerData = (0...9).map { String($0) }
     var weightDates = [String]()
     var weightValues = [Float]()
@@ -119,7 +119,7 @@ class DetailsWeightViewController: UIViewController, UITableViewDelegate,  UITab
             let dates: NSMutableArray = plotter.getFullDates(months)
             
             // Starting to populate and draw the charts...
-            let numbersArray: [[Float]] = plotter.getWeightsValuesFloat(months)
+            let numbersArray: [[Float]] = plotter.getWeightsValuesDetails(months)
             
             var datesArray = [String]()
             for x in 0...(dates.count - 1) {
