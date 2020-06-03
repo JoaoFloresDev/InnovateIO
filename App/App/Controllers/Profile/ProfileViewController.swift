@@ -137,6 +137,21 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
             plotter.plotGraphicLine(graphicVIew: habitsGraphicLineView, colorLinesArray: [colorWater, colorFruits, colorExercice], datesX: dates, numbersArray: numbersArray, topNumber: 100, bottomNumber: 0)
             
             //set resume habits values
+            
+            var percentWater = String(numbersArray[0].popLast()!)
+            var percentFruits = String(numbersArray[1].popLast()!)
+            var percentExercise = String(numbersArray[2].popLast()!)
+            
+            if(percentWater == "97") {
+                percentWater = "100"
+            }
+            if(percentFruits == "97") {
+                percentFruits = "100"
+            }
+            if(percentExercise == "97") {
+                percentExercise = "100"
+            }
+            
             waterPercentLabel.text = String(numbersArray[0].popLast()!) + " %"
             fruitsPercentLabel.text = String(numbersArray[1].popLast()!) + " %"
             exercicePercentLabel.text = String(numbersArray[2].popLast()!) + " %"
