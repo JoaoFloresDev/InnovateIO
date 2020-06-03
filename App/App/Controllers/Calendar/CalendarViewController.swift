@@ -261,19 +261,19 @@ extension CalendarViewController: JTACMonthViewDelegate {
 				if daily != nil {//info for day exists
 					
 					//load meal information
-					let meals = try! dataHandler?.loadMeals(year: year, month: month, day: day)
+					guard let meals = try? dataHandler?.loadMeals(year: year, month: month, day: day) else{return}
 					
 					
-					let hours = meals?.map({ (meal) -> Int in
+					let hours = meals.map({ (meal) -> Int in
 						Int(meal.hour)
 					})
 					
-					let qualities = meals?.map({ (meal) -> Int in
+					let qualities = meals.map({ (meal) -> Int in
 						Int(meal.quality)
 					})
 					
 					DispatchQueue.main.async {
-						self.updateChart(day: i, hours: hours!, qualities: qualities!)
+						self.updateChart(day: i, hours: hours, qualities: qualities)
 					}
 				}else{//day=nil
 					
