@@ -10,10 +10,12 @@ import Foundation
 
 enum NetworkError: Error {
 
+    case invalidContainer
     case invalidParametersPassedIntoServer
     case invalidValuesReturnedFromServer
     case noConnectionAvailable
     case networkIsProbablyHavingProblems
     case serverError
+    
     
 }

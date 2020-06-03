@@ -19,29 +19,61 @@ class NetworkHandler {
     private(set) var container: NSPersistentCloudKitContainer
     
     
-    /// Initializes the Singleton with the "ScratchPad" (Managed Object Context) for loading and saving data in the iOS  internal Database.
-    /// - Throws: An error that says the App wasn't fully initilized yet for managing data
+
     private init() throws {
 
         self.container = NSPersistentCloudKitContainer(name: "Innovate")
         
-        // get the store description
+        // Getting the store description
         guard let description = container.persistentStoreDescriptions.first else {
-            fatalError("Could not retrieve a persistent store description.")
+            throw NetworkError.invalidContainer
         }
 
-        // initialize the CloudKit schema
+        // Initializing the CloudKit schema
         let id = "iCloud.Innovate"
         let options = NSPersistentCloudKitContainerOptions(containerIdentifier: id)
         description.cloudKitContainerOptions = options
+        
+        
+        #if DEBUG
+            //let record = self.container.record(for: "DailyDiary")
+        
+
+        CKContainer.default().accountStatus { status, error in
+            if let error = error {
+                // some error occurred (probably a failed connection, try again)
+                print("erro no cloud kit")
+            } else {
+                switch status {
+                case .available:
+                // the user is logged in
+                    print("aqui")
+                    break
+                case .noAccount:
+                // the user is NOT logged in
+                    print("sem conta")
+                    break
+                case .couldNotDetermine:
+                    print("impossivel determinar")
+                // for some reason, the status could not be determined (try again)
+                    break
+                case .restricted:
+                    print("conta protegida por controle parental")
+                    // iCloud settings are restricted by parental controls or a configuration profile
+                    break
+                }
+            }
+        }
+        
+        #endif
         
     }
     
     
     
-    /// Gets the shared instance of DataLoader.
+    /// Gets the shared instance of Network Handler.
     /// - Throws: An error that says the App wasn't fully initialized yet for managing data
-    /// - Returns: A shared instance / singleton of DataLoader for managing data
+    /// - Returns: A shared instance / singleton of Network Handler for managing iCloud's data
     static func getShared() throws -> NetworkHandler {
         
         if (NetworkHandler.shared == nil) {
