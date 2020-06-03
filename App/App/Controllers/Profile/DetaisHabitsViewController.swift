@@ -133,7 +133,7 @@ class DetaisHabitsViewController: UIViewController, UITableViewDelegate,  UITabl
             let dates: NSMutableArray = plotter.getFullDates(months)
             
             // Starting to populate and draw the charts...
-            let numbersArray: [[Int]] = plotter.getHabitsValuesInt(months)
+            let numbersArray: [[Int]] = plotter.getHabitsValuesDetails(months)
             
             var datesArray = [String]()
             for x in 0...(dates.count - 1) {
