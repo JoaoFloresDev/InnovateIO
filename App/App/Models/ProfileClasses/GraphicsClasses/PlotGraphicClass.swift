@@ -327,7 +327,20 @@ class PlotGraphicClass {
                 firstDayMonth = Int(format.string(from: date))!
             }
             for day in firstDayMonth...numDays {
-                dates.add("\(day)" + "/" + "\(month[0])" + "/" + "\(month[1])")
+                var dayString = String(day)
+                var monthString = String(month[0])
+                var yearString = String(month[1])
+                
+                if(day < 10) {
+                    dayString = "0" + dayString
+                }
+                if(month[0] < 10) {
+                    monthString = "0" + monthString
+                }
+                if(month[1] < 10) {
+                    yearString = "0" + yearString
+                }
+                dates.add(dayString + "/" + monthString + "/" + yearString)
             }
         }
         return dates
