@@ -64,6 +64,16 @@ class NetworkHandler {
             }
         }
         
+        // Pegando o ID do usuário no BD
+        CKContainer.default().fetchUserRecordID { recordID, error in
+            guard let recordID = recordID, error == nil else {
+                // error handling magic
+                return
+            }
+            
+            print("[DEBUG] Got user record ID \(recordID.recordName).")
+        }
+        
     }
     
     
