@@ -42,23 +42,23 @@ class NetworkHandler {
         CKContainer.default().accountStatus { status, error in
             if let error = error {
                 // some error occurred (probably a failed connection, try again)
-                print("erro no cloud kit")
+                print("[DEBUG] erro no cloud kit")
             } else {
                 switch status {
                 case .available:
                 // the user is logged in
-                    print("aqui")
+                    print("[DEBUG] aqui")
                     break
                 case .noAccount:
                 // the user is NOT logged in
-                    print("sem conta")
+                    print("[DEBUG] sem conta")
                     break
                 case .couldNotDetermine:
-                    print("impossivel determinar")
+                    print("[DEBUG] impossivel determinar")
                 // for some reason, the status could not be determined (try again)
                     break
                 case .restricted:
-                    print("conta protegida por controle parental")
+                    print("[DEBUG] conta protegida por controle parental")
                     // iCloud settings are restricted by parental controls or a configuration profile
                     break
                 }
