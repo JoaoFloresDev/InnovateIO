@@ -3,13 +3,15 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Tab Bar Controller-->
         <scene sceneID="c6N-UM-EaN">
             <objects>
-                <tabBarController id="JUY-4S-UHw" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="Tab" modalPresentationStyle="fullScreen" id="JUY-4S-UHw" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="BFO-jz-3YM"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Dnj-zh-SB5">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -66,6 +68,63 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YEf-yp-YEv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="808" y="-307"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="vQU-7C-b3X">
+            <objects>
+                <viewController storyboardIdentifier="Tutorial" id="wda-B2-uyc" customClass="ViewController" customModule="My_Way" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Hva-kh-D0d">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W4K-Vw-EnL">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </scrollView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5el-RC-B3N">
+                                <rect key="frame" x="88" y="807" width="239" height="55"/>
+                                <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="5el-RC-B3N" secondAttribute="height" multiplier="239:55" id="Ocl-fY-lLr"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                <state key="normal" title="Começar">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="4" translatesAutoresizingMaskIntoConstraints="NO" id="OdL-GK-W2t">
+                                <rect key="frame" x="197" y="760" width="20" height="37"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="20" id="53i-94-hkR"/>
+                                </constraints>
+                                <color key="pageIndicatorTintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="currentPageIndicatorTintColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </pageControl>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="2OE-00-xse" firstAttribute="trailing" secondItem="5el-RC-B3N" secondAttribute="trailing" constant="87" id="AT4-d2-gHt"/>
+                            <constraint firstItem="W4K-Vw-EnL" firstAttribute="top" secondItem="Hva-kh-D0d" secondAttribute="top" id="B5Z-rx-QEV"/>
+                            <constraint firstItem="5el-RC-B3N" firstAttribute="bottom" secondItem="Hva-kh-D0d" secondAttribute="bottomMargin" id="K04-q2-0aA"/>
+                            <constraint firstItem="5el-RC-B3N" firstAttribute="top" secondItem="OdL-GK-W2t" secondAttribute="bottom" constant="10" id="Qep-Ds-Dfk"/>
+                            <constraint firstItem="W4K-Vw-EnL" firstAttribute="trailing" secondItem="Hva-kh-D0d" secondAttribute="trailing" id="YGh-ND-woq"/>
+                            <constraint firstItem="W4K-Vw-EnL" firstAttribute="leading" secondItem="Hva-kh-D0d" secondAttribute="leading" id="Zeh-Q0-BKh"/>
+                            <constraint firstAttribute="bottom" secondItem="W4K-Vw-EnL" secondAttribute="bottom" id="cHa-ec-bLc"/>
+                            <constraint firstItem="5el-RC-B3N" firstAttribute="leading" secondItem="2OE-00-xse" secondAttribute="leading" constant="88" id="oo9-3I-v29"/>
+                            <constraint firstItem="OdL-GK-W2t" firstAttribute="centerX" secondItem="Hva-kh-D0d" secondAttribute="centerX" id="ruT-0V-CWF"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="2OE-00-xse"/>
+                    </view>
+                    <size key="freeformSize" width="414" height="896"/>
+                    <connections>
+                        <outlet property="pageControl" destination="OdL-GK-W2t" id="JgL-u1-rrV"/>
+                        <outlet property="scrollView" destination="W4K-Vw-EnL" id="q5k-aE-d5q"/>
+                        <outlet property="startButton" destination="5el-RC-B3N" id="TJT-Yy-dh8"/>
+                        <segue destination="JUY-4S-UHw" kind="show" identifier="segue" id="aUh-bR-vlX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RHF-Q8-32W" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1013" y="-177"/>
         </scene>
     </scenes>
 </document>

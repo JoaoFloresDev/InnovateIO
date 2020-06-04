@@ -51,6 +51,7 @@
 		C451C01E2458668C00C9A9F0 /* StyleClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C451C01D2458668C00C9A9F0 /* StyleClass.swift */; };
 		C451C0202458669900C9A9F0 /* ProfileDataMenagerClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C451C01F2458669900C9A9F0 /* ProfileDataMenagerClass.swift */; };
 		C456486D2476B78E008C0CE6 /* DetailsWeightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C456486C2476B78E008C0CE6 /* DetailsWeightViewController.swift */; };
+		C483C6A6248995C8007F0784 /* Tutorial.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C483C6A5248995C8007F0784 /* Tutorial.storyboard */; };
 		C48716E524813C3A002F025B /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C48716E424813C3A002F025B /* CloudKit.framework */; };
 		C49D2C37247A2C140007D174 /* DetaisHabitsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49D2C36247A2C140007D174 /* DetaisHabitsViewController.swift */; };
 		C4CC1B21246080ED0048B0B7 /* PlotGraphicClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CC1B1F246080ED0048B0B7 /* PlotGraphicClass.swift */; };
@@ -158,6 +159,7 @@
 		C451C01D2458668C00C9A9F0 /* StyleClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleClass.swift; sourceTree = "<group>"; };
 		C451C01F2458669900C9A9F0 /* ProfileDataMenagerClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDataMenagerClass.swift; sourceTree = "<group>"; };
 		C456486C2476B78E008C0CE6 /* DetailsWeightViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsWeightViewController.swift; sourceTree = "<group>"; };
+		C483C6A5248995C8007F0784 /* Tutorial.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Tutorial.storyboard; sourceTree = "<group>"; };
 		C48716E324813C1F002F025B /* My Way.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "My Way.entitlements"; sourceTree = "<group>"; };
 		C48716E424813C3A002F025B /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		C49D2C36247A2C140007D174 /* DetaisHabitsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetaisHabitsViewController.swift; sourceTree = "<group>"; };
@@ -312,6 +314,7 @@
 				D7B2C2F9243E0A080071561C /* Custom Views */,
 				C44D1477243655BC0094497A /* LaunchScreen.storyboard */,
 				C44D146F243655BA0094497A /* Main.storyboard */,
+				C483C6A5248995C8007F0784 /* Tutorial.storyboard */,
 				C44D149C243657BC0094497A /* Profile.storyboard */,
 				D7FC5D432462E51A00FB5B81 /* MealHistory.storyboard */,
 				C44D149E243657E70094497A /* Calendar.storyboard */,
@@ -671,6 +674,7 @@
 				C44D149F243657E70094497A /* Calendar.storyboard in Resources */,
 				D7FC5D442462E51A00FB5B81 /* MealHistory.storyboard in Resources */,
 				8DEACA092486F76B00C66415 /* PerformanceChartDotView.xib in Resources */,
+				C483C6A6248995C8007F0784 /* Tutorial.storyboard in Resources */,
 				D71DF4242461995700DDA7BE /* MealHistoryTableViewCell.xib in Resources */,
 				D7FA5DA624588369001B08AA /* DailyHabitsView.xib in Resources */,
 				D7FA5DA124585481001B08AA /* RatingView.xib in Resources */,

@@ -89,7 +89,7 @@ struct R: Rswift.Validatable {
   }
 
   #if os(iOS) || os(tvOS)
-  /// This `R.segue` struct is generated, and contains static references to 6 view controllers.
+  /// This `R.segue` struct is generated, and contains static references to 7 view controllers.
   struct segue {
     /// This struct is generated for `CalendarViewController`, and contains static references to 1 segues.
     struct calendarViewController {
@@ -215,12 +215,29 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
 
+    /// This struct is generated for `ViewController`, and contains static references to 1 segues.
+    struct viewController {
+      /// Segue identifier `segue`.
+      static let segue: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, ViewController, UIKit.UITabBarController> = Rswift.StoryboardSegueIdentifier(identifier: "segue")
+
+      #if os(iOS) || os(tvOS)
+      /// Optionally returns a typed version of segue `segue`.
+      /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
+      /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
+      static func segue(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, ViewController, UIKit.UITabBarController>? {
+        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.viewController.segue, segue: segue)
+      }
+      #endif
+
+      fileprivate init() {}
+    }
+
     fileprivate init() {}
   }
   #endif
 
   #if os(iOS) || os(tvOS)
-  /// This `R.storyboard` struct is generated, and contains static references to 7 storyboards.
+  /// This `R.storyboard` struct is generated, and contains static references to 8 storyboards.
   struct storyboard {
     /// Storyboard `Calendar`.
     static let calendar = _R.storyboard.calendar()
@@ -236,6 +253,8 @@ struct R: Rswift.Validatable {
     static let profile = _R.storyboard.profile()
     /// Storyboard `Settings`.
     static let settings = _R.storyboard.settings()
+    /// Storyboard `Tutorial`.
+    static let tutorial = _R.storyboard.tutorial()
 
     #if os(iOS) || os(tvOS)
     /// `UIStoryboard(name: "Calendar", bundle: ...)`
@@ -283,6 +302,13 @@ struct R: Rswift.Validatable {
     /// `UIStoryboard(name: "Settings", bundle: ...)`
     static func settings(_: Void = ()) -> UIKit.UIStoryboard {
       return UIKit.UIStoryboard(resource: R.storyboard.settings)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIStoryboard(name: "Tutorial", bundle: ...)`
+    static func tutorial(_: Void = ()) -> UIKit.UIStoryboard {
+      return UIKit.UIStoryboard(resource: R.storyboard.tutorial)
     }
     #endif
 
@@ -425,12 +451,20 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.image` struct is generated, and contains static references to 10 images.
+  /// This `R.image` struct is generated, and contains static references to 14 images.
   struct image {
     /// Image `ExerciseIcon`.
     static let exerciseIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "ExerciseIcon")
     /// Image `ProfileImgPlaceholder`.
     static let profileImgPlaceholder = Rswift.ImageResource(bundle: R.hostingBundle, name: "ProfileImgPlaceholder")
+    /// Image `Slide 1`.
+    static let slide1 = Rswift.ImageResource(bundle: R.hostingBundle, name: "Slide 1")
+    /// Image `Slide 2`.
+    static let slide2 = Rswift.ImageResource(bundle: R.hostingBundle, name: "Slide 2")
+    /// Image `Slide 3`.
+    static let slide3 = Rswift.ImageResource(bundle: R.hostingBundle, name: "Slide 3")
+    /// Image `Slide 4`.
+    static let slide4 = Rswift.ImageResource(bundle: R.hostingBundle, name: "Slide 4")
     /// Image `fruits`.
     static let fruits = Rswift.ImageResource(bundle: R.hostingBundle, name: "fruits")
     /// Image `habitCycle`.
@@ -459,6 +493,34 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "ProfileImgPlaceholder", bundle: ..., traitCollection: ...)`
     static func profileImgPlaceholder(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.profileImgPlaceholder, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "Slide 1", bundle: ..., traitCollection: ...)`
+    static func slide1(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.slide1, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "Slide 2", bundle: ..., traitCollection: ...)`
+    static func slide2(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.slide2, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "Slide 3", bundle: ..., traitCollection: ...)`
+    static func slide3(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.slide3, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "Slide 4", bundle: ..., traitCollection: ...)`
+    static func slide4(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.slide4, compatibleWith: traitCollection)
     }
     #endif
 
@@ -908,6 +970,9 @@ struct _R: Rswift.Validatable {
       #if os(iOS) || os(tvOS)
       try settings.validate()
       #endif
+      #if os(iOS) || os(tvOS)
+      try tutorial.validate()
+      #endif
     }
 
     #if os(iOS) || os(tvOS)
@@ -960,10 +1025,22 @@ struct _R: Rswift.Validatable {
 
       let bundle = R.hostingBundle
       let name = "Main"
+      let tab = StoryboardViewControllerResource<UIKit.UITabBarController>(identifier: "Tab")
+      let tutorial = StoryboardViewControllerResource<ViewController>(identifier: "Tutorial")
+
+      func tab(_: Void = ()) -> UIKit.UITabBarController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: tab)
+      }
+
+      func tutorial(_: Void = ()) -> ViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: tutorial)
+      }
 
       static func validate() throws {
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
+        if _R.storyboard.main().tab() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'tab' could not be loaded from storyboard 'Main' as 'UIKit.UITabBarController'.") }
+        if _R.storyboard.main().tutorial() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'tutorial' could not be loaded from storyboard 'Main' as 'ViewController'.") }
       }
 
       fileprivate init() {}
@@ -1059,6 +1136,26 @@ struct _R: Rswift.Validatable {
           if UIKit.UIColor(named: "CellColor", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'CellColor' is used in storyboard 'Settings', but couldn't be loaded.") }
           if UIKit.UIColor(named: "PrimaryTextColor", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'PrimaryTextColor' is used in storyboard 'Settings', but couldn't be loaded.") }
         }
+      }
+
+      fileprivate init() {}
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    struct tutorial: Rswift.StoryboardResourceType, Rswift.Validatable {
+      let bundle = R.hostingBundle
+      let name = "Tutorial"
+      let tutorial = StoryboardViewControllerResource<ViewController>(identifier: "Tutorial")
+
+      func tutorial(_: Void = ()) -> ViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: tutorial)
+      }
+
+      static func validate() throws {
+        if #available(iOS 11.0, tvOS 11.0, *) {
+        }
+        if _R.storyboard.tutorial().tutorial() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'tutorial' could not be loaded from storyboard 'Tutorial' as 'ViewController'.") }
       }
 
       fileprivate init() {}
