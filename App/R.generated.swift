@@ -425,12 +425,14 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.image` struct is generated, and contains static references to 14 images.
+  /// This `R.image` struct is generated, and contains static references to 15 images.
   struct image {
     /// Image `ExerciseIcon`.
     static let exerciseIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "ExerciseIcon")
     /// Image `ProfileImgPlaceholder`.
     static let profileImgPlaceholder = Rswift.ImageResource(bundle: R.hostingBundle, name: "ProfileImgPlaceholder")
+    /// Image `ProfilePlaceholder`.
+    static let profilePlaceholder = Rswift.ImageResource(bundle: R.hostingBundle, name: "ProfilePlaceholder")
     /// Image `Slide 1`.
     static let slide1 = Rswift.ImageResource(bundle: R.hostingBundle, name: "Slide 1")
     /// Image `Slide 2`.
@@ -451,8 +453,8 @@ struct R: Rswift.Validatable {
     static let tutorialResumo = Rswift.ImageResource(bundle: R.hostingBundle, name: "tutorial-Resumo")
     /// Image `tutorial-perfil`.
     static let tutorialPerfil = Rswift.ImageResource(bundle: R.hostingBundle, name: "tutorial-perfil")
-    /// Image `tutorial-refeição`.
-    static let tutorialRefeição = Rswift.ImageResource(bundle: R.hostingBundle, name: "tutorial-refeição")
+    /// Image `tutorial-refeição`.
+    static let tutorialRefeição = Rswift.ImageResource(bundle: R.hostingBundle, name: "tutorial-refeição")
     /// Image `water`.
     static let water = Rswift.ImageResource(bundle: R.hostingBundle, name: "water")
 
@@ -467,6 +469,13 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "ProfileImgPlaceholder", bundle: ..., traitCollection: ...)`
     static func profileImgPlaceholder(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.profileImgPlaceholder, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "ProfilePlaceholder", bundle: ..., traitCollection: ...)`
+    static func profilePlaceholder(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.profilePlaceholder, compatibleWith: traitCollection)
     }
     #endif
 
@@ -541,9 +550,9 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
-    /// `UIImage(named: "tutorial-refeição", bundle: ..., traitCollection: ...)`
-    static func tutorialRefeição(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.tutorialRefeição, compatibleWith: traitCollection)
+    /// `UIImage(named: "tutorial-refeição", bundle: ..., traitCollection: ...)`
+    static func tutorialRefeição(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.tutorialRefeição, compatibleWith: traitCollection)
     }
     #endif
 
