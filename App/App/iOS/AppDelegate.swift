@@ -16,7 +16,7 @@ import AppCenterCrashes
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-    let notificationService = NotificationService()
+    let notificationService = NotificationService.shared
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
@@ -33,7 +33,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Setting up the notification service...
         notificationService.notificationCenter.delegate = self
-        notificationService.requestPermissions()
+        notificationService.notificationCenter.getNotificationSettings { [weak self] (settings) in
+            if settings.authorizationStatus != .authorized {
+                self?.notificationService.requestPermissions()
+            }
+        }
         
         return true
     }
