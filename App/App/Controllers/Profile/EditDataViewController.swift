@@ -129,6 +129,7 @@ class EditDataViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     func saveNewData() {
         
         // Saving the Plain
+        defaults.set (plainingTextView.text, forKey: "Plain")
         
         // Saving the Weight
         if self.weightTextField.text != nil && !self.weightTextField.text!.isEmpty {
