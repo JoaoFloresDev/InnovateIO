@@ -54,7 +54,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="QKW-hz-2Gt"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Diário" image="plus.app" catalog="system" selectedImage="plus.app.fill" id="hBw-ep-HBC"/>
+                    <tabBarItem key="tabBarItem" title="Diário" image="plus.app.fill" catalog="system" selectedImage="plus.app.fill" id="hBw-ep-HBC"/>
                     <navigationItem key="navigationItem" title="Diário" id="fRA-BY-ahR"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
@@ -141,7 +141,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="plus.app" catalog="system" width="128" height="114"/>
         <image name="plus.app.fill" catalog="system" width="128" height="114"/>
     </resources>
 </document>
