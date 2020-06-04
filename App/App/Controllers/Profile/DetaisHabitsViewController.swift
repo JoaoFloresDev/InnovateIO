@@ -168,19 +168,7 @@ class DetaisHabitsViewController: UIViewController, UITableViewDelegate,  UITabl
     
     func insertNewWeight(waterValue: Bool, fruitsValue: Bool, exerciseValue: Bool, date: Date?) {
         do {
-            let formatter = DateFormatter()
-            formatter.dateFormat = "dd.MM.yyyy"
-            let result = formatter.string(from: date!).split(separator: ".")
-            
-            let intDay = Int(result[0])!
-            let intMonth = Int(result[1])!
-            let intYear = Int(result[2])!
-            
-            print(intDay, intMonth, intYear)
-            
             let dataHandler = try DataHandler.getShared()
-            let currentData = try dataHandler.loadDailyDiary(year: intYear, month: intMonth, day: intDay)
-            print(currentData.quality, "quality")
             try dataHandler.createDailyDiaryInDate(quality: 1, didDrinkWater: waterValue, didPracticeExercise: exerciseValue, didEatFruit: fruitsValue, date: date!)
             alertInsert(titleAlert: "Concluido", messageAlert: "Seus dados foram atualizados")
         }
