@@ -44,6 +44,13 @@ import Foundation
 		xibSetup()
 	}
 	
+	func activate(){
+		self.alpha = 1
+	}
+	func deactivate(){
+		self.alpha = 0
+	}
+	
 	func xibSetup() {
 		contentView = loadViewFromNib()
 		

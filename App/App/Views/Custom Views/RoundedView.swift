@@ -27,13 +27,6 @@ import UIKit
             layer.borderWidth = borderWidth
         }
     }
-	
-	func activate(){
-		self.alpha = 1
-	}
-	func deactivate(){
-		self.alpha = 0
-	}
 }
 
 @IBDesignable class RoundedButton: UIButton {
