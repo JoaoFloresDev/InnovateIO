@@ -135,6 +135,26 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
             numbersArray = plotter.getHabitsValuesGraphic(months)
 
             plotter.plotGraphicLine(graphicVIew: habitsGraphicLineView, colorLinesArray: [colorWater, colorFruits, colorExercice], datesX: dates, numbersArray: numbersArray, topNumber: 100, bottomNumber: 0)
+            
+            //set resume habits values
+            
+            var percentWater = numbersArray[0].popLast()!
+            var percentFruits = numbersArray[1].popLast()!
+            var percentExercise = numbersArray[2].popLast()!
+            
+            if(percentWater >= 97) {
+                percentWater = 100
+            }
+            if(percentFruits >= 97) {
+                percentFruits = 100
+            }
+            if(percentExercise >= 97) {
+                percentExercise = 100
+            }
+            
+            waterPercentLabel.text = String(percentWater) + " %"
+            fruitsPercentLabel.text = String(percentFruits) + " %"
+            exercicePercentLabel.text = String(percentExercise) + " %"
         }
         catch {
             os_log("[ERROR] Couldn't communicate with the operating system's internal calendar/time system or memory is too low!")
@@ -175,8 +195,6 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
         ProfimeDataMenager().setupImgProfile(profileImg: profileImg)
         ProfimeDataMenager().setupHeaderInformations(goalsTextView: myGoalsTextView,
                                                      currentWeightLabel: currentWeightLabel)
-        
-        ProfimeDataMenager().setupResumeView(exercicePercentLabel: exercicePercentLabel, fruitsPercentLabel: fruitsPercentLabel,waterPercentLabel: waterPercentLabel)
     }
     
     //    MARK: - Animations
