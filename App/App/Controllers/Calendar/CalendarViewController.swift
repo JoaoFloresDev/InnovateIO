@@ -53,6 +53,10 @@ class CalendarViewController: UIViewController {
 		// If the tab bar selected item has changed into this View Controller...
 		// We reload the calendar!
 		self.calendarView.reloadData()
+		
+		
+		self.setupGraphForDate(Date())
+		
 	}
 	
 	fileprivate func setupCalendarView() {
@@ -153,6 +157,7 @@ extension CalendarViewController: JTACMonthViewDelegate {
 				if daily != nil {
 					let quality = Rating(rawValue: Int(daily!.quality))
 					cell.circle.backgroundColor = quality?.color
+                    cell.dateLabel.textColor = .white
 				}
 				
 			}
@@ -233,8 +238,7 @@ extension CalendarViewController: JTACMonthViewDelegate {
 		}
 	}
 	
-	func calendar(_ calendar: JTACMonthView, didSelectDate date: Date, cell: JTACDayCell?, cellState: CellState, indexPath: IndexPath) {
-				
+	fileprivate func setupGraphForDate(_ date: Date) {
 		selectedWeek = date.getAllDaysForWeek()
 		var first:Int?
 		var last:Int?
@@ -251,7 +255,7 @@ extension CalendarViewController: JTACMonthViewDelegate {
 		
 		for i in 0..<selectedWeek.count{
 			do {
-
+				
 				// Getting the current date...
 				let (year, month, day, _, _, _) = try selectedWeek[i].getAllInformations()
 				
@@ -285,7 +289,12 @@ extension CalendarViewController: JTACMonthViewDelegate {
 					self.emptyGraphLine(day: i)
 				}
 			}
-		}//for i in selected week
+		}
+	}
+	
+	func calendar(_ calendar: JTACMonthView, didSelectDate date: Date, cell: JTACDayCell?, cellState: CellState, indexPath: IndexPath) {
+				
+		setupGraphForDate(date)
 	}
 	
 	func calendarSizeForMonths(_ calendar: JTACMonthView?) -> MonthSize? {
