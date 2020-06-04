@@ -51,7 +51,7 @@
 		C451C01E2458668C00C9A9F0 /* StyleClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C451C01D2458668C00C9A9F0 /* StyleClass.swift */; };
 		C451C0202458669900C9A9F0 /* ProfileDataMenagerClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C451C01F2458669900C9A9F0 /* ProfileDataMenagerClass.swift */; };
 		C456486D2476B78E008C0CE6 /* DetailsWeightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C456486C2476B78E008C0CE6 /* DetailsWeightViewController.swift */; };
-		C483C6A82489ABF4007F0784 /* TutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C483C6A72489ABF3007F0784 /* TutorialViewController.swift */; };
+		C46813932489461E00790B5B /* HowToUseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46813922489461D00790B5B /* HowToUseViewController.swift */; };
 		C48716E524813C3A002F025B /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C48716E424813C3A002F025B /* CloudKit.framework */; };
 		C49D2C37247A2C140007D174 /* DetaisHabitsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49D2C36247A2C140007D174 /* DetaisHabitsViewController.swift */; };
 		C4CC1B21246080ED0048B0B7 /* PlotGraphicClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CC1B1F246080ED0048B0B7 /* PlotGraphicClass.swift */; };
@@ -159,7 +159,7 @@
 		C451C01D2458668C00C9A9F0 /* StyleClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleClass.swift; sourceTree = "<group>"; };
 		C451C01F2458669900C9A9F0 /* ProfileDataMenagerClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDataMenagerClass.swift; sourceTree = "<group>"; };
 		C456486C2476B78E008C0CE6 /* DetailsWeightViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsWeightViewController.swift; sourceTree = "<group>"; };
-		C483C6A72489ABF3007F0784 /* TutorialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialViewController.swift; sourceTree = "<group>"; };
+		C46813922489461D00790B5B /* HowToUseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HowToUseViewController.swift; sourceTree = "<group>"; };
 		C48716E324813C1F002F025B /* My Way.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "My Way.entitlements"; sourceTree = "<group>"; };
 		C48716E424813C3A002F025B /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		C49D2C36247A2C140007D174 /* DetaisHabitsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetaisHabitsViewController.swift; sourceTree = "<group>"; };
@@ -510,6 +510,7 @@
 				D7CABB2D24740DA1000DA684 /* SettingsViewController.swift */,
 				D7D38E7D24852D8300E84CD7 /* NotificationSettingsViewController.swift */,
 				D715C4AB2486896800431D94 /* NotificationDetailsViewController.swift */,
+				C46813922489461D00790B5B /* HowToUseViewController.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -898,6 +899,7 @@
 				C451C0202458669900C9A9F0 /* ProfileDataMenagerClass.swift in Sources */,
 				C407E921243CC23800DA8490 /* ProfileViewController.swift in Sources */,
 				C44D146A243655BA0094497A /* AppDelegate.swift in Sources */,
+				C46813932489461E00790B5B /* HowToUseViewController.swift in Sources */,
 				812E8E56245703330041719F /* DateCell.swift in Sources */,
 				D7FC5D462462E68C00FB5B81 /* MealHistoryViewController.swift in Sources */,
 				C44D146C243655BA0094497A /* SceneDelegate.swift in Sources */,
