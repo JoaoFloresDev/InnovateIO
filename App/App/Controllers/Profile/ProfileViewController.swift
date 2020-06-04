@@ -126,7 +126,8 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
         do {
             let plotter = try PlotGraphicClass()
             
-            plotter.plotGraphicHorizontalBars (view: meatsGraphicBarsView, greenPercent: 0.5, yellowPercent: 0.3 )
+            let (greenPercentage, yellowPercentage) = try plotter.loadHabitsAsPercentage()
+            plotter.plotGraphicHorizontalBars (view: meatsGraphicBarsView, greenPercent: greenPercentage, yellowPercent: yellowPercentage )
             
             let months = plotter.getMonths()
             

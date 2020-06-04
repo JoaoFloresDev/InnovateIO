@@ -411,7 +411,7 @@ struct R: Rswift.Validatable {
     static let apsEnvironment = infoPlistString(path: [], key: "aps-environment") ?? "development"
 
     struct comAppleDeveloperIcloudContainerIdentifiers {
-      static let iCloudInnovate = infoPlistString(path: ["com.apple.developer.icloud-container-identifiers"], key: "iCloud.Innovate") ?? "iCloud.Innovate"
+      static let iCloudMyway = infoPlistString(path: ["com.apple.developer.icloud-container-identifiers"], key: "iCloud.myway") ?? "iCloud.myway"
 
       fileprivate init() {}
     }
@@ -429,8 +429,8 @@ struct R: Rswift.Validatable {
   struct image {
     /// Image `ExerciseIcon`.
     static let exerciseIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "ExerciseIcon")
-    /// Image `ProfilePlaceholder`.
-    static let profilePlaceholder = Rswift.ImageResource(bundle: R.hostingBundle, name: "ProfilePlaceholder")
+    /// Image `ProfileImgPlaceholder`.
+    static let profileImgPlaceholder = Rswift.ImageResource(bundle: R.hostingBundle, name: "ProfileImgPlaceholder")
     /// Image `fruits`.
     static let fruits = Rswift.ImageResource(bundle: R.hostingBundle, name: "fruits")
     /// Image `habitCycle`.
@@ -456,9 +456,9 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
-    /// `UIImage(named: "ProfilePlaceholder", bundle: ..., traitCollection: ...)`
-    static func profilePlaceholder(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.profilePlaceholder, compatibleWith: traitCollection)
+    /// `UIImage(named: "ProfileImgPlaceholder", bundle: ..., traitCollection: ...)`
+    static func profileImgPlaceholder(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.profileImgPlaceholder, compatibleWith: traitCollection)
     }
     #endif
 
@@ -1025,7 +1025,7 @@ struct _R: Rswift.Validatable {
 
       static func validate() throws {
         if UIKit.UIImage(named: "ExerciseIcon", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ExerciseIcon' is used in storyboard 'Profile', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "ProfilePlaceholder", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ProfilePlaceholder' is used in storyboard 'Profile', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "ProfileImgPlaceholder", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ProfileImgPlaceholder' is used in storyboard 'Profile', but couldn't be loaded.") }
         if UIKit.UIImage(named: "fruits", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'fruits' is used in storyboard 'Profile', but couldn't be loaded.") }
         if UIKit.UIImage(named: "person", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'person' is used in storyboard 'Profile', but couldn't be loaded.") }
         if UIKit.UIImage(named: "person.fill", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'person.fill' is used in storyboard 'Profile', but couldn't be loaded.") }

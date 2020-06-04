@@ -411,5 +411,55 @@ class PlotGraphicClass {
         
         return [month2, month1, month0]
     }
+    
+//    MARK: - Loads
+    func loadHabitsAsPercentage() throws -> (Float, Float) {
+
+        let daysOfWeek = Date().getAllDaysForWeek()
+
+        var greenPercentage: Float = 0.0
+        var yellowPercentage: Float = 0.0
+        var amountOfGreen: Int = 0
+        var amountOfYellow: Int = 0
+
+        // Counting the amount of each color per day
+        for day in daysOfWeek {
+
+            do {
+                // Getting the current day of the week
+                let (year, month, day, _, _, _) = try day.getAllInformations()
+
+                do {
+                    let entity = try self.dataHandler?.loadDailyDiary(year: year, month: month, day: day)
+
+                    if entity != nil {
+
+
+                        if entity!.quality == 1 {
+                            amountOfGreen += 1
+                        }
+                        else if entity!.quality == 0 {
+                            amountOfYellow += 1
+                        }
+                    }
+                }
+                catch {
+                    os_log("[WARNING] No entry value for habits chart plotting was found!")
+                }
+
+            }
+            catch {
+                throw error
+            }
+        }
+
+
+        // Calculating the percentage based on amount of days in a week
+        greenPercentage = Float(amountOfGreen) / 7.0
+        yellowPercentage = Float(amountOfYellow) / 7.0
+        
+        return (greenPercentage, yellowPercentage)
+
+    }
 }
 
