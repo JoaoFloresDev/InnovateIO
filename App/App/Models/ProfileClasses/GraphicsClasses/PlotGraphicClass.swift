@@ -66,7 +66,7 @@ class PlotGraphicClass {
     }
     
     func plotGraphicHorizontalBars (view: UIView, redPercent: Float, yellowPercent: Float) {
-        
+
         let redView = UIView(frame: CGRect(x: 0, y: 0, width: Int(Float(view.frame.width) * redPercent), height: Int(view.frame.height)))
         
         let yellowView = UIView(frame: CGRect(x: Int(Float(view.frame.width) * redPercent), y: 0, width: Int(Float(view.frame.width) * yellowPercent), height: Int(view.frame.height)))
