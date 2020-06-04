@@ -10,7 +10,7 @@ import UIKit
 import os.log
 import NumericPicker
 
-class EditDataViewController: ViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextViewDelegate {
+class EditDataViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextViewDelegate {
     
     
     //MARK: - Variables
@@ -98,8 +98,6 @@ class EditDataViewController: ViewController, UIPickerViewDelegate, UIPickerView
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "updateDataProfile"),
                                         object: nil, userInfo: nil)
     }
-    
-//    var baseConstraint = plainingTextView.constraints.filter { $0.identifier == "Bottom" }
     
     //    MARK: - Conversion
     func convertWeightStringToFloat() -> Float {
