@@ -17,6 +17,7 @@ class CalendarViewController: UIViewController {
 	@IBOutlet weak var chartCollectionView: UICollectionView!
 	@IBOutlet weak var seeHistoryButton: UIButton!
 	
+	@IBOutlet var weekDayMealsLabel: UILabel!
 	// Attributes related to the calendar itself
 	var formatter = DateFormatter()
 	var selectedWeek: [Date] = [] {
@@ -47,6 +48,7 @@ class CalendarViewController: UIViewController {
 	
 	override func viewDidAppear(_ animated: Bool) {
 		super.viewDidAppear(animated)
+		weekDayMealsLabel.isHidden=true
 		
 		// If the tab bar selected item has changed into this View Controller...
 		// We reload the calendar!
@@ -234,6 +236,18 @@ extension CalendarViewController: JTACMonthViewDelegate {
 	func calendar(_ calendar: JTACMonthView, didSelectDate date: Date, cell: JTACDayCell?, cellState: CellState, indexPath: IndexPath) {
 				
 		selectedWeek = date.getAllDaysForWeek()
+		var first:Int?
+		var last:Int?
+		do{
+			let (_,_,firstDay,_,_,_)=try! selectedWeek.first!.getAllInformations()
+			first=firstDay
+		}
+		do{
+			let (_,_,lastDay,_,_,_)=try! selectedWeek.last!.getAllInformations()
+			last=lastDay
+		}
+		
+		setupWeekLabel(firstDay: first, lastDay: last)
 		
 		for i in 0..<selectedWeek.count{
 			do {
@@ -247,29 +261,41 @@ extension CalendarViewController: JTACMonthViewDelegate {
 				if daily != nil {//info for day exists
 					
 					//load meal information
-					let meals = try! dataHandler?.loadMeals(year: year, month: month, day: day)
+					guard let meals = try? dataHandler?.loadMeals(year: year, month: month, day: day) else{return}
 					
-					let hours = meals?.map({ (meal) -> Int in
+					
+					let hours = meals.map({ (meal) -> Int in
 						Int(meal.hour)
 					})
 					
-					let qualities = meals?.map({ (meal) -> Int in
+					let qualities = meals.map({ (meal) -> Int in
 						Int(meal.quality)
 					})
 					
-					updateChart(day: i, hours: hours!, qualities: qualities!)
+					DispatchQueue.main.async {
+						self.updateChart(day: i, hours: hours, qualities: qualities)
+					}
 				}else{//day=nil
 					
 				}
 				
-			}catch {
+			}catch {//no info for day
 				os_log("[APP] No entry was found!")
+				DispatchQueue.main.async {
+					self.emptyGraphLine(day: i)
+				}
 			}
 		}//for i in selected week
 	}
 	
 	func calendarSizeForMonths(_ calendar: JTACMonthView?) -> MonthSize? {
 		return MonthSize(defaultSize: 80)
+	}
+	
+	func setupWeekLabel(firstDay:Int?, lastDay:Int?){
+		guard firstDay != nil, lastDay != nil else {return}
+		weekDayMealsLabel.isHidden=false
+		weekDayMealsLabel.text = "Refeições: dia \(firstDay!) a \(lastDay!)"
 	}
 }
 
