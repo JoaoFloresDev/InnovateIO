@@ -13,6 +13,8 @@ enum NetworkError: Error {
     case invalidContainer
     case invalidParametersPassedIntoServer
     case invalidValuesReturnedFromServer
+    case noPreviousRegisterFound
+    case notLoggedIn
     case noConnectionAvailable
     case networkIsProbablyHavingProblems
     case serverError
