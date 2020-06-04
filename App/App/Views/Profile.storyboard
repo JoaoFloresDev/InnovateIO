@@ -467,7 +467,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="3gs-JI-4iU"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Perfil" image="person" catalog="system" selectedImage="person.fill" id="V7e-WY-n85"/>
+                    <tabBarItem key="tabBarItem" title="Perfil" image="person.fill" catalog="system" selectedImage="person.fill" id="V7e-WY-n85"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <size key="freeformSize" width="414" height="1400"/>
                     <connections>
@@ -1003,7 +1003,6 @@
         <image name="ExerciseIcon" width="512" height="512"/>
         <image name="ProfilePlaceholder" width="512" height="512"/>
         <image name="fruits" width="512" height="512"/>
-        <image name="person" catalog="system" width="128" height="117"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="plus" catalog="system" width="128" height="113"/>
         <image name="water" width="512" height="512"/>
