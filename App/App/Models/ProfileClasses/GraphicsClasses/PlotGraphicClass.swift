@@ -127,15 +127,15 @@ class PlotGraphicClass {
                         
                         
                         if entity!.didDrinkWater {
-                            waterConvertedValue = 97
+                            waterConvertedValue = 100
                         }
                         
                         if entity!.didEatFruit {
-                            fruitConvertedValue = 97
+                            fruitConvertedValue = 100
                         }
                         
                         if entity!.didPracticeExercise {
-                            sportConvertedValue = 97
+                            sportConvertedValue = 100
                         }
                         
                     }
@@ -152,9 +152,23 @@ class PlotGraphicClass {
                 last21numbersFruits.removeFirst()
                 last21numbersExercise.removeFirst()
                
-                numbersArray[0].append(last21numbersWater.reduce(0, +)/21)
-                numbersArray[1].append(last21numbersFruits.reduce(0, +)/21)
-                numbersArray[2].append(last21numbersExercise.reduce(0, +)/21)
+                var frequencyWater = last21numbersWater.reduce(0, +)/21
+                var frequencyFruits = last21numbersFruits.reduce(0, +)/21
+                var frequencyExercise = last21numbersExercise.reduce(0, +)/21
+                
+                if(frequencyWater > 97) {
+                    frequencyWater = 97
+                }
+                if(frequencyFruits > 97) {
+                    frequencyFruits = 97
+                }
+                if(frequencyExercise > 97) {
+                    frequencyExercise = 97
+                }
+                
+                numbersArray[0].append(frequencyWater)
+                numbersArray[1].append(frequencyFruits)
+                numbersArray[2].append(frequencyExercise)
             }
         }
         return numbersArray
