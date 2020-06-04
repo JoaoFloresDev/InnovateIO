@@ -16,6 +16,7 @@ import Foundation
 	var color:UIColor?{
 		didSet{
 			self.backgroundColor = color
+			self.contentView?.backgroundColor = color
 		}
 	}
 	
