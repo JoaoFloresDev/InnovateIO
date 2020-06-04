@@ -13,7 +13,7 @@ class SettingsViewController: UIViewController {
 
     @IBOutlet weak var optionsTableView: UITableView!
     
-    let notificationService = NotificationService()
+    let notificationService = NotificationService.shared
     
     var dataSource: [SettingsHeaders] = []
     
@@ -23,29 +23,17 @@ class SettingsViewController: UIViewController {
             notificationEnabledDidChange()
         }
     }
-    // MARK: - Lifecycle
+    
+// MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.isNotificationEnabled = self.notificationService.isNotificationEnabled
+
         setupTableView()
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        notificationService.notificationCenter.getNotificationSettings { (settings) in
-            switch settings.authorizationStatus {
-            case .authorized:
-                self.isNotificationEnabled = self.notificationService.isNotificationEnabled
-            default:
-                DispatchQueue.main.async {
-                    self.isNotificationEnabled = false
-                    self.optionsTableView.reloadData()
-                }
-            }
-        }
-    }
-    // MARK: - Methods
+
+// MARK: - Methods
     func setupTableView() {
         optionsTableView.delegate = self
         optionsTableView.dataSource = self
@@ -88,14 +76,12 @@ class SettingsViewController: UIViewController {
         return alertController
     }
     
-    // MARK: - Prepare for segue
+// MARK: - Prepare for segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        //TODO: implementar as segues para cada tipo de célula.
+        //TODO: implementar as segues para cada tipo de célula, quando necessário.
         
         switch segue.identifier {
 //        case SettingsCells.shareResults.segueId:
-//
-//        case SettingsCells.notificationSettings.segueId:
 //
 //        case SettingsCells.howToUse.segueId:
 //
@@ -108,7 +94,7 @@ class SettingsViewController: UIViewController {
         }
     }
     
-    // MARK: - Actions
+// MARK: - Actions
     @objc func notificationSwitchChanged(_ sender: UISwitch) {
         self.notificationService.notificationCenter.getNotificationSettings(completionHandler: { (settings) in
             if settings.authorizationStatus == .notDetermined {
@@ -133,6 +119,7 @@ class SettingsViewController: UIViewController {
         })
     }
 }
+
 // MARK: - Table View delegate and data source
 extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -155,6 +142,8 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
             switchView.setOn(isNotificationEnabled, animated: false)
             switchView.addTarget(self, action: #selector(self.notificationSwitchChanged(_:)), for: .valueChanged)
             cell.accessoryView = switchView
+            
+            cell.selectionStyle = .none
         }
         
         return cell
@@ -176,6 +165,7 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
         return
     }
 }
+
 // MARK: - Enums to serve as data source for settings table view.
 enum SettingsHeaders {
     case tools(Bool)
@@ -237,6 +227,8 @@ enum SettingsCells {
     // TODO: preencher conforme as segues forem criadas no storyboard (dica: usar o Rswift evita termos que digitar na mão esses ids das segues).
     var segueId: String? {
         switch self {
+        case .notificationSettings:
+            return R.segue.settingsViewController.toNotificationSettings.identifier
         default:
             return nil
         }
