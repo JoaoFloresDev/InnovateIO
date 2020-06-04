@@ -425,12 +425,20 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.image` struct is generated, and contains static references to 10 images.
+  /// This `R.image` struct is generated, and contains static references to 14 images.
   struct image {
     /// Image `ExerciseIcon`.
     static let exerciseIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "ExerciseIcon")
     /// Image `ProfileImgPlaceholder`.
     static let profileImgPlaceholder = Rswift.ImageResource(bundle: R.hostingBundle, name: "ProfileImgPlaceholder")
+    /// Image `Slide 1`.
+    static let slide1 = Rswift.ImageResource(bundle: R.hostingBundle, name: "Slide 1")
+    /// Image `Slide 2`.
+    static let slide2 = Rswift.ImageResource(bundle: R.hostingBundle, name: "Slide 2")
+    /// Image `Slide 3`.
+    static let slide3 = Rswift.ImageResource(bundle: R.hostingBundle, name: "Slide 3")
+    /// Image `Slide 4`.
+    static let slide4 = Rswift.ImageResource(bundle: R.hostingBundle, name: "Slide 4")
     /// Image `fruits`.
     static let fruits = Rswift.ImageResource(bundle: R.hostingBundle, name: "fruits")
     /// Image `habitCycle`.
@@ -459,6 +467,34 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "ProfileImgPlaceholder", bundle: ..., traitCollection: ...)`
     static func profileImgPlaceholder(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.profileImgPlaceholder, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "Slide 1", bundle: ..., traitCollection: ...)`
+    static func slide1(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.slide1, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "Slide 2", bundle: ..., traitCollection: ...)`
+    static func slide2(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.slide2, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "Slide 3", bundle: ..., traitCollection: ...)`
+    static func slide3(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.slide3, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "Slide 4", bundle: ..., traitCollection: ...)`
+    static func slide4(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.slide4, compatibleWith: traitCollection)
     }
     #endif
 

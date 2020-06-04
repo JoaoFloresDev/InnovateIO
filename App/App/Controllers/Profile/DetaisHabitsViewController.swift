@@ -9,7 +9,7 @@
 import UIKit
 import os.log
 
-class DetaisweightViewController: UIViewController, UITableViewDelegate,  UITableViewDataSource, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
+class DetaisHabitsViewController: UIViewController, UITableViewDelegate,  UITableViewDataSource, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
 
     //    MARK: - Constants
     let constraintViewInsertIdentifier = "Height"
@@ -47,8 +47,8 @@ class DetaisweightViewController: UIViewController, UITableViewDelegate,  UITabl
     
     @IBOutlet weak var weightDateLabel: UILabel!
     
-    @IBOutlet weak var viewInsertweight: UIView!
-    @IBOutlet weak var cellViewInsertweight: UIView!
+    @IBOutlet weak var viewInsertHabits: UIView!
+    @IBOutlet weak var cellViewInsertHabits: UIView!
     
     //    MARK: - IBOutlet
     @IBAction func closeView(_ sender: Any) {
@@ -194,7 +194,7 @@ class DetaisweightViewController: UIViewController, UITableViewDelegate,  UITabl
     
 //    MARK: - UI Insert Weight
     func showCellInsert() {
-        let filteredConstraints = viewInsertweight.constraints.filter { $0.identifier == constraintViewInsertIdentifier }
+        let filteredConstraints = viewInsertHabits.constraints.filter { $0.identifier == constraintViewInsertIdentifier }
         if let yourConstraint = filteredConstraints.first {
             UIView.animate(withDuration: timeAnimation) {
                 yourConstraint.constant = self.viewInsertWeightHeight
@@ -205,7 +205,7 @@ class DetaisweightViewController: UIViewController, UITableViewDelegate,  UITabl
     }
     
     func hideCellInsertWeight() {
-        let filteredConstraints = viewInsertweight.constraints.filter { $0.identifier == constraintViewInsertIdentifier }
+        let filteredConstraints = viewInsertHabits.constraints.filter { $0.identifier == constraintViewInsertIdentifier }
         if let yourConstraint = filteredConstraints.first {
             UIView.animate(withDuration: 0.5) {
                 yourConstraint.constant = 0
@@ -227,7 +227,7 @@ class DetaisweightViewController: UIViewController, UITableViewDelegate,  UITabl
         
         selectInitialRowPickerView(pickerInsertWeight)
         hideCellInsertWeight()
-        cellViewInsertweight.layer.cornerRadius = cornerRadiusViews
+        cellViewInsertHabits.layer.cornerRadius = cornerRadiusViews
         
         weightDateLabel.text = habitsDates.last
         exerciseTextField.text = pickerData[1]
