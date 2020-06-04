@@ -17,6 +17,7 @@ class NetworkHandler {
     
     // Default properties related to the DAO (DataLoader)
     //private(set) var container: NSPersistentCloudKitContainer
+    private(set) var container: CKContainer
     
     
 
@@ -38,8 +39,10 @@ class NetworkHandler {
         //let record = self.container.record(for: "DailyDiary")
         
 
-        CKContainer.default().accountStatus { status, error in
-            if let error = error {
+        self.container = CKContainer(identifier: "iCloud.Innovate")
+        
+        self.container.accountStatus { status, error in
+            if let _ = error {
                 // some error occurred (probably a failed connection, try again)
                 print("[DEBUG] erro no cloud kit")
             } else {
@@ -65,9 +68,10 @@ class NetworkHandler {
         }
         
         // Pegando o ID do usuário no BD
-        CKContainer.default().fetchUserRecordID { recordID, error in
+        self.container.fetchUserRecordID { recordID, error in
             guard let recordID = recordID, error == nil else {
                 // error handling magic
+                print("[DEBUG] \(error.debugDescription)")
                 return
             }
             

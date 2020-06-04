@@ -66,7 +66,7 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
         
         // Isso é para testes... Se eu deixei por aqui é porque esqueci de tirar
         do {
-            let networkHandler = try NetworkHandler.getShared()
+            let _ = try NetworkHandler.getShared()
             
         }
         catch {}
