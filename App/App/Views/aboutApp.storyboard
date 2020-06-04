@@ -28,7 +28,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="João Flores Pietro Pugliesi Priscila Zucato Vinicius Higa" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vqX-Cp-O2e">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pietro Pugliesi Priscila Zucato João Flores Vinicius Higa" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vqX-Cp-O2e">
                                                 <rect key="frame" x="16" y="46" width="382" height="76.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <color key="textColor" name="PrimaryTextColor"/>
@@ -132,14 +132,93 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zy3-8Y-c33">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1000"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="979.5"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I2X-Hw-nSf">
-                                                <rect key="frame" x="8" y="8" width="398" height="300"/>
+                                                <rect key="frame" x="8" y="8" width="398" height="445.5"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XX2-mi-YjI">
-                                                        <rect key="frame" x="26" y="29" width="42" height="21"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mapeando hábitos" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XX2-mi-YjI">
+                                                        <rect key="frame" x="8" y="8" width="156.5" height="21.5"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Diário: insira como foi sua rotina e suas refeições." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lvU-xL-521">
+                                                        <rect key="frame" x="84" y="37.5" width="306" height="120"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                        <color key="textColor" name="SecundaryTextColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Perfil: acompanhe seu progresso e insira seus planos melhorar" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oua-QH-JsI">
+                                                        <rect key="frame" x="76" y="173.5" width="314" height="120"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                        <color key="textColor" name="SecundaryTextColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tutorialDiário" translatesAutoresizingMaskIntoConstraints="NO" id="8m2-rf-nDQ">
+                                                        <rect key="frame" x="8" y="37.5" width="60" height="120"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="8m2-rf-nDQ" secondAttribute="height" multiplier="1:2" id="Cus-aB-ulU"/>
+                                                            <constraint firstAttribute="height" constant="120" id="hLS-bM-0Se"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tutorialHome" translatesAutoresizingMaskIntoConstraints="NO" id="L70-tR-gkZ">
+                                                        <rect key="frame" x="8" y="173.5" width="60" height="120"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="120" id="DTV-i3-7oH"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tutorialHome" translatesAutoresizingMaskIntoConstraints="NO" id="yUj-K5-E9h">
+                                                        <rect key="frame" x="8" y="309.5" width="60" height="120"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="120" id="Bef-vu-Vor"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Histórico: Entenda seus hábitos, perceba os dias e horários em que costuma se alimentar mal, reflita sobre" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TeJ-79-pWJ">
+                                                        <rect key="frame" x="76" y="309.5" width="314" height="120"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                        <color key="textColor" name="SecundaryTextColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <constraints>
+                                                    <constraint firstItem="Oua-QH-JsI" firstAttribute="height" secondItem="L70-tR-gkZ" secondAttribute="height" id="1wO-cV-x18"/>
+                                                    <constraint firstItem="TeJ-79-pWJ" firstAttribute="centerY" secondItem="yUj-K5-E9h" secondAttribute="centerY" id="2q4-A6-tQB"/>
+                                                    <constraint firstItem="lvU-xL-521" firstAttribute="centerY" secondItem="8m2-rf-nDQ" secondAttribute="centerY" id="5An-Ff-QhT"/>
+                                                    <constraint firstItem="Oua-QH-JsI" firstAttribute="leading" secondItem="L70-tR-gkZ" secondAttribute="trailing" constant="8" id="9Xd-Ll-ENu"/>
+                                                    <constraint firstItem="XX2-mi-YjI" firstAttribute="top" secondItem="I2X-Hw-nSf" secondAttribute="top" constant="8" id="Lqg-qD-136"/>
+                                                    <constraint firstAttribute="trailing" secondItem="TeJ-79-pWJ" secondAttribute="trailing" constant="8" id="Q7a-29-y1f"/>
+                                                    <constraint firstItem="Oua-QH-JsI" firstAttribute="centerY" secondItem="L70-tR-gkZ" secondAttribute="centerY" id="QS2-0W-q4g"/>
+                                                    <constraint firstAttribute="trailing" secondItem="Oua-QH-JsI" secondAttribute="trailing" constant="8" id="R7e-mJ-Jc3"/>
+                                                    <constraint firstItem="L70-tR-gkZ" firstAttribute="width" secondItem="L70-tR-gkZ" secondAttribute="height" multiplier="1:2" id="Rdm-0Q-AVz"/>
+                                                    <constraint firstItem="8m2-rf-nDQ" firstAttribute="leading" secondItem="I2X-Hw-nSf" secondAttribute="leading" constant="8" id="W3f-D5-LpY"/>
+                                                    <constraint firstAttribute="trailing" secondItem="lvU-xL-521" secondAttribute="trailing" constant="8" id="eHK-EA-Ze0"/>
+                                                    <constraint firstItem="lvU-xL-521" firstAttribute="height" secondItem="8m2-rf-nDQ" secondAttribute="height" id="eeY-Ct-C3O"/>
+                                                    <constraint firstItem="TeJ-79-pWJ" firstAttribute="leading" secondItem="yUj-K5-E9h" secondAttribute="trailing" constant="8" id="fDu-D6-C7c"/>
+                                                    <constraint firstItem="TeJ-79-pWJ" firstAttribute="height" secondItem="yUj-K5-E9h" secondAttribute="height" id="iaa-2N-FG7"/>
+                                                    <constraint firstItem="L70-tR-gkZ" firstAttribute="top" secondItem="8m2-rf-nDQ" secondAttribute="bottom" constant="16" id="jYM-tx-GCd"/>
+                                                    <constraint firstItem="lvU-xL-521" firstAttribute="leading" secondItem="8m2-rf-nDQ" secondAttribute="trailing" constant="16" id="kxv-d3-wvg"/>
+                                                    <constraint firstAttribute="bottom" secondItem="yUj-K5-E9h" secondAttribute="bottom" constant="16" id="nxR-9C-Fm0"/>
+                                                    <constraint firstItem="yUj-K5-E9h" firstAttribute="width" secondItem="yUj-K5-E9h" secondAttribute="height" multiplier="1:2" id="poL-Hn-kdN"/>
+                                                    <constraint firstItem="XX2-mi-YjI" firstAttribute="leading" secondItem="I2X-Hw-nSf" secondAttribute="leading" constant="8" id="rRc-lm-2JA"/>
+                                                    <constraint firstItem="8m2-rf-nDQ" firstAttribute="top" secondItem="XX2-mi-YjI" secondAttribute="bottom" constant="8" id="spK-Ad-V2F"/>
+                                                    <constraint firstItem="yUj-K5-E9h" firstAttribute="leading" secondItem="I2X-Hw-nSf" secondAttribute="leading" constant="8" id="vdU-5y-089"/>
+                                                    <constraint firstItem="L70-tR-gkZ" firstAttribute="leading" secondItem="I2X-Hw-nSf" secondAttribute="leading" constant="8" id="wIq-FT-Spg"/>
+                                                    <constraint firstItem="yUj-K5-E9h" firstAttribute="top" secondItem="L70-tR-gkZ" secondAttribute="bottom" constant="16" id="xNe-Ta-4IV"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eSN-KH-LGs">
+                                                <rect key="frame" x="8" y="469.5" width="398" height="500"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Modificando hábitos" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oG7-7e-KJn">
+                                                        <rect key="frame" x="8" y="8" width="172.5" height="21"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Todo hábito é composto por um gatilho, uma rotina e uma recompensa, para que assim um anseio seja alcançado." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="boC-vT-frd">
+                                                        <rect key="frame" x="8" y="37" width="382" height="61"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -147,15 +226,23 @@
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="300" id="ZKl-pH-OXm"/>
+                                                    <constraint firstItem="oG7-7e-KJn" firstAttribute="leading" secondItem="eSN-KH-LGs" secondAttribute="leading" constant="8" id="F4y-rq-3rM"/>
+                                                    <constraint firstAttribute="height" constant="500" id="SFT-vN-sAA"/>
+                                                    <constraint firstAttribute="trailing" secondItem="boC-vT-frd" secondAttribute="trailing" constant="8" id="Tsm-Z5-mA1"/>
+                                                    <constraint firstItem="oG7-7e-KJn" firstAttribute="top" secondItem="eSN-KH-LGs" secondAttribute="top" constant="8" id="cP8-Hw-r0z"/>
+                                                    <constraint firstItem="boC-vT-frd" firstAttribute="top" secondItem="oG7-7e-KJn" secondAttribute="bottom" constant="8" id="jkM-QA-Ato"/>
+                                                    <constraint firstItem="boC-vT-frd" firstAttribute="leading" secondItem="eSN-KH-LGs" secondAttribute="leading" constant="8" id="nvP-dc-cnS"/>
                                                 </constraints>
                                             </view>
                                         </subviews>
                                         <constraints>
+                                            <constraint firstItem="eSN-KH-LGs" firstAttribute="top" secondItem="I2X-Hw-nSf" secondAttribute="bottom" constant="16" id="6Px-jS-Ekj"/>
                                             <constraint firstItem="I2X-Hw-nSf" firstAttribute="top" secondItem="Zy3-8Y-c33" secondAttribute="top" constant="8" id="IA0-tA-JpA"/>
                                             <constraint firstItem="I2X-Hw-nSf" firstAttribute="leading" secondItem="Zy3-8Y-c33" secondAttribute="leading" constant="8" id="Wzt-9c-cpf"/>
+                                            <constraint firstAttribute="trailing" secondItem="eSN-KH-LGs" secondAttribute="trailing" constant="8" id="auO-QN-XhX"/>
                                             <constraint firstAttribute="trailing" secondItem="I2X-Hw-nSf" secondAttribute="trailing" constant="8" id="b4b-9Y-C0k"/>
-                                            <constraint firstAttribute="height" constant="1000" id="lZe-wf-mDe"/>
+                                            <constraint firstItem="eSN-KH-LGs" firstAttribute="leading" secondItem="Zy3-8Y-c33" secondAttribute="leading" constant="8" id="dsa-Ri-yyu"/>
+                                            <constraint firstAttribute="bottom" secondItem="eSN-KH-LGs" secondAttribute="bottom" constant="10" id="eq7-Sc-yfx"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -183,15 +270,20 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Ma-EE-4af" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="909" y="660"/>
+            <point key="canvasLocation" x="908.69565217391312" y="659.59821428571422"/>
         </scene>
     </scenes>
     <resources>
+        <image name="tutorialDiário" width="599" height="1194"/>
+        <image name="tutorialHome" width="599" height="1194"/>
         <namedColor name="CellColor">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="PrimaryTextColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="SecundaryTextColor">
+            <color red="0.50199997425079346" green="0.50199997425079346" blue="0.50199997425079346" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
     </resources>
 </document>

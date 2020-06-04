@@ -374,16 +374,22 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.image` struct is generated, and contains static references to 5 images.
+  /// This `R.image` struct is generated, and contains static references to 8 images.
   struct image {
     /// Image `ExerciseIcon`.
     static let exerciseIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "ExerciseIcon")
     /// Image `ProfilePlaceholder`.
     static let profilePlaceholder = Rswift.ImageResource(bundle: R.hostingBundle, name: "ProfilePlaceholder")
+    /// Image `TutorialHistórico`.
+    static let tutorialHistórico = Rswift.ImageResource(bundle: R.hostingBundle, name: "TutorialHistórico")
     /// Image `fruits`.
     static let fruits = Rswift.ImageResource(bundle: R.hostingBundle, name: "fruits")
     /// Image `iconLandscape`.
     static let iconLandscape = Rswift.ImageResource(bundle: R.hostingBundle, name: "iconLandscape")
+    /// Image `tutorialDiário`.
+    static let tutorialDiário = Rswift.ImageResource(bundle: R.hostingBundle, name: "tutorialDiário")
+    /// Image `tutorialHome`.
+    static let tutorialHome = Rswift.ImageResource(bundle: R.hostingBundle, name: "tutorialHome")
     /// Image `water`.
     static let water = Rswift.ImageResource(bundle: R.hostingBundle, name: "water")
 
@@ -402,6 +408,13 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "TutorialHistórico", bundle: ..., traitCollection: ...)`
+    static func tutorialHistórico(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.tutorialHistórico, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
     /// `UIImage(named: "fruits", bundle: ..., traitCollection: ...)`
     static func fruits(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.fruits, compatibleWith: traitCollection)
@@ -412,6 +425,20 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "iconLandscape", bundle: ..., traitCollection: ...)`
     static func iconLandscape(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.iconLandscape, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "tutorialDiário", bundle: ..., traitCollection: ...)`
+    static func tutorialDiário(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.tutorialDiário, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "tutorialHome", bundle: ..., traitCollection: ...)`
+    static func tutorialHome(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.tutorialHome, compatibleWith: traitCollection)
     }
     #endif
 
@@ -768,10 +795,12 @@ struct _R: Rswift.Validatable {
       let name = "aboutApp"
 
       static func validate() throws {
+        if UIKit.UIImage(named: "tutorialDiário", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'tutorialDiário' is used in storyboard 'aboutApp', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "tutorialHome", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'tutorialHome' is used in storyboard 'aboutApp', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
-          if UIKit.UIColor(named: "BackgrondColor", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'BackgrondColor' is used in storyboard 'aboutApp', but couldn't be loaded.") }
           if UIKit.UIColor(named: "CellColor", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'CellColor' is used in storyboard 'aboutApp', but couldn't be loaded.") }
           if UIKit.UIColor(named: "PrimaryTextColor", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'PrimaryTextColor' is used in storyboard 'aboutApp', but couldn't be loaded.") }
+          if UIKit.UIColor(named: "SecundaryTextColor", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'SecundaryTextColor' is used in storyboard 'aboutApp', but couldn't be loaded.") }
         }
       }
 
