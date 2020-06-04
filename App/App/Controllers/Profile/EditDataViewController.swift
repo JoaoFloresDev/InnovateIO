@@ -10,7 +10,7 @@ import UIKit
 import os.log
 import NumericPicker
 
-class EditDataViewController: ViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextViewDelegate {
+class EditDataViewController: TutorialViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextViewDelegate {
     
     
     //MARK: - Variables

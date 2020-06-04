@@ -69,10 +69,10 @@
             </objects>
             <point key="canvasLocation" x="808" y="-307"/>
         </scene>
-        <!--View Controller-->
+        <!--Tutorial View Controller-->
         <scene sceneID="vQU-7C-b3X">
             <objects>
-                <viewController storyboardIdentifier="Tutorial" id="wda-B2-uyc" customClass="ViewController" customModule="My_Way" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Tutorial" id="wda-B2-uyc" customClass="TutorialViewController" customModule="My_Way" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Hva-kh-D0d">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -90,6 +90,9 @@
                                 <state key="normal" title="Começar">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <segue destination="JUY-4S-UHw" kind="presentation" modalTransitionStyle="partialCurl" id="RjP-pS-BOs"/>
+                                </connections>
                             </button>
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="4" translatesAutoresizingMaskIntoConstraints="NO" id="OdL-GK-W2t">
                                 <rect key="frame" x="197" y="760" width="20" height="37"/>
@@ -119,7 +122,6 @@
                         <outlet property="pageControl" destination="OdL-GK-W2t" id="JgL-u1-rrV"/>
                         <outlet property="scrollView" destination="W4K-Vw-EnL" id="q5k-aE-d5q"/>
                         <outlet property="startButton" destination="5el-RC-B3N" id="TJT-Yy-dh8"/>
-                        <segue destination="JUY-4S-UHw" kind="show" identifier="segue" id="aUh-bR-vlX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RHF-Q8-32W" sceneMemberID="firstResponder"/>

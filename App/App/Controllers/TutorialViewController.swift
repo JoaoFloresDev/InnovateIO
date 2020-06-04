@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UIScrollViewDelegate {
+class TutorialViewController: UIViewController, UIScrollViewDelegate {
     
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var pageControl: UIPageControl!
