@@ -41,7 +41,6 @@ class NetworkHandler {
         }
         
         
-        // WARNING! REMOVE THIS BEFORE MERGING ON MASTER
         #if DEBUG
         
         // Getting user ID on database
