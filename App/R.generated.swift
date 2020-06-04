@@ -89,7 +89,7 @@ struct R: Rswift.Validatable {
   }
 
   #if os(iOS) || os(tvOS)
-  /// This `R.segue` struct is generated, and contains static references to 4 view controllers.
+  /// This `R.segue` struct is generated, and contains static references to 6 view controllers.
   struct segue {
     /// This struct is generated for `CalendarViewController`, and contains static references to 1 segues.
     struct calendarViewController {
@@ -142,6 +142,23 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
 
+    /// This struct is generated for `NotificationSettingsViewController`, and contains static references to 1 segues.
+    struct notificationSettingsViewController {
+      /// Segue identifier `toNotificationDetails`.
+      static let toNotificationDetails: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, NotificationSettingsViewController, NotificationDetailsViewController> = Rswift.StoryboardSegueIdentifier(identifier: "toNotificationDetails")
+
+      #if os(iOS) || os(tvOS)
+      /// Optionally returns a typed version of segue `toNotificationDetails`.
+      /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
+      /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
+      static func toNotificationDetails(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, NotificationSettingsViewController, NotificationDetailsViewController>? {
+        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.notificationSettingsViewController.toNotificationDetails, segue: segue)
+      }
+      #endif
+
+      fileprivate init() {}
+    }
+
     /// This struct is generated for `ProfileViewController`, and contains static references to 1 segues.
     struct profileViewController {
       /// Segue identifier `toEditData`.
@@ -159,12 +176,51 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
 
+    /// This struct is generated for `SettingsViewController`, and contains static references to 3 segues.
+    struct settingsViewController {
+      /// Segue identifier `toCredits`.
+      static let toCredits: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, SettingsViewController, UIKit.UIViewController> = Rswift.StoryboardSegueIdentifier(identifier: "toCredits")
+      /// Segue identifier `toHowToUse`.
+      static let toHowToUse: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, SettingsViewController, UIKit.UIViewController> = Rswift.StoryboardSegueIdentifier(identifier: "toHowToUse")
+      /// Segue identifier `toNotificationSettings`.
+      static let toNotificationSettings: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, SettingsViewController, NotificationSettingsViewController> = Rswift.StoryboardSegueIdentifier(identifier: "toNotificationSettings")
+
+      #if os(iOS) || os(tvOS)
+      /// Optionally returns a typed version of segue `toCredits`.
+      /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
+      /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
+      static func toCredits(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, SettingsViewController, UIKit.UIViewController>? {
+        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.settingsViewController.toCredits, segue: segue)
+      }
+      #endif
+
+      #if os(iOS) || os(tvOS)
+      /// Optionally returns a typed version of segue `toHowToUse`.
+      /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
+      /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
+      static func toHowToUse(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, SettingsViewController, UIKit.UIViewController>? {
+        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.settingsViewController.toHowToUse, segue: segue)
+      }
+      #endif
+
+      #if os(iOS) || os(tvOS)
+      /// Optionally returns a typed version of segue `toNotificationSettings`.
+      /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
+      /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
+      static func toNotificationSettings(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, SettingsViewController, NotificationSettingsViewController>? {
+        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.settingsViewController.toNotificationSettings, segue: segue)
+      }
+      #endif
+
+      fileprivate init() {}
+    }
+
     fileprivate init() {}
   }
   #endif
 
   #if os(iOS) || os(tvOS)
-  /// This `R.storyboard` struct is generated, and contains static references to 8 storyboards.
+  /// This `R.storyboard` struct is generated, and contains static references to 7 storyboards.
   struct storyboard {
     /// Storyboard `Calendar`.
     static let calendar = _R.storyboard.calendar()
@@ -180,8 +236,6 @@ struct R: Rswift.Validatable {
     static let profile = _R.storyboard.profile()
     /// Storyboard `Settings`.
     static let settings = _R.storyboard.settings()
-    /// Storyboard `aboutApp`.
-    static let aboutApp = _R.storyboard.aboutApp()
 
     #if os(iOS) || os(tvOS)
     /// `UIStoryboard(name: "Calendar", bundle: ...)`
@@ -229,13 +283,6 @@ struct R: Rswift.Validatable {
     /// `UIStoryboard(name: "Settings", bundle: ...)`
     static func settings(_: Void = ()) -> UIKit.UIStoryboard {
       return UIKit.UIStoryboard(resource: R.storyboard.settings)
-    }
-    #endif
-
-    #if os(iOS) || os(tvOS)
-    /// `UIStoryboard(name: "aboutApp", bundle: ...)`
-    static func aboutApp(_: Void = ()) -> UIKit.UIStoryboard {
-      return UIKit.UIStoryboard(resource: R.storyboard.aboutApp)
     }
     #endif
 
@@ -374,22 +421,26 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.image` struct is generated, and contains static references to 8 images.
+  /// This `R.image` struct is generated, and contains static references to 10 images.
   struct image {
     /// Image `ExerciseIcon`.
     static let exerciseIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "ExerciseIcon")
     /// Image `ProfilePlaceholder`.
     static let profilePlaceholder = Rswift.ImageResource(bundle: R.hostingBundle, name: "ProfilePlaceholder")
-    /// Image `TutorialHistórico`.
-    static let tutorialHistórico = Rswift.ImageResource(bundle: R.hostingBundle, name: "TutorialHistórico")
     /// Image `fruits`.
     static let fruits = Rswift.ImageResource(bundle: R.hostingBundle, name: "fruits")
+    /// Image `habitCycle`.
+    static let habitCycle = Rswift.ImageResource(bundle: R.hostingBundle, name: "habitCycle")
     /// Image `iconLandscape`.
     static let iconLandscape = Rswift.ImageResource(bundle: R.hostingBundle, name: "iconLandscape")
-    /// Image `tutorialDiário`.
-    static let tutorialDiário = Rswift.ImageResource(bundle: R.hostingBundle, name: "tutorialDiário")
-    /// Image `tutorialHome`.
-    static let tutorialHome = Rswift.ImageResource(bundle: R.hostingBundle, name: "tutorialHome")
+    /// Image `tutorial0`.
+    static let tutorial0 = Rswift.ImageResource(bundle: R.hostingBundle, name: "tutorial0")
+    /// Image `tutorial1`.
+    static let tutorial1 = Rswift.ImageResource(bundle: R.hostingBundle, name: "tutorial1")
+    /// Image `tutorial2`.
+    static let tutorial2 = Rswift.ImageResource(bundle: R.hostingBundle, name: "tutorial2")
+    /// Image `tutorial3`.
+    static let tutorial3 = Rswift.ImageResource(bundle: R.hostingBundle, name: "tutorial3")
     /// Image `water`.
     static let water = Rswift.ImageResource(bundle: R.hostingBundle, name: "water")
 
@@ -408,16 +459,16 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
-    /// `UIImage(named: "TutorialHistórico", bundle: ..., traitCollection: ...)`
-    static func tutorialHistórico(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.tutorialHistórico, compatibleWith: traitCollection)
+    /// `UIImage(named: "fruits", bundle: ..., traitCollection: ...)`
+    static func fruits(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.fruits, compatibleWith: traitCollection)
     }
     #endif
 
     #if os(iOS) || os(tvOS)
-    /// `UIImage(named: "fruits", bundle: ..., traitCollection: ...)`
-    static func fruits(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.fruits, compatibleWith: traitCollection)
+    /// `UIImage(named: "habitCycle", bundle: ..., traitCollection: ...)`
+    static func habitCycle(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.habitCycle, compatibleWith: traitCollection)
     }
     #endif
 
@@ -429,16 +480,30 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
-    /// `UIImage(named: "tutorialDiário", bundle: ..., traitCollection: ...)`
-    static func tutorialDiário(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.tutorialDiário, compatibleWith: traitCollection)
+    /// `UIImage(named: "tutorial0", bundle: ..., traitCollection: ...)`
+    static func tutorial0(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.tutorial0, compatibleWith: traitCollection)
     }
     #endif
 
     #if os(iOS) || os(tvOS)
-    /// `UIImage(named: "tutorialHome", bundle: ..., traitCollection: ...)`
-    static func tutorialHome(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.tutorialHome, compatibleWith: traitCollection)
+    /// `UIImage(named: "tutorial1", bundle: ..., traitCollection: ...)`
+    static func tutorial1(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.tutorial1, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "tutorial2", bundle: ..., traitCollection: ...)`
+    static func tutorial2(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.tutorial2, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "tutorial3", bundle: ..., traitCollection: ...)`
+    static func tutorial3(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.tutorial3, compatibleWith: traitCollection)
     }
     #endif
 
@@ -483,7 +548,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.nib` struct is generated, and contains static references to 8 nibs.
+  /// This `R.nib` struct is generated, and contains static references to 10 nibs.
   struct nib {
     /// Nib `DailyHabitsView`.
     static let dailyHabitsView = _R.nib._DailyHabitsView()
@@ -495,6 +560,10 @@ struct R: Rswift.Validatable {
     static let mealHistoryHeader = _R.nib._MealHistoryHeader()
     /// Nib `MealHistoryTableViewCell`.
     static let mealHistoryTableViewCell = _R.nib._MealHistoryTableViewCell()
+    /// Nib `NotificationSettingsCell`.
+    static let notificationSettingsCell = _R.nib._NotificationSettingsCell()
+    /// Nib `PerformanceChartDotView`.
+    static let performanceChartDotView = _R.nib._PerformanceChartDotView()
     /// Nib `RatingView`.
     static let ratingView = _R.nib._RatingView()
     /// Nib `RegisterMealView`.
@@ -543,6 +612,22 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
+    /// `UINib(name: "NotificationSettingsCell", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.notificationSettingsCell) instead")
+    static func notificationSettingsCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.notificationSettingsCell)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UINib(name: "PerformanceChartDotView", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.performanceChartDotView) instead")
+    static func performanceChartDotView(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.performanceChartDotView)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
     /// `UINib(name: "RatingView", in: bundle)`
     @available(*, deprecated, message: "Use UINib(resource: R.nib.ratingView) instead")
     static func ratingView(_: Void = ()) -> UIKit.UINib {
@@ -586,6 +671,14 @@ struct R: Rswift.Validatable {
       return R.nib.mealHistoryTableViewCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? MealHistoryTableViewCell
     }
 
+    static func notificationSettingsCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> NotificationSettingsCell? {
+      return R.nib.notificationSettingsCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? NotificationSettingsCell
+    }
+
+    static func performanceChartDotView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+      return R.nib.performanceChartDotView.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+    }
+
     static func ratingView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
       return R.nib.ratingView.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
     }
@@ -601,7 +694,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.reuseIdentifier` struct is generated, and contains static references to 6 reuse identifiers.
+  /// This `R.reuseIdentifier` struct is generated, and contains static references to 7 reuse identifiers.
   struct reuseIdentifier {
     /// Reuse identifier `DateHeader`.
     static let dateHeader: Rswift.ReuseIdentifier<DateHeader> = Rswift.ReuseIdentifier(identifier: "DateHeader")
@@ -609,6 +702,8 @@ struct R: Rswift.Validatable {
     static let lineChartTableViewCell: Rswift.ReuseIdentifier<LineChartTableViewCell> = Rswift.ReuseIdentifier(identifier: "LineChartTableViewCell")
     /// Reuse identifier `MealHistoryTableViewCell`.
     static let mealHistoryTableViewCell: Rswift.ReuseIdentifier<MealHistoryTableViewCell> = Rswift.ReuseIdentifier(identifier: "MealHistoryTableViewCell")
+    /// Reuse identifier `NotificationSettingsCell`.
+    static let notificationSettingsCell: Rswift.ReuseIdentifier<NotificationSettingsCell> = Rswift.ReuseIdentifier(identifier: "NotificationSettingsCell")
     /// Reuse identifier `PerformanceChart`.
     static let performanceChart: Rswift.ReuseIdentifier<My_Way.PerformanceChartCollectionViewCell> = Rswift.ReuseIdentifier(identifier: "PerformanceChart")
     /// Reuse identifier `cellId`.
@@ -716,6 +811,31 @@ struct _R: Rswift.Validatable {
       fileprivate init() {}
     }
 
+    struct _NotificationSettingsCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType {
+      typealias ReusableType = NotificationSettingsCell
+
+      let bundle = R.hostingBundle
+      let identifier = "NotificationSettingsCell"
+      let name = "NotificationSettingsCell"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> NotificationSettingsCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? NotificationSettingsCell
+      }
+
+      fileprivate init() {}
+    }
+
+    struct _PerformanceChartDotView: Rswift.NibResourceType {
+      let bundle = R.hostingBundle
+      let name = "PerformanceChartDotView"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+      }
+
+      fileprivate init() {}
+    }
+
     struct _RatingView: Rswift.NibResourceType {
       let bundle = R.hostingBundle
       let name = "RatingView"
@@ -784,29 +904,7 @@ struct _R: Rswift.Validatable {
       #if os(iOS) || os(tvOS)
       try settings.validate()
       #endif
-      #if os(iOS) || os(tvOS)
-      try aboutApp.validate()
-      #endif
     }
-
-    #if os(iOS) || os(tvOS)
-    struct aboutApp: Rswift.StoryboardResourceType, Rswift.Validatable {
-      let bundle = R.hostingBundle
-      let name = "aboutApp"
-
-      static func validate() throws {
-        if UIKit.UIImage(named: "tutorialDiário", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'tutorialDiário' is used in storyboard 'aboutApp', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "tutorialHome", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'tutorialHome' is used in storyboard 'aboutApp', but couldn't be loaded.") }
-        if #available(iOS 11.0, tvOS 11.0, *) {
-          if UIKit.UIColor(named: "CellColor", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'CellColor' is used in storyboard 'aboutApp', but couldn't be loaded.") }
-          if UIKit.UIColor(named: "PrimaryTextColor", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'PrimaryTextColor' is used in storyboard 'aboutApp', but couldn't be loaded.") }
-          if UIKit.UIColor(named: "SecundaryTextColor", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'SecundaryTextColor' is used in storyboard 'aboutApp', but couldn't be loaded.") }
-        }
-      }
-
-      fileprivate init() {}
-    }
-    #endif
 
     #if os(iOS) || os(tvOS)
     struct calendar: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
@@ -824,6 +922,8 @@ struct _R: Rswift.Validatable {
         if UIKit.UIImage(named: "book", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'book' is used in storyboard 'Calendar', but couldn't be loaded.") }
         if UIKit.UIImage(named: "book.fill", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'book.fill' is used in storyboard 'Calendar', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
+          if UIKit.UIColor(named: "BadColor", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'BadColor' is used in storyboard 'Calendar', but couldn't be loaded.") }
+          if UIKit.UIColor(named: "SecundaryTextColor", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'SecundaryTextColor' is used in storyboard 'Calendar', but couldn't be loaded.") }
           if UIKit.UIColor(named: "rateRedColor", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'rateRedColor' is used in storyboard 'Calendar', but couldn't be loaded.") }
         }
         if _R.storyboard.calendar().calendarStoryboard() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'calendarStoryboard' could not be loaded from storyboard 'Calendar' as 'CalendarViewController'.") }
@@ -949,7 +1049,11 @@ struct _R: Rswift.Validatable {
 
       static func validate() throws {
         if UIKit.UIImage(named: "ellipsis", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ellipsis' is used in storyboard 'Settings', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "habitCycle", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'habitCycle' is used in storyboard 'Settings', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "tutorial2", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'tutorial2' is used in storyboard 'Settings', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
+          if UIKit.UIColor(named: "CellColor", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'CellColor' is used in storyboard 'Settings', but couldn't be loaded.") }
+          if UIKit.UIColor(named: "PrimaryTextColor", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'PrimaryTextColor' is used in storyboard 'Settings', but couldn't be loaded.") }
         }
       }
 

@@ -229,6 +229,13 @@ enum SettingsCells {
         switch self {
         case .notificationSettings:
             return R.segue.settingsViewController.toNotificationSettings.identifier
+            
+        case .howToUse:
+            return R.segue.settingsViewController.toHowToUse.identifier
+            
+        case .about:
+            return R.segue.settingsViewController.toCredits.identifier
+            
         default:
             return nil
         }
