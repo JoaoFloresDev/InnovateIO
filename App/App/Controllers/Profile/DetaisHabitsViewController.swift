@@ -71,6 +71,8 @@ class DetaisHabitsViewController: UIViewController, UITableViewDelegate,  UITabl
         super.viewWillDisappear(animated)
         if let presenter = self.presentingViewController?.children[0] as? ProfileViewController {
             presenter.setupGraphic()
+            presenter.setupDataProfile()
+            presenter.updateHeaderInformations()
         }
     }
     

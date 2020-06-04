@@ -21,7 +21,8 @@ class DetailsWeightViewController: UIViewController, UITableViewDelegate,  UITab
     let tagViewInsertWeigh = 100
     
     //    MARK: - Variables
-    let integerPickerData = (30...150).map { String($0) }
+    var defaults = UserDefaults.standard
+    let integerPickerData = (30...120).map { String($0) }
     var decimalPickerData = (0...9).map { String($0) }
     var weightDates = [String]()
     var weightValues = [Float]()
@@ -59,9 +60,16 @@ class DetailsWeightViewController: UIViewController, UITableViewDelegate,  UITab
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        updateDataProfile()
         if let presenter = self.presentingViewController?.children[0] as? ProfileViewController {
             presenter.setupGraphic()
+            presenter.setupDataProfile()
         }
+    }
+    
+    func updateDataProfile() {
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "updateDataProfile"),
+                                        object: nil, userInfo: nil)
     }
     
     //    MARK: - TableView
@@ -144,18 +152,18 @@ class DetailsWeightViewController: UIViewController, UITableViewDelegate,  UITab
     }
     
     func convertStringToDate(dateString: String) -> Date? {
-        let fullNameArr = dateString.components(separatedBy: "/")
         let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy/MM/dd"
-        let someDateTime = formatter.date(from: fullNameArr[2]+"/"+fullNameArr[1]+"/"+fullNameArr[0])
-        return someDateTime
+        formatter.dateFormat = "dd/MM/yyyy"
+        let date = formatter.date(from: dateString)
+        return date
     }
     
     func insertNewWeight(value: Float, date: Date?) {
         do {
             let dataHandler = try DataHandler.getShared()
             try dataHandler.createWeight(value: value, date: date)
-            
+        
+            checkInCurrentDay(date: date!)
             alertInsert(success: true)
         }
         catch DateError.calendarNotFound {
@@ -172,11 +180,22 @@ class DetailsWeightViewController: UIViewController, UITableViewDelegate,  UITab
         }
     }
     
+    func checkInCurrentDay(date: Date) {
+        let currentDate = Date()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd/MM/yyyy"
+        let result = formatter.string(from: date)
+        let result2 = formatter.string(from: currentDate)
+        if(result == result2) {
+            defaults.set (weightTextField.text, forKey: "Weight")
+        }
+    }
     func deleteValue(_ indexPath: IndexPath) {
         insertNewWeight(value: 00.00, date: convertStringToDate(dateString: dataCells[dataCells.count - 1 - indexPath.row].date))
         loadData()
         detailsTableview.reloadData()
     }
+    
 //    MARK: - UI Insert Weight
     func showCellInsert() {
         let filteredConstraints = viewInsertWeight.constraints.filter { $0.identifier == constraintViewInsertIdentifier }
