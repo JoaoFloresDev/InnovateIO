@@ -9,7 +9,7 @@
 import UIKit
 import os.log
 
-class DetaisHabitsViewController: UIViewController, UITableViewDelegate,  UITableViewDataSource, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
+class DetaisweightViewController: UIViewController, UITableViewDelegate,  UITableViewDataSource, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
 
     //    MARK: - Constants
     let constraintViewInsertIdentifier = "Height"
@@ -27,7 +27,7 @@ class DetaisHabitsViewController: UIViewController, UITableViewDelegate,  UITabl
     let pickerData = ["✗", "✓"]
     
     var habitsDates = [String]()
-    var HabitsValues = [Int]()
+    var weightValues = [Int]()
     var dataCells = [DataCell]()
     
     struct DataCell {
@@ -45,10 +45,10 @@ class DetaisHabitsViewController: UIViewController, UITableViewDelegate,  UITabl
     @IBOutlet weak var waterLabel: UILabel!
     @IBOutlet weak var fruitsLabel: UILabel!
     
-    @IBOutlet weak var HabitsDateLabel: UILabel!
+    @IBOutlet weak var weightDateLabel: UILabel!
     
-    @IBOutlet weak var viewInsertHabits: UIView!
-    @IBOutlet weak var cellViewInsertHabits: UIView!
+    @IBOutlet weak var viewInsertweight: UIView!
+    @IBOutlet weak var cellViewInsertweight: UIView!
     
     //    MARK: - IBOutlet
     @IBAction func closeView(_ sender: Any) {
@@ -145,10 +145,10 @@ class DetaisHabitsViewController: UIViewController, UITableViewDelegate,  UITabl
             }
             
             habitsDates = datesArray
-            HabitsValues = numbersArray[0]
+            weightValues = numbersArray[0]
             
             dataCells.removeAll()
-            for i in 0...HabitsValues.count - 1 {
+            for i in 0...weightValues.count - 1 {
                 let dataCell = DataCell(water: numbersArray[0][i], fruits: numbersArray[1][i], exercise: numbersArray[2][i], date: habitsDates[i])
                 dataCells.append(dataCell)
             }
@@ -181,8 +181,8 @@ class DetaisHabitsViewController: UIViewController, UITableViewDelegate,  UITabl
             alertInsert(titleAlert: "Erro", messageAlert: "Couldn't save into local storage due to low memory!")
         }
         catch {
-            os_log("[ERROR] Unknown error occurred while registering the Habits inside local storage!")
-            alertInsert(titleAlert: "Erro", messageAlert: "Unknown error occurred while registering the Habits inside local storage!")
+            os_log("[ERROR] Unknown error occurred while registering the weight inside local storage!")
+            alertInsert(titleAlert: "Erro", messageAlert: "Unknown error occurred while registering the weight inside local storage!")
         }
     }
     
@@ -194,7 +194,7 @@ class DetaisHabitsViewController: UIViewController, UITableViewDelegate,  UITabl
     
 //    MARK: - UI Insert Weight
     func showCellInsert() {
-        let filteredConstraints = viewInsertHabits.constraints.filter { $0.identifier == constraintViewInsertIdentifier }
+        let filteredConstraints = viewInsertweight.constraints.filter { $0.identifier == constraintViewInsertIdentifier }
         if let yourConstraint = filteredConstraints.first {
             UIView.animate(withDuration: timeAnimation) {
                 yourConstraint.constant = self.viewInsertWeightHeight
@@ -205,7 +205,7 @@ class DetaisHabitsViewController: UIViewController, UITableViewDelegate,  UITabl
     }
     
     func hideCellInsertWeight() {
-        let filteredConstraints = viewInsertHabits.constraints.filter { $0.identifier == constraintViewInsertIdentifier }
+        let filteredConstraints = viewInsertweight.constraints.filter { $0.identifier == constraintViewInsertIdentifier }
         if let yourConstraint = filteredConstraints.first {
             UIView.animate(withDuration: 0.5) {
                 yourConstraint.constant = 0
@@ -227,9 +227,9 @@ class DetaisHabitsViewController: UIViewController, UITableViewDelegate,  UITabl
         
         selectInitialRowPickerView(pickerInsertWeight)
         hideCellInsertWeight()
-        cellViewInsertHabits.layer.cornerRadius = cornerRadiusViews
+        cellViewInsertweight.layer.cornerRadius = cornerRadiusViews
         
-        HabitsDateLabel.text = habitsDates.last
+        weightDateLabel.text = habitsDates.last
         exerciseTextField.text = pickerData[1]
         waterLabel.text = pickerData[1]
         fruitsLabel.text = pickerData[1]
@@ -246,7 +246,7 @@ class DetaisHabitsViewController: UIViewController, UITableViewDelegate,  UITabl
         let waterValue = self.waterLabel.text == "✗" ? false : true
         let fruitsValue = self.fruitsLabel.text == "✗" ? false : true
         
-        insertNewWeight(waterValue: waterValue, fruitsValue: fruitsValue, exerciseValue: exerciseValue, date: convertStringToDate(dateString: HabitsDateLabel.text!))
+        insertNewWeight(waterValue: waterValue, fruitsValue: fruitsValue, exerciseValue: exerciseValue, date: convertStringToDate(dateString: weightDateLabel.text!))
         loadData()
         detailsTableview.reloadData()
     }
@@ -319,7 +319,7 @@ class DetaisHabitsViewController: UIViewController, UITableViewDelegate,  UITabl
         waterLabel.text = pickerData[rowWater]
         fruitsLabel.text = pickerData[rowFruits]
         
-        HabitsDateLabel.text = habitsDates[rowDate]
+        weightDateLabel.text = habitsDates[rowDate]
     }
     
     func pickerView(_ pickerView: UIPickerView, widthForComponent component: Int) -> CGFloat {

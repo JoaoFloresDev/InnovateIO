@@ -960,10 +960,16 @@ struct _R: Rswift.Validatable {
 
       let bundle = R.hostingBundle
       let name = "Main"
+      let tutorial = StoryboardViewControllerResource<TutorialViewController>(identifier: "Tutorial")
+
+      func tutorial(_: Void = ()) -> TutorialViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: tutorial)
+      }
 
       static func validate() throws {
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
+        if _R.storyboard.main().tutorial() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'tutorial' could not be loaded from storyboard 'Main' as 'TutorialViewController'.") }
       }
 
       fileprivate init() {}
