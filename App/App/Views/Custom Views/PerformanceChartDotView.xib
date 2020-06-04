@@ -19,7 +19,7 @@
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="R" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7By-1R-cWD">
                     <rect key="frame" x="0.0" y="0.0" width="18" height="18"/>
-                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                     <color key="textColor" name="CellColor"/>
                     <nil key="highlightedColor"/>
                 </label>
