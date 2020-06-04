@@ -21,7 +21,8 @@ class MealHistoryViewController: UIViewController {
     var meals: [Date : [Meal]] = [:]
     var dateSelected: Date = Date()
     var mealSelected: Meal?
-    
+
+// MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -41,6 +42,7 @@ class MealHistoryViewController: UIViewController {
         fetchMeals()
     }
     
+// MARK: - Methods
     func fetchMeals() {
         for date in receivedDates {
             do {
@@ -93,7 +95,8 @@ class MealHistoryViewController: UIViewController {
         }
     }
 }
-// MARK: - TABLE VIEW DATA SOURCE AND DELEGATE
+
+// MARK: - Table View Data Source and Delegate
 extension MealHistoryViewController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return receivedDates.count
@@ -194,7 +197,8 @@ extension MealHistoryViewController: UITableViewDelegate, UITableViewDataSource 
         self.performSegue(withIdentifier: R.segue.mealHistoryViewController.toRegisterMeal.identifier, sender: nil)
     }
 }
-// MARK: - MEAL HISTORY HEADER DELEGATE
+
+// MARK: - Meal History Header Delegate
 extension MealHistoryViewController: MealHistoryHeaderDelegate {
     func plusButtonTapped(date: Date) {
         self.dateSelected = date

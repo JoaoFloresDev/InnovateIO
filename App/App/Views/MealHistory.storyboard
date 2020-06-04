@@ -119,11 +119,22 @@
                     <connections>
                         <outlet property="datePicker" destination="hUD-pG-dXr" id="1V7-aA-TkC"/>
                         <outlet property="registerMealView" destination="e5J-mQ-4Bh" id="dRC-EW-uA8"/>
+                        <segue destination="Erh-ba-bNs" kind="show" identifier="toAboutMeal" id="tjP-BW-MDf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qcb-fB-UyJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1957.9710144927537" y="77.678571428571431"/>
+        </scene>
+        <!--aboutMeal-->
+        <scene sceneID="h2U-ec-Idz">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Settings" referencedIdentifier="aboutMeal" id="Erh-ba-bNs" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="dOb-U5-mxx"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="syo-Na-zuz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2668" y="78"/>
         </scene>
     </scenes>
 </document>
