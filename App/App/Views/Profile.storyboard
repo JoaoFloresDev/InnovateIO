@@ -484,7 +484,6 @@
                         <outlet property="profileImg" destination="51c-Nd-FVz" id="p5U-2E-0Qt"/>
                         <outlet property="profileImgView" destination="QlN-vL-966" id="g1T-xo-cJ0"/>
                         <outlet property="resumeView" destination="Zk5-eQ-b1Z" id="mfJ-rA-SPn"/>
-                        <outlet property="scrollContentView" destination="HwW-Kd-p1E" id="xK1-Lp-Dfm"/>
                         <outlet property="waterPercentLabel" destination="Shn-pM-OMe" id="4yB-54-qyo"/>
                         <outlet property="weightGraphicLineView" destination="0o3-y8-bnL" id="H5V-th-kk2"/>
                         <outlet property="weightGraphicView" destination="NYm-tv-6ut" id="1Uq-4Y-g5c"/>

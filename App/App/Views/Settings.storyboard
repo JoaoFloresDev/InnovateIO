@@ -37,11 +37,189 @@
                         <segue destination="eaF-bL-eQW" kind="show" identifier="toNotificationSettings" id="E4v-Kb-dtE"/>
                         <segue destination="GJY-cr-iYC" kind="show" identifier="toCredits" id="Of4-3K-iGb"/>
                         <segue destination="OJj-el-TSh" kind="show" identifier="toHowToUse" id="mjm-9E-YZ6"/>
+                        <segue destination="6si-o3-Rau" kind="show" identifier="toMealHistory" id="X0o-BI-gIi"/>
+                        <segue destination="KF1-mV-qok" kind="show" identifier="toAboutMeal" id="cdc-Cm-8oa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8a8-GM-4Lo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1139.1304347826087" y="118.52678571428571"/>
+        </scene>
+        <!--MealHistory-->
+        <scene sceneID="ZFt-fV-y1C">
+            <objects>
+                <viewControllerPlaceholder storyboardName="MealHistory" id="6si-o3-Rau" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="rqD-Mw-Qy5"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Md7-F9-XYy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1791" y="240"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="ste-Cl-rs4">
+            <objects>
+                <viewController storyboardIdentifier="aboutMeal" id="KF1-mV-qok" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hRY-gC-cDI">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AcK-8P-MH6">
+                                <rect key="frame" x="0.0" y="88" width="414" height="60"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="O que é uma alimentação:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9uV-0d-N2P">
+                                        <rect key="frame" x="66.5" y="15.5" width="281.5" height="29"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="9uV-0d-N2P" firstAttribute="centerY" secondItem="AcK-8P-MH6" secondAttribute="centerY" id="VkC-QE-joL"/>
+                                    <constraint firstAttribute="height" constant="60" id="bGw-Tb-tUe"/>
+                                    <constraint firstItem="9uV-0d-N2P" firstAttribute="centerX" secondItem="AcK-8P-MH6" secondAttribute="centerX" id="esB-Um-FkX"/>
+                                </constraints>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="a28-7z-3St">
+                                <rect key="frame" x="8" y="148" width="398" height="657"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2eL-KY-mMb" customClass="RoundedView" customModule="My_Way" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="398" height="213.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Boa:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EQF-dO-ePn">
+                                                <rect key="frame" x="8" y="8" width="49.5" height="29"/>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
+                                                <color key="textColor" name="GoodColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="4YC-6u-CQD">
+                                                <rect key="frame" x="8" y="45" width="382" height="160.5"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <string key="text">Uma alimentação variada, como por exemplo arroz e feijão acompanhados de legumes e vegetais folhosos. Para lanches, comer frutas ao invés de biscoitos, bolos e salgadinhos.</string>
+                                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <constraints>
+                                            <constraint firstItem="EQF-dO-ePn" firstAttribute="leading" secondItem="2eL-KY-mMb" secondAttribute="leading" constant="8" id="QPK-6a-23E"/>
+                                            <constraint firstItem="4YC-6u-CQD" firstAttribute="top" secondItem="EQF-dO-ePn" secondAttribute="bottom" constant="8" id="RwS-zQ-82S"/>
+                                            <constraint firstAttribute="bottom" secondItem="4YC-6u-CQD" secondAttribute="bottom" constant="8" id="Trc-xp-hZF"/>
+                                            <constraint firstItem="EQF-dO-ePn" firstAttribute="top" secondItem="2eL-KY-mMb" secondAttribute="top" constant="8" id="VAG-ER-cPJ"/>
+                                            <constraint firstAttribute="trailing" secondItem="4YC-6u-CQD" secondAttribute="trailing" constant="8" id="b74-Vq-yyc"/>
+                                            <constraint firstItem="4YC-6u-CQD" firstAttribute="leading" secondItem="2eL-KY-mMb" secondAttribute="leading" constant="8" id="lGs-i7-lbS"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="8"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" name="GoodColor"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="3"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rDO-wv-hEU" customClass="RoundedView" customModule="My_Way" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="221.5" width="398" height="214"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Média:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="44d-h9-ijp">
+                                                <rect key="frame" x="8" y="8" width="74.5" height="29"/>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
+                                                <color key="textColor" name="MediumColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Um meio-termo entre a boa e a má alimentação, como por exemplo uma refeição contendo legumes e alimentos ultraprocessados." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="UUE-ga-5yy">
+                                                <rect key="frame" x="8" y="45" width="382" height="161"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <constraints>
+                                            <constraint firstItem="44d-h9-ijp" firstAttribute="leading" secondItem="rDO-wv-hEU" secondAttribute="leading" constant="8" id="G0j-bd-EEA"/>
+                                            <constraint firstItem="UUE-ga-5yy" firstAttribute="top" secondItem="44d-h9-ijp" secondAttribute="bottom" constant="8" id="HnT-G3-fO2"/>
+                                            <constraint firstAttribute="bottom" secondItem="UUE-ga-5yy" secondAttribute="bottom" constant="8" id="I2r-zz-BXa"/>
+                                            <constraint firstItem="UUE-ga-5yy" firstAttribute="leading" secondItem="rDO-wv-hEU" secondAttribute="leading" constant="8" id="q7J-EN-XGX"/>
+                                            <constraint firstAttribute="trailing" secondItem="UUE-ga-5yy" secondAttribute="trailing" constant="8" id="qW6-0j-5vj"/>
+                                            <constraint firstItem="44d-h9-ijp" firstAttribute="top" secondItem="rDO-wv-hEU" secondAttribute="top" constant="8" id="v1y-Ax-R6h"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="8"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" name="MediumColor"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="3"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cRR-8t-vYx" customClass="RoundedView" customModule="My_Way" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="443.5" width="398" height="213.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ruim:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jQb-1c-5fB">
+                                                <rect key="frame" x="8" y="8" width="62.5" height="29"/>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
+                                                <color key="textColor" name="BadColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="252-8l-4d9">
+                                                <rect key="frame" x="8" y="45" width="382" height="160.5"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <string key="text">Alimentos ultraprocessados (salsicha, linguiça, refrigerantes, comida pronta industrializada, etc) são altamente calóricos porém pobres em nutrientes. Alimentos com muito sal ou muito açúcar também devem ser evitados.</string>
+                                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <constraints>
+                                            <constraint firstItem="252-8l-4d9" firstAttribute="leading" secondItem="cRR-8t-vYx" secondAttribute="leading" constant="8" id="9Rn-Kc-rep"/>
+                                            <constraint firstAttribute="trailing" secondItem="252-8l-4d9" secondAttribute="trailing" constant="8" id="BCz-BV-FtT"/>
+                                            <constraint firstItem="252-8l-4d9" firstAttribute="top" secondItem="jQb-1c-5fB" secondAttribute="bottom" constant="8" id="PtT-Gj-UX9"/>
+                                            <constraint firstItem="jQb-1c-5fB" firstAttribute="top" secondItem="cRR-8t-vYx" secondAttribute="top" constant="8" id="hs3-DF-t0Q"/>
+                                            <constraint firstAttribute="bottom" secondItem="252-8l-4d9" secondAttribute="bottom" constant="8" id="mjd-bx-n6D"/>
+                                            <constraint firstItem="jQb-1c-5fB" firstAttribute="leading" secondItem="cRR-8t-vYx" secondAttribute="leading" constant="8" id="rD8-5Y-3Z5"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="8"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" name="BadColor"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="3"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" name="BackgrondColor"/>
+                        <constraints>
+                            <constraint firstItem="cBX-7p-syA" firstAttribute="trailing" secondItem="AcK-8P-MH6" secondAttribute="trailing" id="EAo-Jt-Yhe"/>
+                            <constraint firstItem="a28-7z-3St" firstAttribute="leading" secondItem="cBX-7p-syA" secondAttribute="leading" constant="8" id="G90-Qh-goz"/>
+                            <constraint firstItem="a28-7z-3St" firstAttribute="top" secondItem="AcK-8P-MH6" secondAttribute="bottom" id="VnY-8r-zbn"/>
+                            <constraint firstItem="cBX-7p-syA" firstAttribute="trailing" secondItem="a28-7z-3St" secondAttribute="trailing" constant="8" id="bNT-Yd-glQ"/>
+                            <constraint firstItem="AcK-8P-MH6" firstAttribute="leading" secondItem="cBX-7p-syA" secondAttribute="leading" id="exR-IH-afc"/>
+                            <constraint firstItem="cBX-7p-syA" firstAttribute="bottom" secondItem="a28-7z-3St" secondAttribute="bottom" constant="8" id="o4B-zm-cRC"/>
+                            <constraint firstItem="AcK-8P-MH6" firstAttribute="top" secondItem="cBX-7p-syA" secondAttribute="top" id="zK9-ch-yeR"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="cBX-7p-syA"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="tem-Sx-3gp"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="S63-pd-GyY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1137.68115942029" y="1098.8839285714284"/>
         </scene>
         <!--Ajustes-->
         <scene sceneID="Lbo-jI-BbC">
@@ -434,6 +612,15 @@
         <image name="tutorial 6" width="660" height="1490"/>
         <namedColor name="BackgrondColor">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="BadColor">
+            <color red="0.8901960784313725" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="GoodColor">
+            <color red="0.0" green="0.82745098039215681" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="MediumColor">
+            <color red="0.95686274509803926" green="0.73333333333333328" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="PrimaryTextColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
