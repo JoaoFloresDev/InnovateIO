@@ -125,8 +125,11 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
         
         do {
             let plotter = try PlotGraphicClass()
-            
-            plotter.plotGraphicHorizontalBars (view: meatsGraphicBarsView, greenPercent: 0.5, yellowPercent: 0.3 )
+            for view in meatsGraphicBarsView.subviews {
+                view.removeFromSuperview()
+            }
+            let (redPercentage, yellowPercentage) = try plotter.loadHabitsAsPercentage()
+            plotter.plotGraphicHorizontalBars (view: meatsGraphicBarsView, redPercent: redPercentage, yellowPercent: yellowPercentage )
             
             let months = plotter.getMonths()
             

@@ -16,6 +16,7 @@ import Foundation
 	var color:UIColor?{
 		didSet{
 			self.backgroundColor = color
+			self.contentView?.backgroundColor = color
 		}
 	}
 	
@@ -42,6 +43,13 @@ import Foundation
 	required init?(coder aDecoder: NSCoder) {
 		super.init(coder: aDecoder)
 		xibSetup()
+	}
+	
+	func activate(){
+		self.alpha = 1
+	}
+	func deactivate(){
+		self.alpha = 0
 	}
 	
 	func xibSetup() {

@@ -10,7 +10,7 @@ import UIKit
 import os.log
 import NumericPicker
 
-class EditDataViewController: ViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextViewDelegate {
+class EditDataViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextViewDelegate {
     
     
     //MARK: - Variables
@@ -99,8 +99,6 @@ class EditDataViewController: ViewController, UIPickerViewDelegate, UIPickerView
                                         object: nil, userInfo: nil)
     }
     
-//    var baseConstraint = plainingTextView.constraints.filter { $0.identifier == "Bottom" }
-    
     //    MARK: - Conversion
     func convertWeightStringToFloat() -> Float {
         let valueArray = self.weightTextField.text!.split(separator: ",")
@@ -134,9 +132,10 @@ class EditDataViewController: ViewController, UIPickerViewDelegate, UIPickerView
         defaults.set (plainingTextView.text, forKey: "Plain")
         
         // Saving the Weight
-        defaults.set (weightTextField.text, forKey: "Weight")
-        
         if self.weightTextField.text != nil && !self.weightTextField.text!.isEmpty {
+            
+            let weightData = weightTextField.text!.replacingOccurrences(of: " Kg", with: "")
+            defaults.set (weightData, forKey: "Weight")
             
             let convertedValue = convertWeightStringToFloat ()
             
@@ -163,7 +162,6 @@ class EditDataViewController: ViewController, UIPickerViewDelegate, UIPickerView
     //    MARK: - Style
     func setupStyle() {
         plainingTextView.layer.cornerRadius = 10
-        
         plainingTextView.layer.borderWidth = 1.0
         plainingTextView.layer.borderColor = UIColorFromRGB(rgbValue: 0xCDCDCD).cgColor
     }
@@ -253,7 +251,7 @@ class EditDataViewController: ViewController, UIPickerViewDelegate, UIPickerView
         let rowInteger = pickerView.selectedRow(inComponent: 0)
         let rowDecimal = pickerView.selectedRow(inComponent: 2)
         
-        weightTextField.text = integerPickerData[rowInteger] + "," + decimalPickerData2[rowDecimal]
+        weightTextField.text = integerPickerData[rowInteger] + "," + decimalPickerData2[rowDecimal] + " Kg"
     }
     
     func pickerView(_ pickerView: UIPickerView, widthForComponent component: Int) -> CGFloat {
