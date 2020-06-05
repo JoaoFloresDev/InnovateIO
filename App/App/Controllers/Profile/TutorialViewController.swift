@@ -33,12 +33,16 @@ class TutorialViewController: UIViewController, UIScrollViewDelegate {
         let imgFour = UIImageView(frame: CGRect(x:scrollViewWidth*3, y:0,width:scrollViewWidth, height:scrollViewHeight))
         imgFour.image = UIImage(named: "Slide 4")
         
+        let imgFive = UIImageView(frame: CGRect(x:scrollViewWidth*4, y:0,width:scrollViewWidth, height:scrollViewHeight))
+        imgFive.image = UIImage(named: "Slide 5")
+        
         self.scrollView.addSubview(imgOne)
         self.scrollView.addSubview(imgTwo)
         self.scrollView.addSubview(imgThree)
         self.scrollView.addSubview(imgFour)
-        //4
-        self.scrollView.contentSize = CGSize(width:self.scrollView.frame.width * 4, height:self.scrollView.frame.height)
+        self.scrollView.addSubview(imgFive)
+        
+        self.scrollView.contentSize = CGSize(width:self.scrollView.frame.width * 5, height:self.scrollView.frame.height)
         self.scrollView.delegate = self
         self.pageControl.currentPage = 0
         
@@ -58,10 +62,17 @@ class TutorialViewController: UIViewController, UIScrollViewDelegate {
         }
     }
     
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        let pageNumber = round(scrollView.contentOffset.x / scrollView.frame.size.width)
+        pageControl.currentPage = Int(pageNumber)
+    }
+    
+    
+    
     @objc func moveToNextPage (){
             
     let pageWidth:CGFloat = self.scrollView.frame.width
-    let maxWidth:CGFloat = pageWidth * 4
+    let maxWidth:CGFloat = pageWidth * 5
     let contentOffset:CGFloat = self.scrollView.contentOffset.x
             
     var slideToX = contentOffset + pageWidth
