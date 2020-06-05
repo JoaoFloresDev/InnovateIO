@@ -65,16 +65,6 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
         
         do {
             self.dataHandler = try DataHandler.getShared()
-            
-            #if DEBUG
-            
-            // TODO: Remover esse DEBUG daqui depois
-            let diary = try self.dataHandler?.loadDailyDiary(year: 2020, month: 6, day: 5)
-            
-            let networkHandler = try NetworkHandler.getShared()
-            networkHandler.createDiary(diary: diary!)
-            
-            #endif
         }
         catch {
             os_log("[ERROR] The App wasn't fully initialized yet for managing data!")

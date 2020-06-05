@@ -13,7 +13,10 @@ import os.log
 
 extension NetworkHandler {
     
-    func createDiary(diary: DailyDiary) {
+    
+    /// Creates a new Diary registry into iCloud.
+    /// - Parameter diary: A diary instance with the date and it's attributes.
+    func createDiary(diary: DailyDiary) throws {
         
         // Converting all values into Int with length of 64 bits
         let day: Int64 = Int64(diary.day)
@@ -70,33 +73,43 @@ extension NetworkHandler {
         
         
         // Trying to save finally the data into the cloud...
-        self.container.privateCloudDatabase.save(record) { (savedRecord, error) in
+        let semaphore = DispatchSemaphore(value: 0)
+        var isRecordSaved = false
+        
+        self.container.privateCloudDatabase.save(record) { (_, error) in
             
             if error == nil {
-                
-                print("[DEBUG] Record Saved")
-                
-            } else {
-                
-                print("[DEBUG] Record Not Saved")
-                
+                isRecordSaved = true
             }
             
+            semaphore.signal()
+            
+        }
+        
+        semaphore.wait()
+        
+        if isRecordSaved == false {
+            throw NetworkError.invalidParametersPassedIntoServer
         }
         
     }
     
     
     
+    
+    /// Checks if exists a previous entry data of a certain diary registry.
+    /// - Parameter diary: A diary instance with the date and it's attributes.
+    /// - Returns: A tuple saying if exists a previous data and the data itself as a list.
     private func existsPreviousDiary(diary: DailyDiary) -> (Bool, [CKRecord.ID]) {
         
         var isDiaryFound = false
         var ids: [CKRecord.ID] = []
+        let semaphore = DispatchSemaphore(value: 0)
         
         // Mounting the type of request
-        let yearPredicate = NSPredicate(format: "year == %@", String(diary.year))
-        let monthPredicate = NSPredicate(format: "month == %@", String(diary.month))
-        let dayPredicate = NSPredicate(format: "day == %@", String(diary.day))
+        let yearPredicate = NSPredicate(format: "year == \(Int64(diary.year))")
+        let monthPredicate = NSPredicate(format: "month == \(Int64(diary.month))")
+        let dayPredicate = NSPredicate(format: "day == \(Int64(diary.day))")
         
         let predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [yearPredicate, monthPredicate, dayPredicate])
         
@@ -104,6 +117,7 @@ extension NetworkHandler {
         
         
         // Searching for previous data in the database
+        // WARNING! This is an async function... So we must use a semaphore...
         self.container.privateCloudDatabase.perform(query, inZoneWith: nil, completionHandler: {
             results, error in
             
@@ -124,17 +138,33 @@ extension NetworkHandler {
                 }
             }
             
+            semaphore.signal()
+            
+            
         })
         
-        
+        semaphore.wait()
         return (isDiaryFound, ids)
         
     }
     
     
     
+    
+    /// Deletes some previous diary entry by passing it's ID.
+    /// - Parameter id: The id of the diary in iCloud.
     private func deletePreviousDiary(id: CKRecord.ID) {
-        self.container.privateCloudDatabase.delete(withRecordID: id, completionHandler: { _, _ in })
+        
+        let semaphore = DispatchSemaphore(value: 0)
+        
+        // Trying to delete previous data...
+        // WARNING! This is an async function... So we must use a semaphore...
+        self.container.privateCloudDatabase.delete(withRecordID: id, completionHandler: {
+            _, _ in
+            semaphore.signal()
+        })
+        
+        semaphore.wait()
     }
     
 }
