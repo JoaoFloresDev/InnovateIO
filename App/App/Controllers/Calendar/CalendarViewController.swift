@@ -157,6 +157,7 @@ extension CalendarViewController: JTACMonthViewDelegate {
 				if daily != nil {
 					let quality = Rating(rawValue: Int(daily!.quality))
 					cell.circle.backgroundColor = quality?.color
+                    cell.dateLabel.textColor = .white
 				}
 				
 			}
