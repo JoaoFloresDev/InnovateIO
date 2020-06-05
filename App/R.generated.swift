@@ -89,8 +89,25 @@ struct R: Rswift.Validatable {
   }
 
   #if os(iOS) || os(tvOS)
-  /// This `R.segue` struct is generated, and contains static references to 6 view controllers.
+  /// This `R.segue` struct is generated, and contains static references to 7 view controllers.
   struct segue {
+    /// This struct is generated for `AddDatedMealViewController`, and contains static references to 1 segues.
+    struct addDatedMealViewController {
+      /// Segue identifier `toAboutMeal`.
+      static let toAboutMeal: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, AddDatedMealViewController, UIKit.UIViewController> = Rswift.StoryboardSegueIdentifier(identifier: "toAboutMeal")
+
+      #if os(iOS) || os(tvOS)
+      /// Optionally returns a typed version of segue `toAboutMeal`.
+      /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
+      /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
+      static func toAboutMeal(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, AddDatedMealViewController, UIKit.UIViewController>? {
+        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.addDatedMealViewController.toAboutMeal, segue: segue)
+      }
+      #endif
+
+      fileprivate init() {}
+    }
+
     /// This struct is generated for `CalendarViewController`, and contains static references to 1 segues.
     struct calendarViewController {
       /// Segue identifier `toMealHistory`.
@@ -125,10 +142,21 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
 
-    /// This struct is generated for `MealViewController`, and contains static references to 1 segues.
+    /// This struct is generated for `MealViewController`, and contains static references to 2 segues.
     struct mealViewController {
+      /// Segue identifier `toAboutMeal`.
+      static let toAboutMeal: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, MealViewController, UIKit.UIViewController> = Rswift.StoryboardSegueIdentifier(identifier: "toAboutMeal")
       /// Segue identifier `toNoteModal`.
       static let toNoteModal: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, MealViewController, AddNoteViewController> = Rswift.StoryboardSegueIdentifier(identifier: "toNoteModal")
+
+      #if os(iOS) || os(tvOS)
+      /// Optionally returns a typed version of segue `toAboutMeal`.
+      /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
+      /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
+      static func toAboutMeal(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, MealViewController, UIKit.UIViewController>? {
+        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.mealViewController.toAboutMeal, segue: segue)
+      }
+      #endif
 
       #if os(iOS) || os(tvOS)
       /// Optionally returns a typed version of segue `toNoteModal`.
@@ -176,14 +204,27 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
 
-    /// This struct is generated for `SettingsViewController`, and contains static references to 3 segues.
+    /// This struct is generated for `SettingsViewController`, and contains static references to 5 segues.
     struct settingsViewController {
+      /// Segue identifier `toAboutMeal`.
+      static let toAboutMeal: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, SettingsViewController, UIKit.UIViewController> = Rswift.StoryboardSegueIdentifier(identifier: "toAboutMeal")
       /// Segue identifier `toCredits`.
       static let toCredits: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, SettingsViewController, HowToUseViewController> = Rswift.StoryboardSegueIdentifier(identifier: "toCredits")
       /// Segue identifier `toHowToUse`.
       static let toHowToUse: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, SettingsViewController, HowToUseViewController> = Rswift.StoryboardSegueIdentifier(identifier: "toHowToUse")
+      /// Segue identifier `toMealHistory`.
+      static let toMealHistory: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, SettingsViewController, MealHistoryViewController> = Rswift.StoryboardSegueIdentifier(identifier: "toMealHistory")
       /// Segue identifier `toNotificationSettings`.
       static let toNotificationSettings: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, SettingsViewController, NotificationSettingsViewController> = Rswift.StoryboardSegueIdentifier(identifier: "toNotificationSettings")
+
+      #if os(iOS) || os(tvOS)
+      /// Optionally returns a typed version of segue `toAboutMeal`.
+      /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
+      /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
+      static func toAboutMeal(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, SettingsViewController, UIKit.UIViewController>? {
+        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.settingsViewController.toAboutMeal, segue: segue)
+      }
+      #endif
 
       #if os(iOS) || os(tvOS)
       /// Optionally returns a typed version of segue `toCredits`.
@@ -200,6 +241,15 @@ struct R: Rswift.Validatable {
       /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
       static func toHowToUse(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, SettingsViewController, HowToUseViewController>? {
         return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.settingsViewController.toHowToUse, segue: segue)
+      }
+      #endif
+
+      #if os(iOS) || os(tvOS)
+      /// Optionally returns a typed version of segue `toMealHistory`.
+      /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
+      /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
+      static func toMealHistory(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, SettingsViewController, MealHistoryViewController>? {
+        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.settingsViewController.toMealHistory, segue: segue)
       }
       #endif
 
@@ -411,8 +461,6 @@ struct R: Rswift.Validatable {
     static let apsEnvironment = infoPlistString(path: [], key: "aps-environment") ?? "development"
 
     struct comAppleDeveloperIcloudContainerIdentifiers {
-      static let iCloudInnovate = infoPlistString(path: ["com.apple.developer.icloud-container-identifiers"], key: "iCloud.Innovate") ?? "iCloud.Innovate"
-
       fileprivate init() {}
     }
 
@@ -1123,8 +1171,13 @@ struct _R: Rswift.Validatable {
     struct settings: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
       typealias InitialController = UIKit.UINavigationController
 
+      let aboutMeal = StoryboardViewControllerResource<UIKit.UIViewController>(identifier: "aboutMeal")
       let bundle = R.hostingBundle
       let name = "Settings"
+
+      func aboutMeal(_: Void = ()) -> UIKit.UIViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: aboutMeal)
+      }
 
       static func validate() throws {
         if UIKit.UIImage(named: "gear", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'gear' is used in storyboard 'Settings', but couldn't be loaded.") }
@@ -1137,8 +1190,12 @@ struct _R: Rswift.Validatable {
         if UIKit.UIImage(named: "tutorial 6", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'tutorial 6' is used in storyboard 'Settings', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
           if UIKit.UIColor(named: "BackgrondColor", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'BackgrondColor' is used in storyboard 'Settings', but couldn't be loaded.") }
+          if UIKit.UIColor(named: "BadColor", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'BadColor' is used in storyboard 'Settings', but couldn't be loaded.") }
+          if UIKit.UIColor(named: "GoodColor", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'GoodColor' is used in storyboard 'Settings', but couldn't be loaded.") }
+          if UIKit.UIColor(named: "MediumColor", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'MediumColor' is used in storyboard 'Settings', but couldn't be loaded.") }
           if UIKit.UIColor(named: "PrimaryTextColor", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'PrimaryTextColor' is used in storyboard 'Settings', but couldn't be loaded.") }
         }
+        if _R.storyboard.settings().aboutMeal() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'aboutMeal' could not be loaded from storyboard 'Settings' as 'UIKit.UIViewController'.") }
       }
 
       fileprivate init() {}
