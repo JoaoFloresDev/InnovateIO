@@ -17,6 +17,9 @@ import os.log
 /// - header with general data
 
 class ProfileViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+    
+    @IBOutlet weak var scrollContentView: UIView!
+    
     //    MARK: - IBOutlet
     
     //BackgroundImages
@@ -94,6 +97,22 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
     
     func setUpdateDataProfileNotification() {
         NotificationCenter.default.addObserver(self, selector: #selector(self.updateHeaderInformations), name: NSNotification.Name(rawValue: "updateDataProfile"), object: nil)
+    }
+    
+    // MARK: - Share functions
+    func getScreenshot() -> UIImage? {
+        let renderer = UIGraphicsImageRenderer(size: scrollContentView.bounds.size)
+        let image = renderer.image { ctx in
+            scrollContentView.drawHierarchy(in: scrollContentView.bounds, afterScreenUpdates: true)
+        }
+
+        return image
+    }
+    
+    func shareScreenshot() {
+        let items : [Any] = [getScreenshot()]
+        let ac = UIActivityViewController(activityItems: items, applicationActivities: nil)
+        present(ac, animated: true)
     }
     
     //    MARK: - @objc functions

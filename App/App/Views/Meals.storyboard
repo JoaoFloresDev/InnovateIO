@@ -7,16 +7,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--aboutMeal-->
-        <scene sceneID="b9R-89-Jcv">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Settings" referencedIdentifier="aboutMeal" id="frz-Rf-fIH" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="nxO-KN-pBQ"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="b84-eU-Gpy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1615" y="22"/>
-        </scene>
         <!--Diário-->
         <scene sceneID="cF4-VL-M5S">
             <objects>
@@ -71,7 +61,6 @@
                         <outlet property="dailyHabitsView" destination="6hK-ls-JFJ" id="fai-jz-OR7"/>
                         <outlet property="registerMealView" destination="3KV-BP-m2O" id="06z-eg-oMD"/>
                         <segue destination="5Me-D5-VNr" kind="presentation" identifier="toNoteModal" modalPresentationStyle="automatic" id="jYA-A3-BBy"/>
-                        <segue destination="frz-Rf-fIH" kind="show" identifier="toAboutMeal" id="9FJ-FV-sdS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bpd-y2-VQ2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -129,7 +118,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9xq-N6-ihA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2193" y="115"/>
+            <point key="canvasLocation" x="1923" y="115"/>
         </scene>
         <!--Meals-->
         <scene sceneID="df3-q3-U7N">
