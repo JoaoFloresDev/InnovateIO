@@ -35,15 +35,192 @@
                     <connections>
                         <outlet property="optionsTableView" destination="0Kp-GT-zk1" id="mMN-qF-Ste"/>
                         <segue destination="eaF-bL-eQW" kind="show" identifier="toNotificationSettings" id="E4v-Kb-dtE"/>
+                        <segue destination="xmn-XT-Jnb" kind="show" identifier="toAboutMeal" id="dri-9X-nYp"/>
                         <segue destination="GJY-cr-iYC" kind="show" identifier="toCredits" id="Of4-3K-iGb"/>
                         <segue destination="OJj-el-TSh" kind="show" identifier="toHowToUse" id="mjm-9E-YZ6"/>
+                        <segue destination="PH6-wt-3A4" kind="show" identifier="toMealHistory" id="RZB-yo-Xw6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8a8-GM-4Lo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1139.1304347826087" y="118.52678571428571"/>
         </scene>
-        <!--Ajustes-->
+        <!--MealHistory-->
+        <scene sceneID="otp-jd-dya">
+            <objects>
+                <viewControllerPlaceholder storyboardName="MealHistory" id="PH6-wt-3A4" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="KzB-Nf-6GN"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sZV-lV-BAu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1836" y="302"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="srW-De-Zg5">
+            <objects>
+                <viewController storyboardIdentifier="aboutMeal" id="xmn-XT-Jnb" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8e7-FX-UyJ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dai-2P-ZcO">
+                                <rect key="frame" x="0.0" y="88" width="414" height="60"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="O que é uma alimentação:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QGC-2x-nuQ">
+                                        <rect key="frame" x="62.5" y="15.5" width="289" height="29"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="QGC-2x-nuQ" firstAttribute="centerY" secondItem="dai-2P-ZcO" secondAttribute="centerY" id="Hgg-Bk-lwc"/>
+                                    <constraint firstItem="QGC-2x-nuQ" firstAttribute="centerX" secondItem="dai-2P-ZcO" secondAttribute="centerX" id="YZp-Rc-zZa"/>
+                                    <constraint firstAttribute="height" constant="60" id="lcc-do-z6r"/>
+                                </constraints>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="jGe-gN-KEc">
+                                <rect key="frame" x="16" y="148" width="382" height="657"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mpR-SI-ahd" customClass="RoundedView" customModule="My_Way" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="382" height="213.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Boa:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tvz-iw-Cp3">
+                                                <rect key="frame" x="16" y="8" width="39" height="21.5"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                                <color key="textColor" name="GoodColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wgh-C9-Hid">
+                                                <rect key="frame" x="16" y="37.5" width="350" height="160"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <string key="text">Uma alimentação variada, como por exemplo arroz e feijão acompanhados de legumes e vegetais folhosos. Para lanches, comer frutas ao invés de biscoitos, bolos e salgadinhos.</string>
+                                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="tvz-iw-Cp3" firstAttribute="top" secondItem="mpR-SI-ahd" secondAttribute="top" constant="8" id="L6W-gb-d6H"/>
+                                            <constraint firstAttribute="bottom" secondItem="Wgh-C9-Hid" secondAttribute="bottom" constant="16" id="Pqp-ff-Ug6"/>
+                                            <constraint firstAttribute="trailing" secondItem="Wgh-C9-Hid" secondAttribute="trailing" constant="16" id="WRO-dS-IAS"/>
+                                            <constraint firstItem="Wgh-C9-Hid" firstAttribute="top" secondItem="tvz-iw-Cp3" secondAttribute="bottom" constant="8" id="aJF-h3-PoW"/>
+                                            <constraint firstItem="Wgh-C9-Hid" firstAttribute="leading" secondItem="mpR-SI-ahd" secondAttribute="leading" constant="16" id="gDp-Zk-Ku5"/>
+                                            <constraint firstItem="tvz-iw-Cp3" firstAttribute="leading" secondItem="mpR-SI-ahd" secondAttribute="leading" constant="16" id="sFO-Sz-7Db"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="8"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" name="GoodColor"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="3"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fTx-fd-Oc6" customClass="RoundedView" customModule="My_Way" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="221.5" width="382" height="214"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="1000" text="Média:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zg1-qU-70l">
+                                                <rect key="frame" x="16" y="8" width="58.5" height="21.5"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                                <color key="textColor" name="MediumColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Um meio-termo entre a boa e a má alimentação, como por exemplo uma refeição contendo legumes e alimentos ultraprocessados." textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0gi-hl-mWc">
+                                                <rect key="frame" x="16" y="37.5" width="350" height="160.5"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="0gi-hl-mWc" firstAttribute="top" secondItem="zg1-qU-70l" secondAttribute="bottom" constant="8" id="7J0-Dj-22u"/>
+                                            <constraint firstItem="zg1-qU-70l" firstAttribute="leading" secondItem="fTx-fd-Oc6" secondAttribute="leading" constant="16" id="IQ2-MP-13C"/>
+                                            <constraint firstItem="0gi-hl-mWc" firstAttribute="leading" secondItem="fTx-fd-Oc6" secondAttribute="leading" constant="16" id="PfC-fy-4L5"/>
+                                            <constraint firstAttribute="trailing" secondItem="0gi-hl-mWc" secondAttribute="trailing" constant="16" id="ZUy-aa-d8s"/>
+                                            <constraint firstItem="zg1-qU-70l" firstAttribute="top" secondItem="fTx-fd-Oc6" secondAttribute="top" constant="8" id="rRb-y9-Pcz"/>
+                                            <constraint firstAttribute="bottom" secondItem="0gi-hl-mWc" secondAttribute="bottom" constant="16" id="wnW-Vt-8jK"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="8"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" name="MediumColor"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="3"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mNu-J0-6j0" customClass="RoundedView" customModule="My_Way" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="443.5" width="382" height="213.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Ruim:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xAc-5e-HNa">
+                                                <rect key="frame" x="16" y="8" width="50" height="21.5"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                                <color key="textColor" name="BadColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W4T-Z1-BjG">
+                                                <rect key="frame" x="16" y="37.5" width="350" height="168"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <string key="text">Alimentos ultraprocessados (salsicha, linguiça, refrigerantes, comida pronta industrializada, etc) são altamente calóricos porém pobres em nutrientes. Alimentos com muito sal ou muito açúcar também devem ser evitados.</string>
+                                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="xAc-5e-HNa" firstAttribute="top" secondItem="mNu-J0-6j0" secondAttribute="top" constant="8" id="44E-S9-dNI"/>
+                                            <constraint firstAttribute="trailing" secondItem="W4T-Z1-BjG" secondAttribute="trailing" constant="16" id="4e0-Mh-8ek"/>
+                                            <constraint firstAttribute="bottom" secondItem="W4T-Z1-BjG" secondAttribute="bottom" constant="8" id="BCb-21-zPO"/>
+                                            <constraint firstItem="W4T-Z1-BjG" firstAttribute="leading" secondItem="mNu-J0-6j0" secondAttribute="leading" constant="16" id="cFn-j4-Wcl"/>
+                                            <constraint firstItem="W4T-Z1-BjG" firstAttribute="top" secondItem="xAc-5e-HNa" secondAttribute="bottom" constant="8" id="kHw-89-SgC"/>
+                                            <constraint firstItem="xAc-5e-HNa" firstAttribute="leading" secondItem="mNu-J0-6j0" secondAttribute="leading" constant="16" id="sxB-sX-IB9"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="8"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" name="BadColor"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="3"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="dai-2P-ZcO" firstAttribute="leading" secondItem="AaT-ec-NSc" secondAttribute="leading" id="BXb-S1-qKz"/>
+                            <constraint firstItem="jGe-gN-KEc" firstAttribute="top" secondItem="dai-2P-ZcO" secondAttribute="bottom" id="DSZ-CU-2c2"/>
+                            <constraint firstItem="AaT-ec-NSc" firstAttribute="bottom" secondItem="jGe-gN-KEc" secondAttribute="bottom" constant="8" id="ZHg-NM-NcJ"/>
+                            <constraint firstItem="AaT-ec-NSc" firstAttribute="trailing" secondItem="jGe-gN-KEc" secondAttribute="trailing" constant="16" id="azp-kd-ev8"/>
+                            <constraint firstItem="dai-2P-ZcO" firstAttribute="top" secondItem="AaT-ec-NSc" secondAttribute="top" id="dVi-Am-Xvi"/>
+                            <constraint firstItem="jGe-gN-KEc" firstAttribute="leading" secondItem="AaT-ec-NSc" secondAttribute="leading" constant="16" id="jcC-yO-UzG"/>
+                            <constraint firstItem="AaT-ec-NSc" firstAttribute="trailing" secondItem="dai-2P-ZcO" secondAttribute="trailing" id="rHR-J3-Jf8"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="AaT-ec-NSc"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Bp6-rF-ldG"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TBH-5p-SFL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1137.68115942029" y="988.39285714285711"/>
+        </scene>
+        <!--Mais-->
         <scene sceneID="Lbo-jI-BbC">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dRs-vJ-m6y" sceneMemberID="viewController">
@@ -434,6 +611,12 @@
         <image name="tutorial 6" width="660" height="1490"/>
         <namedColor name="BackgrondColor">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="GoodColor">
+            <color red="0.0" green="0.82745098039215681" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="MediumColor">
+            <color red="0.95686274509803926" green="0.73333333333333328" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="PrimaryTextColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
