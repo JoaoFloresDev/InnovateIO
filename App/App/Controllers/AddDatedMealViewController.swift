@@ -91,6 +91,10 @@ extension AddDatedMealViewController: RegisterMealViewDelegate {
         }
     }
     
+    func goToInfo() {
+        performSegue(withIdentifier: R.segue.addDatedMealViewController.toAboutMeal.identifier, sender: nil)
+    }
+    
     func presentAlert(_ alert: UIAlertController) {
         self.present(alert, animated: true)
     }
