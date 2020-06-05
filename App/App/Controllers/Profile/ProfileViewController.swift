@@ -62,19 +62,18 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
         
         super.viewDidLoad()
         
-        #if DEBUG
-        
-        // Isso é para testes... Se eu deixei por aqui é porque esqueci de tirar
-        do {
-            let _ = try NetworkHandler.getShared()
-            
-        }
-        catch {}
-        
-        #endif
         
         do {
             self.dataHandler = try DataHandler.getShared()
+            
+            #if DEBUG
+            
+            let diary = try self.dataHandler?.loadDailyDiary(year: 2020, month: 6, day: 5)
+            
+            let networkHandler = try NetworkHandler.getShared()
+            networkHandler.createDiary(diary: diary!)
+            
+            #endif
         }
         catch {
             os_log("[ERROR] The App wasn't fully initialized yet for managing data!")
