@@ -92,7 +92,7 @@
                                                 <color key="textColor" name="GoodColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="4YC-6u-CQD">
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4YC-6u-CQD">
                                                 <rect key="frame" x="8" y="45" width="382" height="160.5"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                 <string key="text">Uma alimentação variada, como por exemplo arroz e feijão acompanhados de legumes e vegetais folhosos. Para lanches, comer frutas ao invés de biscoitos, bolos e salgadinhos.</string>
@@ -131,7 +131,7 @@
                                                 <color key="textColor" name="MediumColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Um meio-termo entre a boa e a má alimentação, como por exemplo uma refeição contendo legumes e alimentos ultraprocessados." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="UUE-ga-5yy">
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Um meio-termo entre a boa e a má alimentação, como por exemplo uma refeição contendo legumes e alimentos ultraprocessados." textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UUE-ga-5yy">
                                                 <rect key="frame" x="8" y="45" width="382" height="161"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -169,7 +169,7 @@
                                                 <color key="textColor" name="BadColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="252-8l-4d9">
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="252-8l-4d9">
                                                 <rect key="frame" x="8" y="45" width="382" height="160.5"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                 <string key="text">Alimentos ultraprocessados (salsicha, linguiça, refrigerantes, comida pronta industrializada, etc) são altamente calóricos porém pobres em nutrientes. Alimentos com muito sal ou muito açúcar também devem ser evitados.</string>
