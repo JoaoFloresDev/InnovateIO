@@ -15,15 +15,13 @@ class TutorialViewController: UIViewController, UIScrollViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         
-        //1
         self.scrollView.frame = CGRect(x:0, y:0, width:self.view.frame.width, height:self.view.frame.height)
         let scrollViewWidth:CGFloat = self.scrollView.frame.width
         let scrollViewHeight:CGFloat = self.scrollView.frame.height
-        //2
+        
         self.startButton.layer.cornerRadius = 4.0
-        //3
+        
         let imgOne = UIImageView(frame: CGRect(x:0, y:0,width:scrollViewWidth, height:scrollViewHeight))
         imgOne.image = UIImage(named: "Slide 1")
         let imgTwo = UIImageView(frame: CGRect(x:scrollViewWidth, y:0,width:scrollViewWidth, height:scrollViewHeight))
@@ -55,11 +53,6 @@ class TutorialViewController: UIViewController, UIScrollViewDelegate {
         let currentPage:CGFloat = floor((scrollView.contentOffset.x-pageWidth/2)/pageWidth)+1
         // Change the indicator
         self.pageControl.currentPage = Int(currentPage);
-        // Change the text accordingly
-        if Int(currentPage) == 0{
-        }else if Int(currentPage) == 1{
-        }else if Int(currentPage) == 2{
-        }
     }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
