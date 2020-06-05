@@ -276,38 +276,38 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tutorial-refeição" translatesAutoresizingMaskIntoConstraints="NO" id="6cS-VH-dK1">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tutorial 1" translatesAutoresizingMaskIntoConstraints="NO" id="6cS-VH-dK1">
                                                         <rect key="frame" x="0.0" y="45.5" width="199" height="398"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="6cS-VH-dK1" secondAttribute="height" multiplier="1:2" id="uGk-Zh-FX4"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tutorial-Diario" translatesAutoresizingMaskIntoConstraints="NO" id="StL-D6-ePo">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tutorial 2" translatesAutoresizingMaskIntoConstraints="NO" id="StL-D6-ePo">
                                                         <rect key="frame" x="199" y="45.5" width="199" height="398"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="StL-D6-ePo" secondAttribute="height" multiplier="1:2" id="cMY-jW-odp"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tutorial-perfil" translatesAutoresizingMaskIntoConstraints="NO" id="qqY-aS-s4O">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tutorial 3" translatesAutoresizingMaskIntoConstraints="NO" id="qqY-aS-s4O">
                                                         <rect key="frame" x="0.0" y="459.5" width="199" height="398"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="qqY-aS-s4O" secondAttribute="height" multiplier="1:2" id="DJa-FH-iQR"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tutorial-Resumo" translatesAutoresizingMaskIntoConstraints="NO" id="0iI-KE-I8G">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tutorial 4" translatesAutoresizingMaskIntoConstraints="NO" id="0iI-KE-I8G">
                                                         <rect key="frame" x="199" y="459.5" width="199" height="398"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="0iI-KE-I8G" secondAttribute="height" multiplier="1:2" id="f30-Fb-fCY"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tutorial-Diario" translatesAutoresizingMaskIntoConstraints="NO" id="bsr-PP-v1Y">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tutorial 5" translatesAutoresizingMaskIntoConstraints="NO" id="bsr-PP-v1Y">
                                                         <rect key="frame" x="0.0" y="873.5" width="199" height="398"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="bsr-PP-v1Y" secondAttribute="height" multiplier="1:2" id="aM2-dx-DUF"/>
                                                             <constraint firstAttribute="height" constant="398" id="nQA-Um-Us0"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tutorial-Diario" translatesAutoresizingMaskIntoConstraints="NO" id="8sS-DG-hUy">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tutorial 6" translatesAutoresizingMaskIntoConstraints="NO" id="8sS-DG-hUy">
                                                         <rect key="frame" x="199" y="873.5" width="199" height="398"/>
                                                     </imageView>
                                                 </subviews>
@@ -426,10 +426,12 @@
     <resources>
         <image name="gear" catalog="system" width="128" height="119"/>
         <image name="habitCycle" width="457" height="233"/>
-        <image name="tutorial-Diario" width="667" height="1444"/>
-        <image name="tutorial-Resumo" width="667" height="1444"/>
-        <image name="tutorial-perfil" width="667" height="1444"/>
-        <image name="tutorial-refeição" width="667" height="1444"/>
+        <image name="tutorial 1" width="660" height="1490"/>
+        <image name="tutorial 2" width="660" height="1490"/>
+        <image name="tutorial 3" width="660" height="1490"/>
+        <image name="tutorial 4" width="660" height="1490"/>
+        <image name="tutorial 5" width="660" height="1490"/>
+        <image name="tutorial 6" width="660" height="1490"/>
         <namedColor name="BackgrondColor">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
