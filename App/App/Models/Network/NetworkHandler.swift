@@ -16,7 +16,7 @@ class NetworkHandler {
     private static var shared: NetworkHandler?
     
     // Default properties related to iCloud
-    private var container: CKContainer
+    private(set) var container: CKContainer
     
     
     /// Initializes the Singleton for handling the network and the iCloud.
@@ -25,34 +25,25 @@ class NetworkHandler {
 
         self.container = CKContainer(identifier: "iCloud.Innovate")
         
-        var isContainerInitialized: Bool = false
+        // TODO: Por algum motivo não ta atualizando esse isContainer...
+        // Mas para evitar perda de tempo... Eu estou considerando que o user já está logado...
+//        var isContainerInitialized: Bool = false
+//
+//        self.container.accountStatus { status, _ in
+//
+//            print("[DEBUG] \(status == .available)")
+//
+//            if status == .available {
+//                isContainerInitialized = true
+//            }
+//
+//        }
+//
+//        // Checking if the container was found on the previous status
+//        if isContainerInitialized == false { //I didn't put just !isContainerInitialized due to Clean Code practice
+//            throw NetworkError.invalidContainer
+//        }
         
-        self.container.accountStatus { status, error in
-
-            if error != nil && status == .available {
-                isContainerInitialized = true
-            }
-    
-        }
-        
-        // Checking if the container was found on the previous status
-        if isContainerInitialized == false { //I didn't put just !isContainerInitialized due to Clean Code practice
-            throw NetworkError.invalidContainer
-        }
-        
-        
-        #if DEBUG
-        
-        // Getting user ID on database
-        self.container.fetchUserRecordID { recordID, error in
-            guard let recordID = recordID, error == nil else {
-                return
-            }
-            
-            print("[DEBUG] Got user record ID \(recordID.recordName).")
-        }
-        
-        #endif
         
     }
     

@@ -10,7 +10,7 @@
 		0969136FCD310BD8808F395D /* Pods_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82A4CD8C316235E0B19D1A08 /* Pods_App.framework */; };
 		4FFF77BB4486C46F78F6F523 /* Pods_App_AppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DC5268E67E7F3AB7E1AD412 /* Pods_App_AppUITests.framework */; };
 		810224622451B1AA00CD7BC0 /* DataHandler+Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810224612451B1AA00CD7BC0 /* DataHandler+Meal.swift */; };
-		810518992450746A00F8A86E /* DataHandler+DailyDiary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810518982450746A00F8A86E /* DataHandler+DailyDiary.swift */; };
+		810518992450746A00F8A86E /* DataHandler+Diary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810518982450746A00F8A86E /* DataHandler+Diary.swift */; };
 		8105189C24507BB600F8A86E /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8105189B24507BB600F8A86E /* Date.swift */; };
 		8105189E24508A4A00F8A86E /* MealAndDiaryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8105189D24508A4A00F8A86E /* MealAndDiaryTests.swift */; };
 		812B30EC243CB03A002F1AFF /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 812B30EA243CB01D002F1AFF /* CoreData.framework */; };
@@ -22,6 +22,7 @@
 		8191C62E24585E3600C8AAF3 /* DateHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8191C62D24585E3600C8AAF3 /* DateHeader.swift */; };
 		81959012243E2873001A6DB9 /* DataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81959011243E2872001A6DB9 /* DataHandler.swift */; };
 		81959015243E28CF001A6DB9 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 81959013243E28CF001A6DB9 /* Model.xcdatamodeld */; };
+		81A388AA248945B800BF0E51 /* NetworkHandler+Diary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A388A9248945B800BF0E51 /* NetworkHandler+Diary.swift */; };
 		81AA0BD92456FE7B00E78D58 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81AA0BD82456FE7B00E78D58 /* CalendarViewController.swift */; };
 		81C55CD424868DAD00A08446 /* NetworkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C55CD324868DAC00A08446 /* NetworkHandler.swift */; };
 		81C55CD624868F9C00A08446 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C55CD524868F9C00A08446 /* NetworkError.swift */; };
@@ -110,7 +111,7 @@
 		52F2167E91C6DAAC2210EB97 /* Pods-App-AppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-App-AppUITests.release.xcconfig"; path = "Target Support Files/Pods-App-AppUITests/Pods-App-AppUITests.release.xcconfig"; sourceTree = "<group>"; };
 		59A8713AEB4121F2369A6DE1 /* Pods-AppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppTests.release.xcconfig"; path = "Target Support Files/Pods-AppTests/Pods-AppTests.release.xcconfig"; sourceTree = "<group>"; };
 		810224612451B1AA00CD7BC0 /* DataHandler+Meal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DataHandler+Meal.swift"; sourceTree = "<group>"; };
-		810518982450746A00F8A86E /* DataHandler+DailyDiary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DataHandler+DailyDiary.swift"; sourceTree = "<group>"; };
+		810518982450746A00F8A86E /* DataHandler+Diary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DataHandler+Diary.swift"; sourceTree = "<group>"; };
 		8105189B24507BB600F8A86E /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		8105189D24508A4A00F8A86E /* MealAndDiaryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealAndDiaryTests.swift; sourceTree = "<group>"; };
 		812B30EA243CB01D002F1AFF /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -122,6 +123,7 @@
 		8191C62D24585E3600C8AAF3 /* DateHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHeader.swift; sourceTree = "<group>"; };
 		81959011243E2872001A6DB9 /* DataHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataHandler.swift; sourceTree = "<group>"; };
 		81959014243E28CF001A6DB9 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		81A388A9248945B800BF0E51 /* NetworkHandler+Diary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NetworkHandler+Diary.swift"; sourceTree = "<group>"; };
 		81AA0BD82456FE7B00E78D58 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		81C55CD324868DAC00A08446 /* NetworkHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHandler.swift; sourceTree = "<group>"; };
 		81C55CD524868F9C00A08446 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
@@ -277,7 +279,7 @@
 			isa = PBXGroup;
 			children = (
 				81959011243E2872001A6DB9 /* DataHandler.swift */,
-				810518982450746A00F8A86E /* DataHandler+DailyDiary.swift */,
+				810518982450746A00F8A86E /* DataHandler+Diary.swift */,
 				810224612451B1AA00CD7BC0 /* DataHandler+Meal.swift */,
 				81F5FCF524642F560030D12F /* DataHandler+Weight.swift */,
 				812B30F1243CBF80002F1AFF /* PersistenceError.swift */,
@@ -358,6 +360,7 @@
 			children = (
 				81C55CD324868DAC00A08446 /* NetworkHandler.swift */,
 				81C55CD524868F9C00A08446 /* NetworkError.swift */,
+				81A388A9248945B800BF0E51 /* NetworkHandler+Diary.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -878,7 +881,7 @@
 				D715C4AC2486896800431D94 /* NotificationDetailsViewController.swift in Sources */,
 				D73311B3245318760080767E /* NotificationService.swift in Sources */,
 				D715CB2F2481506F00995CDD /* SingleHabitView.swift in Sources */,
-				810518992450746A00F8A86E /* DataHandler+DailyDiary.swift in Sources */,
+				810518992450746A00F8A86E /* DataHandler+Diary.swift in Sources */,
 				D7B2C301243E17D90071561C /* R.generated.swift in Sources */,
 				8DEACA082486F76B00C66415 /* PerformanceChartDotView.swift in Sources */,
 				D7AADD8024643BD100033287 /* MealHistoryHeader.swift in Sources */,
@@ -890,6 +893,7 @@
 				81C55CD624868F9C00A08446 /* NetworkError.swift in Sources */,
 				D7FA5DA3245858A7001B08AA /* Rating.swift in Sources */,
 				8DCA3A4B24699AB4009125B4 /* AddNoteViewController.swift in Sources */,
+				81A388AA248945B800BF0E51 /* NetworkHandler+Diary.swift in Sources */,
 				81F5FCF624642F560030D12F /* DataHandler+Weight.swift in Sources */,
 				D7D38E7E24852D8300E84CD7 /* NotificationSettingsViewController.swift in Sources */,
 				D715CB302481506F00995CDD /* GroupedHabitsView.swift in Sources */,
@@ -1089,13 +1093,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "App/My Way.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = NZC6LC8NWM;
+				DEVELOPMENT_TEAM = 43793QF9P9;
 				INFOPLIST_FILE = App/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = innovateIO.App;
+				PRODUCT_BUNDLE_IDENTIFIER = innovateteam.App;
 				PRODUCT_NAME = "My Way";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1109,13 +1113,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "App/My Way.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = NZC6LC8NWM;
+				DEVELOPMENT_TEAM = 43793QF9P9;
 				INFOPLIST_FILE = App/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = innovateIO.App;
+				PRODUCT_BUNDLE_IDENTIFIER = innovateteam.App;
 				PRODUCT_NAME = "My Way";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
