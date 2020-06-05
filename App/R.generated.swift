@@ -425,7 +425,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.image` struct is generated, and contains static references to 11 images.
+  /// This `R.image` struct is generated, and contains static references to 18 images.
   struct image {
     /// Image `ExerciseIcon`.
     static let exerciseIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "ExerciseIcon")
@@ -433,20 +433,34 @@ struct R: Rswift.Validatable {
     static let profileImgPlaceholder = Rswift.ImageResource(bundle: R.hostingBundle, name: "ProfileImgPlaceholder")
     /// Image `ProfilePlaceholder`.
     static let profilePlaceholder = Rswift.ImageResource(bundle: R.hostingBundle, name: "ProfilePlaceholder")
+    /// Image `Slide 1`.
+    static let slide1 = Rswift.ImageResource(bundle: R.hostingBundle, name: "Slide 1")
+    /// Image `Slide 2`.
+    static let slide2 = Rswift.ImageResource(bundle: R.hostingBundle, name: "Slide 2")
+    /// Image `Slide 3`.
+    static let slide3 = Rswift.ImageResource(bundle: R.hostingBundle, name: "Slide 3")
+    /// Image `Slide 4`.
+    static let slide4 = Rswift.ImageResource(bundle: R.hostingBundle, name: "Slide 4")
+    /// Image `Slide 5`.
+    static let slide5 = Rswift.ImageResource(bundle: R.hostingBundle, name: "Slide 5")
     /// Image `fruits`.
     static let fruits = Rswift.ImageResource(bundle: R.hostingBundle, name: "fruits")
     /// Image `habitCycle`.
     static let habitCycle = Rswift.ImageResource(bundle: R.hostingBundle, name: "habitCycle")
     /// Image `iconLandscape`.
     static let iconLandscape = Rswift.ImageResource(bundle: R.hostingBundle, name: "iconLandscape")
-    /// Image `tutorial-Diario`.
-    static let tutorialDiario = Rswift.ImageResource(bundle: R.hostingBundle, name: "tutorial-Diario")
-    /// Image `tutorial-Resumo`.
-    static let tutorialResumo = Rswift.ImageResource(bundle: R.hostingBundle, name: "tutorial-Resumo")
-    /// Image `tutorial-perfil`.
-    static let tutorialPerfil = Rswift.ImageResource(bundle: R.hostingBundle, name: "tutorial-perfil")
-    /// Image `tutorial-refeição`.
-    static let tutorialRefeição = Rswift.ImageResource(bundle: R.hostingBundle, name: "tutorial-refeição")
+    /// Image `tutorial 1`.
+    static let tutorial1 = Rswift.ImageResource(bundle: R.hostingBundle, name: "tutorial 1")
+    /// Image `tutorial 2`.
+    static let tutorial2 = Rswift.ImageResource(bundle: R.hostingBundle, name: "tutorial 2")
+    /// Image `tutorial 3`.
+    static let tutorial3 = Rswift.ImageResource(bundle: R.hostingBundle, name: "tutorial 3")
+    /// Image `tutorial 4`.
+    static let tutorial4 = Rswift.ImageResource(bundle: R.hostingBundle, name: "tutorial 4")
+    /// Image `tutorial 5`.
+    static let tutorial5 = Rswift.ImageResource(bundle: R.hostingBundle, name: "tutorial 5")
+    /// Image `tutorial 6`.
+    static let tutorial6 = Rswift.ImageResource(bundle: R.hostingBundle, name: "tutorial 6")
     /// Image `water`.
     static let water = Rswift.ImageResource(bundle: R.hostingBundle, name: "water")
 
@@ -472,6 +486,41 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "Slide 1", bundle: ..., traitCollection: ...)`
+    static func slide1(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.slide1, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "Slide 2", bundle: ..., traitCollection: ...)`
+    static func slide2(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.slide2, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "Slide 3", bundle: ..., traitCollection: ...)`
+    static func slide3(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.slide3, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "Slide 4", bundle: ..., traitCollection: ...)`
+    static func slide4(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.slide4, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "Slide 5", bundle: ..., traitCollection: ...)`
+    static func slide5(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.slide5, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
     /// `UIImage(named: "fruits", bundle: ..., traitCollection: ...)`
     static func fruits(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.fruits, compatibleWith: traitCollection)
@@ -493,30 +542,44 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
-    /// `UIImage(named: "tutorial-Diario", bundle: ..., traitCollection: ...)`
-    static func tutorialDiario(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.tutorialDiario, compatibleWith: traitCollection)
+    /// `UIImage(named: "tutorial 1", bundle: ..., traitCollection: ...)`
+    static func tutorial1(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.tutorial1, compatibleWith: traitCollection)
     }
     #endif
 
     #if os(iOS) || os(tvOS)
-    /// `UIImage(named: "tutorial-Resumo", bundle: ..., traitCollection: ...)`
-    static func tutorialResumo(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.tutorialResumo, compatibleWith: traitCollection)
+    /// `UIImage(named: "tutorial 2", bundle: ..., traitCollection: ...)`
+    static func tutorial2(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.tutorial2, compatibleWith: traitCollection)
     }
     #endif
 
     #if os(iOS) || os(tvOS)
-    /// `UIImage(named: "tutorial-perfil", bundle: ..., traitCollection: ...)`
-    static func tutorialPerfil(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.tutorialPerfil, compatibleWith: traitCollection)
+    /// `UIImage(named: "tutorial 3", bundle: ..., traitCollection: ...)`
+    static func tutorial3(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.tutorial3, compatibleWith: traitCollection)
     }
     #endif
 
     #if os(iOS) || os(tvOS)
-    /// `UIImage(named: "tutorial-refeição", bundle: ..., traitCollection: ...)`
-    static func tutorialRefeição(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.tutorialRefeição, compatibleWith: traitCollection)
+    /// `UIImage(named: "tutorial 4", bundle: ..., traitCollection: ...)`
+    static func tutorial4(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.tutorial4, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "tutorial 5", bundle: ..., traitCollection: ...)`
+    static func tutorial5(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.tutorial5, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "tutorial 6", bundle: ..., traitCollection: ...)`
+    static func tutorial6(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.tutorial6, compatibleWith: traitCollection)
     }
     #endif
 
@@ -1064,12 +1127,14 @@ struct _R: Rswift.Validatable {
       let name = "Settings"
 
       static func validate() throws {
-        if UIKit.UIImage(named: "ellipsis", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ellipsis' is used in storyboard 'Settings', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "gear", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'gear' is used in storyboard 'Settings', but couldn't be loaded.") }
         if UIKit.UIImage(named: "habitCycle", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'habitCycle' is used in storyboard 'Settings', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "tutorial-Diario", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'tutorial-Diario' is used in storyboard 'Settings', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "tutorial-Resumo", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'tutorial-Resumo' is used in storyboard 'Settings', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "tutorial-perfil", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'tutorial-perfil' is used in storyboard 'Settings', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "tutorial-refeição", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'tutorial-refeição' is used in storyboard 'Settings', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "tutorial 1", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'tutorial 1' is used in storyboard 'Settings', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "tutorial 2", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'tutorial 2' is used in storyboard 'Settings', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "tutorial 3", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'tutorial 3' is used in storyboard 'Settings', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "tutorial 4", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'tutorial 4' is used in storyboard 'Settings', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "tutorial 5", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'tutorial 5' is used in storyboard 'Settings', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "tutorial 6", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'tutorial 6' is used in storyboard 'Settings', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
           if UIKit.UIColor(named: "BackgrondColor", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'BackgrondColor' is used in storyboard 'Settings', but couldn't be loaded.") }
           if UIKit.UIColor(named: "PrimaryTextColor", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'PrimaryTextColor' is used in storyboard 'Settings', but couldn't be loaded.") }

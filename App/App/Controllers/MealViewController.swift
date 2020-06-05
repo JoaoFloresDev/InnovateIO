@@ -110,10 +110,6 @@ extension MealViewController: RegisterMealViewDelegate {
         performSegue(withIdentifier: R.segue.mealViewController.toNoteModal.identifier, sender: nil)
     }
     
-    func goToInfo() {
-        performSegue(withIdentifier: R.segue.mealViewController.toAboutMeal.identifier, sender: nil)
-    }
-    
     func presentAlert(_ alert: UIAlertController) {
         self.present(alert, animated: true)
     }

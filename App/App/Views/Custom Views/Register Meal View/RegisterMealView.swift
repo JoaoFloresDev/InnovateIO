@@ -11,7 +11,6 @@ import UIKit
 protocol RegisterMealViewDelegate {
     func saveMeal(quality: Int, hour: Int, minute: Int, note: String?)
     func goToNote(note: String?)
-    func goToInfo()
     func presentAlert(_ alert: UIAlertController)
     func dismissVCIfApplicable()
 }
@@ -36,7 +35,6 @@ class RegisterMealView: UIView {
     }
     var selectedDate: Date = Date()
     
-// MARK: - Init
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -57,8 +55,7 @@ class RegisterMealView: UIView {
         
         setTableView()
     }
-
-// MARK: - Methods
+    
     func setup(delegate: RegisterMealViewDelegate) {
         self.delegate = delegate
         thisMealRatingView.setup()
@@ -98,14 +95,9 @@ class RegisterMealView: UIView {
         self.note = nil
     }
     
-// MARK: - Actions
     @IBAction func datePickerChanged(_ sender: UIDatePicker) {
         selectedDate = sender.date
         noteTableView.reloadData()
-    }
-    
-    @IBAction func infoButtonTapped(_ sender: Any) {
-        delegate?.goToInfo()
     }
     
     @IBAction func addNoteTapped(_ sender: Any) {
@@ -146,7 +138,6 @@ class RegisterMealView: UIView {
     }
 }
 
-// MARK: - Table View delegate and data source
 extension RegisterMealView: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
@@ -164,7 +155,6 @@ extension RegisterMealView: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
-// MARK: - Rating View Delegate
 extension RegisterMealView: RatingViewDelegate {
     func selectedRatingDidChange(to rating: Rating?) {
         noteTableView.reloadData()

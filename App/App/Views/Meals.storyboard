@@ -7,16 +7,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--aboutMeal-->
-        <scene sceneID="b9R-89-Jcv">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Settings" referencedIdentifier="aboutMeal" id="frz-Rf-fIH" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="nxO-KN-pBQ"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="b84-eU-Gpy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1615" y="22"/>
-        </scene>
         <!--Diário-->
         <scene sceneID="cF4-VL-M5S">
             <objects>
@@ -32,7 +22,7 @@
                                         <rect key="frame" x="0.0" y="-35" width="414" height="920"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3KV-BP-m2O" customClass="RegisterMealView" customModule="My_Way" customModuleProvider="target">
-                                                <rect key="frame" x="8.5" y="0.0" width="397" height="50"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
                                             </view>
                                             <view contentMode="scaleToFill" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="6hK-ls-JFJ" customClass="DailyHabitsView" customModule="My_Way" customModuleProvider="target">
                                                 <rect key="frame" x="8.5" y="78" width="397" height="842"/>
@@ -57,7 +47,7 @@
                         <constraints>
                             <constraint firstItem="6hK-ls-JFJ" firstAttribute="width" secondItem="fsr-kU-GDi" secondAttribute="width" multiplier="0.96" id="0gA-sT-LVu"/>
                             <constraint firstItem="H4M-09-hoa" firstAttribute="trailing" secondItem="QKW-hz-2Gt" secondAttribute="trailing" id="KHl-fU-rRg"/>
-                            <constraint firstItem="3KV-BP-m2O" firstAttribute="width" secondItem="fsr-kU-GDi" secondAttribute="width" multiplier="0.96" id="Z4d-Pu-VgY"/>
+                            <constraint firstItem="3KV-BP-m2O" firstAttribute="width" secondItem="fsr-kU-GDi" secondAttribute="width" id="Z4d-Pu-VgY"/>
                             <constraint firstItem="QKW-hz-2Gt" firstAttribute="leading" secondItem="H4M-09-hoa" secondAttribute="leading" id="aR9-Vr-ASS"/>
                             <constraint firstItem="QKW-hz-2Gt" firstAttribute="top" secondItem="H4M-09-hoa" secondAttribute="top" id="g8A-da-D1V"/>
                             <constraint firstItem="H4M-09-hoa" firstAttribute="bottom" secondItem="QKW-hz-2Gt" secondAttribute="bottom" id="gYD-CY-5BF"/>
@@ -71,7 +61,6 @@
                         <outlet property="dailyHabitsView" destination="6hK-ls-JFJ" id="fai-jz-OR7"/>
                         <outlet property="registerMealView" destination="3KV-BP-m2O" id="06z-eg-oMD"/>
                         <segue destination="5Me-D5-VNr" kind="presentation" identifier="toNoteModal" modalPresentationStyle="automatic" id="jYA-A3-BBy"/>
-                        <segue destination="frz-Rf-fIH" kind="show" identifier="toAboutMeal" id="9FJ-FV-sdS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bpd-y2-VQ2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -129,7 +118,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9xq-N6-ihA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2193" y="115"/>
+            <point key="canvasLocation" x="1923" y="115"/>
         </scene>
         <!--Meals-->
         <scene sceneID="df3-q3-U7N">
