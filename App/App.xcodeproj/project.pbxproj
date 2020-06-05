@@ -22,6 +22,7 @@
 		8191C62E24585E3600C8AAF3 /* DateHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8191C62D24585E3600C8AAF3 /* DateHeader.swift */; };
 		81959012243E2873001A6DB9 /* DataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81959011243E2872001A6DB9 /* DataHandler.swift */; };
 		81959015243E28CF001A6DB9 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 81959013243E28CF001A6DB9 /* Model.xcdatamodeld */; };
+		81A388AA248945B800BF0E51 /* NetworkHandler+Diary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A388A9248945B800BF0E51 /* NetworkHandler+Diary.swift */; };
 		81AA0BD92456FE7B00E78D58 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81AA0BD82456FE7B00E78D58 /* CalendarViewController.swift */; };
 		81C55CD424868DAD00A08446 /* NetworkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C55CD324868DAC00A08446 /* NetworkHandler.swift */; };
 		81C55CD624868F9C00A08446 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C55CD524868F9C00A08446 /* NetworkError.swift */; };
@@ -120,6 +121,7 @@
 		8191C62D24585E3600C8AAF3 /* DateHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHeader.swift; sourceTree = "<group>"; };
 		81959011243E2872001A6DB9 /* DataHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataHandler.swift; sourceTree = "<group>"; };
 		81959014243E28CF001A6DB9 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		81A388A9248945B800BF0E51 /* NetworkHandler+Diary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NetworkHandler+Diary.swift"; sourceTree = "<group>"; };
 		81AA0BD82456FE7B00E78D58 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		81C55CD324868DAC00A08446 /* NetworkHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHandler.swift; sourceTree = "<group>"; };
 		81C55CD524868F9C00A08446 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
@@ -353,6 +355,7 @@
 			children = (
 				81C55CD324868DAC00A08446 /* NetworkHandler.swift */,
 				81C55CD524868F9C00A08446 /* NetworkError.swift */,
+				81A388A9248945B800BF0E51 /* NetworkHandler+Diary.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -883,6 +886,7 @@
 				81C55CD624868F9C00A08446 /* NetworkError.swift in Sources */,
 				D7FA5DA3245858A7001B08AA /* Rating.swift in Sources */,
 				8DCA3A4B24699AB4009125B4 /* AddNoteViewController.swift in Sources */,
+				81A388AA248945B800BF0E51 /* NetworkHandler+Diary.swift in Sources */,
 				81F5FCF624642F560030D12F /* DataHandler+Weight.swift in Sources */,
 				D7D38E7E24852D8300E84CD7 /* NotificationSettingsViewController.swift in Sources */,
 				D715CB302481506F00995CDD /* GroupedHabitsView.swift in Sources */,
