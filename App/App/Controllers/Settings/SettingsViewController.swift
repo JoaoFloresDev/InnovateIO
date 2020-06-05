@@ -78,17 +78,14 @@ class SettingsViewController: UIViewController {
     
 // MARK: - Prepare for segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        //TODO: implementar as segues para cada tipo de célula, quando necessário.
+        // Implementar as segues para cada tipo de célula, quando necessário.
         
         switch segue.identifier {
-//        case SettingsCells.shareResults.segueId:
-//
-//        case SettingsCells.howToUse.segueId:
-//
-//        case SettingsCells.healthyMeal.segueId:
-//
-//        case SettingsCells.about.segueId:
-//
+        case SettingsCells.shareResults.segueId:
+            if let destinationVC = segue.destination as? MealHistoryViewController {
+                destinationVC.receivedDates = Date().getAllDaysForWeek()
+                destinationVC.shouldShareWhenPresented = true
+            }
         default:
             return
         }
@@ -224,18 +221,18 @@ enum SettingsCells {
         }
     }
     
-    // TODO: preencher conforme as segues forem criadas no storyboard (dica: usar o Rswift evita termos que digitar na mão esses ids das segues).
     var segueId: String? {
         switch self {
+        case .shareResults:
+            return R.segue.settingsViewController.toMealHistory.identifier
         case .notificationSettings:
             return R.segue.settingsViewController.toNotificationSettings.identifier
-            
+        case .healthyMeal:
+            return R.segue.settingsViewController.toAboutMeal.identifier
         case .howToUse:
             return R.segue.settingsViewController.toHowToUse.identifier
-            
         case .about:
             return R.segue.settingsViewController.toCredits.identifier
-            
         default:
             return nil
         }

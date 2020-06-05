@@ -8,9 +8,12 @@
 
 import UIKit
 import os.log
+import DHSmartScreenshot
 
 class MealHistoryViewController: UIViewController {
     @IBOutlet weak var historyTableView: UITableView!
+    
+    var shouldShareWhenPresented = false
     
     var dataHandler: DataHandler?
     var receivedDates: [Date] = [] {
@@ -21,7 +24,8 @@ class MealHistoryViewController: UIViewController {
     var meals: [Date : [Meal]] = [:]
     var dateSelected: Date = Date()
     var mealSelected: Meal?
-    
+
+// MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -41,6 +45,15 @@ class MealHistoryViewController: UIViewController {
         fetchMeals()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        if shouldShareWhenPresented {
+            shareScreenshot()
+        }
+    }
+    
+// MARK: - Methods
     func fetchMeals() {
         for date in receivedDates {
             do {
@@ -83,6 +96,15 @@ class MealHistoryViewController: UIViewController {
         historyTableView.dataSource = self
     }
     
+    func shareScreenshot() {
+        let screenshot = historyTableView.screenshot()
+        
+        let items: [Any] = [screenshot]
+        let ac = UIActivityViewController(activityItems: items, applicationActivities: nil)
+        present(ac, animated: true)
+    }
+    
+// MARK: - Segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
         if segue.identifier == R.segue.mealHistoryViewController.toRegisterMeal.identifier
@@ -92,8 +114,14 @@ class MealHistoryViewController: UIViewController {
             vc?.receivedMeal = mealSelected
         }
     }
+    
+// MARK: - Actions
+    @IBAction func shareTapped(_ sender: Any) {
+        shareScreenshot()
+    }
 }
-// MARK: - TABLE VIEW DATA SOURCE AND DELEGATE
+
+// MARK: - Table View Data Source and Delegate
 extension MealHistoryViewController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return receivedDates.count
@@ -194,7 +222,8 @@ extension MealHistoryViewController: UITableViewDelegate, UITableViewDataSource 
         self.performSegue(withIdentifier: R.segue.mealHistoryViewController.toRegisterMeal.identifier, sender: nil)
     }
 }
-// MARK: - MEAL HISTORY HEADER DELEGATE
+
+// MARK: - Meal History Header Delegate
 extension MealHistoryViewController: MealHistoryHeaderDelegate {
     func plusButtonTapped(date: Date) {
         self.dateSelected = date

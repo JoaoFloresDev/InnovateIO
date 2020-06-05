@@ -15,6 +15,7 @@ PODS:
   - Colours (5.13.0):
     - Colours/ObjC (= 5.13.0)
   - Colours/ObjC (5.13.0)
+  - DHSmartScreenshot (1.3.1)
   - JTAppleCalendar (8.0.3)
   - NumericPicker (1.1.1)
   - R.swift (5.2.2):
@@ -27,6 +28,7 @@ DEPENDENCIES:
   - AppCenter
   - AppCenter/Distribute
   - Charts
+  - DHSmartScreenshot
   - JTAppleCalendar
   - NumericPicker
   - R.swift
@@ -37,6 +39,7 @@ SPEC REPOS:
     - AppCenter
     - Charts
     - Colours
+    - DHSmartScreenshot
     - JTAppleCalendar
     - NumericPicker
     - R.swift
@@ -47,12 +50,13 @@ SPEC CHECKSUMS:
   AppCenter: 513d32888854d67d8cfbd3a8db16aeb5fb2e2a75
   Charts: 40a08591df1f8ad5c223ddedfb1a06da92f24f7c
   Colours: f24220c38f13deac88612667e9b4a7fb96b871d4
+  DHSmartScreenshot: ee749048bd7126c4826748f98df3a4adc6ad6c78
   JTAppleCalendar: 932cadea40b1051beab10f67843451d48ba16c99
   NumericPicker: b94d35ab3111d1ab38d7c2d3f1ca262846eb43ab
   R.swift: 7c52cdc57a66840ffe6cbd8a823d732059d42a32
   R.swift.Library: 5ba4f1631300caf9a4d890186930da85d540769d
   XJYChart: ce3180be5e67b107c25f523e279ed5eb8dae1c34
 
-PODFILE CHECKSUM: 13fffcde5739ea499fd6bad5b5ab8d055db004b3
+PODFILE CHECKSUM: 0e1d22b6a848498540c073210eb04f760d996e4d
 
 COCOAPODS: 1.9.1

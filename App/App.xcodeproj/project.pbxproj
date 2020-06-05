@@ -26,7 +26,7 @@
 		81C55CD424868DAD00A08446 /* NetworkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C55CD324868DAC00A08446 /* NetworkHandler.swift */; };
 		81C55CD624868F9C00A08446 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C55CD524868F9C00A08446 /* NetworkError.swift */; };
 		81F5FCF624642F560030D12F /* DataHandler+Weight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F5FCF524642F560030D12F /* DataHandler+Weight.swift */; };
-		841BD0DAC9B97DC1EB10F99A /* (null) in Frameworks */ = {isa = PBXBuildFile; };
+		841BD0DAC9B97DC1EB10F99A /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
 		8D11BFFB245249AD0062D163 /* MealRateButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D11BFFA245249AD0062D163 /* MealRateButton.swift */; };
 		8D11BFFD24524FF70062D163 /* RoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D11BFFC24524FF70062D163 /* RoundedView.swift */; };
 		8D679A822464BEB600C7C53E /* PerformanceChartCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D679A812464BEB600C7C53E /* PerformanceChartCollectionViewCell.swift */; };
@@ -85,6 +85,7 @@
 		D7FA5DAA245888D4001B08AA /* DailyHabits.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7FA5DA9245888D4001B08AA /* DailyHabits.swift */; };
 		D7FC5D442462E51A00FB5B81 /* MealHistory.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7FC5D432462E51A00FB5B81 /* MealHistory.storyboard */; };
 		D7FC5D462462E68C00FB5B81 /* MealHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7FC5D452462E68C00FB5B81 /* MealHistoryViewController.swift */; };
+		F3E5A401636F5432E924D837 /* Pods_AppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6F894C603212953CF7BE04F /* Pods_AppTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -164,6 +165,7 @@
 		C48716E424813C3A002F025B /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		C49D2C36247A2C140007D174 /* DetaisHabitsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetaisHabitsViewController.swift; sourceTree = "<group>"; };
 		C4CC1B1F246080ED0048B0B7 /* PlotGraphicClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlotGraphicClass.swift; sourceTree = "<group>"; };
+		C6F894C603212953CF7BE04F /* Pods_AppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D715C4AB2486896800431D94 /* NotificationDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationDetailsViewController.swift; sourceTree = "<group>"; };
 		D715CB292481506F00995CDD /* GroupedHabitsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GroupedHabitsView.xib; sourceTree = "<group>"; };
 		D715CB2A2481506F00995CDD /* SingleHabitView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SingleHabitView.xib; sourceTree = "<group>"; };
@@ -212,7 +214,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				841BD0DAC9B97DC1EB10F99A /* (null) in Frameworks */,
+				841BD0DAC9B97DC1EB10F99A /* BuildFile in Frameworks */,
+				F3E5A401636F5432E924D837 /* Pods_AppTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -233,6 +236,7 @@
 				C48716E424813C3A002F025B /* CloudKit.framework */,
 				82A4CD8C316235E0B19D1A08 /* Pods_App.framework */,
 				8DC5268E67E7F3AB7E1AD412 /* Pods_App_AppUITests.framework */,
+				C6F894C603212953CF7BE04F /* Pods_AppTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -827,7 +831,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				$SRCROOT/R.generated.swift,
+				"$SRCROOT/R.generated.swift",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
