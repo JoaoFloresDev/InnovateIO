@@ -52,6 +52,23 @@ extension NetworkHandler {
         
         
         
+        // Checking if there is an old version of the record
+        let (isThereOldRecord, ids) = self.existsPreviousDiary(diary: diary)
+        
+        if isThereOldRecord {
+            // Delete previous one...
+            
+            ids.forEach({
+                id in
+
+                self.deletePreviousDiary(id: id)
+                
+            })
+            
+        }
+        
+        
+        
         // Trying to save finally the data into the cloud...
         self.container.privateCloudDatabase.save(record) { (savedRecord, error) in
             
@@ -67,6 +84,57 @@ extension NetworkHandler {
             
         }
         
+    }
+    
+    
+    
+    private func existsPreviousDiary(diary: DailyDiary) -> (Bool, [CKRecord.ID]) {
+        
+        var isDiaryFound = false
+        var ids: [CKRecord.ID] = []
+        
+        // Mounting the type of request
+        let yearPredicate = NSPredicate(format: "year == %@", String(diary.year))
+        let monthPredicate = NSPredicate(format: "month == %@", String(diary.month))
+        let dayPredicate = NSPredicate(format: "day == %@", String(diary.day))
+        
+        let predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [yearPredicate, monthPredicate, dayPredicate])
+        
+        let query = CKQuery(recordType: "DailyDiary", predicate: predicate)
+        
+        
+        // Searching for previous data in the database
+        self.container.privateCloudDatabase.perform(query, inZoneWith: nil, completionHandler: {
+            results, error in
+            
+            if let data = results {
+                if data.count > 0 {
+                    
+                    // Getting all the previouds ids for that day
+                    // OBS: For default should be just only 1, but if there was some error / misinformation
+                    // we must delete all that previous
+                    data.forEach({
+                        record in
+                        
+                        ids.append(record.recordID)
+                        
+                    })
+                    
+                    isDiaryFound = true
+                }
+            }
+            
+        })
+        
+        
+        return (isDiaryFound, ids)
+        
+    }
+    
+    
+    
+    private func deletePreviousDiary(id: CKRecord.ID) {
+        self.container.privateCloudDatabase.delete(withRecordID: id, completionHandler: { _, _ in })
     }
     
 }

@@ -68,6 +68,7 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
             
             #if DEBUG
             
+            // TODO: Remover esse DEBUG daqui depois
             let diary = try self.dataHandler?.loadDailyDiary(year: 2020, month: 6, day: 5)
             
             let networkHandler = try NetworkHandler.getShared()
