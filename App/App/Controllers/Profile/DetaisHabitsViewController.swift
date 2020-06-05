@@ -10,7 +10,7 @@ import UIKit
 import os.log
 
 class DetaisHabitsViewController: UIViewController, UITableViewDelegate,  UITableViewDataSource, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
-
+    
     //    MARK: - Constants
     let constraintViewInsertIdentifier = "Height"
     let viewInsertWeightHeight: CGFloat = 53
@@ -192,7 +192,7 @@ class DetaisHabitsViewController: UIViewController, UITableViewDelegate,  UITabl
         detailsTableview.reloadData()
     }
     
-//    MARK: - UI Insert Weight
+    //    MARK: - UI Insert Weight
     func showCellInsert() {
         let filteredConstraints = viewInsertHabits.constraints.filter { $0.identifier == constraintViewInsertIdentifier }
         if let yourConstraint = filteredConstraints.first {
@@ -339,8 +339,8 @@ class DetaisHabitsViewController: UIViewController, UITableViewDelegate,  UITabl
         }
         return sizeValue
     }
-
-//    MARK: - ALERTS
+    
+    //    MARK: - ALERTS
     func alertInsert(titleAlert: String, messageAlert: String) {
         let alert = UIAlertController(title: titleAlert, message: messageAlert, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default))

@@ -118,7 +118,7 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
             
             //  Populating the habits with core data values
             numbersArray = plotter.getHabitsValuesGraphic(months)
-
+            
             plotter.plotGraphicLine(graphicVIew: habitsGraphicLineView, colorLinesArray: [colorWater, colorFruits, colorExercice], datesX: dates, numbersArray: numbersArray, topNumber: 100, bottomNumber: 0)
             
             //set resume habits values
@@ -244,13 +244,13 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
     }
     
     //    MARK: - IBAction
-      @IBAction func selectImgProfile(_ sender: Any) {
-          openGalery()
-      }
-      
-      @IBAction func showGoals(_ sender: Any) {
-          animateGoals()
-      }
+    @IBAction func selectImgProfile(_ sender: Any) {
+        openGalery()
+    }
+    
+    @IBAction func showGoals(_ sender: Any) {
+        animateGoals()
+    }
 }
 
 // MARK: - DATE

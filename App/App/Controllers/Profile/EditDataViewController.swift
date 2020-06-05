@@ -5,7 +5,7 @@
 //  Created by Joao Flores on 07/04/20.
 //  Copyright © 2020 Joao Flores. All rights reserved.
 //
-  
+
 import UIKit
 import os.log
 import NumericPicker
@@ -78,18 +78,18 @@ class EditDataViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     
     @objc func adjustForKeyboard(notification: Notification) {
         guard let keyboardValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else { return }
-
+        
         let keyboardScreenEndFrame = keyboardValue.cgRectValue
         let keyboardViewEndFrame = view.convert(keyboardScreenEndFrame, from: view.window)
-
+        
         if notification.name == UIResponder.keyboardWillHideNotification {
             plainingTextView.contentInset = .zero
         } else {
             plainingTextView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardViewEndFrame.height - view.safeAreaInsets.bottom, right: 0)
         }
-
+        
         plainingTextView.scrollIndicatorInsets = plainingTextView.contentInset
-
+        
         let selectedRange = plainingTextView.selectedRange
         plainingTextView.scrollRangeToVisible(selectedRange)
     }
@@ -193,7 +193,7 @@ class EditDataViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
         
         view.addGestureRecognizer(tap)
-
+        
         selectInitialRowPickerView(thePicker)
     }
     

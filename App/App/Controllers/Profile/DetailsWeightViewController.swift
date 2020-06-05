@@ -10,7 +10,7 @@ import UIKit
 import os.log
 
 class DetailsWeightViewController: UIViewController, UITableViewDelegate,  UITableViewDataSource, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
-
+    
     //    MARK: - Constants
     let constraintViewInsertIdentifier = "Height"
     let viewInsertWeightHeight: CGFloat = 53
@@ -162,7 +162,7 @@ class DetailsWeightViewController: UIViewController, UITableViewDelegate,  UITab
         do {
             let dataHandler = try DataHandler.getShared()
             try dataHandler.createWeight(value: value, date: date)
-        
+            
             checkInCurrentDay(date: date!)
             alertInsert(success: true)
         }
@@ -196,7 +196,7 @@ class DetailsWeightViewController: UIViewController, UITableViewDelegate,  UITab
         detailsTableview.reloadData()
     }
     
-//    MARK: - UI Insert Weight
+    //    MARK: - UI Insert Weight
     func showCellInsert() {
         let filteredConstraints = viewInsertWeight.constraints.filter { $0.identifier == constraintViewInsertIdentifier }
         if let yourConstraint = filteredConstraints.first {
@@ -360,8 +360,8 @@ class DetailsWeightViewController: UIViewController, UITableViewDelegate,  UITab
             i = i + 1
         }
     }
-
-//    MARK: - ALERTS
+    
+    //    MARK: - ALERTS
     func alertInsert(success: Bool) {
         var titleAlert = "Concluido"
         var messageAlert = "Seus dados foram atualizados"

@@ -162,7 +162,7 @@
 		C451C01F2458669900C9A9F0 /* ProfileDataMenagerClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDataMenagerClass.swift; sourceTree = "<group>"; };
 		C456486C2476B78E008C0CE6 /* DetailsWeightViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsWeightViewController.swift; sourceTree = "<group>"; };
 		C46813922489461D00790B5B /* HowToUseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HowToUseViewController.swift; sourceTree = "<group>"; };
-		C483C6AD2489B44E007F0784 /* TutorialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialViewController.swift; sourceTree = "<group>"; };
+		C483C6AD2489B44E007F0784 /* TutorialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TutorialViewController.swift; path = Profile/TutorialViewController.swift; sourceTree = "<group>"; };
 		C48716E324813C1F002F025B /* My Way.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "My Way.entitlements"; sourceTree = "<group>"; };
 		C48716E424813C3A002F025B /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		C49D2C36247A2C140007D174 /* DetaisHabitsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetaisHabitsViewController.swift; sourceTree = "<group>"; };
@@ -306,6 +306,7 @@
 				D7D38E7C24852A8F00E84CD7 /* Settings */,
 				C407E91F243CC20500DA8490 /* Profile */,
 				8DF1318A24506B8A004C2CC7 /* MealViewController.swift */,
+				C483C6AD2489B44E007F0784 /* TutorialViewController.swift */,
 				D7FC5D452462E68C00FB5B81 /* MealHistoryViewController.swift */,
 				D7720E492465A149004BC3DA /* AddDatedMealViewController.swift */,
 				8DCA3A4A24699AB4009125B4 /* AddNoteViewController.swift */,
@@ -372,7 +373,6 @@
 				C407E922243CFD9800DA8490 /* EditDataViewController.swift */,
 				C49D2C36247A2C140007D174 /* DetaisHabitsViewController.swift */,
 				C456486C2476B78E008C0CE6 /* DetailsWeightViewController.swift */,
-				C483C6AD2489B44E007F0784 /* TutorialViewController.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";

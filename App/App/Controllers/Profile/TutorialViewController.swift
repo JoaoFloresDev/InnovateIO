@@ -70,18 +70,18 @@ class TutorialViewController: UIViewController, UIScrollViewDelegate {
     
     
     @objc func moveToNextPage (){
-            
-    let pageWidth:CGFloat = self.scrollView.frame.width
-    let maxWidth:CGFloat = pageWidth * 5
-    let contentOffset:CGFloat = self.scrollView.contentOffset.x
-            
-    var slideToX = contentOffset + pageWidth
-            
-    if  contentOffset + pageWidth == maxWidth
-    {
-          slideToX = 0
-    }
-    self.scrollView.scrollRectToVisible(CGRect(x:slideToX, y:0, width:pageWidth, height:self.scrollView.frame.height), animated: true)
+        
+        let pageWidth:CGFloat = self.scrollView.frame.width
+        let maxWidth:CGFloat = pageWidth * 5
+        let contentOffset:CGFloat = self.scrollView.contentOffset.x
+        
+        var slideToX = contentOffset + pageWidth
+        
+        if  contentOffset + pageWidth == maxWidth
+        {
+            slideToX = 0
+        }
+        self.scrollView.scrollRectToVisible(CGRect(x:slideToX, y:0, width:pageWidth, height:self.scrollView.frame.height), animated: true)
     }
 }
 
