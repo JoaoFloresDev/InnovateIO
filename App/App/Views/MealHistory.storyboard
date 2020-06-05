@@ -29,7 +29,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="n5y-6g-KRe"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Histórico" id="dUK-vJ-DCt" userLabel="Histórico"/>
+                    <navigationItem key="navigationItem" title="Histórico" id="dUK-vJ-DCt" userLabel="Histórico">
+                        <barButtonItem key="rightBarButtonItem" title="Compartilhar" id="oIb-YD-Q76">
+                            <connections>
+                                <action selector="shareTapped:" destination="8nu-Qx-oFa" id="bJk-xF-tne"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="historyTableView" destination="pEW-oW-Rd0" id="JbB-4K-jAZ"/>
                         <segue destination="6GJ-VH-6lH" kind="show" identifier="toRegisterMeal" id="zG8-ve-3EN"/>

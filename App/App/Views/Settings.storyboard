@@ -38,11 +38,22 @@
                         <segue destination="xmn-XT-Jnb" kind="show" identifier="toAboutMeal" id="dri-9X-nYp"/>
                         <segue destination="GJY-cr-iYC" kind="show" identifier="toCredits" id="Of4-3K-iGb"/>
                         <segue destination="OJj-el-TSh" kind="show" identifier="toHowToUse" id="mjm-9E-YZ6"/>
+                        <segue destination="PH6-wt-3A4" kind="show" identifier="toMealHistory" id="RZB-yo-Xw6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8a8-GM-4Lo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1139.1304347826087" y="118.52678571428571"/>
+        </scene>
+        <!--MealHistory-->
+        <scene sceneID="otp-jd-dya">
+            <objects>
+                <viewControllerPlaceholder storyboardName="MealHistory" id="PH6-wt-3A4" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="KzB-Nf-6GN"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sZV-lV-BAu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1836" y="302"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="srW-De-Zg5">
