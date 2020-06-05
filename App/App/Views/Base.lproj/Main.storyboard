@@ -91,10 +91,10 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="JUY-4S-UHw" kind="presentation" modalTransitionStyle="partialCurl" id="hq6-cx-Ltv"/>
+                                    <segue destination="JUY-4S-UHw" kind="show" id="hq6-cx-Ltv"/>
                                 </connections>
                             </button>
-                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="4" translatesAutoresizingMaskIntoConstraints="NO" id="27D-zs-yN2">
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="5" translatesAutoresizingMaskIntoConstraints="NO" id="27D-zs-yN2">
                                 <rect key="frame" x="197" y="760" width="20" height="37"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="20" id="Xx2-Rh-ZFT"/>

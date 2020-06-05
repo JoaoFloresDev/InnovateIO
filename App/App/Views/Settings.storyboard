@@ -43,11 +43,11 @@
             </objects>
             <point key="canvasLocation" x="1139.1304347826087" y="118.52678571428571"/>
         </scene>
-        <!--Mais-->
+        <!--Ajustes-->
         <scene sceneID="Lbo-jI-BbC">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dRs-vJ-m6y" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Mais" image="ellipsis" catalog="system" selectedImage="ellipsis" id="6oj-I4-aTr"/>
+                    <tabBarItem key="tabBarItem" title="Ajustes" image="gear" catalog="system" selectedImage="gear" id="6oj-I4-aTr"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="YV5-AO-bae">
@@ -424,7 +424,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="ellipsis" catalog="system" width="128" height="37"/>
+        <image name="gear" catalog="system" width="128" height="119"/>
         <image name="habitCycle" width="457" height="233"/>
         <image name="tutorial-Diario" width="667" height="1444"/>
         <image name="tutorial-Resumo" width="667" height="1444"/>
