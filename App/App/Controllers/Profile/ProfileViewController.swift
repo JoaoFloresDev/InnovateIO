@@ -59,6 +59,7 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
         
         super.viewDidLoad()
         
+        UserDefaults.standard.set("No", forKey:"isFirstTime")
         
         do {
             self.dataHandler = try DataHandler.getShared()
