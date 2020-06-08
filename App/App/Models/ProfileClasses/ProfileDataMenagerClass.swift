@@ -15,12 +15,14 @@ class ProfimeDataMenager {
     
 //    MARK: - Profile Labels / UserDefaults
     func setupNameProfile(nameUser: UILabel) {
-        var vet = UIDevice.current.name.split(separator: " ")
-        for _ in 0...1 {
-            vet.remove(at: 0)
-        }
+        var deviceName = UIDevice.current.name
+        deviceName = deviceName.replacingOccurrences(of: "iPhone", with: "")
+        deviceName = deviceName.replacingOccurrences(of: "De", with: "")
+        deviceName = deviceName.replacingOccurrences(of: "de", with: "")
+        deviceName = deviceName.replacingOccurrences(of: "'s", with: "")
+        deviceName = deviceName.trimmingCharacters(in: .whitespaces)
         
-        nameUser.text = vet.joined(separator: " ").capitalized
+        nameUser.text = deviceName.capitalized
     }
     
     func setupHeaderInformations(goalsTextView: UITextView,currentWeightLabel: UILabel) {
