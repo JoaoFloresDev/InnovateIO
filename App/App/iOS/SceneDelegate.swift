@@ -31,9 +31,21 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             
             self.window?.rootViewController = rootVC
             self.window?.makeKeyAndVisible()
-            
         }
-        
+        else {
+            guard let windowScene = (scene as? UIWindowScene) else { return }
+
+            self.window = UIWindow(windowScene: windowScene)
+
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            guard let rootVC = storyboard.instantiateInitialViewController() else {
+                print("ViewController not found")
+                return
+            }
+            
+            self.window?.rootViewController = rootVC
+            self.window?.makeKeyAndVisible()
+        }
         guard let _ = (scene as? UIWindowScene) else { return }
     }
 
