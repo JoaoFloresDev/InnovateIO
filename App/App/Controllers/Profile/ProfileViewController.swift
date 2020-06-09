@@ -92,6 +92,12 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
         ProfimeDataMenager().setupHeaderInformations(goalsTextView: myGoalsTextView,currentWeightLabel: currentWeightLabel)
     }
     
+    
+    @IBAction func hiddenButtonTapped(_ sender: Any) {
+        let notificationService = NotificationService()
+        notificationService.sendMockNotification()
+    }
+    
     //    MARK: - Graphics
     func setupGraphic() {
         
@@ -177,7 +183,7 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
     
     //    MARK: - Data Profile
     func setupDataProfile() {
-        ProfimeDataMenager().setupNameProfile(nameUser: nameLabel)
+//        ProfimeDataMenager().setupNameProfile(nameUser: nameLabel)
         ProfimeDataMenager().setupImgProfile(profileImg: profileImg)
         ProfimeDataMenager().setupHeaderInformations(goalsTextView: myGoalsTextView,
                                                      currentWeightLabel: currentWeightLabel)

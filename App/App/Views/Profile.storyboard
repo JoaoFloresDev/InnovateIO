@@ -310,6 +310,16 @@
                                                     <constraint firstItem="eL4-50-kby" firstAttribute="leading" secondItem="Zk5-eQ-b1Z" secondAttribute="leading" id="z4n-iD-sMm"/>
                                                 </constraints>
                                             </view>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BeX-lR-Cy3">
+                                                <rect key="frame" x="214" y="769" width="200" height="150"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="150" id="CbI-HL-c8p"/>
+                                                    <constraint firstAttribute="width" constant="200" id="OCG-Qc-6QS"/>
+                                                </constraints>
+                                                <connections>
+                                                    <action selector="hiddenButtonTapped:" destination="vxh-ga-XbW" eventType="touchUpInside" id="iDJ-Va-Pdh"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="af1-Iv-0J9" secondAttribute="trailing" constant="8" id="0M0-IT-jYP"/>
@@ -318,9 +328,11 @@
                                             <constraint firstItem="NYm-tv-6ut" firstAttribute="leading" secondItem="da4-fK-ocM" secondAttribute="leading" constant="8" id="SeJ-h9-12X"/>
                                             <constraint firstItem="Zk5-eQ-b1Z" firstAttribute="leading" secondItem="da4-fK-ocM" secondAttribute="leading" constant="8" id="Wx3-oa-LfL"/>
                                             <constraint firstAttribute="trailing" secondItem="NYm-tv-6ut" secondAttribute="trailing" constant="8" id="aX6-zK-rY6"/>
+                                            <constraint firstAttribute="bottom" secondItem="BeX-lR-Cy3" secondAttribute="bottom" id="cnP-kU-JEJ"/>
                                             <constraint firstItem="af1-Iv-0J9" firstAttribute="top" secondItem="NYm-tv-6ut" secondAttribute="bottom" constant="16" id="nUx-gT-Hhn"/>
                                             <constraint firstItem="NYm-tv-6ut" firstAttribute="top" secondItem="Zk5-eQ-b1Z" secondAttribute="bottom" constant="16" id="oLS-WM-Df1"/>
                                             <constraint firstItem="af1-Iv-0J9" firstAttribute="leading" secondItem="da4-fK-ocM" secondAttribute="leading" constant="8" id="oU4-A3-xHj"/>
+                                            <constraint firstAttribute="trailing" secondItem="BeX-lR-Cy3" secondAttribute="trailing" id="xD4-Jr-r2E"/>
                                             <constraint firstAttribute="bottom" secondItem="af1-Iv-0J9" secondAttribute="bottom" constant="10" id="yTm-Qf-a9p"/>
                                         </constraints>
                                     </view>
@@ -372,7 +384,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hhq-YF-Vm0">
                                         <rect key="frame" x="126" y="59" width="278" height="91"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nome" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qFt-sa-1fW">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Priscila" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qFt-sa-1fW">
                                                 <rect key="frame" x="0.0" y="0.0" width="214" height="22"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="22" id="oyV-S0-Pdk"/>
