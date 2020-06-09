@@ -59,6 +59,26 @@ class NotificationService {
     
 // MARK: - Sending or removing notifications
     
+    func sendMockNotification() {
+        let notificationContent = UNMutableNotificationContent()
+        notificationContent.title = "Don't forget!"
+        notificationContent.body = "Remember to add your meals!"
+        notificationContent.userInfo = [userInfoTypeKey : NotificationType.addMealLunch.rawValue]
+        
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
+        
+        let uniqueIdentifier = "mock"
+        
+        let request = UNNotificationRequest(identifier: uniqueIdentifier,
+                                            content: notificationContent,
+                                            trigger: trigger)
+        notificationCenter.add(request) { (error) in
+            if let error = error {
+                os_log("Notification Error: ", error as CVarArg)
+            }
+        }
+    }
+    
     /// Creates a notification content, its trigger and its request to add to notification center, according to the type of the notification.
     /// - Parameter type: type of notification.
     private func sendNotification(type: NotificationType) {

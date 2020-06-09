@@ -39,7 +39,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
         
-        
+        let mock = MockService()
+        mock.deleteAllData()
+        mock.mockAllData()
         
         return true
     }
