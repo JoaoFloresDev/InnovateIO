@@ -78,6 +78,7 @@
 		D7D38E7E24852D8300E84CD7 /* NotificationSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7D38E7D24852D8300E84CD7 /* NotificationSettingsViewController.swift */; };
 		D7D38E822485532A00E84CD7 /* NotificationSettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7D38E802485532A00E84CD7 /* NotificationSettingsCell.swift */; };
 		D7D38E832485532A00E84CD7 /* NotificationSettingsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D7D38E812485532A00E84CD7 /* NotificationSettingsCell.xib */; };
+		D7FA1A4E248EFC6100E51B71 /* MockService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7FA1A4D248EFC6100E51B71 /* MockService.swift */; };
 		D7FA5D9F24585455001B08AA /* RatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7FA5D9E24585455001B08AA /* RatingView.swift */; };
 		D7FA5DA124585481001B08AA /* RatingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D7FA5DA024585481001B08AA /* RatingView.xib */; };
 		D7FA5DA3245858A7001B08AA /* Rating.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7FA5DA2245858A7001B08AA /* Rating.swift */; };
@@ -190,6 +191,7 @@
 		D7D38E7D24852D8300E84CD7 /* NotificationSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSettingsViewController.swift; sourceTree = "<group>"; };
 		D7D38E802485532A00E84CD7 /* NotificationSettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSettingsCell.swift; sourceTree = "<group>"; };
 		D7D38E812485532A00E84CD7 /* NotificationSettingsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotificationSettingsCell.xib; sourceTree = "<group>"; };
+		D7FA1A4D248EFC6100E51B71 /* MockService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockService.swift; sourceTree = "<group>"; };
 		D7FA5D9E24585455001B08AA /* RatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingView.swift; sourceTree = "<group>"; };
 		D7FA5DA024585481001B08AA /* RatingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RatingView.xib; sourceTree = "<group>"; };
 		D7FA5DA2245858A7001B08AA /* Rating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rating.swift; sourceTree = "<group>"; };
@@ -471,6 +473,7 @@
 			isa = PBXGroup;
 			children = (
 				D73311B2245318760080767E /* NotificationService.swift */,
+				D7FA1A4D248EFC6100E51B71 /* MockService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -895,6 +898,7 @@
 				8DCA3A4B24699AB4009125B4 /* AddNoteViewController.swift in Sources */,
 				81A388AA248945B800BF0E51 /* NetworkHandler+Diary.swift in Sources */,
 				81F5FCF624642F560030D12F /* DataHandler+Weight.swift in Sources */,
+				D7FA1A4E248EFC6100E51B71 /* MockService.swift in Sources */,
 				D7D38E7E24852D8300E84CD7 /* NotificationSettingsViewController.swift in Sources */,
 				D715CB302481506F00995CDD /* GroupedHabitsView.swift in Sources */,
 				D7CABB2E24740DA1000DA684 /* SettingsViewController.swift in Sources */,

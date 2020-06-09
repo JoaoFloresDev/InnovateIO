@@ -273,7 +273,7 @@ extension DataHandler {
     ///   - didEatFruit: Did the user eat a fruit
     ///   - meal: The meal object if he/she wants to insert
     /// - Throws: Can't save into local storage due to available space is missing or corrupted or can't get the current date or invalid calendar or invalid entity.
-    func createDailyDiary(year: Int, month: Int, day: Int, quality: Int, didDrinkWater: Bool?, didPracticeExercise: Bool?, didEatFruit: Bool?, meal: Meal) throws {
+    func createDailyDiary(year: Int, month: Int, day: Int, quality: Int, didDrinkWater: Bool?, didPracticeExercise: Bool?, didEatFruit: Bool?) throws {
         
         // Loading Core Data's User entity
         let entity = NSEntityDescription.entity(forEntityName: "DailyDiary", in: self.managedContext)
