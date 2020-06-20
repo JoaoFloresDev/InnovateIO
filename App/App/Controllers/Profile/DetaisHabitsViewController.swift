@@ -169,7 +169,21 @@ class DetaisHabitsViewController: UIViewController, UITableViewDelegate,  UITabl
     func insertNewWeight(waterValue: Bool, fruitsValue: Bool, exerciseValue: Bool, date: Date?) {
         do {
             let dataHandler = try DataHandler.getShared()
-            try dataHandler.createDailyDiaryInDate(quality: 1, didDrinkWater: waterValue, didPracticeExercise: exerciseValue, didEatFruit: fruitsValue, date: date!)
+
+            let df = DateFormatter()
+            df.dateFormat = "yyyy"
+            let year = df.string(from: date!)
+            df.dateFormat = "MM"
+            let month = df.string(from: date!)
+            df.dateFormat = "dd"
+            let day = df.string(from: date!)
+            var quality = 1
+            do {
+                let currentDaily = try dataHandler.loadDailyDiary(year: Int(year)!, month: Int(month)!, day: Int(day)!)
+                quality = Int(currentDaily.quality)
+            }
+            catch { }
+            try dataHandler.createDailyDiaryInDate(quality: quality, didDrinkWater: waterValue, didPracticeExercise: exerciseValue, didEatFruit: fruitsValue, date: date!)
             alertInsert(titleAlert: "Concluido", messageAlert: "Seus dados foram atualizados")
         }
         catch DateError.calendarNotFound {
