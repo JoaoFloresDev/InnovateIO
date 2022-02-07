@@ -8,7 +8,6 @@ target 'App' do
   # Pods for App
 
   # Major pods
-  pod 'Charts'
   pod 'R.swift'
   pod 'JTAppleCalendar'
   pod 'XJYChart', '2.5.0'
