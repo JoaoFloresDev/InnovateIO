@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Starting the MSAppCenter analytics...
         #if DEBUG
-           MSAppCenter.start("c3af0928-77f2-4f27-9f53-857a8f2651a2", withServices:[])
+//           MSAppCenter.start("c3af0928-77f2-4f27-9f53-857a8f2651a2", withServices:[])
         #else
            MSAppCenter.start("c3af0928-77f2-4f27-9f53-857a8f2651a2", withServices:[
                MSDistribute.self,

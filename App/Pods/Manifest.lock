@@ -1,26 +1,26 @@
 PODS:
-  - AppCenter (3.1.1):
-    - AppCenter/Analytics (= 3.1.1)
-    - AppCenter/Crashes (= 3.1.1)
-  - AppCenter/Analytics (3.1.1):
+  - AppCenter (5.0.3):
+    - AppCenter/Analytics (= 5.0.3)
+    - AppCenter/Crashes (= 5.0.3)
+  - AppCenter/Analytics (5.0.3):
     - AppCenter/Core
-  - AppCenter/Core (3.1.1)
-  - AppCenter/Crashes (3.1.1):
+  - AppCenter/Core (5.0.3)
+  - AppCenter/Crashes (5.0.3):
     - AppCenter/Core
-  - AppCenter/Distribute (3.1.1):
+  - AppCenter/Distribute (5.0.3):
     - AppCenter/Core
-  - Charts (3.5.0):
-    - Charts/Core (= 3.5.0)
-  - Charts/Core (3.5.0)
+  - Charts (4.1.0):
+    - Charts/Core (= 4.1.0)
+  - Charts/Core (4.1.0):
+    - SwiftAlgorithms (~> 1.0)
   - Colours (5.13.0):
     - Colours/ObjC (= 5.13.0)
   - Colours/ObjC (5.13.0)
   - DHSmartScreenshot (1.3.1)
-  - JTAppleCalendar (8.0.3)
+  - JTAppleCalendar (8.0.5)
   - NumericPicker (1.1.1)
-  - R.swift (5.2.2):
-    - R.swift.Library (~> 5.2.0)
-  - R.swift.Library (5.2.0)
+  - R.swift (7.3.2)
+  - SwiftAlgorithms (1.0.0)
   - XJYChart (2.5.0):
     - Colours (= 5.13.0)
 
@@ -28,7 +28,7 @@ DEPENDENCIES:
   - AppCenter
   - AppCenter/Distribute
   - Charts
-  - DHSmartScreenshot
+  - DHSmartScreenshot (= 1.3.1)
   - JTAppleCalendar
   - NumericPicker
   - R.swift
@@ -43,20 +43,20 @@ SPEC REPOS:
     - JTAppleCalendar
     - NumericPicker
     - R.swift
-    - R.swift.Library
+    - SwiftAlgorithms
     - XJYChart
 
 SPEC CHECKSUMS:
-  AppCenter: 513d32888854d67d8cfbd3a8db16aeb5fb2e2a75
-  Charts: 40a08591df1f8ad5c223ddedfb1a06da92f24f7c
+  AppCenter: a4070ec3d4418b5539067a51f57155012e486ebd
+  Charts: ce0768268078eee0336f122c3c4ca248e4e204c5
   Colours: f24220c38f13deac88612667e9b4a7fb96b871d4
   DHSmartScreenshot: ee749048bd7126c4826748f98df3a4adc6ad6c78
-  JTAppleCalendar: 932cadea40b1051beab10f67843451d48ba16c99
+  JTAppleCalendar: 16c6501b22cb27520372c28b0a2e0b12c8d0cd73
   NumericPicker: b94d35ab3111d1ab38d7c2d3f1ca262846eb43ab
-  R.swift: 7c52cdc57a66840ffe6cbd8a823d732059d42a32
-  R.swift.Library: 5ba4f1631300caf9a4d890186930da85d540769d
+  R.swift: 0af0d882f49f03711415cb4e5215daa977d8a480
+  SwiftAlgorithms: 38dda4731d19027fdeee1125f973111bf3386b53
   XJYChart: ce3180be5e67b107c25f523e279ed5eb8dae1c34
 
-PODFILE CHECKSUM: 0e1d22b6a848498540c073210eb04f760d996e4d
+PODFILE CHECKSUM: af67131af20c9e191b9397b461d5134fc0927db9
 
-COCOAPODS: 1.9.1
+COCOAPODS: 1.12.1
